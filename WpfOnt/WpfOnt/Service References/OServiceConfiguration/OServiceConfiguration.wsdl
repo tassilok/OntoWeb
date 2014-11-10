@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Type_Object">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_Class">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ClassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_AttributeType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_AttributeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_AttributeTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_RelationType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_RelationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_RelationTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OLogStates">
+        <s:complexType />
+      </s:element>
+      <s:element name="OLogStatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OLogStatesResult" type="tns:clsLogStates" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsLogStates">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Success" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Error" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Nothing" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Insert" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Update" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Delete" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Relation" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogState_Exists" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogStates" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsOntologyItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OList_Rel" type="tns:ArrayOfClsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Item" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Parent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_DataType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Parent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Related" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Relation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Item" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Parent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Level" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="New_Item" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mark" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectReference" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Direction" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Min" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Max1" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Max2" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Long" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Bool" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Real" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val_String" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsOntologyItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsOntologyItem" nillable="true" type="tns:clsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OMappingRules">
+        <s:complexType />
+      </s:element>
+      <s:element name="OMappingRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OMappingRulesResult" type="tns:clsMappingRules" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsMappingRules">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MappingRule_RemoveSrc" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="MappingRule_NewItem" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="MappingRule_SrcItemIsDstItem" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="MappingRules" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ORelationRules">
+        <s:complexType />
+      </s:element>
+      <s:element name="ORelationRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ORelationRulesResult" type="tns:clsOntologyRelationRules" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsOntologyRelationRules">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_ChildToken" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_InnerJoin" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_LeftOuterJoin" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_OnlyItem" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_RelationBreak" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_RightOuterJoin" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rule_NoOtherRelationsOfThisType" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OntologyRelationRules" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OVariables">
+        <s:complexType />
+      </s:element>
+      <s:element name="OVariablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OVariablesResult" type="tns:clsVariables" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsVariables">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_ITEM" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_NAME_ITEM" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_PARENT" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ITEMLIST" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_CLASS" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_ATTRIBUTETYPE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_DATATYPE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_MIN" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_MAX" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_CLASS_LEFT" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_CLASS_RIGHT" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_RELATIONTYPE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ONTOLOGY" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_MIN_FORW" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_MAX_FORW" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_MAX_BACKW" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_ATTRIBUTE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_OBJECT" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ORDERID" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_VAL_NAMED" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_VAL_BIT" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_VAL_DATE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_VAL_DOUBLE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_VAL_LNG" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_VAL_STRING" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_PARENT_OBJECT" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_OTHER" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ID_PARENT_OTHER" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable_ITEMTYPE" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variables" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ODirections">
+        <s:complexType />
+      </s:element>
+      <s:element name="ODirectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ODirectionsResult" type="tns:clsDirections" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsDirections">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Direction_LeftRight" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direction_RightLeft" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Directions" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OFields">
+        <s:complexType />
+      </s:element>
+      <s:element name="OFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OFieldsResult" type="tns:clsFields" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsFields" />
+      <s:element name="Config">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfigResult" type="tns:ArrayOfConfig" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConfig">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Config" nillable="true" type="tns:Config" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Config">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigValueString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConfigValueInt" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegExGuid">
+        <s:complexType />
+      </s:element>
+      <s:element name="RegExGuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegExGuidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Type_ObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_Object" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_Class" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_AttributeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_AttributeType" />
+  </wsdl:message>
+  <wsdl:message name="Type_AttributeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_AttributeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_RelationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_RelationType" />
+  </wsdl:message>
+  <wsdl:message name="Type_RelationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_RelationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="OLogStatesSoapIn">
+    <wsdl:part name="parameters" element="tns:OLogStates" />
+  </wsdl:message>
+  <wsdl:message name="OLogStatesSoapOut">
+    <wsdl:part name="parameters" element="tns:OLogStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OMappingRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:OMappingRules" />
+  </wsdl:message>
+  <wsdl:message name="OMappingRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:OMappingRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ORelationRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:ORelationRules" />
+  </wsdl:message>
+  <wsdl:message name="ORelationRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:ORelationRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OVariablesSoapIn">
+    <wsdl:part name="parameters" element="tns:OVariables" />
+  </wsdl:message>
+  <wsdl:message name="OVariablesSoapOut">
+    <wsdl:part name="parameters" element="tns:OVariablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ODirectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:ODirections" />
+  </wsdl:message>
+  <wsdl:message name="ODirectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:ODirectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:OFields" />
+  </wsdl:message>
+  <wsdl:message name="OFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:OFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:Config" />
+  </wsdl:message>
+  <wsdl:message name="ConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegExGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:RegExGuid" />
+  </wsdl:message>
+  <wsdl:message name="RegExGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:RegExGuidResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OServiceConfigurationSoap">
+    <wsdl:operation name="Type_Object">
+      <wsdl:input message="tns:Type_ObjectSoapIn" />
+      <wsdl:output message="tns:Type_ObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_Class">
+      <wsdl:input message="tns:Type_ClassSoapIn" />
+      <wsdl:output message="tns:Type_ClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_AttributeType">
+      <wsdl:input message="tns:Type_AttributeTypeSoapIn" />
+      <wsdl:output message="tns:Type_AttributeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_RelationType">
+      <wsdl:input message="tns:Type_RelationTypeSoapIn" />
+      <wsdl:output message="tns:Type_RelationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OLogStates">
+      <wsdl:input message="tns:OLogStatesSoapIn" />
+      <wsdl:output message="tns:OLogStatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OMappingRules">
+      <wsdl:input message="tns:OMappingRulesSoapIn" />
+      <wsdl:output message="tns:OMappingRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ORelationRules">
+      <wsdl:input message="tns:ORelationRulesSoapIn" />
+      <wsdl:output message="tns:ORelationRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OVariables">
+      <wsdl:input message="tns:OVariablesSoapIn" />
+      <wsdl:output message="tns:OVariablesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ODirections">
+      <wsdl:input message="tns:ODirectionsSoapIn" />
+      <wsdl:output message="tns:ODirectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OFields">
+      <wsdl:input message="tns:OFieldsSoapIn" />
+      <wsdl:output message="tns:OFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Config">
+      <wsdl:input message="tns:ConfigSoapIn" />
+      <wsdl:output message="tns:ConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegExGuid">
+      <wsdl:input message="tns:RegExGuidSoapIn" />
+      <wsdl:output message="tns:RegExGuidSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OServiceConfigurationSoap" type="tns:OServiceConfigurationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Type_Object">
+      <soap:operation soapAction="http://tempuri.org/Type_Object" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Class">
+      <soap:operation soapAction="http://tempuri.org/Type_Class" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_AttributeType">
+      <soap:operation soapAction="http://tempuri.org/Type_AttributeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_RelationType">
+      <soap:operation soapAction="http://tempuri.org/Type_RelationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OLogStates">
+      <soap:operation soapAction="http://tempuri.org/OLogStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OMappingRules">
+      <soap:operation soapAction="http://tempuri.org/OMappingRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ORelationRules">
+      <soap:operation soapAction="http://tempuri.org/ORelationRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OVariables">
+      <soap:operation soapAction="http://tempuri.org/OVariables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ODirections">
+      <soap:operation soapAction="http://tempuri.org/ODirections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OFields">
+      <soap:operation soapAction="http://tempuri.org/OFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Config">
+      <soap:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegExGuid">
+      <soap:operation soapAction="http://tempuri.org/RegExGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OServiceConfigurationSoap12" type="tns:OServiceConfigurationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Type_Object">
+      <soap12:operation soapAction="http://tempuri.org/Type_Object" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Class">
+      <soap12:operation soapAction="http://tempuri.org/Type_Class" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_AttributeType">
+      <soap12:operation soapAction="http://tempuri.org/Type_AttributeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_RelationType">
+      <soap12:operation soapAction="http://tempuri.org/Type_RelationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OLogStates">
+      <soap12:operation soapAction="http://tempuri.org/OLogStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OMappingRules">
+      <soap12:operation soapAction="http://tempuri.org/OMappingRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ORelationRules">
+      <soap12:operation soapAction="http://tempuri.org/ORelationRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OVariables">
+      <soap12:operation soapAction="http://tempuri.org/OVariables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ODirections">
+      <soap12:operation soapAction="http://tempuri.org/ODirections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OFields">
+      <soap12:operation soapAction="http://tempuri.org/OFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Config">
+      <soap12:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegExGuid">
+      <soap12:operation soapAction="http://tempuri.org/RegExGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OServiceConfiguration">
+    <wsdl:port name="OServiceConfigurationSoap" binding="tns:OServiceConfigurationSoap">
+      <soap:address location="http://localhost/OntWeb/OServiceConfiguration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OServiceConfigurationSoap12" binding="tns:OServiceConfigurationSoap12">
+      <soap12:address location="http://localhost/OntWeb/OServiceConfiguration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Config">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfigResult" type="tns:ArrayOfConfig" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConfig">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Config" nillable="true" type="tns:Config" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Config">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigValueString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConfigValueInt" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Objects">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectsResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsOntologyItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsOntologyItem" nillable="true" type="tns:clsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsOntologyItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OList_Rel" type="tns:ArrayOfClsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Parent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Related" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Relation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Level" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="New_Item" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mark" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectReference" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Direction" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Min" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Max1" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Max2" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Long" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Bool" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Real" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val_String" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObjectsByGuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByGuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectsByGuidResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="exact" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectsByNameResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByGuidParent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guidParent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByGuidParentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectsByGuidParentResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByGuidParentAndName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guidParent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="exact" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectsByGuidParentAndNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectsByGuidParentAndNameResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:Config" />
+  </wsdl:message>
+  <wsdl:message name="ConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:Objects" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectsByGuid" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectsByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectsByName" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByGuidParentSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectsByGuidParent" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByGuidParentSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectsByGuidParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByGuidParentAndNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectsByGuidParentAndName" />
+  </wsdl:message>
+  <wsdl:message name="ObjectsByGuidParentAndNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectsByGuidParentAndNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OServiceObjectsSoap">
+    <wsdl:operation name="Config">
+      <wsdl:input message="tns:ConfigSoapIn" />
+      <wsdl:output message="tns:ConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Objects">
+      <wsdl:input message="tns:ObjectsSoapIn" />
+      <wsdl:output message="tns:ObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuid">
+      <wsdl:input message="tns:ObjectsByGuidSoapIn" />
+      <wsdl:output message="tns:ObjectsByGuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByName">
+      <wsdl:input message="tns:ObjectsByNameSoapIn" />
+      <wsdl:output message="tns:ObjectsByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuidParent">
+      <wsdl:input message="tns:ObjectsByGuidParentSoapIn" />
+      <wsdl:output message="tns:ObjectsByGuidParentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuidParentAndName">
+      <wsdl:input message="tns:ObjectsByGuidParentAndNameSoapIn" />
+      <wsdl:output message="tns:ObjectsByGuidParentAndNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OServiceObjectsSoap" type="tns:OServiceObjectsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Config">
+      <soap:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Objects">
+      <soap:operation soapAction="http://tempuri.org/Objects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuid">
+      <soap:operation soapAction="http://tempuri.org/ObjectsByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByName">
+      <soap:operation soapAction="http://tempuri.org/ObjectsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuidParent">
+      <soap:operation soapAction="http://tempuri.org/ObjectsByGuidParent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuidParentAndName">
+      <soap:operation soapAction="http://tempuri.org/ObjectsByGuidParentAndName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OServiceObjectsSoap12" type="tns:OServiceObjectsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Config">
+      <soap12:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Objects">
+      <soap12:operation soapAction="http://tempuri.org/Objects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuid">
+      <soap12:operation soapAction="http://tempuri.org/ObjectsByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByName">
+      <soap12:operation soapAction="http://tempuri.org/ObjectsByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuidParent">
+      <soap12:operation soapAction="http://tempuri.org/ObjectsByGuidParent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectsByGuidParentAndName">
+      <soap12:operation soapAction="http://tempuri.org/ObjectsByGuidParentAndName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OServiceObjects">
+    <wsdl:port name="OServiceObjectsSoap" binding="tns:OServiceObjectsSoap">
+      <soap:address location="http://localhost/OntWeb/OServiceObjects.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OServiceObjectsSoap12" binding="tns:OServiceObjectsSoap12">
+      <soap12:address location="http://localhost/OntWeb/OServiceObjects.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

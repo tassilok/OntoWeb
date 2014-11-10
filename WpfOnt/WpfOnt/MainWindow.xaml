@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:View="clr-namespace:WpfOnt.View" xmlns:viewModel="clr-namespace:WpfOnt.ViewModel" x:Name="userControl"
+        x:Class="WpfOnt.MainWindow"
+        Title="Ontology-Modlue" Height="551.493" Width="910.075"
+        xmlns:converter="clr-namespace:WpfOnt.Converter">
+    <Window.DataContext>
+        <viewModel:MainWindowModel/>
+    </Window.DataContext>
+    
+    <Grid
+        x:Name="layoutRoot" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <View:TypeTree Grid.Column="0" 
+                        SelectedNode="TypeTree_OnSelectedNode"/>
+        
+        <GridSplitter Background="DarkGray"  ResizeDirection="Columns" Grid.Column="1" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  ResizeBehavior="PreviousAndNext" />
+        
+        <View:OItemView x:Name="ucOItemList" Grid.Column="2"
+                        IdParent="{Binding DataContext.IdClass, ElementName=layoutRoot}" Width="Auto" >
+            <View:OItemView.DataContext>
+                <viewModel:OItemListModel />
+            </View:OItemView.DataContext>
+        </View:OItemView>
+        <!--IdParent="{Binding Path=IcClass}"/>-->
+                
+        
+        
+    </Grid>
+    
+</Window>
