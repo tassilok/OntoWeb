@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Config">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfigResult" type="tns:ArrayOfConfig" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConfig">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Config" nillable="true" type="tns:Config" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Config">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigValueString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConfigValueInt" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObjectAtts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsObjectAtt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsObjectAtt" nillable="true" type="tns:clsObjectAtt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsObjectAtt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Attribute" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_AttributeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_AttributeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Object" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Object" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val_Named" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_DataType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_DataType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Bit" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Lng" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Double" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val_String" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderID" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObjectAttsByIdObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdObjectResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idClass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdClassResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdAttributeType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idAttributeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdAttributeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdAttributeTypeResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdObjectAndIdAttributeType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idAttributeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdObjectAndIdAttributeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdObjectAndIdAttributeTypeResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdClassAndIdAttributeType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idAttributeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdClassAndIdAttributeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdClassAndIdAttributeTypeResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdObjectAndIdDataType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDataType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdObjectAndIdDataTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdObjectAndIdDataTypeResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdClassAndIdDataType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="idClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDataType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObjectAttsByIdClassAndIdDataTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsByIdClassAndIdDataTypeResult" type="tns:ArrayOfClsObjectAtt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:Config" />
+  </wsdl:message>
+  <wsdl:message name="ConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAtts" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdObject" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdClassSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdClass" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdClassSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdAttributeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdAttributeType" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdAttributeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdAttributeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdObjectAndIdAttributeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdObjectAndIdAttributeType" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdObjectAndIdAttributeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdObjectAndIdAttributeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdClassAndIdAttributeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdClassAndIdAttributeType" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdClassAndIdAttributeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdClassAndIdAttributeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdObjectAndIdDataTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdObjectAndIdDataType" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdObjectAndIdDataTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdObjectAndIdDataTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdClassAndIdDataTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdClassAndIdDataType" />
+  </wsdl:message>
+  <wsdl:message name="ObjectAttsByIdClassAndIdDataTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttsByIdClassAndIdDataTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OServiceObjectAttSoap">
+    <wsdl:operation name="Config">
+      <wsdl:input message="tns:ConfigSoapIn" />
+      <wsdl:output message="tns:ConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAtts">
+      <wsdl:input message="tns:ObjectAttsSoapIn" />
+      <wsdl:output message="tns:ObjectAttsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObject">
+      <wsdl:input message="tns:ObjectAttsByIdObjectSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClass">
+      <wsdl:input message="tns:ObjectAttsByIdClassSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdAttributeType">
+      <wsdl:input message="tns:ObjectAttsByIdAttributeTypeSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdAttributeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObjectAndIdAttributeType">
+      <wsdl:input message="tns:ObjectAttsByIdObjectAndIdAttributeTypeSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdObjectAndIdAttributeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClassAndIdAttributeType">
+      <wsdl:input message="tns:ObjectAttsByIdClassAndIdAttributeTypeSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdClassAndIdAttributeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObjectAndIdDataType">
+      <wsdl:input message="tns:ObjectAttsByIdObjectAndIdDataTypeSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdObjectAndIdDataTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClassAndIdDataType">
+      <wsdl:input message="tns:ObjectAttsByIdClassAndIdDataTypeSoapIn" />
+      <wsdl:output message="tns:ObjectAttsByIdClassAndIdDataTypeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OServiceObjectAttSoap" type="tns:OServiceObjectAttSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Config">
+      <soap:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAtts">
+      <soap:operation soapAction="http://tempuri.org/ObjectAtts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObject">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClass">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdAttributeType">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdAttributeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObjectAndIdAttributeType">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdObjectAndIdAttributeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClassAndIdAttributeType">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdClassAndIdAttributeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObjectAndIdDataType">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdObjectAndIdDataType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClassAndIdDataType">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttsByIdClassAndIdDataType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OServiceObjectAttSoap12" type="tns:OServiceObjectAttSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Config">
+      <soap12:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAtts">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAtts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObject">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClass">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdAttributeType">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdAttributeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObjectAndIdAttributeType">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdObjectAndIdAttributeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClassAndIdAttributeType">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdClassAndIdAttributeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdObjectAndIdDataType">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdObjectAndIdDataType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectAttsByIdClassAndIdDataType">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttsByIdClassAndIdDataType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OServiceObjectAtt">
+    <wsdl:port name="OServiceObjectAttSoap" binding="tns:OServiceObjectAttSoap">
+      <soap:address location="http://localhost/OntWeb/OServiceObjectAtt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OServiceObjectAttSoap12" binding="tns:OServiceObjectAttSoap12">
+      <soap12:address location="http://localhost/OntWeb/OServiceObjectAtt.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

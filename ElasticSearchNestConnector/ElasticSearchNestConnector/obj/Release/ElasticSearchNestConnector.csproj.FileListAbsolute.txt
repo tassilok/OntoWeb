@@ -1,0 +1,5 @@
+C:\Users\Tassilo\AppData\Local\Temp\OntologyManamgent\ElasticSearchNestConnector\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\AppData\Local\Temp\OntologyManamgent\ElasticSearchNestConnector\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Release\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Release\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Release\ElasticSearchNestConnector.pdb

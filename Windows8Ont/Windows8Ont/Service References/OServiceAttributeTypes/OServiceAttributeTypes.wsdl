@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Config">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfigResult" type="tns:ArrayOfConfig" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConfig">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Config" nillable="true" type="tns:Config" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Config">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigValueString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConfigValueInt" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AttributeTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="AttributeTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AttributeTypesResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsOntologyItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsOntologyItem" nillable="true" type="tns:clsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsOntologyItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OList_Rel" type="tns:ArrayOfClsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Parent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Related" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GUID_Relation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Additional2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Level" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="New_Item" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mark" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectReference" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Direction" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Min" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Max1" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Max2" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Long" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Bool" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val_Real" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val_String" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AttributeTypesByAttributeTypeGuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guidAttributeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AttributeTypesByAttributeTypeGuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AttributeTypesByAttributeTypeGuidResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AttributeTypesByAttributeTypeName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nameAttributeType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="strict" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="caseSensitive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AttributeTypesByAttributeTypeNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AttributeTypesByAttributeTypeNameResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AttributeTypesByAttributeTypeIdDataType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDataType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AttributeTypesByAttributeTypeIdDataTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AttributeTypesByAttributeTypeIdDataTypeResult" type="tns:ArrayOfClsOntologyItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:Config" />
+  </wsdl:message>
+  <wsdl:message name="ConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:AttributeTypes" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:AttributeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesByAttributeTypeGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:AttributeTypesByAttributeTypeGuid" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesByAttributeTypeGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:AttributeTypesByAttributeTypeGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesByAttributeTypeNameSoapIn">
+    <wsdl:part name="parameters" element="tns:AttributeTypesByAttributeTypeName" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesByAttributeTypeNameSoapOut">
+    <wsdl:part name="parameters" element="tns:AttributeTypesByAttributeTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesByAttributeTypeIdDataTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:AttributeTypesByAttributeTypeIdDataType" />
+  </wsdl:message>
+  <wsdl:message name="AttributeTypesByAttributeTypeIdDataTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:AttributeTypesByAttributeTypeIdDataTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OServiceAttributeTypesSoap">
+    <wsdl:operation name="Config">
+      <wsdl:input message="tns:ConfigSoapIn" />
+      <wsdl:output message="tns:ConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypes">
+      <wsdl:input message="tns:AttributeTypesSoapIn" />
+      <wsdl:output message="tns:AttributeTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeGuid">
+      <wsdl:input message="tns:AttributeTypesByAttributeTypeGuidSoapIn" />
+      <wsdl:output message="tns:AttributeTypesByAttributeTypeGuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeName">
+      <wsdl:input message="tns:AttributeTypesByAttributeTypeNameSoapIn" />
+      <wsdl:output message="tns:AttributeTypesByAttributeTypeNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeIdDataType">
+      <wsdl:input message="tns:AttributeTypesByAttributeTypeIdDataTypeSoapIn" />
+      <wsdl:output message="tns:AttributeTypesByAttributeTypeIdDataTypeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OServiceAttributeTypesSoap" type="tns:OServiceAttributeTypesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Config">
+      <soap:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypes">
+      <soap:operation soapAction="http://tempuri.org/AttributeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeGuid">
+      <soap:operation soapAction="http://tempuri.org/AttributeTypesByAttributeTypeGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeName">
+      <soap:operation soapAction="http://tempuri.org/AttributeTypesByAttributeTypeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeIdDataType">
+      <soap:operation soapAction="http://tempuri.org/AttributeTypesByAttributeTypeIdDataType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OServiceAttributeTypesSoap12" type="tns:OServiceAttributeTypesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Config">
+      <soap12:operation soapAction="http://tempuri.org/Config" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypes">
+      <soap12:operation soapAction="http://tempuri.org/AttributeTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeGuid">
+      <soap12:operation soapAction="http://tempuri.org/AttributeTypesByAttributeTypeGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeName">
+      <soap12:operation soapAction="http://tempuri.org/AttributeTypesByAttributeTypeName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttributeTypesByAttributeTypeIdDataType">
+      <soap12:operation soapAction="http://tempuri.org/AttributeTypesByAttributeTypeIdDataType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OServiceAttributeTypes">
+    <wsdl:port name="OServiceAttributeTypesSoap" binding="tns:OServiceAttributeTypesSoap">
+      <soap:address location="http://localhost/OntWeb/OServiceAttributeTypes.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OServiceAttributeTypesSoap12" binding="tns:OServiceAttributeTypesSoap12">
+      <soap12:address location="http://localhost/OntWeb/OServiceAttributeTypes.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
