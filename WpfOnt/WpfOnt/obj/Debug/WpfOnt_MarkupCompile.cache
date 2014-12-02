@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Tassilo\Documents\GitHub\OntologyManagement\WpfOnt\WpfOnt\obj\Debug\
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\obj\Debug\
 WpfOnt
 none
 false
 DEBUG;TRACE
-C:\Users\Tassilo\Documents\GitHub\OntologyManagement\WpfOnt\WpfOnt\App.xaml
-5-448241436
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\App.xaml
+6-510899444
 
-35599671302
-15-1520147957
-MainWindow.xaml;Pages\ObjectsEdit.xaml;View\ObjectRefTree.xaml;View\OItemView.xaml;View\TypeTree.xaml;
+38-160800891
+231786357361
+MainWindow.xaml;Pages\ObjectsEdit.xaml;View\ObjectRefTree.xaml;View\OConfig.xaml;View\OItemView.xaml;View\TypeTree.xaml;
 
 False
 

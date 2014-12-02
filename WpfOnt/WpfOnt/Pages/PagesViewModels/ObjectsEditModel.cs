@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OntologyClasses.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,8 +8,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfOnt.Data;
-using WpfOnt.OServiceConfiguration;
-using WpfOnt.OServiceOItems;
 using WpfOnt.ViewModel;
 using WpfOnt.ViewModelUtils;
 
@@ -59,13 +58,29 @@ namespace WpfOnt.Pages.PagesViewModels
         private bool isEnabled_Name;
 
         private string serviceConnection;
+        
+        private Globals globals;
+        public Globals GlobalConfig
+        {
+            get { return globals; }
+            set
+            {
+                globals = value;
+                
+                if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                {
+                    dataWork_ObjectsEdit = new DataWork_ObjectsEdit(globals);
+                }
+            }
+        }
+
 
         private DataWork_ObjectsEdit dataWork_ObjectsEdit;
         
         private int itemIx;
         
-        private List<WpfOnt.OServiceOItems.clsOntologyItem> rawObjects;
-        private List<WpfOnt.OServiceOItems.clsOntologyItem> workObjects;
+        private List<clsOntologyItem> rawObjects;
+        private List<clsOntologyItem> workObjects;
 
         public bool IsEnabled_Name
         {
@@ -215,7 +230,7 @@ namespace WpfOnt.Pages.PagesViewModels
         {
             if (Objects.Any())
             {
-                WpfOnt.OServiceOItems.clsOntologyItem selItem = null;
+                clsOntologyItem selItem = null;
                 if (workObjects.Any() && itemIx >= 0 && itemIx < workObjects.Count)
                 {
                     selItem = workObjects[itemIx];
@@ -253,7 +268,7 @@ namespace WpfOnt.Pages.PagesViewModels
             
         }
 
-        public List<WpfOnt.OServiceOItems.clsOntologyItem> Objects 
+        public List<clsOntologyItem> Objects 
         {
             get { return rawObjects; }
             set
@@ -331,7 +346,6 @@ namespace WpfOnt.Pages.PagesViewModels
         public ObjectsEditModel()
         {
             _canExecute = true;
-            dataWork_ObjectsEdit = new DataWork_ObjectsEdit();
 
             MenuItem_File = "x_File";
             MenuItem_Edit = "x_Edit";

@@ -9,6 +9,11 @@ namespace WpfOnt.Data
 {
     public class ObjectRefChildNode
     {
+        Globals globals;
+        public ObjectRefChildNode(Globals globals)
+        {
+            this.globals = globals;
+        }
         public string IdNode
         {
             get { return IdLeft + "_" + IdRight + "_" + IdRight; }
@@ -18,7 +23,7 @@ namespace WpfOnt.Data
         {
             get
             {
-                if (IdDirection == LocalConfig.Directions.Direction_LeftRight.GUID)
+                if (IdDirection == globals.Directions.Direction_LeftRight.GUID)
                 {
                     return NameRel + " / " + NameRight + " (" + Min + " / " + Count + " / " + Max + ")";
                 }

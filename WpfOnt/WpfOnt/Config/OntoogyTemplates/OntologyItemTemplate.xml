@@ -1,0 +1,1 @@
+﻿<Item Id="@ID_ITEM@" Id_Parent="@ID_PARENT@"><![CDATA[@NAME_ITEM@]]></Item>

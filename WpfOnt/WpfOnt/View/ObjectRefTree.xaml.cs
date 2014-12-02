@@ -21,6 +21,35 @@ namespace WpfOnt.View
     /// </summary>
     public partial class ObjectRefTree : UserControl
     {
+        public static readonly DependencyProperty GlobalConfigProperty =
+           DependencyProperty.Register(
+             "GlobalConfig", typeof(Globals), typeof(ObjectRefTree),
+               new FrameworkPropertyMetadata()
+               {
+                   PropertyChangedCallback = OnGlobalConfigChanged,
+                   BindsTwoWayByDefault = true
+               });
+
+        private static void OnGlobalConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var userControl = (ObjectRefTree)d;
+            var model = (ObjectRefTree)userControl.DataContext;
+            model.GlobalConfig = (Globals)e.NewValue;
+        }
+
+
+        public Globals GlobalConfig
+        {
+            get
+            {
+                return (Globals)GetValue(GlobalConfigProperty);
+            }
+            set
+            {
+                SetValue(GlobalConfigProperty, value);
+            }
+        }
+
         public static readonly DependencyProperty IdObjectProperty =
             DependencyProperty.Register(
               "IdObject", typeof(string), typeof(ObjectRefTree),

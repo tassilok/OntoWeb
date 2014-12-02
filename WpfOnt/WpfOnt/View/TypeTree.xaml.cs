@@ -35,6 +35,35 @@ namespace WpfOnt.View
 
         private Brush nodeBackground;
 
+        public static readonly DependencyProperty GlobalConfigProperty =
+           DependencyProperty.Register(
+             "GlobalConfig", typeof(Globals), typeof(TypeTree),
+               new FrameworkPropertyMetadata()
+               {
+                   PropertyChangedCallback = OnGlobalConfigChanged,
+                   BindsTwoWayByDefault = true
+               });
+
+        private static void OnGlobalConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var userControl = (TypeTree)d;
+            var model = (TypeTreeModel)userControl.DataContext;
+            model.GlobalConfig = (Globals)e.NewValue;
+        }
+
+
+        public Globals GlobalConfig
+        {
+            get
+            {
+                return (Globals)GetValue(GlobalConfigProperty);
+            }
+            set
+            {
+                SetValue(GlobalConfigProperty, value);
+            }
+        }
+
         private void searchNode(string search, OTreeNode parentNode)
         {
             if (parentNode == null)

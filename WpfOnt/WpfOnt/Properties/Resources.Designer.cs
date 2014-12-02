@@ -22,7 +22,7 @@ namespace WpfOnt.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace WpfOnt.Properties {
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WpfOnt.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace WpfOnt.Properties {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap appunti_architetto_franc_01 {
+        internal static System.Drawing.Bitmap appunti_architetto_franc_01 {
             get {
                 object obj = ResourceManager.GetObject("appunti_architetto_franc_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Attributes_bamboo_danny_allen_r {
+        internal static System.Drawing.Bitmap Attributes_bamboo_danny_allen_r {
             get {
                 object obj = ResourceManager.GetObject("Attributes_bamboo_danny_allen_r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap b_down_0 {
+        internal static System.Drawing.Bitmap b_down_0 {
             get {
                 object obj = ResourceManager.GetObject("b_down_0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap b_down_minus {
+        internal static System.Drawing.Bitmap b_down_minus {
             get {
                 object obj = ResourceManager.GetObject("b_down_minus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap b_minus {
+        internal static System.Drawing.Bitmap b_minus {
             get {
                 object obj = ResourceManager.GetObject("b_minus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap b_plus {
+        internal static System.Drawing.Bitmap b_plus {
             get {
                 object obj = ResourceManager.GetObject("b_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap b_up_Infinite {
+        internal static System.Drawing.Bitmap b_up_Infinite {
             get {
                 object obj = ResourceManager.GetObject("b_up_Infinite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap b_up_plus {
+        internal static System.Drawing.Bitmap b_up_plus {
             get {
                 object obj = ResourceManager.GetObject("b_up_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap base_checkmark_32 {
+        internal static System.Drawing.Bitmap base_checkmark_32 {
             get {
                 object obj = ResourceManager.GetObject("base_checkmark_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap bb_back_ {
+        internal static System.Drawing.Bitmap bb_back_ {
             get {
                 object obj = ResourceManager.GetObject("bb_back_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap bb_forward_ {
+        internal static System.Drawing.Bitmap bb_forward_ {
             get {
                 object obj = ResourceManager.GetObject("bb_forward_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap bb_home_ {
+        internal static System.Drawing.Bitmap bb_home_ {
             get {
                 object obj = ResourceManager.GetObject("bb_home_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap bb_reload_ {
+        internal static System.Drawing.Bitmap bb_reload_ {
             get {
                 object obj = ResourceManager.GetObject("bb_reload_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap bb_sort2 {
+        internal static System.Drawing.Bitmap bb_sort2 {
             get {
                 object obj = ResourceManager.GetObject("bb_sort2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap cahiers_de_labo {
+        internal static System.Drawing.Bitmap cahiers_de_labo {
             get {
                 object obj = ResourceManager.GetObject("cahiers_de_labo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DoubleRightArrowHS {
+        internal static System.Drawing.Bitmap DoubleRightArrowHS {
             get {
                 object obj = ResourceManager.GetObject("DoubleRightArrowHS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap edit_find_replace {
+        internal static System.Drawing.Bitmap edit_find_replace {
             get {
                 object obj = ResourceManager.GetObject("edit_find_replace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Export_to_DB {
+        internal static System.Drawing.Bitmap Export_to_DB {
             get {
                 object obj = ResourceManager.GetObject("Export_to_DB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap NavForward {
+        internal static System.Drawing.Bitmap NavForward {
             get {
                 object obj = ResourceManager.GetObject("NavForward", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Ontology_Module_Block {
+        internal static System.Drawing.Bitmap Ontology_Module_Block {
             get {
                 object obj = ResourceManager.GetObject("Ontology_Module_Block", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Ontology_Module2 {
+        internal static System.Drawing.Bitmap Ontology_Module2 {
             get {
                 object obj = ResourceManager.GetObject("Ontology_Module2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Procedures {
+        internal static System.Drawing.Bitmap Procedures {
             get {
                 object obj = ResourceManager.GetObject("Procedures", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pulsante_01_architetto_f_01 {
+        internal static System.Drawing.Bitmap pulsante_01_architetto_f_01 {
             get {
                 object obj = ResourceManager.GetObject("pulsante_01_architetto_f_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pulsante_01_architetto_f_01_First1 {
+        internal static System.Drawing.Bitmap pulsante_01_architetto_f_01_First1 {
             get {
                 object obj = ResourceManager.GetObject("pulsante_01_architetto_f_01_First1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pulsante_02_architetto_f_01 {
+        internal static System.Drawing.Bitmap pulsante_02_architetto_f_01 {
             get {
                 object obj = ResourceManager.GetObject("pulsante_02_architetto_f_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pulsante_02_architetto_f_01_Last {
+        internal static System.Drawing.Bitmap pulsante_02_architetto_f_01_Last {
             get {
                 object obj = ResourceManager.GetObject("pulsante_02_architetto_f_01_Last", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap RelationTypes_gpride_jean_victor_balin_ {
+        internal static System.Drawing.Bitmap RelationTypes_gpride_jean_victor_balin_ {
             get {
                 object obj = ResourceManager.GetObject("RelationTypes_gpride_jean_victor_balin_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap saveHS {
+        internal static System.Drawing.Bitmap saveHS {
             get {
                 object obj = ResourceManager.GetObject("saveHS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap slim_cd_drive_frederic_m_01 {
+        internal static System.Drawing.Bitmap slim_cd_drive_frederic_m_01 {
             get {
                 object obj = ResourceManager.GetObject("slim_cd_drive_frederic_m_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tasto_3_architetto_franc_01 {
+        internal static System.Drawing.Bitmap tasto_3_architetto_franc_01 {
             get {
                 object obj = ResourceManager.GetObject("tasto_3_architetto_franc_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +363,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tasto_4_architetto_franc_01 {
+        internal static System.Drawing.Bitmap tasto_4_architetto_franc_01 {
             get {
                 object obj = ResourceManager.GetObject("tasto_4_architetto_franc_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +373,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tasto_8_architetto_franc_01 {
+        internal static System.Drawing.Bitmap tasto_8_architetto_franc_01 {
             get {
                 object obj = ResourceManager.GetObject("tasto_8_architetto_franc_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +383,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Types_Closed {
+        internal static System.Drawing.Bitmap Types_Closed {
             get {
                 object obj = ResourceManager.GetObject("Types_Closed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,7 +393,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Vogelschwarm {
+        internal static System.Drawing.Bitmap Vogelschwarm {
             get {
                 object obj = ResourceManager.GetObject("Vogelschwarm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -403,7 +403,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Vogelschwarm1 {
+        internal static System.Drawing.Bitmap Vogelschwarm1 {
             get {
                 object obj = ResourceManager.GetObject("Vogelschwarm1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +413,7 @@ namespace WpfOnt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap XSDSchema_SequenceIcon {
+        internal static System.Drawing.Bitmap XSDSchema_SequenceIcon {
             get {
                 object obj = ResourceManager.GetObject("XSDSchema_SequenceIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

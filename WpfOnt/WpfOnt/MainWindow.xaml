@@ -18,14 +18,15 @@
         </Grid.ColumnDefinitions>
         
         <View:TypeTree Grid.Column="0" 
-                        SelectedNode="TypeTree_OnSelectedNode"/>
-        
+                        SelectedNode="TypeTree_OnSelectedNode" GlobalConfig="{Binding DataContext.GlobalConfig, ElementName=layoutRoot}"/>
+       
         <GridSplitter Background="DarkGray"  ResizeDirection="Columns" Grid.Column="1" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   ResizeBehavior="PreviousAndNext" />
         
-        <View:OItemView x:Name="ucOItemList" Grid.Column="2"
-                        IdParent="{Binding DataContext.IdClass, ElementName=layoutRoot}" Width="Auto" >
+        <View:OItemView 
+            x:Name="ucOItemList" Grid.Column="2"
+                        IdParent="{Binding DataContext.IdClass, ElementName=layoutRoot}" GlobalConfig="{Binding DataContext.GlobalConfig, ElementName=layoutRoot}" Width="Auto">
             <View:OItemView.DataContext>
                 <viewModel:OItemListModel />
             </View:OItemView.DataContext>

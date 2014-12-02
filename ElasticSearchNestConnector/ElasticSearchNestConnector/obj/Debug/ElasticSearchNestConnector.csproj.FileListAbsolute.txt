@@ -11,3 +11,10 @@ C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.pdb

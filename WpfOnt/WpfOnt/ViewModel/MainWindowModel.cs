@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfOnt.Data;
-using WpfOnt.OServiceOItems;
 
 namespace WpfOnt.ViewModel
 {
@@ -13,10 +12,21 @@ namespace WpfOnt.ViewModel
     {
 
         private string idClass;
+        private Globals globalConfig;
 
         public MainWindowModel()
         {
             
+        }
+
+        public Globals GlobalConfig
+        {
+            get { return globalConfig; }
+            set
+            {
+                globalConfig = value;
+                OnPropertyChanged("GlobalConfig");
+            }
         }
 
         public string IdClass

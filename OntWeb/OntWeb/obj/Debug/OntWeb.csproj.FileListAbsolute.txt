@@ -13,3 +13,15 @@ C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntWeb\OntWeb\bin\Newtonsof
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntWeb\OntWeb\obj\Debug\OntWeb.csprojResolveAssemblyReference.cache
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntWeb\OntWeb\obj\Debug\OntWeb.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntWeb\OntWeb\obj\Debug\OntWeb.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\OntWeb.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\OntWeb.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Nest.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Elasticsearch.Net.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Newtonsoft.Json.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\obj\Debug\OntWeb.csprojResolveAssemblyReference.cache
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\obj\Debug\OntWeb.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\obj\Debug\OntWeb.pdb

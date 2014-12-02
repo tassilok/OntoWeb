@@ -1,0 +1,17 @@
+C:\Users\Tassilo\AppData\Local\Temp\OntologyManamgent\ModuleLibrary\OntologyClasses.dll
+C:\Users\Tassilo\AppData\Local\Temp\OntologyManamgent\ModuleLibrary\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\Elasticsearch.Net.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\Nest.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\Elasticsearch.Net.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\Nest.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\obj\Debug\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\obj\Debug\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\obj\Debug\OntologyClasses.csprojResolveAssemblyReference.cache
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\bin\Debug\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\bin\Debug\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.pdb

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OntologyClasses.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,7 +9,6 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using WpfOnt.Data;
-using WpfOnt.OServiceOItems;
 using WpfOnt.Pages;
 using WpfOnt.View;
 using WpfOnt.ViewModelUtils;
@@ -20,8 +20,6 @@ namespace WpfOnt.ViewModel
 
         
         
-        private List<WpfOnt.OServiceOItems.clsOntologyItem> itemList;
-        private WpfOnt.OServiceOItems.clsOntologyItem parentClass;
         private DbWork dbWork;
         private string idParent;
 
@@ -42,6 +40,22 @@ namespace WpfOnt.ViewModel
         private bool enableButtonOrderBU = false;
         private bool enableButtonReport = false;
         private bool enableButtonNameEdit = false;
+
+        private Globals globals;
+        public Globals GlobalConfig 
+        {
+            get { return globals; }
+            set
+            {
+                globals = value;
+                if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                {
+                    dbWork = new DbWork(globals);
+                }
+            }
+        }
+
+        private List<clsOntologyItem> itemList;
 
         private int itemCount = 0;
 
@@ -272,16 +286,12 @@ namespace WpfOnt.ViewModel
         public OItemListModel()
         {
             
-            if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
-            {
-                dbWork = new DbWork();
-            }
         }
 
         /// <summary>
         ///     Contains the current selected page.
         /// </summary>
-        public List<WpfOnt.OServiceOItems.clsOntologyItem> ItemList
+        public List<clsOntologyItem> ItemList
         {
             get { return itemList; }
             set
@@ -311,11 +321,15 @@ namespace WpfOnt.ViewModel
             {
                 if (string.IsNullOrEmpty(NameFilter))
                 {
-                    ItemList = dbWork.GetObjectListByClassId(this.idParent); 
+                    var objectSearch = new List<clsOntologyItem>  { new clsOntologyItem { GUID_Parent = this.idParent } };
+                    var oItem_Result = dbWork.get_Data_Objects(objectSearch);
+                    ItemList = dbWork.OList_Objects;
                 }
                 else
                 {
-                    ItemList = dbWork.GetObjectListByNameObjectAndClassId(this.idParent, NameFilter);
+                    var objectSearch = new List<clsOntologyItem> { new clsOntologyItem { Name = NameFilter ,GUID_Parent = this.idParent } };
+                    var oItem_Result = dbWork.get_Data_Objects(objectSearch);
+                    ItemList = dbWork.OList_Objects;
                 }
                
             }
@@ -327,7 +341,7 @@ namespace WpfOnt.ViewModel
         public void OpenObjectEdit(clsOntologyItem OItem_Object)
         {
             var ix = itemList.IndexOf(OItem_Object);
-            var objectsEdit = new ObjectsEdit(itemList, ix);
+            var objectsEdit = new ObjectsEdit(itemList, ix, GlobalConfig);
             objectsEdit.Show();
         }
 

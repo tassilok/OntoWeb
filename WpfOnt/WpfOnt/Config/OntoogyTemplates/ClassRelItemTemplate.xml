@@ -1,0 +1,1 @@
+﻿<Item Id_Class_Left="@ID_CLASS_LEFT@" Id_Class_Right="@ID_CLASS_RIGHT@" Id_RelationType="@ID_RELATIONTYPE@" Ontology="@ONTOLOGY@" Min_Forw="@MIN_FORW@" Max_Forw="@MAX_FORW@" Max_Backw="@MAX_BACKW@" />

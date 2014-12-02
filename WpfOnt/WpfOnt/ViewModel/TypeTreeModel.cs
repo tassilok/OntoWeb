@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OntologyClasses.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfOnt.Data;
-using WpfOnt.OServiceOItems;
 using WpfOnt.View;
 using WpfOnt.ViewModelUtils;
 
@@ -16,8 +16,8 @@ namespace WpfOnt.ViewModel
     public class TypeTreeModel : ViewModelBase
     {
 
-
-        private readonly DbWork dbWork;
+        private Globals globals;
+        private DbWork dbWork;
 
         public RelayCommand<TreeViewHelper.DependencyPropertyEventArgs> MySelItemChgCmd { get; set; }
 
@@ -33,6 +33,24 @@ namespace WpfOnt.ViewModel
         private List<OTreeNode> nodes;
 
         public object CurrSelItem { get; set; }
+
+        public Globals GlobalConfig
+        {
+            get
+            {
+                return globals;
+            }
+            set
+            {
+                this.globals = value;
+                if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                {
+                    dbWork = new DbWork(globals);
+                }
+                OnPropertyChanged("GlobalConfig");
+                Refresh();
+            }
+        }
 
         public string LblGuid
         {
@@ -109,13 +127,9 @@ namespace WpfOnt.ViewModel
         
         public TypeTreeModel()
         {
-            if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
-            {
-                dbWork = new DbWork();
-            }
             MySelItemChgCmd = new RelayCommand<TreeViewHelper.DependencyPropertyEventArgs>(TreeViewItemSelectedChangedCallBack);
             CurrSelItem = new object();
-            Refresh();
+            
 
         }
 
@@ -134,7 +148,8 @@ namespace WpfOnt.ViewModel
 
             if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             {
-               classList = dbWork.GetClassList();
+               var oItem_Result = dbWork.get_Data_Classes();
+               classList = dbWork.OList_Classes;
             }
             
             GetONodeList();

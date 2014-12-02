@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfOnt.Data;
-using WpfOnt.OServiceOItems;
 using WpfOnt.ViewModel;
 
 namespace WpfOnt
@@ -23,12 +22,12 @@ namespace WpfOnt
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
-
-            LocalConfig.Initialize();
-
+            var model = (MainWindowModel)DataContext;
+            model.GlobalConfig = new Globals();
         }
 
         private void TypeTree_OnSelectedNode(OTreeNode otreenode)

@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <View:ObjectRefTree x:Name="ucORefTree" Grid.Column="0" Height="Auto" Width="Auto" IdObject="{Binding DataContext.GuidObject, ElementName=layoutRoot}">
+            <View:ObjectRefTree x:Name="ucORefTree" Grid.Column="0" Height="Auto" Width="Auto" GlobalConfig="{Binding DataContext.GlobalConfig}"  IdObject="{Binding DataContext.GuidObject, ElementName=layoutRoot}">
                 <View:ObjectRefTree.DataContext>
                     <ucViewModels:ObjectRefTreeModel />
                 </View:ObjectRefTree.DataContext>

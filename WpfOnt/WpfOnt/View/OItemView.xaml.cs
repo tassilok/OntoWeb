@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OntologyClasses.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using WpfOnt.OServiceOItems;
 using WpfOnt.Pages;
 using WpfOnt.ViewModel;
 
@@ -36,8 +36,37 @@ namespace WpfOnt.View
                     BindsTwoWayByDefault = true
                 });
 
-        public static readonly DependencyProperty ItemListProperty =
-           DependencyProperty.Register("ItemList", typeof(List<clsOntologyItem>), typeof(OItemView));
+        //public static readonly DependencyProperty ItemListProperty =
+        //   DependencyProperty.Register("ItemList", typeof(List<clsOntologyItem>), typeof(OItemView));
+
+        public static readonly DependencyProperty GlobalConfigProperty =
+            DependencyProperty.Register(
+              "GlobalConfig", typeof(Globals), typeof(OItemView),
+                new FrameworkPropertyMetadata()
+                {
+                    PropertyChangedCallback = OnGlobalConfigChanged,
+                    BindsTwoWayByDefault = true
+                });
+
+        private static void OnGlobalConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var userControl = (OItemView)d;
+            var model = (OItemListModel)userControl.DataContext;
+            model.GlobalConfig = (Globals) e.NewValue;
+        }
+
+
+        public Globals GlobalConfig
+        {
+            get 
+            { 
+                return (Globals)GetValue(GlobalConfigProperty); 
+            }
+            set
+            {
+                SetValue(GlobalConfigProperty, value);
+            }
+        }
 
         private static void OnIdParentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -47,17 +76,17 @@ namespace WpfOnt.View
 
         }
 
-        public List<clsOntologyItem> ItemList
-        {
-            get
-            {
-                return (List<clsOntologyItem>)GetValue(ItemListProperty);
-            }
-            set
-            {
-                SetValue(ItemListProperty, value);
-            }
-        }
+        //public List<clsOntologyItem> ItemList
+        //{
+        //    get
+        //    {
+        //        return (List<clsOntologyItem>)GetValue(ItemListProperty);
+        //    }
+        //    set
+        //    {
+        //        SetValue(ItemListProperty, value);
+        //    }
+        //}
 
         public string IdParent
         {

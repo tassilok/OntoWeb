@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E937824A-B52A-4AA4-A008-710824FC52F3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OntologyClasses</RootNamespace>
+    <AssemblyName>OntologyClasses</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elasticsearch.Net">
+      <HintPath>..\Ontolog-Module\packages\Elasticsearch.Net.1.0.0-beta1\lib\Elasticsearch.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest">
+      <HintPath>..\Ontolog-Module\packages\NEST.1.0.0-beta1\lib\Nest.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Ontolog-Module\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClasses\clsAppDocuments.cs" />
+    <Compile Include="BaseClasses\clsAttribute.cs" />
+    <Compile Include="BaseClasses\clsClassAtt.cs" />
+    <Compile Include="BaseClasses\clsClassRel.cs" />
+    <Compile Include="BaseClasses\clsObjectAtt.cs" />
+    <Compile Include="BaseClasses\clsObjectRel.cs" />
+    <Compile Include="BaseClasses\clsObjectTree.cs" />
+    <Compile Include="BaseClasses\clsOntologyItem.cs" />
+    <Compile Include="BaseClasses\RandomPassword.cs" />
+    <Compile Include="DataClasses\clsAttributeTypes.cs" />
+    <Compile Include="DataClasses\clsBaseClassAttributes.cs" />
+    <Compile Include="DataClasses\clsBaseClassRelation.cs" />
+    <Compile Include="DataClasses\clsClasses.cs" />
+    <Compile Include="DataClasses\clsClassTypes.cs" />
+    <Compile Include="DataClasses\clsDataTypes.cs" />
+    <Compile Include="DataClasses\clsDirections.cs" />
+    <Compile Include="DataClasses\clsFields.cs" />
+    <Compile Include="DataClasses\clsLogStates.cs" />
+    <Compile Include="DataClasses\clsMappingRules.cs" />
+    <Compile Include="DataClasses\clsOntologyItemsCreationRules.cs" />
+    <Compile Include="DataClasses\clsOntologyRelationRules.cs" />
+    <Compile Include="DataClasses\clsRelationTypes.cs" />
+    <Compile Include="DataClasses\clsTypes.cs" />
+    <Compile Include="DataClasses\clsVariables.cs" />
+    <Compile Include="Interfaces\IModule.cs" />
+    <Compile Include="Interfaces\IReportConnector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AbstractClasses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

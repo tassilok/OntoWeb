@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OntologyClasses.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,7 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WpfOnt.Data;
-using WpfOnt.OServiceOItems;
 using WpfOnt.Pages.PagesViewModels;
 
 namespace WpfOnt.Pages
@@ -26,14 +26,19 @@ namespace WpfOnt.Pages
     {
         ObjectsEditModel model;
 
+        
+
         private DispatcherTimer timerFilter = new DispatcherTimer();
         private DispatcherTimer timerName = new DispatcherTimer();
 
-        public ObjectsEdit(List<clsOntologyItem> objects, int itemIx)
+        public ObjectsEdit(List<clsOntologyItem> objects, int itemIx, Globals globals)
         {
            
 
             InitializeComponent();
+
+            model = (ObjectsEditModel) DataContext;
+            model.GlobalConfig = globals;
 
             timerFilter.Interval = new TimeSpan(0, 0, 0, 0, 300);
             timerFilter.Tick += timerFilter_Tick;

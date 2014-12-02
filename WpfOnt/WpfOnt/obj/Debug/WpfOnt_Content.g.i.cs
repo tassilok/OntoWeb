@@ -8,6 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/gnome-fs-home-closed.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/config_ont.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/ontoogytemplates/classattitemtemplate.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/ontoogytemplates/classrelitemtemplate.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/ontoogytemplates/objattitemtemplate.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/ontoogytemplates/objrelitemtemplate.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/ontoogytemplates/ontologyitemcontainertemplate.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/ontoogytemplates/ontologyitemtemplate.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/attributetypes.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/classatts.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/classes.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/classrels.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/objectatt.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/objectrel.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/objects.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("config/templates/relationtypes.xml")]
 
 

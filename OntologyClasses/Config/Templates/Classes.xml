@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Items Type="Class">
+  <Item Id="9ba99dfe2f1549569cd0ce20b575a4b3" Id_Parent="aa616051e5214facabdbcbba6f8c6e73"><![CDATA[Sem-Manager]]></Item>
+<Item Id="eb411e2ff93d4a5ebbbac0b5d7ec0197" Id_Parent="665dd88b792e4256a27a68ee1e10ece6"><![CDATA[Ontologies]]></Item>
+<Item Id="d3f72a683f6146a48ff381db05997dc8" Id_Parent="eb411e2ff93d4a5ebbbac0b5d7ec0197"><![CDATA[Ontology-Items]]></Item>
+<Item Id="aab30dd04faf4386896016218132b110" Id_Parent="eb411e2ff93d4a5ebbbac0b5d7ec0197"><![CDATA[Ontology-Join]]></Item>
+<Item Id="925f489dec8d4130a418fcb022a4c731" Id_Parent="eb411e2ff93d4a5ebbbac0b5d7ec0197"><![CDATA[Ontology-Relation-Rule]]></Item>
+<Item Id="71415eebce464b2cb0a2f72116b55438" Id_Parent="73e32abfe5774d319a46bc07e9e15de3"><![CDATA[Software-Development]]></Item>
+<Item Id="f30436d62ffc4071af5e3ce708b8c2d9" Id_Parent="71415eebce464b2cb0a2f72116b55438"><![CDATA[Development-Version]]></Item>
+<Item Id="3d1dc6cfb96449869808f39b7c5c3907" Id_Parent="83317bacb4b14db8bf849fca0a93ddd5"><![CDATA[Direction]]></Item>
+<Item Id="f47a3e1c50b44666a41de975597c9adb" Id_Parent="2f05c250be334b77ba3cb8a0228821b6"><![CDATA[Folder]]></Item>
+<Item Id="aa616051e5214facabdbcbba6f8c6e73" Id_Parent="b5224e7f7d0d4beebf8eb9a0eeba5747"><![CDATA[Module]]></Item>
+<Item Id="23ad9ceb5c7744f7a5cdeb61aa2f20f5" Id_Parent="b5224e7f7d0d4beebf8eb9a0eeba5747"><![CDATA[Integration-Level]]></Item>
+<Item Id="665dd88b792e4256a27a68ee1e10ece6" Id_Parent="49fdcd27e1054770941d7485dcad08c1"><![CDATA[System]]></Item>
+<Item Id="1d9568afb6da49908f4d907dfdd30749" Id_Parent="53136d10b7e747fc94ad7887a354d6e1"><![CDATA[Logstate]]></Item>
+<Item Id="d7a03a35875142b48e0519fc7a77ee91" Id_Parent="2f05c250be334b77ba3cb8a0228821b6"><![CDATA[Server]]></Item>
+<Item Id="b5224e7f7d0d4beebf8eb9a0eeba5747" Id_Parent="665dd88b792e4256a27a68ee1e10ece6"><![CDATA[Module-Management]]></Item>
+<Item Id="2f05c250be334b77ba3cb8a0228821b6" Id_Parent="665dd88b792e4256a27a68ee1e10ece6"><![CDATA[Filesystem-Management]]></Item>
+<Item Id="041ec955ed784931a4912336b55d9bd7" Id_Parent="b5224e7f7d0d4beebf8eb9a0eeba5747"><![CDATA[Module-Activator]]></Item>
+<Item Id="53136d10b7e747fc94ad7887a354d6e1" Id_Parent="665dd88b792e4256a27a68ee1e10ece6"><![CDATA[Log-Management]]></Item>
+<Item Id="73e32abfe5774d319a46bc07e9e15de3" Id_Parent="49fdcd27e1054770941d7485dcad08c1"><![CDATA[Software-Management]]></Item>
+<Item Id="83317bacb4b14db8bf849fca0a93ddd5" Id_Parent="49fdcd27e1054770941d7485dcad08c1"><![CDATA[Information-Management]]></Item>
+<Item Id="49fdcd27e1054770941d7485dcad08c1" Id_Parent=""><![CDATA[Root]]></Item>
+<Item Id="bea291bb98da48849a93613a31f09622" Id_Parent="e957283cf65c49e8bad2bada6f0b7ad5"><![CDATA[Hardware]]></Item>
+
+</Items>

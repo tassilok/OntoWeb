@@ -95,7 +95,7 @@
         
         <TabControl Grid.Row="1" Grid.Column="0" >
             <TabItem Header="x_List">
-                <DataGrid x:Name="dataGridViewItems" ItemsSource="{Binding Path=ItemList}" AutoGeneratingColumn="dataGridViewItems_AutoGeneratingColumn" RowHeaderWidth="25" SelectionMode="Single" SelectionUnit="CellOrRowHeader" CanUserResizeRows="False"  IsReadOnly="True">
+                <DataGrid x:Name="dataGridViewItems" ItemsSource="{Binding ItemList}" AutoGeneratingColumn="dataGridViewItems_AutoGeneratingColumn" RowHeaderWidth="25" SelectionMode="Single" SelectionUnit="CellOrRowHeader" CanUserResizeRows="False"  IsReadOnly="True">
                     <DataGrid.Resources>
                         <Style TargetType="DataGridRow">
                             <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick" />

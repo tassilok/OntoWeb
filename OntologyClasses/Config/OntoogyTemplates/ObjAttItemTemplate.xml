@@ -1,0 +1,8 @@
+﻿<Item Id_Attribute="@ID_ATTRIBUTE@" Id_AttributeType="@ID_ATTRIBUTETYPE@" Id_DataType="@ID_DATATYPE@" Id_Object="@ID_OBJECT@" Id_Class="@ID_CLASS@" OrderId="@ORDERID@">
+  <Val_Named><![CDATA[@VAL_NAMED@]]></Val_Named>
+  <Val_Bit>@VAL_BIT@</Val_Bit>
+  <Val_Date>@VAL_DATE@</Val_Date>
+  <Val_Double>@VAL_DOUBLE@</Val_Double>
+  <Val_Lng>@VAL_LNG@</Val_Lng>
+  <Val_String>@VAL_STRING@</Val_String>
+</Item>
