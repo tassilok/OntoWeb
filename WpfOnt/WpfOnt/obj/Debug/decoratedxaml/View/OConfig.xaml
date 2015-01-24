@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Window x:Class="WpfOnt.View.OConfig" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:viewModel="clr-namespace:WpfOnt.ViewModel" Title="{Binding WindowTitle}" Height="787.983" Width="600" xmlns:spy="http://firstfloorsoftware.com/XamlSpy" spy:XamlMetadata.SpyServiceSettings="127.0.0.1|4530|49484|1" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\View\OConfig.xaml|1|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+    <Window.DataContext>
+        <viewModel:OConfigModel />
+    </Window.DataContext>
+    <Grid spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\View\OConfig.xaml|9|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="722*" />
+            <RowDefinition Height="35*" />
+        </Grid.RowDefinitions>
+        <ToolBar HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="34" Width="592" Grid.Row="1" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\View\OConfig.xaml|14|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+            <Button Content="{Binding TextApply}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\View\OConfig.xaml|15|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <Button Content="{Binding CancelApply}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\View\OConfig.xaml|16|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+        </ToolBar>
+
+    </Grid>
+</Window>

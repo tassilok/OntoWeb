@@ -99,11 +99,11 @@ C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Elasticsearch.Net.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Nest.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Newtonsoft.Json.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Elasticsearch.Net.pdb
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Elasticsearch.Net.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Nest.pdb
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Nest.xml
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Newtonsoft.Json.xml
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\obj\Release\OntologyClasses.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\obj\Release\OntologyClasses.pdb
-C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Elasticsearch.Net.pdb
-C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\bin\Release\Nest.pdb
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\OntologyClasses\obj\Release\OntologyClasses.csprojResolveAssemblyReference.cache
