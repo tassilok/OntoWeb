@@ -1,5 +1,17 @@
 C:\Users\Tassilo\AppData\Local\Temp\OntologyManamgent\ElasticSearchNestConnector\ElasticSearchNestConnector.dll
 C:\Users\Tassilo\AppData\Local\Temp\OntologyManamgent\ElasticSearchNestConnector\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Elasticsearch.Net.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Nest.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Newtonsoft.Json.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Elasticsearch.Net.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Elasticsearch.Net.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Nest.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Nest.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Release\Newtonsoft.Json.xml
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Release\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Release\ElasticSearchNestConnector.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Release\ElasticSearchNestConnector.pdb

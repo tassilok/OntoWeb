@@ -12,11 +12,9 @@
         <Grid.Resources>
             <HierarchicalDataTemplate ItemsSource="{Binding ChildNodes}" x:Key="TreeTemplate">
                 <StackPanel Orientation="Horizontal" >
+                    <Image Source="../Resources/pulsante_02_architetto_f_01.png" Width="14" Height="14" Visibility="{Binding VisiblePresent}"/>
                     <TextBlock 
-                                Visibility="Collapsed" 
-                                Text="{Binding IdNode}" />
-                    <TextBlock 
-                                Text="{Binding NameNode}"/>
+                                Text="{Binding NameNode}" Background="{Binding BackColor}"/>
                 </StackPanel>
 
             </HierarchicalDataTemplate>

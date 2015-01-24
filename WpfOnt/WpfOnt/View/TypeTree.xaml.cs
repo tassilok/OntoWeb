@@ -35,6 +35,35 @@ namespace WpfOnt.View
 
         private Brush nodeBackground;
 
+        public static readonly DependencyProperty LocalConfigProperty =
+           DependencyProperty.Register(
+             "LocalConfig", typeof(clsLocalConfig), typeof(TypeTree),
+               new FrameworkPropertyMetadata()
+               {
+                   PropertyChangedCallback = OnLocalConfigChanged,
+                   BindsTwoWayByDefault = true
+               });
+
+        private static void OnLocalConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var userControl = (TypeTree)d;
+            var model = (TypeTreeModel)userControl.DataContext;
+            model.LocalConfig = (clsLocalConfig)e.NewValue;
+        }
+
+
+        public clsLocalConfig LocalConfig
+        {
+            get
+            {
+                return (clsLocalConfig)GetValue(GlobalConfigProperty);
+            }
+            set
+            {
+                SetValue(LocalConfigProperty, value);
+            }
+        }
+
         public static readonly DependencyProperty GlobalConfigProperty =
            DependencyProperty.Register(
              "GlobalConfig", typeof(Globals), typeof(TypeTree),

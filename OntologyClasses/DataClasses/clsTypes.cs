@@ -84,6 +84,26 @@ namespace OntologyClasses.DataClasses
             get { return "Other_Classes"; }
         }
 
-        
+        public List<string> TypeItems { get; private set; }
+
+        public clsTypes()
+        {
+            TypeItems = new List<string>
+            {
+                ObjectRel,
+                ClassType,
+                ClassRel,
+                ClassAtt,
+                DataType,
+                ObjectType,
+                ObjectAtt,
+                RelationType,
+                AttributeType,
+                Other,
+                Other_AttType,
+                Other_RelType,
+                Other_Classes
+            };
+        }
     }
 }

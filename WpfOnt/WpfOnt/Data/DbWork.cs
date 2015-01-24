@@ -505,7 +505,7 @@ namespace WpfOnt.Data
         public bool create_Index_Es() 
         {
             var indexSettings = objElSelector.GetIndexSettings();
-            var objOPResult = objElSelector.ElConnector.CreateIndex(strIndex);
+            var objOPResult = objElSelector.ElConnector.CreateIndex(index => index.Index(strIndex).InitializeUsing(indexSettings));
             return objOPResult.IsValid;
             
         }

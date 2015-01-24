@@ -39,7 +39,7 @@
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            
             <TextBlock Text="{Binding Label_GUID}" Grid.Column="0" Style="{StaticResource ResourceKey=ObjectTextBlock}"/>
             <Border BorderBrush="Gainsboro" BorderThickness="0,0,2,2" Grid.Column="1">
                 <Border BorderBrush="Gray" BorderThickness="2,2,0,0">
@@ -58,12 +58,21 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <View:ObjectRefTree x:Name="ucORefTree" Grid.Column="0" Height="Auto" Width="Auto" GlobalConfig="{Binding DataContext.GlobalConfig}"  IdObject="{Binding DataContext.GuidObject, ElementName=layoutRoot}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <View:ObjectRefTree Grid.Column="0" Grid.Row="0" Height="Auto" Width="Auto" 
+                        LocalConfig="{Binding DataContext.LocalConfig, ElementName=layoutRoot}"  
+                        IdObject="{Binding DataContext.GuidObject, ElementName=layoutRoot}"
+                        ShowAttributes="{Binding DataContext.ShowAttributes, ElementName=layoutRoot}"
+                        ShowRelForw="{Binding DataContext.ShowRelForw, ElementName=layoutRoot}"        
+                        ShowRelBackw="{Binding DataContext.ShowRelBackw, ElementName=layoutRoot}">
                 <View:ObjectRefTree.DataContext>
                     <ucViewModels:ObjectRefTreeModel />
                 </View:ObjectRefTree.DataContext>
             </View:ObjectRefTree>
-            
+
             <GridSplitter Background="DarkGray"  ResizeDirection="Columns" Grid.Column="1" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   ResizeBehavior="PreviousAndNext" />

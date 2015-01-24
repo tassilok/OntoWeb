@@ -36,7 +36,7 @@ namespace ElasticSearchNestConnector
 
 
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsOntologyItem>(dq => dq.Index(objDBSelector.Index).Type(objTypes.DataType).Query(q => q.Ids(oList_Delete)));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
 
 
                 }
@@ -89,7 +89,7 @@ namespace ElasticSearchNestConnector
 
                     
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsOntologyItem>(dq => dq.Index(objDBSelector.Index).Type(objTypes.AttributeType).Query(q => q.Ids(oList_Delete)));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                         
                     
                 }
@@ -154,7 +154,7 @@ namespace ElasticSearchNestConnector
                 if (oList_Delete.Any())
                 {
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsOntologyItem>(de => de.Type(objTypes.ClassType).Query(q => q.Ids(oList_Delete)));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                     
                 }
                 else
@@ -185,7 +185,7 @@ namespace ElasticSearchNestConnector
             if (objDBSelector.get_Data_ObjectAttCount(objOList_ObjAtt) == 0)
             {
                 var delResult = objDBSelector.ElConnector.Delete<clsClassAtt>(d=>d.Index(objDBSelector.Index).Type(objTypes.ClassAtt).Id(OItem_Class.GUID + OItem_AttributeType.GUID));
-                objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                 
             }
             else
@@ -239,7 +239,7 @@ namespace ElasticSearchNestConnector
                 if (oList_Delete.Any())
                 {
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsClassRel>(dq => dq.Type(objTypes.ClassRel).Query(q => q.Ids(oList_Delete)));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                     
                 }
                 else
@@ -272,7 +272,7 @@ namespace ElasticSearchNestConnector
                     var OList_Del = OList_ObjectAtt.GetRange(i, count);
                     var objBoolQuery = objDBSelector.create_Query_ObjectAtt(OList_Del);
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsObjectAtt>(dq => dq.Type(objTypes.ObjectAtt).Query(q => q.QueryString(q1 => q1.Query(objBoolQuery))));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                     i += count;
                     if (objOItem_Result.GUID == objLogStates.LogState_Error.GUID)
                     {
@@ -285,7 +285,7 @@ namespace ElasticSearchNestConnector
                 var OList_Del = OList_ObjectAtt;
                 var objBoolQuery = objDBSelector.create_Query_ObjectAtt(OList_Del);
                 var delResult = objDBSelector.ElConnector.DeleteByQuery<clsObjectAtt>(dq => dq.Type(objTypes.ObjectAtt).Query(q => q.QueryString(q1 => q1.Query(objBoolQuery))));
-                objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
             }
             
             
@@ -312,7 +312,7 @@ namespace ElasticSearchNestConnector
                     var OList_Del = OList_ObjectRel.GetRange(i, count);
                     var objBoolQuery = objDBSelector.create_Query_ObjectRel(OList_Del);
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsObjectRel>(q => q.Type(objTypes.ObjectRel).Query(qs => qs.QueryString(p => p.Query(objBoolQuery))));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                     i += count;
                     if (objOItem_Result.GUID == objLogStates.LogState_Error.GUID)
                     {
@@ -325,7 +325,7 @@ namespace ElasticSearchNestConnector
                 var OList_Del = OList_ObjectRel;
                 var objBoolQuery = objDBSelector.create_Query_ObjectRel(OList_Del);
                 var delResult = objDBSelector.ElConnector.DeleteByQuery<clsObjectRel>(q => q.Type(objTypes.ObjectRel).Query(qs => qs.QueryString(p => p.Query(objBoolQuery))));
-                objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
             }
             
             objDBSelector.ElConnector.Flush(f => f.Index(objDBSelector.Index));
@@ -336,15 +336,48 @@ namespace ElasticSearchNestConnector
         {
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var OList_ORelLeft = OList_Objects.Select(p => new clsObjectRel { ID_Object = p.GUID }).ToList();
-            var OList_ORelRight = OList_Objects.Select(p => new clsObjectRel { ID_Other = p.GUID }).ToList();
+            //var OList_ORelLeft = OList_Objects.Select(p => new clsObjectRel { ID_Object = p.GUID }).ToList();
+            //var OList_ORelRight = OList_Objects.Select(p => new clsObjectRel { ID_Other = p.GUID }).ToList();
+            var objectsWithGuid = OList_Objects.Where(obj => !string.IsNullOrEmpty(obj.GUID)).ToList();
+            var objectsWithGuidParent = OList_Objects.Where(obj => string.IsNullOrEmpty(obj.GUID) && !string.IsNullOrEmpty(obj.GUID_Parent)).ToList();
+            var OList_ORelLeft = objectsWithGuid.Select(p => new clsObjectRel { ID_Object = p.GUID }).ToList();
+            var OList_ORelRight = objectsWithGuid.Select(p => new clsObjectRel { ID_Other = p.GUID }).ToList();
 
+            if (objectsWithGuidParent.Any())
+            {
+                OList_ORelLeft.AddRange(objectsWithGuidParent.GroupBy(obj => obj.GUID_Parent).Select(obj => new clsObjectRel { ID_Parent_Object = obj.Key }));
+                
+            }
+
+            if (objectsWithGuidParent.Any())
+            {
+                OList_ORelRight.AddRange(objectsWithGuidParent.GroupBy(obj => obj.GUID_Parent).Select(obj => new clsObjectRel { ID_Parent_Other = obj.Key }));
+            }
             var objOList_Left = objDBSelector.get_Data_ObjectRel(OList_ORelLeft);
+
+            if (objectsWithGuidParent.Any())
+            {
+                var objDBSelector2 = new clsDBSelector(objDBSelector.Server, objDBSelector.Port, objDBSelector.Index, objDBSelector.IndexRep, objDBSelector.SearchRange, objDBSelector.Session);
+                var objectsFromParent = objDBSelector2.get_Data_Objects(objectsWithGuidParent);
+
+                objectsWithGuid.AddRange(new List<clsOntologyItem>( from objects in objDBSelector.OntologyList_Objects1
+                                         join objexist in objectsWithGuid on objects.GUID equals objexist.GUID into objsExists
+                                         from objexist in objsExists.DefaultIfEmpty()
+                                         where objexist == null
+                                         select objects));
+
+                objectsWithGuid.AddRange(from objects in objectsFromParent
+                                         join objexist in objectsWithGuid on objects.GUID equals objexist.GUID into objsExists
+                                         from objexist in objsExists.DefaultIfEmpty()
+                                         where objexist == null
+                                         select objects);
+            }
+
             var objOList_Right = objDBSelector.get_Data_ObjectRel(OList_ORelRight);
 
             if (objOItem_Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                var oList_Delete = (from objObject in OList_Objects
+                var oList_Delete = (from objObject in objectsWithGuid
                                     join objORelLeftRight in objOList_Left on objObject.GUID equals objORelLeftRight.ID_Object into objORelsLeftRight
                                     from objORelLeftRight in objORelsLeftRight.DefaultIfEmpty()
                                     join objORelRightLeft in objOList_Right on objObject.GUID equals objORelRightLeft.ID_Other into objORelsRightLeft
@@ -357,7 +390,7 @@ namespace ElasticSearchNestConnector
                 {
                     
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsOntologyItem>(dq => dq.Type(objTypes.ObjectType).Query(q => q.Ids(oList_Delete)));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                     
                 }
                 else
@@ -418,7 +451,7 @@ namespace ElasticSearchNestConnector
                 if (oList_Delete.Any())
                 {
                     var delResult = objDBSelector.ElConnector.DeleteByQuery<clsOntologyItem>(dq => dq.Type(objTypes.RelationType).Query(q => q.Ids(oList_Delete)));
-                    objOItem_Result = delResult.Found ? delResult.OK ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
+                    objOItem_Result = delResult.Found ? delResult.IsValid ? objLogStates.LogState_Success : objLogStates.LogState_Error : objLogStates.LogState_Nothing;
                 }
                 else
                 {

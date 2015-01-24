@@ -79,7 +79,7 @@ namespace OntologyClasses.BaseClasses
                             string ID_RelationType ,
                             string Ontology ,
                             string ID_Direction ,
-                            long? OrderID)
+                            long OrderID)
         {
             this.ID_Object = ID_Object;
             this.ID_Parent_Object = ID_Parent_Object;

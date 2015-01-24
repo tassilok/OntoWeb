@@ -1,6 +1,7 @@
 ﻿using OntologyClasses.BaseClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,34 @@ namespace WpfOnt.View
         //public static readonly DependencyProperty ItemListProperty =
         //   DependencyProperty.Register("ItemList", typeof(List<clsOntologyItem>), typeof(OItemView));
 
+        public static readonly DependencyProperty LocalConfigProperty =
+            DependencyProperty.Register(
+              "LocalConfig", typeof(clsLocalConfig), typeof(OItemView),
+                new FrameworkPropertyMetadata()
+                {
+                    PropertyChangedCallback = OnLocalConfigChanged,
+                    BindsTwoWayByDefault = true
+                });
+
+        private static void OnLocalConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var userControl = (OItemView)d;
+            var model = (OItemListModel)userControl.DataContext;
+            model.LocalConfig = (clsLocalConfig)e.NewValue;
+        }
+
+        public clsLocalConfig LocalConfig
+        {
+            get
+            {
+                return (clsLocalConfig)GetValue(LocalConfigProperty);
+            }
+            set
+            {
+                SetValue(LocalConfigProperty, value);
+            }
+        }
+
         public static readonly DependencyProperty GlobalConfigProperty =
             DependencyProperty.Register(
               "GlobalConfig", typeof(Globals), typeof(OItemView),
@@ -75,18 +104,6 @@ namespace WpfOnt.View
             model.RefreshObjects(e.NewValue.ToString());
 
         }
-
-        //public List<clsOntologyItem> ItemList
-        //{
-        //    get
-        //    {
-        //        return (List<clsOntologyItem>)GetValue(ItemListProperty);
-        //    }
-        //    set
-        //    {
-        //        SetValue(ItemListProperty, value);
-        //    }
-        //}
 
         public string IdParent
         {
@@ -140,7 +157,10 @@ namespace WpfOnt.View
             var oItem = (clsOntologyItem)row.Item;
 
             var model = (OItemListModel)DataContext;
-            model.OpenObjectEdit(oItem);
+
+            var ix = model.ItemList.IndexOf(oItem);
+            var objectsEdit = new ObjectsEdit(model.ItemList, ix, this.LocalConfig);
+            objectsEdit.ShowDialog();
         }
 
     }

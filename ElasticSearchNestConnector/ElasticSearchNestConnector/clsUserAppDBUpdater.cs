@@ -29,7 +29,7 @@ namespace ElasticSearchNestConnector
             var objDict = new Dictionary<string, object>();
             objDict.Add("doctypes", strType);
 
-            var bulkResult = objUserAppDBSelector.ElConnector.Bulk(b => b.Index<Dictionary<string, object>>(i => i.Id(strType).Object(objDict).Type("doctypes")));
+            var bulkResult = objUserAppDBSelector.ElConnector.Bulk(b => b.Index<Dictionary<string, object>>(i => i.Id(strType).Document(objDict).Type("doctypes")));
             objOItem_Result = bulkResult.Items.Any(it => it.Error != null) ? objLogStates.LogState_Error : objLogStates.LogState_Success;
 
             return objOItem_Result;
@@ -48,7 +48,7 @@ namespace ElasticSearchNestConnector
             {
                 if (objDocument.Id == null) objDocument.Id = Guid.NewGuid().ToString();
 
-                objBulkDescriptor.Index<Dictionary<string, object>>(i => i.Id(objDocument.Id).Object(objDocument.Dict).Type(strType ?? objUserAppDBSelector.App));
+                objBulkDescriptor.Index<Dictionary<string, object>>(i => i.Id(objDocument.Id).Document(objDocument.Dict).Type(strType ?? objUserAppDBSelector.App));
 
             }
 
