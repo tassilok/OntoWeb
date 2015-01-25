@@ -43,3 +43,9 @@ C:\Data\Git\OntoWeb\OntWeb\OntWeb\bin\Nest.xml
 C:\Data\Git\OntoWeb\OntWeb\OntWeb\bin\Elasticsearch.Net.pdb
 C:\Data\Git\OntoWeb\OntWeb\OntWeb\bin\Elasticsearch.Net.xml
 C:\Data\Git\OntoWeb\OntWeb\OntWeb\bin\Newtonsoft.Json.xml
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\OntWeb.dll.config
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Elasticsearch.Net.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Elasticsearch.Net.xml
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Nest.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Nest.xml
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntWeb\OntWeb\bin\Newtonsoft.Json.xml

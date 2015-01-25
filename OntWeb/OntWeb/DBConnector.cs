@@ -264,8 +264,28 @@ namespace OntWeb
             result.Count = countToDo - countDone;
             return result;
         }
-       
 
+        public clsOntologyItem save_Classes(List<clsOntologyItem> OList_Classes, bool isRoot = false)
+        {
+            var result = Globals.LogStates.LogState_Success.Clone();
+            var countToDo = OList_Classes.Count;
+            var countDone = 0;
+
+            foreach (var itemClass in OList_Classes)
+            {
+                result = dbUpdater.save_Class(itemClass, isRoot);
+            }
+
+            result.Count = countToDo - countDone;
+            return result;
+        }
+
+        public clsOntologyItem save_ObjRel(List<clsObjectRel> OList_ObjectRels)
+        {
+            return dbUpdater.save_ObjectRel(OList_ObjectRels);
+        }
+       
+        
         public clsOntologyItem del_AttributeType(List<clsOntologyItem> OList_AttributeType)
         {
             var objOItem_Result = dbDeletor.del_AttributeType(OList_AttributeType);
