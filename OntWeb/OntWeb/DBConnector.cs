@@ -245,14 +245,23 @@ namespace OntWeb
         public clsOntologyItem save_AttributeTypes(List<clsOntologyItem> OList_AttribteTypes)
         {
             var result = Globals.LogStates.LogState_Success.Clone();
+            var countToDo = OList_AttribteTypes.Count;
+            var countDone = 0;
 
             foreach (var itemAttributeType in OList_AttribteTypes)
 	        {
 		        result = dbUpdater.save_AttributeType(itemAttributeType);
-                if ()
+                if (result.GUID == Globals.LogStates.LogState_Success.GUID)
+                {
+                    countDone++;
+                }
+                else
+                {
+                    break;
+                }
 	        }
-            dbUpdater.save_AttributeType()
 
+            result.Count = countToDo - countDone;
             return result;
         }
        
