@@ -1,6 +1,7 @@
 ﻿using OntologyClasses.BaseClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -58,6 +59,38 @@ namespace WpfOnt.Pages.PagesViewModels
         private bool isEnabled_Name;
 
         private string serviceConnection;
+
+        private bool showAttributes;
+        public bool ShowAttributes
+        {
+            get { return showAttributes; }
+            set
+            {
+                showAttributes = value;
+                OnPropertyChanged("ShowAttributes");
+            }
+        }
+        private bool showRelForw;
+        public bool ShowRelForw
+        {
+            get { return showRelForw; }
+            set
+            {
+                showRelForw = value;
+                OnPropertyChanged("ShowRelForw");
+            }
+        }
+
+        private bool showRelBackw;
+        public bool ShowRelBackw
+        {
+            get { return showRelBackw; }
+            set
+            {
+                showRelBackw = value;
+                OnPropertyChanged("ShowRelBackw");
+            }
+        }
         
         private Globals globals;
         public Globals GlobalConfig
@@ -66,21 +99,38 @@ namespace WpfOnt.Pages.PagesViewModels
             set
             {
                 globals = value;
-                
+                localConfig = new clsLocalConfig(globals);
                 if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
                 {
-                    dataWork_ObjectsEdit = new DataWork_ObjectsEdit(globals);
+                    dataWork_ObjectsEdit = new DataWork_ObjectsEdit(localConfig.Globals);
                 }
+                OnPropertyChanged("GlobalConfig");
             }
         }
 
 
+        private clsLocalConfig localConfig;
+        public clsLocalConfig LocalConfig
+        {
+            get { return localConfig; }
+            set
+            {
+                localConfig = value;
+
+                if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                {
+                    dataWork_ObjectsEdit = new DataWork_ObjectsEdit(localConfig.Globals);
+                }
+                OnPropertyChanged("LocalConfig");
+            }
+        }
+        
         private DataWork_ObjectsEdit dataWork_ObjectsEdit;
         
         private int itemIx;
         
-        private List<clsOntologyItem> rawObjects;
-        private List<clsOntologyItem> workObjects;
+        private ObservableCollection<clsOntologyItem> rawObjects;
+        private ObservableCollection<clsOntologyItem> workObjects;
 
         public bool IsEnabled_Name
         {
@@ -247,7 +297,7 @@ namespace WpfOnt.Pages.PagesViewModels
                 }
                 else
                 {
-                    workObjects = Objects.Where(obj => obj.Name.ToLower().Contains(nameFilter.ToLower())).ToList();
+                    workObjects = new ObservableCollection<clsOntologyItem>( Objects.Where(obj => obj.Name.ToLower().Contains(nameFilter.ToLower())));
 
                 }
 
@@ -268,7 +318,7 @@ namespace WpfOnt.Pages.PagesViewModels
             
         }
 
-        public List<clsOntologyItem> Objects 
+        public ObservableCollection<clsOntologyItem> Objects 
         {
             get { return rawObjects; }
             set
@@ -366,6 +416,10 @@ namespace WpfOnt.Pages.PagesViewModels
             IsEnabled_NavNext = false;
             IsEnabled_S_BottomUp = false;
             IsEnabled_S_TopDown = false;
+
+            showAttributes = true;
+            showRelForw = true;
+            showRelBackw = true;
 
             serviceConnection = "OServices@localhost";
         }
@@ -560,17 +614,17 @@ namespace WpfOnt.Pages.PagesViewModels
 
         public void clickSortTopDown()
         {
-            var selObject = workObjects[itemIx];
-            workObjects.Sort((object1, object2) => object1.Name.CompareTo(object2.Name));
-            itemIx = workObjects.IndexOf(selObject);
+            //var selObject = workObjects[itemIx];
+            //workObjects.Sort((object1, object2) => object1.Name.CompareTo(object2.Name));
+            //itemIx = workObjects.IndexOf(selObject);
             InitializeView();
         }
 
         public void clickSortBottomUp()
         {
-            var selObject = workObjects[itemIx];
-            workObjects.Sort((object1, object2) => object2.Name.CompareTo(object1.Name));
-            itemIx = workObjects.IndexOf(selObject);
+            //var selObject = workObjects[itemIx];
+            //workObjects.Sort((object1, object2) => object2.Name.CompareTo(object1.Name));
+            //itemIx = workObjects.IndexOf(selObject);
             InitializeView();
         }
 

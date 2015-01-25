@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <PublishUrl>veröffentlichen\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,11 +52,13 @@
     <Reference Include="ClassLibrary_ShellWork">
       <HintPath>..\..\..\OntologyManagement\Ontolog-Module\Ontolog-Module\bin\Debug\ClassLibrary_ShellWork.dll</HintPath>
     </Reference>
-    <Reference Include="Elasticsearch.Net">
-      <HintPath>..\..\..\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Elasticsearch.Net.dll</HintPath>
+    <Reference Include="Elasticsearch.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Elasticsearch.Net.1.3.1\lib\Elasticsearch.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Nest">
-      <HintPath>..\..\..\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Nest.dll</HintPath>
+    <Reference Include="Nest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NEST.1.3.1\lib\Nest.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Newtonsoft.Json.dll</HintPath>
@@ -53,6 +70,7 @@
     <Reference Include="System.Management.Instrumentation" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +88,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="clsLocalConfig.cs" />
     <Compile Include="clsModuleForCommandLine.cs" />
     <Compile Include="IModule.cs" />
     <Compile Include="clsModuleConfig.cs" />
@@ -84,6 +103,7 @@
     <Compile Include="Data\DbWork.cs" />
     <Compile Include="Data\MainViewData.cs" />
     <Compile Include="Data\OTreeNode.cs" />
+    <Compile Include="ImportExport\clsImport.cs" />
     <Compile Include="Pages\DataWork_ObjectsEdit.cs" />
     <Compile Include="Pages\ObjectsEdit.xaml.cs">
       <DependentUpon>ObjectsEdit.xaml</DependentUpon>
@@ -380,22 +400,40 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Config\Config_ont.xml" />
-    <Resource Include="Config\OntoogyTemplates\ClassAttItemTemplate.xml" />
-    <Resource Include="Config\OntoogyTemplates\ClassRelItemTemplate.xml" />
-    <Resource Include="Config\OntoogyTemplates\ObjAttItemTemplate.xml" />
-    <Resource Include="Config\OntoogyTemplates\ObjRelItemTemplate.xml" />
-    <Resource Include="Config\OntoogyTemplates\OntologyItemContainerTemplate.xml" />
-    <Resource Include="Config\OntoogyTemplates\OntologyItemTemplate.xml" />
-    <Resource Include="Config\Templates\AttributeTypes.xml" />
-    <Resource Include="Config\Templates\ClassAtts.xml" />
-    <Resource Include="Config\Templates\Classes.xml" />
-    <Resource Include="Config\Templates\ClassRels.xml" />
-    <Resource Include="Config\Templates\ObjectAtt.xml" />
-    <Resource Include="Config\Templates\ObjectRel.xml" />
-    <Resource Include="Config\Templates\Objects.xml" />
-    <Resource Include="Config\Templates\RelationTypes.xml" />
+    <EmbeddedResource Include="Config\OntoogyTemplates\ClassAttItemTemplate.xml" />
+    <EmbeddedResource Include="Config\OntoogyTemplates\ClassRelItemTemplate.xml" />
+    <EmbeddedResource Include="Config\OntoogyTemplates\ObjAttItemTemplate.xml" />
+    <EmbeddedResource Include="Config\OntoogyTemplates\ObjRelItemTemplate.xml" />
+    <EmbeddedResource Include="Config\OntoogyTemplates\OntologyItemContainerTemplate.xml" />
+    <EmbeddedResource Include="Config\OntoogyTemplates\OntologyItemTemplate.xml" />
+    <EmbeddedResource Include="Config\Templates\AttributeTypes.xml" />
+    <EmbeddedResource Include="Config\Templates\ClassAtts.xml" />
+    <EmbeddedResource Include="Config\Templates\Classes.xml" />
+    <EmbeddedResource Include="Config\Templates\ClassRels.xml" />
+    <EmbeddedResource Include="Config\Templates\ObjectAtt.xml" />
+    <EmbeddedResource Include="Config\Templates\ObjectRel.xml" />
+    <EmbeddedResource Include="Config\Templates\Objects.xml" />
+    <EmbeddedResource Include="Config\Templates\RelationTypes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(XamlSpyInstallPath)MSBuild\FirstFloor.XamlSpy.WPF.targets" Condition="'$(XamlSpyInstallPath)' != '' and '$(Configuration)' == 'DEBUG'" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

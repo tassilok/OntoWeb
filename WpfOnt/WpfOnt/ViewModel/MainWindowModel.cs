@@ -13,10 +13,21 @@ namespace WpfOnt.ViewModel
 
         private string idClass;
         private Globals globalConfig;
+        private clsLocalConfig localConfig;
 
         public MainWindowModel()
         {
             
+        }
+
+        public clsLocalConfig LocalConfig
+        {
+            get { return localConfig; }
+            set
+            {
+                localConfig = value;
+                OnPropertyChanged("LocalConfig");
+            }
         }
 
         public Globals GlobalConfig
@@ -25,6 +36,7 @@ namespace WpfOnt.ViewModel
             set
             {
                 globalConfig = value;
+                localConfig = new clsLocalConfig(globalConfig);
                 OnPropertyChanged("GlobalConfig");
             }
         }

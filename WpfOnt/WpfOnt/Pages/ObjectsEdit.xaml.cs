@@ -1,6 +1,7 @@
 ﻿using OntologyClasses.BaseClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -31,14 +32,15 @@ namespace WpfOnt.Pages
         private DispatcherTimer timerFilter = new DispatcherTimer();
         private DispatcherTimer timerName = new DispatcherTimer();
 
-        public ObjectsEdit(List<clsOntologyItem> objects, int itemIx, Globals globals)
+
+        public ObjectsEdit(ObservableCollection<clsOntologyItem> objects, int itemIx, Globals globals)
         {
            
 
             InitializeComponent();
 
             model = (ObjectsEditModel) DataContext;
-            model.GlobalConfig = globals;
+            model.LocalConfig = new clsLocalConfig(globals);
 
             timerFilter.Interval = new TimeSpan(0, 0, 0, 0, 300);
             timerFilter.Tick += timerFilter_Tick;
@@ -52,6 +54,28 @@ namespace WpfOnt.Pages
             model.InitializeView();
         }
 
+        public ObjectsEdit(ObservableCollection<clsOntologyItem> objects, int itemIx, clsLocalConfig localConfig)
+        {
+
+
+            InitializeComponent();
+
+            model = (ObjectsEditModel)DataContext;
+            model.LocalConfig = localConfig;
+
+            timerFilter.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            timerFilter.Tick += timerFilter_Tick;
+
+            timerName.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            timerName.Tick += timerName_Tick;
+
+            model = (ObjectsEditModel)DataContext;
+            model.Objects = objects;
+            model.ItemIx = itemIx;
+            model.InitializeView();
+        }
+
+       
         void timerName_Tick(object sender, EventArgs e)
         {
             timerName.Stop();

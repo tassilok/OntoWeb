@@ -16,9 +16,9 @@
             <ColumnDefinition Width="2"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <View:TypeTree Grid.Column="0" 
-                        SelectedNode="TypeTree_OnSelectedNode" GlobalConfig="{Binding DataContext.GlobalConfig, ElementName=layoutRoot}"/>
+                        SelectedNode="TypeTree_OnSelectedNode" LocalConfig="{Binding DataContext.LocalConfig, ElementName=layoutRoot}"/>
        
         <GridSplitter Background="DarkGray"  ResizeDirection="Columns" Grid.Column="1" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
@@ -26,7 +26,7 @@
         
         <View:OItemView 
             x:Name="ucOItemList" Grid.Column="2"
-                        IdParent="{Binding DataContext.IdClass, ElementName=layoutRoot}" GlobalConfig="{Binding DataContext.GlobalConfig, ElementName=layoutRoot}" Width="Auto">
+                        IdParent="{Binding DataContext.IdClass, ElementName=layoutRoot}" LocalConfig="{Binding DataContext.LocalConfig, ElementName=layoutRoot}" Width="Auto">
             <View:OItemView.DataContext>
                 <viewModel:OItemListModel />
             </View:OItemView.DataContext>

@@ -45,6 +45,16 @@ namespace WpfOnt
 
         public clsClassTypes ClassTypes { get; private set; }
 
+        public clsOntologyItem Class_Ontologies
+        {
+            get { return Classes.OItem_Class_Ontologies; }
+        }
+
+        public clsOntologyItem Class_OntologyItems
+        {
+            get { return Classes.OItem_Class_OntologyItems; }
+        }
+
         private string strEL_Server;
         private int intPort;
         private string strEL_Index;

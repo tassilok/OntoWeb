@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Nest;
 using OntologyClasses.DataClasses;
 using OntologyClasses.BaseClasses;
+using OntologyClasses.ESTypes;
 
 namespace ElasticSearchNestConnector
 {
@@ -107,14 +108,14 @@ namespace ElasticSearchNestConnector
                 }
                 if (objOItem_AttributeType.GUID != null && objOItem_AttributeType.Name != null && objOItem_AttributeType.GUID_Parent != null)
                 {
-                  
-                    var objDict = new Dictionary<string, object>();
-                    objDict.Add(objFields.ID_Item, objOItem_AttributeType.GUID);
-                    objDict.Add(objFields.Name_Item, objOItem_AttributeType.Name);
-                    objDict.Add(objFields.ID_DataType, objOItem_AttributeType.GUID_Parent);
 
-
-                    var bulkResult = objDBSelector.ElConnector.Bulk(b => b.Index<Dictionary<string, object>>(i => i.Id(objOItem_AttributeType.GUID).Object(objDict).Type(objTypes.AttributeType)));
+                    var esNode = new EsNode_AttributeType
+                    {
+                        ID_Item = objOItem_AttributeType.GUID,
+                        ID_DataType = objOItem_AttributeType.GUID_Parent,
+                        Name_Item = objOItem_AttributeType.Name
+                    };
+                    var bulkResult = objDBSelector.ElConnector.Bulk(b => b.Index<EsNode_AttributeType>(i => i.Id(esNode.ID_Item).Document(esNode).Type(objTypes.AttributeType)));
                     objOItem_Result = bulkResult.Items.Any(it => it.Error != null) ? objLogStates.LogState_Error : objLogStates.LogState_Success;
                     
                 }
@@ -181,15 +182,13 @@ namespace ElasticSearchNestConnector
             {
                 if (objOItem_Class.GUID != null && objOItem_Class.Name != null && (objOItem_Class.GUID_Parent != null || boolRoot))
                 {
-                    
-                    var objDict = new Dictionary<string, object>();
-                    objDict.Add(objFields.ID_Item, objOItem_Class.GUID);
-                    objDict.Add(objFields.Name_Item, objOItem_Class.Name);
-                    if (objOItem_Class.GUID_Parent != null)
-                        objDict.Add(objFields.ID_Parent, objOItem_Class.GUID_Parent);
-
-
-                    var bulkResult = objDBSelector.ElConnector.Bulk(b => b.Index<Dictionary<string, object>>(i => i.Id(objOItem_Class.GUID).Object(objDict).Type(objTypes.ClassType)));
+                    var esNode_Class = new EsNode_Class
+                    {
+                        ID_Item = objOItem_Class.GUID,
+                        Name_Item = objOItem_Class.Name,
+                        ID_Parent = objOItem_Class.GUID_Parent
+                    };
+                    var bulkResult = objDBSelector.ElConnector.Bulk(b => b.Index<EsNode_Class>(i => i.Id(esNode_Class.ID_Item).Document(esNode_Class).Type(objTypes.ClassType)));
                     objOItem_Result = bulkResult.Items.Any(it => it.Error != null) ? objLogStates.LogState_Error : objLogStates.LogState_Success;
 
                     
@@ -209,8 +208,8 @@ namespace ElasticSearchNestConnector
 
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var OList_AttributeTypes = OList_ClassAtt.Select(p => new clsOntologyItem { GUID = p.ID_AttributeType }).ToList();
-            var OList_Classes = OList_ClassAtt.Select(p => new clsOntologyItem { GUID = p.ID_Class }).ToList();
+            var OList_AttributeTypes = OList_ClassAtt.GroupBy(p => p.ID_AttributeType).Select(p => new clsOntologyItem { GUID = p.Key }).ToList();
+            var OList_Classes = OList_ClassAtt.GroupBy(p => p.ID_Class).Select(p => new clsOntologyItem { GUID = p.Key }).ToList();
 
             var objOList_Classes = objDBSelector.get_Data_Classes(OList_Classes);
             var objOList_AttributeTypes = objDBSelector.get_Data_AttributeType(OList_AttributeTypes);
@@ -231,16 +230,18 @@ namespace ElasticSearchNestConnector
                 
                 foreach (var objToSave in objOList_ToSave)
                 {
-                    var objDict = new Dictionary<string, object>();
-                    objDict.Add(objFields.ID_AttributeType, objToSave.ID_AttributeType);
-                    objDict.Add(objFields.ID_Class, objToSave.ID_Class);
-                    objDict.Add(objFields.ID_DataType, objToSave.ID_DataType);
-                    objDict.Add(objFields.Min, objToSave.Min);
-                    objDict.Add(objFields.Max, objToSave.Max);
-
-                    objBulkDescriptor.Index<Dictionary<string, object>>(
+                    var esEdge = new EsEdge_ClassAttribute
+                    {
+                        ID_Class = objToSave.ID_Class,
+                        ID_AttributeType = objToSave.ID_AttributeType,
+                        ID_DataType = objToSave.ID_DataType,
+                        Min = (long)objToSave.Min,
+                        Max = (long)objToSave.Max
+                    };
+                    
+                    objBulkDescriptor.Index<EsEdge_ClassAttribute>(
                         ix =>
-                        ix.Id(objToSave.ID_Class + objToSave.ID_AttributeType).Object(objDict).Type(objTypes.ClassAtt));
+                        ix.Id(objToSave.ID_Class + objToSave.ID_AttributeType).Document(esEdge).Type(objTypes.ClassAtt));
                     
 
                     
@@ -308,18 +309,20 @@ namespace ElasticSearchNestConnector
                 var objBulkDescriptor = new BulkDescriptor();
                 foreach (var objToSave in objOList_ToSave)
                 {
-                    var objDict = new Dictionary<string, object>();
-                    objDict.Add(objFields.ID_Class_Left, objToSave.ID_Class_Left);
-                    objDict.Add(objFields.ID_Class_Right, objToSave.ID_Class_Right);
-                    objDict.Add(objFields.Ontology, objToSave.Ontology);
-                    objDict.Add(objFields.ID_RelationType, objToSave.ID_RelationType);
-                    objDict.Add(objFields.Min_Forw, objToSave.Min_Forw);
-                    objDict.Add(objFields.Max_Forw, objToSave.Max_Forw);
-                    objDict.Add(objFields.Max_Backw, objToSave.Max_Backw);
+                    var esClassRel = new EsEdge_ClassRelation
+                    {
+                        ID_Class_Left = objToSave.ID_Class_Left,
+                        ID_Class_Right = objToSave.ID_Class_Right,
+                        ID_RelationType = objToSave.ID_RelationType,
+                        Ontology = objToSave.Ontology,
+                        Min_forw = (long)objToSave.Min_Forw,
+                        Max_forw = (long)objToSave.Max_Forw,
+                        Max_backw = (long)objToSave.Max_Backw
+                    };
 
-                    objBulkDescriptor.Index<Dictionary<string, object>>(
+                    objBulkDescriptor.Index<EsEdge_ClassRelation>(
                         ix =>
-                        ix.Id(objToSave.ID_Class_Left + objToSave.ID_Class_Right + objToSave.ID_RelationType).Object(objDict).Type(objTypes.ClassRel));
+                        ix.Id(objToSave.ID_Class_Left + objToSave.ID_Class_Right + objToSave.ID_RelationType).Document(esClassRel).Type(objTypes.ClassRel));
 
 
                 }
@@ -350,14 +353,16 @@ namespace ElasticSearchNestConnector
 
             foreach (var OItem_DataType in OList_DataType)
             {
-                var objDict = new Dictionary<string, object>();
-                objDict.Add(objFields.ID_Item, OItem_DataType.GUID);
-                objDict.Add(objFields.Name_Item, OItem_DataType.Name);
-                objDict.Add("Type", OItem_DataType.Type);
+                var esNode = new EsNode_DataType
+                {
+                    ID_Item = OItem_DataType.ID_Item,
+                    Name_Item = OItem_DataType.Name_Item,
+                    Type = OItem_DataType.Type
+                };
 
-                objBulkDescriptor.Index<Dictionary<string, object>>(
+                objBulkDescriptor.Index<EsNode_DataType>(
                         ix =>
-                        ix.Id(OItem_DataType.GUID).Object(objDict).Type(objTypes.DataType));
+                        ix.Id(OItem_DataType.GUID).Document(esNode).Type(objTypes.DataType));
 
             }
 
@@ -422,38 +427,40 @@ namespace ElasticSearchNestConnector
 
                 foreach (var OItem_ToSave in objOList_ToSave)
                 {
-                    var objDict_ObjAtt = new Dictionary<string, object>();
-                    objDict_ObjAtt.Add(objFields.ID_Attribute, OItem_ToSave.ID_Attribute);
-                    objDict_ObjAtt.Add(objFields.ID_Object, OItem_ToSave.ID_Object);
-                    objDict_ObjAtt.Add(objFields.ID_Class, OItem_ToSave.ID_Class);
-                    objDict_ObjAtt.Add(objFields.ID_AttributeType, OItem_ToSave.ID_AttributeType);
-                    objDict_ObjAtt.Add(objFields.OrderID, OItem_ToSave.OrderID);
-                    objDict_ObjAtt.Add(objFields.ID_DataType, OItem_ToSave.ID_DataType);
-                    objDict_ObjAtt.Add(objFields.Val_Name, OItem_ToSave.Val_Named);
-
+                    var esEdge_ObjAtt = new EsEdge_ObjectAttribute
+                    {
+                        ID_Attribute = OItem_ToSave.ID_Attribute,
+                        ID_Object = OItem_ToSave.ID_Object,
+                        ID_Class = OItem_ToSave.ID_Class,
+                        ID_AttributeType = OItem_ToSave.ID_AttributeType,
+                        ID_DataType = OItem_ToSave.ID_DataType,
+                        OrderID = (long)OItem_ToSave.OrderID,
+                        Val_Name = OItem_ToSave.Val_Named
+                    };
+                    
                     if (OItem_ToSave.ID_DataType == objDataTypes.DType_Bool.GUID)
                     {
-                        objDict_ObjAtt.Add(objFields.Val_Bool, OItem_ToSave.Val_Bit);
+                        esEdge_ObjAtt.Val_Bool = OItem_ToSave.Val_Bit;
                     }
                     else if (OItem_ToSave.ID_DataType == objDataTypes.DType_DateTime.GUID)
                     {
-                        objDict_ObjAtt.Add(objFields.Val_Datetime, OItem_ToSave.Val_Date);
+                        esEdge_ObjAtt.Val_Datetime = OItem_ToSave.Val_Date;
                     }
                     else if (OItem_ToSave.ID_DataType == objDataTypes.DType_Int.GUID)
                     {
-                        objDict_ObjAtt.Add(objFields.Val_Int, OItem_ToSave.Val_Lng);
+                        esEdge_ObjAtt.Val_Int = OItem_ToSave.Val_Lng;
                     }
                     else if (OItem_ToSave.ID_DataType == objDataTypes.DType_Real.GUID)
                     {
-                        objDict_ObjAtt.Add(objFields.Val_Real, OItem_ToSave.Val_Double);
+                        esEdge_ObjAtt.Val_Real = OItem_ToSave.Val_Double;
                     }
                     else if (OItem_ToSave.ID_DataType == objDataTypes.DType_String.GUID)
                     {
-                        objDict_ObjAtt.Add(objFields.Val_String, OItem_ToSave.Val_String);
+                        esEdge_ObjAtt.Val_String = OItem_ToSave.Val_String;
                     }
-                    objBulkDescriptor.Index<Dictionary<string, object>>(
+                    objBulkDescriptor.Index<EsEdge_ObjectAttribute>(
                         ix =>
-                        ix.Id(OItem_ToSave.ID_Attribute).Object(objDict_ObjAtt).Type(objTypes.ObjectAtt));
+                        ix.Id(OItem_ToSave.ID_Attribute).Document(esEdge_ObjAtt).Type(objTypes.ObjectAtt));
 
                 }
 
@@ -553,25 +560,28 @@ namespace ElasticSearchNestConnector
                 var objBulkDescriptor = new BulkDescriptor();
                 foreach (var objToSave in objOList_ToSave)
                 {
-                    var objDict = new Dictionary<string, object>();
-                    objDict.Add(objFields.ID_Object, objToSave.ID_Object);
-                    objDict.Add(objFields.ID_Parent_Object, objToSave.ID_Parent_Object);
-                    objDict.Add(objFields.ID_Other, objToSave.ID_Other);
-                    objDict.Add(objFields.OrderID, objToSave.OrderID);
-                    objDict.Add(objFields.Ontology, objToSave.Ontology);
-                    objDict.Add(objFields.ID_RelationType, objToSave.ID_RelationType);
+                    var esEdge = new EsEdge_ObjectRelation
+                    {
+                        ID_Object = objToSave.ID_Object,
+                        ID_Parent_Object = objToSave.ID_Parent_Object,
+                        ID_Other = objToSave.ID_Other,
+                        OrderID = (long)objToSave.OrderID,
+                        Ontology = objToSave.Ontology,
+                        ID_RelationType = objToSave.ID_RelationType
+                    };
+                    
                     var strID = objToSave.ID_Object + objToSave.ID_Other + objToSave.ID_RelationType;
 
                     if (objToSave.Ontology == objTypes.AttributeType ||
                         objToSave.Ontology == objTypes.ObjectType)
                     {
-                        objDict.Add(objFields.ID_Parent_Other, objToSave.ID_Parent_Other);
+                        esEdge.ID_Parent_Other = objToSave.ID_Parent_Other;
 
                     }
 
-                    objBulkDescriptor.Index<Dictionary<string, object>>(
+                    objBulkDescriptor.Index<EsEdge_ObjectRelation>(
                         ix =>
-                        ix.Id(strID).Object(objDict).Type(objTypes.ObjectRel));
+                        ix.Id(strID).Document(esEdge).Type(objTypes.ObjectRel));
 
 
                 }
@@ -613,15 +623,16 @@ namespace ElasticSearchNestConnector
                 var objBulkDescriptor = new BulkDescriptor();
                 foreach (var objToSave in objOList_ToSave)
                 {
-                    var objDict = new Dictionary<string, object>();
-
-                    objDict.Add(objFields.ID_Item, objToSave.GUID);
-                    objDict.Add(objFields.Name_Item, objToSave.Name);
-                    objDict.Add(objFields.ID_Class, objToSave.GUID_Parent);
-
-                    objBulkDescriptor.Index<Dictionary<string, object>>(
+                    var esNode = new EsNode_Object
+                    {
+                        ID_Item = objToSave.GUID,
+                        Name_Item = objToSave.Name,
+                        ID_Class = objToSave.GUID_Parent
+                    };
+                    
+                    objBulkDescriptor.Index<EsNode_Object>(
                         ix =>
-                        ix.Id(objToSave.GUID).Object(objDict).Type(objTypes.ObjectType));
+                        ix.Id(objToSave.GUID).Document(esNode).Type(objTypes.ObjectType));
                     
                 }
 
@@ -687,17 +698,13 @@ namespace ElasticSearchNestConnector
             {
                 if (objOItem_RelationType.GUID != null && objOItem_RelationType.Name != null)
                 {
-                    //foreach (var specialCharacter in objDBSelector.SpecialCharacters_Write)
-                    //{
-                    //    objOItem_RelationType.Name = objOItem_RelationType.Name.Replace(specialCharacter, "\\" + specialCharacter);
-                    //}
-
-                    var objDict = new Dictionary<string, object>();
-                    objDict.Add(objFields.ID_Item, objOItem_RelationType.GUID);
-                    objDict.Add(objFields.Name_Item, objOItem_RelationType.Name);
-
-
-                    var bulkResult = objDBSelector.ElConnector.Bulk(b => b.Index<Dictionary<string, object>>(i => i.Id(objOItem_RelationType.GUID).Object(objDict).Type(objTypes.RelationType)));
+                    var esNode = new EsNode_RelationType
+                    {
+                        ID_Item = objOItem_RelationType.GUID,
+                        Name_Item = objOItem_RelationType.Name
+                    };
+                    
+                    var bulkResult = objDBSelector.ElConnector.Bulk(b => b.Index<EsNode_RelationType>(i => i.Id(objOItem_RelationType.GUID).Document(esNode).Type(objTypes.RelationType)));
                     objOItem_Result = bulkResult.Items.Any(it => it.Error != null) ? objLogStates.LogState_Error : objLogStates.LogState_Success;
                     
                 }

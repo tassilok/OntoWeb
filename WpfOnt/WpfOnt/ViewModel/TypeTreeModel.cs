@@ -17,6 +17,7 @@ namespace WpfOnt.ViewModel
     {
 
         private Globals globals;
+        private clsLocalConfig localConfig;
         private DbWork dbWork;
 
         public RelayCommand<TreeViewHelper.DependencyPropertyEventArgs> MySelItemChgCmd { get; set; }
@@ -42,12 +43,31 @@ namespace WpfOnt.ViewModel
             }
             set
             {
-                this.globals = value;
+                globals = value;
+                localConfig = new clsLocalConfig(globals);
                 if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
                 {
-                    dbWork = new DbWork(globals);
+                    dbWork = new DbWork(localConfig.Globals);
                 }
                 OnPropertyChanged("GlobalConfig");
+                Refresh();
+            }
+        }
+
+        public clsLocalConfig LocalConfig
+        {
+            get
+            {
+                return localConfig;
+            }
+            set
+            {
+                this.localConfig = value;
+                if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                {
+                    dbWork = new DbWork(localConfig.Globals);
+                }
+                OnPropertyChanged("LocalConfig");
                 Refresh();
             }
         }

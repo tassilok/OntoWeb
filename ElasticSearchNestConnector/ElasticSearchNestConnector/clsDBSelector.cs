@@ -7,7 +7,6 @@ using OntologyClasses.BaseClasses;
 using OntologyClasses.DataClasses;
 using Nest;
 using Elasticsearch.Net.Connection;
-using PUrify;
 
 namespace ElasticSearchNestConnector
 {
@@ -978,11 +977,13 @@ namespace ElasticSearchNestConnector
 
         private void initialize_Client()
         {
-            var uri = new Uri("http://" + Server + ":" + Port.ToString()).Purify();
+            var uri = new Uri("http://" + Server + ":" + Port.ToString());//.Purify();
 
             var settings = new ConnectionSettings(uri).SetDefaultIndex(Index).ExposeRawResponse();
+            settings.SetDefaultTypeNameInferrer(i => i.Name);
+            settings.SetDefaultPropertyNameInferrer(p => p);
             ElConnector = new ElasticClient(settings);
-
+            
             if (IndexRep != null)
             {
                 try

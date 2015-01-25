@@ -27,7 +27,7 @@ namespace WpfOnt
         {
             InitializeComponent();
             var model = (MainWindowModel)DataContext;
-            model.GlobalConfig = new Globals();
+            model.LocalConfig = new clsLocalConfig(new Globals());
         }
 
         private void TypeTree_OnSelectedNode(OTreeNode otreenode)

@@ -235,12 +235,26 @@ namespace OntWeb
             return oItemResult;
         }
 
-         public clsOntologyItem save_DataTypes(List<clsOntologyItem> OList_DataTypes) 
-         {
+        public clsOntologyItem save_DataTypes(List<clsOntologyItem> OList_DataTypes) 
+        {
              var objOItem_Result = dbUpdater.save_DataTypes(OList_DataTypes);
 
              return objOItem_Result;
-         }
+        }
+
+        public clsOntologyItem save_AttributeTypes(List<clsOntologyItem> OList_AttribteTypes)
+        {
+            var result = Globals.LogStates.LogState_Success.Clone();
+
+            foreach (var itemAttributeType in OList_AttribteTypes)
+	        {
+		        result = dbUpdater.save_AttributeType(itemAttributeType);
+                if ()
+	        }
+            dbUpdater.save_AttributeType()
+
+            return result;
+        }
        
 
         public clsOntologyItem del_AttributeType(List<clsOntologyItem> OList_AttributeType)

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nest;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace OntologyClasses.BaseClasses
 {
+    [Serializable]
     [ElasticType(Name = "clsObjectAtt")]
     public class clsObjectAtt
     {
@@ -138,6 +141,20 @@ namespace OntologyClasses.BaseClasses
         public clsObjectAtt()
         {
             
+        }
+
+        public clsObjectAtt Clone()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryFormatter bf = new BinaryFormatter();
+
+            bf.Serialize(ms, this);
+
+            ms.Position = 0;
+            object obj = bf.Deserialize(ms);
+            ms.Close();
+
+            return obj as clsObjectAtt;
         }
     }
 }

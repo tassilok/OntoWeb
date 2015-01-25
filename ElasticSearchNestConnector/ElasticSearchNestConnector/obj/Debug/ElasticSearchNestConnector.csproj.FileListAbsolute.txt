@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\ElasticSearchNestConnector.dll
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\ElasticSearchNestConnector.pdb
 C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Elasticsearch.Net.dll
@@ -20,3 +21,20 @@ C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSear
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.pdb
 C:\Data\Git\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
 C:\Data\Git\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.dll
+=======
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Elasticsearch.Net.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Elasticsearch.Net.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Nest.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\OntologyClasses.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\OntologyClasses.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Nest.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.dll
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Elasticsearch.Net.pdb
+C:\Users\Tassilo\Documents\GitHub\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\bin\Debug\Nest.pdb
+>>>>>>> 7c3b608d3b01e6cd7990e5d33617b5f22d164bc7

@@ -1,6 +1,7 @@
 ﻿using OntologyClasses.BaseClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -48,14 +49,29 @@ namespace WpfOnt.ViewModel
             set
             {
                 globals = value;
+                localConfig = new clsLocalConfig(globals);
                 if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
                 {
-                    dbWork = new DbWork(globals);
+                    dbWork = new DbWork(localConfig.Globals);
                 }
             }
         }
 
-        private List<clsOntologyItem> itemList;
+        private clsLocalConfig localConfig;
+        public clsLocalConfig LocalConfig
+        {
+            get { return localConfig; }
+            set
+            {
+                localConfig = value;
+                if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                {
+                    dbWork = new DbWork(localConfig.Globals);
+                }
+            }
+        }
+
+        private ObservableCollection<clsOntologyItem> itemList;
 
         private int itemCount = 0;
 
@@ -291,7 +307,7 @@ namespace WpfOnt.ViewModel
         /// <summary>
         ///     Contains the current selected page.
         /// </summary>
-        public List<clsOntologyItem> ItemList
+        public ObservableCollection<clsOntologyItem> ItemList
         {
             get { return itemList; }
             set
@@ -323,13 +339,13 @@ namespace WpfOnt.ViewModel
                 {
                     var objectSearch = new List<clsOntologyItem>  { new clsOntologyItem { GUID_Parent = this.idParent } };
                     var oItem_Result = dbWork.get_Data_Objects(objectSearch);
-                    ItemList = dbWork.OList_Objects;
+                    ItemList = new ObservableCollection<clsOntologyItem>(dbWork.OList_Objects);
                 }
                 else
                 {
                     var objectSearch = new List<clsOntologyItem> { new clsOntologyItem { Name = NameFilter ,GUID_Parent = this.idParent } };
                     var oItem_Result = dbWork.get_Data_Objects(objectSearch);
-                    ItemList = dbWork.OList_Objects;
+                    ItemList = new ObservableCollection<clsOntologyItem>( dbWork.OList_Objects);
                 }
                
             }
@@ -339,10 +355,8 @@ namespace WpfOnt.ViewModel
         }
 
         public void OpenObjectEdit(clsOntologyItem OItem_Object)
-        {
-            var ix = itemList.IndexOf(OItem_Object);
-            var objectsEdit = new ObjectsEdit(itemList, ix, GlobalConfig);
-            objectsEdit.Show();
+        {   
+           
         }
 
         

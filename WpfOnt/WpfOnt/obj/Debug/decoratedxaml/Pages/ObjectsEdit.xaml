@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Window x:Class="WpfOnt.Pages.ObjectsEdit" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:viewModel="clr-namespace:WpfOnt.Pages.PagesViewModels" xmlns:ucViewModels="clr-namespace:WpfOnt.ViewModel" xmlns:View="clr-namespace:WpfOnt.View" x:Name="userControl" Title="{Binding Label_Header}" Height="464.15" Width="857" Initialized="Window_Initialized_1" xmlns:spy="http://firstfloorsoftware.com/XamlSpy" spy:XamlMetadata.SpyServiceSettings="127.0.0.1|4530|49484|1" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|1|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+    <Window.DataContext>
+        <viewModel:ObjectsEditModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="ObjectTextBlock" TargetType="TextBlock">
+            <Setter Property="Margin" Value="3,0,3,0" />
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="layoutRoot" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|16|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|24|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+            <MenuItem Header="{Binding MenuItem_File}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|25|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <MenuItem Header="{Binding MenuItem_Edit}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|26|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <MenuItem Header="{Binding MenuItem_ToOntologyClipboard}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|27|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+                <MenuItem Header="{Binding MenuItem_Delete}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|28|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+                <MenuItem Header="{Binding MenuItem_OpenModuleByCommandLine}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|29|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                    <MenuItem Header="{Binding MenuItem_OpenLastModule}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|30|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+                </MenuItem>
+                <MenuItem Header="{Binding MenuItem_OpenGraphView}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|32|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|35|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="{Binding Label_GUID}" Grid.Column="0" Style="{StaticResource ResourceKey=ObjectTextBlock}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|43|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <Border BorderBrush="Gainsboro" BorderThickness="0,0,2,2" Grid.Column="1" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|44|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Border BorderBrush="Gray" BorderThickness="2,2,0,0" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|45|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                    <TextBox IsReadOnly="True" Text="{Binding GuidObject}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|46|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+                </Border>
+            </Border>
+
+            <TextBlock Text="{Binding Label_Name}" Grid.Column="2" Style="{StaticResource ResourceKey=ObjectTextBlock}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|50|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <TextBox Text="{Binding NameObject, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsEnabled_Name}" Grid.Column="3" TextChanged="TextBox_TextChanged_Name" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|51|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+        </Grid>
+
+        <Grid Grid.Row="2" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|54|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <View:ObjectRefTree Grid.Column="0" Grid.Row="0" Height="Auto" Width="Auto" LocalConfig="{Binding DataContext.LocalConfig, ElementName=layoutRoot}" IdObject="{Binding DataContext.GuidObject, ElementName=layoutRoot}" ShowAttributes="{Binding DataContext.ShowAttributes, ElementName=layoutRoot}" ShowRelForw="{Binding DataContext.ShowRelForw, ElementName=layoutRoot}" ShowRelBackw="{Binding DataContext.ShowRelBackw, ElementName=layoutRoot}">
+                <View:ObjectRefTree.DataContext>
+                    <ucViewModels:ObjectRefTreeModel />
+                </View:ObjectRefTree.DataContext>
+            </View:ObjectRefTree>
+
+            <GridSplitter Background="DarkGray" ResizeDirection="Columns" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|76|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+        </Grid>
+        <ToolBar Grid.Row="3" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|80|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+            <Button IsEnabled="{Binding IsEnabled_NavBack}" Command="{Binding ClickNavFirst}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|81|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Image Source="../Resources/pulsante_01_architetto_f_01 First1.png" Width="14" Height="14" Opacity="{Binding Opac_NavBack}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|82|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </Button>
+            <Button IsEnabled="{Binding IsEnabled_NavBack}" Command="{Binding ClickNavPrevious}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|84|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Image Source="../Resources/pulsante_01_architetto_f_01.png" Width="14" Height="14" Opacity="{Binding Opac_NavBack}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|85|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </Button>
+            <Button IsEnabled="{Binding IsEnabled_NavNext}" Command="{Binding ClickNavNext}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|87|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Image Source="../Resources/pulsante_02_architetto_f_01.png" Width="14" Height="14" Opacity="{Binding Opac_NavNext}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|88|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </Button>
+            <Button IsEnabled="{Binding IsEnabled_NavNext}" Command="{Binding ClickNavLast}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|90|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Image Source="../Resources/pulsante_02_architetto_f_01 Last.png" Width="14" Height="14" Opacity="{Binding Opac_NavNext}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|91|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </Button>
+            <Separator spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|93|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <Button IsEnabled="{Binding IsEnabled_S_TopDown}" Command="{Binding ClickSortTopDown}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|94|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Image Source="../Resources/tasto_3_architetto_franc_01.png" Width="14" Height="14" Opacity="{Binding Opac_TopDown}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|95|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </Button>
+            <Button IsEnabled="{Binding IsEnabled_S_BottomUp}" Command="{Binding ClickSortBottomUp}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|97|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Image Source="../Resources/tasto_4_architetto_franc_01.png" Width="14" Height="14" Opacity="{Binding Opac_TopDown}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|98|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            </Button>
+            <Separator spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|100|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <TextBlock Text="{Binding Label_Filter}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|101|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <TextBox Width="100" Text="{Binding NameFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextBox_TextChanged_Filter" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|102|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <Separator spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|103|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+            <TextBlock Text="{Binding PosCount}" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|104|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln" />
+        </ToolBar>
+        <StatusBar Grid.Row="4" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|106|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+            <Border BorderBrush="Gainsboro" BorderThickness="0,0,2,2" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|107|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                <Border BorderBrush="Gray" BorderThickness="2,2,0,0" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|108|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+                    <TextBlock Text="{Binding ServiceConnection}" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" Margin="3,0,3,0" spy:XamlMetadata.SourceInfo="C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\Pages\ObjectsEdit.xaml|109|C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt.sln">
+
+                    </TextBlock>
+                </Border>
+            
+            </Border>
+        </StatusBar>
+    </Grid>
+</Window>

@@ -389,14 +389,12 @@ namespace WpfOnt
             {
                 if (objTransactionItem.Removed == false)
                 {
-                    objOLObjRel.Add(new clsObjectRel(ID_Object: objTransactionItem.OItem_ObjectRel.ID_Object,
-                                                 ID_Other: objTransactionItem.OItem_ObjectRel.ID_Other,
-                                                 ID_RelationType: objTransactionItem.OItem_ObjectRel.ID_RelationType,
-                                                 ID_Parent_Object:null,
-                                                 ID_Parent_Other:null,
-                                                 ID_Direction:null,
-                                                 Ontology:null,
-                                                 OrderID:null));
+                    objOLObjRel.Add(new clsObjectRel
+                    {
+                        ID_Object = objTransactionItem.OItem_ObjectRel.ID_Object,
+                        ID_Other = objTransactionItem.OItem_ObjectRel.ID_Other,
+                        ID_RelationType = objTransactionItem.OItem_ObjectRel.ID_RelationType
+                    });
 
                     objOItem_Result = objDBLevel.del_ObjectRel(objOLObjRel);
                 }
@@ -479,25 +477,20 @@ namespace WpfOnt
 
                     if (!boolNeutral)
                     {
-                        objOL_ObjRel_Del.Add(new clsObjectRel(objOItem_TransItem.OItem_ObjectRel.ID_Object,
-                                              null,
-                                              null,
-                                              objOItem_TransItem.OItem_ObjectRel.ID_Parent_Other,
-                                              objOItem_TransItem.OItem_ObjectRel.ID_RelationType,
-                                              objTypes.ObjectType,
-                                              null,
-                                              null));
+                        objOL_ObjRel_Del.Add(new clsObjectRel
+                        {
+                            ID_Object = objOItem_TransItem.OItem_ObjectRel.ID_Object,
+                            ID_Parent_Other = objOItem_TransItem.OItem_ObjectRel.ID_Parent_Other,
+                            ID_RelationType = objOItem_TransItem.OItem_ObjectRel.ID_RelationType
+                        });
                     }
                     else
                     {
-                        objOL_ObjRel_Del.Add(new clsObjectRel(objOItem_TransItem.OItem_ObjectRel.ID_Object,
-                                              null, 
-                                              null, 
-                                              null, 
-                                              objOItem_TransItem.OItem_ObjectRel.ID_RelationType,
-                                              objTypes.ObjectType,
-                                              null, 
-                                              null));
+                        objOL_ObjRel_Del.Add(new clsObjectRel
+                        {
+                            ID_Object = objOItem_TransItem.OItem_ObjectRel.ID_Object,
+                            ID_RelationType = objOItem_TransItem.OItem_ObjectRel.ID_RelationType
+                        });
                     }
 
                     objOItem_Result = objDBLevel.del_ObjectRel(objOL_ObjRel_Del);

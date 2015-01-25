@@ -9,12 +9,12 @@ WpfOnt
 none
 false
 DEBUG;TRACE
-C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\App.xaml
-6-510899444
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\obj\Debug\decoratedxaml\App.xaml
+6-1571089926
 
-38-160800891
-231786357361
-MainWindow.xaml;Pages\ObjectsEdit.xaml;View\ObjectRefTree.xaml;View\OConfig.xaml;View\OItemView.xaml;View\TypeTree.xaml;
+41-905882630
+2566630489
+obj\Debug\decoratedxaml\MainWindow.xaml;obj\Debug\decoratedxaml\Pages\ObjectsEdit.xaml;obj\Debug\decoratedxaml\View\ObjectRefTree.xaml;obj\Debug\decoratedxaml\View\OConfig.xaml;obj\Debug\decoratedxaml\View\OItemView.xaml;obj\Debug\decoratedxaml\View\TypeTree.xaml;
 
 False
 
