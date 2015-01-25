@@ -15,3 +15,9 @@ C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\bin\Debug\OntologyClas
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\bin\Debug\OntologyClasses.pdb
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.dll
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.pdb
+C:\Data\Git\OntoWeb\OntologyClasses\bin\Debug\OntologyClasses.dll
+C:\Data\Git\OntoWeb\OntologyClasses\bin\Debug\OntologyClasses.pdb
+C:\Data\Git\OntoWeb\OntologyClasses\bin\Debug\Newtonsoft.Json.dll
+C:\Data\Git\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.csprojResolveAssemblyReference.cache
+C:\Data\Git\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.dll
+C:\Data\Git\OntoWeb\OntologyClasses\obj\Debug\OntologyClasses.pdb

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntWeb", "OntWeb\OntWeb.csproj", "{07659C5B-C68D-45AC-8D28-1803FAC6DD21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntologyClasses", "..\OntologyClasses\OntologyClasses.csproj", "{E937824A-B52A-4AA4-A008-710824FC52F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntologyClasses", "..\..\OntologyManagement\OntologyClasses\OntologyClasses.csproj", "{E937824A-B52A-4AA4-A008-710824FC52F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticSearchNestConnector", "..\ElasticSearchNestConnector\ElasticSearchNestConnector\ElasticSearchNestConnector.csproj", "{47208CAE-F413-4C25-A184-14F1140CA081}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticSearchNestConnector", "..\..\OntologyManagement\ElasticSearchNestConnector\ElasticSearchNestConnector\ElasticSearchNestConnector.csproj", "{47208CAE-F413-4C25-A184-14F1140CA081}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -18,3 +18,5 @@ C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSear
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.dll
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.pdb
+C:\Data\Git\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.csprojResolveAssemblyReference.cache
+C:\Data\Git\OntoWeb\ElasticSearchNestConnector\ElasticSearchNestConnector\obj\Debug\ElasticSearchNestConnector.dll
