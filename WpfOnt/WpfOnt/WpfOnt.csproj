@@ -109,6 +109,11 @@
       <DependentUpon>ObjectsEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PagesViewModels\ObjectsEditModel.cs" />
+    <Compile Include="Service References\OntoWeb\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewModelUtils\CommandHandler.cs" />
     <Compile Include="ViewModelUtils\RelayCommand.cs" />
     <Compile Include="ViewModelUtils\TreeViewHelper.cs" />
@@ -191,6 +196,43 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\OntoWeb\OntoWeb.wsdl" />
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassAtt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassRel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDirections.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsFields.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsLogStates.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsMappingRules.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsObjectAtt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsObjectRel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyRelationRules.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsVariables.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.Config.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -389,16 +431,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ElasticSearchNestConnector\ElasticSearchNestConnector\ElasticSearchNestConnector.csproj">
-      <Project>{47208cae-f413-4c25-a184-14f1140ca081}</Project>
-      <Name>ElasticSearchNestConnector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\OntologyClasses\OntologyClasses.csproj">
-      <Project>{e937824a-b52a-4aa4-a008-710824fc52f3}</Project>
-      <Name>OntologyClasses</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Config\Config_ont.xml" />
     <EmbeddedResource Include="Config\OntoogyTemplates\ClassAttItemTemplate.xml" />
     <EmbeddedResource Include="Config\OntoogyTemplates\ClassRelItemTemplate.xml" />
@@ -431,6 +463,24 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\OntoWeb\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OntoWeb\OntoWeb.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OntoWeb\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OntoWeb\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OntoWeb\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(XamlSpyInstallPath)MSBuild\FirstFloor.XamlSpy.WPF.targets" Condition="'$(XamlSpyInstallPath)' != '' and '$(Configuration)' == 'DEBUG'" />

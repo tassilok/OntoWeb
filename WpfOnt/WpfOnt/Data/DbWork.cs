@@ -1,11 +1,9 @@
-﻿using OntologyClasses.BaseClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OntologyClasses.DataClasses;
-using ElasticSearchNestConnector;
+using WpfOnt.OntoWeb;
 
 namespace WpfOnt.Data
 {
@@ -16,7 +14,7 @@ namespace WpfOnt.Data
         public List<clsOntologyItem> OList_Objects2 { get; private set; }
         public List<clsObjectRel> OList_ObjectRel_ID { get; private set; }
         public List<clsObjectRel> OList_ObjectRel { get; private set; }
-        public List<clsObjectTree> OList_ObjectTree { get; private set; }
+        //public List<clsObjectTree> OList_ObjectTree { get; private set; }
         public List<clsOntologyItem> OList_Classes { get; private set; }
         public List<clsOntologyItem> OList_Classes2 { get; private set; }
         public List<clsOntologyItem> OList_RelationTypes { get; private set; }
@@ -28,13 +26,15 @@ namespace WpfOnt.Data
         public List<clsObjectAtt> OList_ObjAtt_ID { get; private set; }
         public List<clsObjectAtt> OList_ObjAtt { get; private set; }
         public List<clsOntologyItem> OList_DataTypes { get; private set; }
-        public List<clsAttribute> OList_Attributes { get; private set; }
+        //public List<clsAttribute> OList_Attributes { get; private set; }
 
-        private clsDataTypes objDataTypes = new clsDataTypes();
-        private clsTypes objTypes = new clsTypes();
+        //private clsDataTypes objDataTypes = new clsDataTypes();
+        //private clsTypes objTypes = new clsTypes();
         private clsLogStates objLogStates = new clsLogStates();
         private clsFields objFields = new clsFields();
         private clsDirections objDirections = new clsDirections();
+
+        private OntoWeb.OntoWebSoapClient ontoWebSoapClient;
 
         private string strServer;
         private string strIndex;
@@ -44,11 +44,11 @@ namespace WpfOnt.Data
         private string strSession;
 
         public int PackageLength { get; set; }
-        private SortEnum sortE;
+        //private SortEnum sortE;
 
-        private clsDBSelector objElSelector; 
-        private clsDBDeletor objElDeletor;
-        private clsDBUpdater objElUpdater;
+        //private clsDBSelector objElSelector; 
+        //private clsDBDeletor objElDeletor;
+        //private clsDBUpdater objElUpdater;
 
 
         public List<clsObjectAtt> OAList_Saved { get; set; }
@@ -66,7 +66,7 @@ namespace WpfOnt.Data
 
          public List<string> IndexList(string strServer, int intPort)
          {
-             return objElSelector.IndexList(strServer, intPort);
+             return new List<string>(ontoWebSoapClient.IndexList(strServer, intPort));
          }
         
 
@@ -86,13 +86,13 @@ namespace WpfOnt.Data
 
         public clsOntologyItem del_AttributeType(List<clsOntologyItem> OList_AttributeType)
         {
-            var objOItem_Result = objElDeletor.del_AttributeType(OList_AttributeType);
+            var objOItem_Result = ontoWebSoapClient.DeleteAttributeTypes(OList_AttributeType.ToArray());
             return objOItem_Result;
         }
 
         public clsOntologyItem del_RelationTypes(List<clsOntologyItem> OList_RelationType)
         {
-            var objOItem_Result = objElDeletor.del_RelationType(OList_RelationType);
+            var objOItem_Result = ontoWebSoapClient.del_RelationType(OList_RelationType);
 
             return objOItem_Result;
         }
@@ -710,12 +710,14 @@ namespace WpfOnt.Data
             OList_ObjAtt = new List<clsObjectAtt>();
             OList_DataTypes = new List<clsOntologyItem>();
             OList_Attributes = new List<clsAttribute>();
+
+            ontoWebSoapClient = new OntoWebSoapClient();
         }
 
         public DbWork()
         {
             Initialize();
-            objElSelector = new clsDBSelector();
+            //objElSelector = new clsDBSelector();
         }
     
     
@@ -727,16 +729,9 @@ namespace WpfOnt.Data
 
         public clsOntologyItem DeleteIndex(string strIndex) 
         {
-            var indexResponse = objElSelector.ElConnector.DeleteIndex(d => objElSelector.GetDeleteIndexDescriptor().Index(strIndex));
+            var oItem_Result = ontoWebSoapClient.DeleteIndex(strIndex);
 
-            if (indexResponse.IsValid)
-            {
-                return objLogStates.LogState_Success.Clone();
-            }
-            else
-            {
-                return objLogStates.LogState_Error.Clone();
-            }
+            return oItem_Result;
         }
 
 
