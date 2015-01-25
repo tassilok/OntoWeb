@@ -11,6 +11,8 @@ namespace OntWeb
     public class DbConnector
     {
         private clsDBSelector dbSelector;
+        private clsDBDeletor dbDeletor;
+        private clsDBUpdater dbUpdater;
 
         public List<clsOntologyItem> Classes1 { get; private set; }
         public List<clsOntologyItem> Classes2 { get; private set; }
@@ -187,6 +189,25 @@ namespace OntWeb
             return oItemResult;
         }
 
+        public List<string> IndexList(string server, int port)
+        {
+            return dbSelector.IndexList(server, port);
+        }
+        
+        public clsOntologyItem DeleteIndex(string strIndex)
+        {
+            var indexResponse = dbSelector.ElConnector.DeleteIndex(d => dbSelector.GetDeleteIndexDescriptor().Index(strIndex));
+
+            if (indexResponse.IsValid)
+            {
+                return Globals.LogStates.LogState_Success.Clone();
+            }
+            else
+            {
+                return Globals.LogStates.LogState_Error.Clone();
+            }
+        }
+
         public clsOntologyItem GetObjectAtt(List<clsObjectAtt> ObjectAttsSearch = null,
                                             bool ids = true,
                                             bool doCount = false,
@@ -214,9 +235,40 @@ namespace OntWeb
             return oItemResult;
         }
 
+        public clsOntologyItem save_DataTypes(List<clsOntologyItem> OList_DataTypes) 
+        {
+             var objOItem_Result = dbUpdater.save_DataTypes(OList_DataTypes);
+
+             return objOItem_Result;
+        }
+
+        public clsOntologyItem save_AttributeTypes(List<clsOntologyItem> OList_AttribteTypes)
+        {
+            var result = Globals.LogStates.LogState_Success.Clone();
+
+            foreach (var itemAttributeType in OList_AttribteTypes)
+	        {
+		        result = dbUpdater.save_AttributeType(itemAttributeType);
+                if ()
+	        }
+            dbUpdater.save_AttributeType()
+
+            return result;
+        }
+       
+
+        public clsOntologyItem del_AttributeType(List<clsOntologyItem> OList_AttributeType)
+        {
+            var objOItem_Result = dbDeletor.del_AttributeType(OList_AttributeType);
+            return objOItem_Result;
+        }
+
+
         public DbConnector()
         {
             dbSelector = new clsDBSelector(Globals.ElServer,Globals.ElPort,Globals.ElIndex,Globals.RepIndex,Globals.ElSearchRange,"");
+            dbDeletor = new clsDBDeletor(dbSelector);
+            dbUpdater = new clsDBUpdater(dbSelector);
             Classes1 = new List<clsOntologyItem>();
             Classes2 = new List<clsOntologyItem>();
             ClassAttributes = new List<clsClassAtt>();
