@@ -17,24 +17,24 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAtts", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds);
+        WpfOnt.OntoWeb.WebServiceResult ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAtts", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassAttributes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassAtt ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds);
+        WpfOnt.OntoWeb.WebServiceResult ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassAttributes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassAtt> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassRelations", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassRel ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr);
+        WpfOnt.OntoWeb.WebServiceResult ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassRelations", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassRel> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Object", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -122,38 +122,38 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectRels", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectRel ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds);
+        WpfOnt.OntoWeb.WebServiceResult ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectRels", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectRel> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Objects", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects);
+        WpfOnt.OntoWeb.WebServiceResult Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Objects", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Classes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes);
+        WpfOnt.OntoWeb.WebServiceResult Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Classes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RelationTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes);
+        WpfOnt.OntoWeb.WebServiceResult RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RelationTypes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType);
+        WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOItem", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -628,6 +628,38 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class KeyValuePairOfclsOntologyItemListOfclsObjectAtt : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsObjectAtt[] valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
+        public clsObjectAtt[] Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("Value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class KeyValuePairOfclsOntologyItemListOfString : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string[] valueField;
@@ -660,19 +692,125 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfclsOntologyItem : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Config : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private clsOntologyItem[] valueField;
+        private string configItemField;
+        
+        private string configValueStringField;
+        
+        private int configValueIntField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public clsOntologyItem[] Value {
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ConfigItem {
             get {
-                return this.valueField;
+                return this.configItemField;
             }
             set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
+                this.configItemField = value;
+                this.RaisePropertyChanged("ConfigItem");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ConfigValueString {
+            get {
+                return this.configValueStringField;
+            }
+            set {
+                this.configValueStringField = value;
+                this.RaisePropertyChanged("ConfigValueString");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int ConfigValueInt {
+            get {
+                return this.configValueIntField;
+            }
+            set {
+                this.configValueIntField = value;
+                this.RaisePropertyChanged("ConfigValueInt");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsFields : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsDirections : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsOntologyItem direction_LeftRightField;
+        
+        private clsOntologyItem direction_RightLeftField;
+        
+        private clsOntologyItem[] directionsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsOntologyItem Direction_LeftRight {
+            get {
+                return this.direction_LeftRightField;
+            }
+            set {
+                this.direction_LeftRightField = value;
+                this.RaisePropertyChanged("Direction_LeftRight");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsOntologyItem Direction_RightLeft {
+            get {
+                return this.direction_RightLeftField;
+            }
+            set {
+                this.direction_RightLeftField = value;
+                this.RaisePropertyChanged("Direction_RightLeft");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public clsOntologyItem[] Directions {
+            get {
+                return this.directionsField;
+            }
+            set {
+                this.directionsField = value;
+                this.RaisePropertyChanged("Directions");
             }
         }
         
@@ -1167,390 +1305,6 @@ namespace WpfOnt.OntoWeb {
             set {
                 this.countField = value;
                 this.RaisePropertyChanged("Count");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfclsObjectRel : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private clsObjectRel[] valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public clsObjectRel[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsObjectRel : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iD_ObjectField;
-        
-        private string name_ObjectField;
-        
-        private string iD_Parent_ObjectField;
-        
-        private string name_Parent_ObjectField;
-        
-        private string iD_OtherField;
-        
-        private string name_OtherField;
-        
-        private string iD_Parent_OtherField;
-        
-        private string name_Parent_OtherField;
-        
-        private string iD_RelationTypeField;
-        
-        private string name_RelationTypeField;
-        
-        private string ontologyField;
-        
-        private string iD_DirectionField;
-        
-        private string name_DirectionField;
-        
-        private System.Nullable<long> orderIDField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ID_Object {
-            get {
-                return this.iD_ObjectField;
-            }
-            set {
-                this.iD_ObjectField = value;
-                this.RaisePropertyChanged("ID_Object");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name_Object {
-            get {
-                return this.name_ObjectField;
-            }
-            set {
-                this.name_ObjectField = value;
-                this.RaisePropertyChanged("Name_Object");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ID_Parent_Object {
-            get {
-                return this.iD_Parent_ObjectField;
-            }
-            set {
-                this.iD_Parent_ObjectField = value;
-                this.RaisePropertyChanged("ID_Parent_Object");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Name_Parent_Object {
-            get {
-                return this.name_Parent_ObjectField;
-            }
-            set {
-                this.name_Parent_ObjectField = value;
-                this.RaisePropertyChanged("Name_Parent_Object");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string ID_Other {
-            get {
-                return this.iD_OtherField;
-            }
-            set {
-                this.iD_OtherField = value;
-                this.RaisePropertyChanged("ID_Other");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string Name_Other {
-            get {
-                return this.name_OtherField;
-            }
-            set {
-                this.name_OtherField = value;
-                this.RaisePropertyChanged("Name_Other");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string ID_Parent_Other {
-            get {
-                return this.iD_Parent_OtherField;
-            }
-            set {
-                this.iD_Parent_OtherField = value;
-                this.RaisePropertyChanged("ID_Parent_Other");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string Name_Parent_Other {
-            get {
-                return this.name_Parent_OtherField;
-            }
-            set {
-                this.name_Parent_OtherField = value;
-                this.RaisePropertyChanged("Name_Parent_Other");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string ID_RelationType {
-            get {
-                return this.iD_RelationTypeField;
-            }
-            set {
-                this.iD_RelationTypeField = value;
-                this.RaisePropertyChanged("ID_RelationType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string Name_RelationType {
-            get {
-                return this.name_RelationTypeField;
-            }
-            set {
-                this.name_RelationTypeField = value;
-                this.RaisePropertyChanged("Name_RelationType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public string Ontology {
-            get {
-                return this.ontologyField;
-            }
-            set {
-                this.ontologyField = value;
-                this.RaisePropertyChanged("Ontology");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public string ID_Direction {
-            get {
-                return this.iD_DirectionField;
-            }
-            set {
-                this.iD_DirectionField = value;
-                this.RaisePropertyChanged("ID_Direction");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-        public string Name_Direction {
-            get {
-                return this.name_DirectionField;
-            }
-            set {
-                this.name_DirectionField = value;
-                this.RaisePropertyChanged("Name_Direction");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
-        public System.Nullable<long> OrderID {
-            get {
-                return this.orderIDField;
-            }
-            set {
-                this.orderIDField = value;
-                this.RaisePropertyChanged("OrderID");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Config : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string configItemField;
-        
-        private string configValueStringField;
-        
-        private int configValueIntField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ConfigItem {
-            get {
-                return this.configItemField;
-            }
-            set {
-                this.configItemField = value;
-                this.RaisePropertyChanged("ConfigItem");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ConfigValueString {
-            get {
-                return this.configValueStringField;
-            }
-            set {
-                this.configValueStringField = value;
-                this.RaisePropertyChanged("ConfigValueString");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int ConfigValueInt {
-            get {
-                return this.configValueIntField;
-            }
-            set {
-                this.configValueIntField = value;
-                this.RaisePropertyChanged("ConfigValueInt");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsFields : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsDirections : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private clsOntologyItem direction_LeftRightField;
-        
-        private clsOntologyItem direction_RightLeftField;
-        
-        private clsOntologyItem[] directionsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public clsOntologyItem Direction_LeftRight {
-            get {
-                return this.direction_LeftRightField;
-            }
-            set {
-                this.direction_LeftRightField = value;
-                this.RaisePropertyChanged("Direction_LeftRight");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public clsOntologyItem Direction_RightLeft {
-            get {
-                return this.direction_RightLeftField;
-            }
-            set {
-                this.direction_RightLeftField = value;
-                this.RaisePropertyChanged("Direction_RightLeft");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
-        public clsOntologyItem[] Directions {
-            get {
-                return this.directionsField;
-            }
-            set {
-                this.directionsField = value;
-                this.RaisePropertyChanged("Directions");
             }
         }
         
@@ -2356,19 +2110,201 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfclsClassRel : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class clsObjectRel : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private clsClassRel[] valueField;
+        private string iD_ObjectField;
+        
+        private string name_ObjectField;
+        
+        private string iD_Parent_ObjectField;
+        
+        private string name_Parent_ObjectField;
+        
+        private string iD_OtherField;
+        
+        private string name_OtherField;
+        
+        private string iD_Parent_OtherField;
+        
+        private string name_Parent_OtherField;
+        
+        private string iD_RelationTypeField;
+        
+        private string name_RelationTypeField;
+        
+        private string ontologyField;
+        
+        private string iD_DirectionField;
+        
+        private string name_DirectionField;
+        
+        private System.Nullable<long> orderIDField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public clsClassRel[] Value {
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ID_Object {
             get {
-                return this.valueField;
+                return this.iD_ObjectField;
             }
             set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
+                this.iD_ObjectField = value;
+                this.RaisePropertyChanged("ID_Object");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name_Object {
+            get {
+                return this.name_ObjectField;
+            }
+            set {
+                this.name_ObjectField = value;
+                this.RaisePropertyChanged("Name_Object");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ID_Parent_Object {
+            get {
+                return this.iD_Parent_ObjectField;
+            }
+            set {
+                this.iD_Parent_ObjectField = value;
+                this.RaisePropertyChanged("ID_Parent_Object");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Name_Parent_Object {
+            get {
+                return this.name_Parent_ObjectField;
+            }
+            set {
+                this.name_Parent_ObjectField = value;
+                this.RaisePropertyChanged("Name_Parent_Object");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string ID_Other {
+            get {
+                return this.iD_OtherField;
+            }
+            set {
+                this.iD_OtherField = value;
+                this.RaisePropertyChanged("ID_Other");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Name_Other {
+            get {
+                return this.name_OtherField;
+            }
+            set {
+                this.name_OtherField = value;
+                this.RaisePropertyChanged("Name_Other");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string ID_Parent_Other {
+            get {
+                return this.iD_Parent_OtherField;
+            }
+            set {
+                this.iD_Parent_OtherField = value;
+                this.RaisePropertyChanged("ID_Parent_Other");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string Name_Parent_Other {
+            get {
+                return this.name_Parent_OtherField;
+            }
+            set {
+                this.name_Parent_OtherField = value;
+                this.RaisePropertyChanged("Name_Parent_Other");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public string ID_RelationType {
+            get {
+                return this.iD_RelationTypeField;
+            }
+            set {
+                this.iD_RelationTypeField = value;
+                this.RaisePropertyChanged("ID_RelationType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string Name_RelationType {
+            get {
+                return this.name_RelationTypeField;
+            }
+            set {
+                this.name_RelationTypeField = value;
+                this.RaisePropertyChanged("Name_RelationType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public string Ontology {
+            get {
+                return this.ontologyField;
+            }
+            set {
+                this.ontologyField = value;
+                this.RaisePropertyChanged("Ontology");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public string ID_Direction {
+            get {
+                return this.iD_DirectionField;
+            }
+            set {
+                this.iD_DirectionField = value;
+                this.RaisePropertyChanged("ID_Direction");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public string Name_Direction {
+            get {
+                return this.name_DirectionField;
+            }
+            set {
+                this.name_DirectionField = value;
+                this.RaisePropertyChanged("Name_Direction");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public System.Nullable<long> OrderID {
+            get {
+                return this.orderIDField;
+            }
+            set {
+                this.orderIDField = value;
+                this.RaisePropertyChanged("OrderID");
             }
         }
         
@@ -2676,51 +2612,89 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfclsClassAtt : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class WebServiceResult : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private clsClassAtt[] valueField;
+        private clsOntologyItem resultField;
+        
+        private clsOntologyItem[] ontologyItemsField;
+        
+        private clsClassAtt[] classAttributesField;
+        
+        private clsClassRel[] classRelationsField;
+        
+        private clsObjectAtt[] objectAttributesField;
+        
+        private clsObjectRel[] objectRelationsField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public clsClassAtt[] Value {
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsOntologyItem Result {
             get {
-                return this.valueField;
+                return this.resultField;
             }
             set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfclsObjectAtt : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private clsObjectAtt[] valueField;
-        
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public clsObjectAtt[] Value {
+        [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+        public clsOntologyItem[] OntologyItems {
             get {
-                return this.valueField;
+                return this.ontologyItemsField;
             }
             set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
+                this.ontologyItemsField = value;
+                this.RaisePropertyChanged("OntologyItems");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public clsClassAtt[] ClassAttributes {
+            get {
+                return this.classAttributesField;
+            }
+            set {
+                this.classAttributesField = value;
+                this.RaisePropertyChanged("ClassAttributes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
+        public clsClassRel[] ClassRelations {
+            get {
+                return this.classRelationsField;
+            }
+            set {
+                this.classRelationsField = value;
+                this.RaisePropertyChanged("ClassRelations");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        public clsObjectAtt[] ObjectAttributes {
+            get {
+                return this.objectAttributesField;
+            }
+            set {
+                this.objectAttributesField = value;
+                this.RaisePropertyChanged("ObjectAttributes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
+        public clsObjectRel[] ObjectRelations {
+            get {
+                return this.objectRelationsField;
+            }
+            set {
+                this.objectRelationsField = value;
+                this.RaisePropertyChanged("ObjectRelations");
             }
         }
         
@@ -2761,27 +2735,27 @@ namespace WpfOnt.OntoWeb {
                 base(binding, remoteAddress) {
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds) {
+        public WpfOnt.OntoWeb.WebServiceResult ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds) {
             return base.Channel.ObjectAtts(oList_ObjAttributes, onlyIds);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds) {
             return base.Channel.ObjectAttsAsync(oList_ObjAttributes, onlyIds);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassAtt ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds) {
+        public WpfOnt.OntoWeb.WebServiceResult ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds) {
             return base.Channel.ClassAttributes(oList_Classes, oList_AttributeTypes, onlyIds);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassAtt> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds) {
             return base.Channel.ClassAttributesAsync(oList_Classes, oList_AttributeTypes, onlyIds);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassRel ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr) {
+        public WpfOnt.OntoWeb.WebServiceResult ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr) {
             return base.Channel.ClassRelations(oList_ClassRel, onlyIds, queryOr);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsClassRel> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr) {
             return base.Channel.ClassRelationsAsync(oList_ClassRel, onlyIds, queryOr);
         }
         
@@ -2881,43 +2855,43 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.RegExGuidAsync();
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectRel ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds) {
+        public WpfOnt.OntoWeb.WebServiceResult ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds) {
             return base.Channel.ObjectRels(oLIst_ObjRel, onlyIds);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectRel> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds) {
             return base.Channel.ObjectRelsAsync(oLIst_ObjRel, onlyIds);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects) {
+        public WpfOnt.OntoWeb.WebServiceResult Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects) {
             return base.Channel.Objects(oList_Objects);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects) {
             return base.Channel.ObjectsAsync(oList_Objects);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes) {
+        public WpfOnt.OntoWeb.WebServiceResult Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes) {
             return base.Channel.Classes(oList_Classes);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes) {
             return base.Channel.ClassesAsync(oList_Classes);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes) {
+        public WpfOnt.OntoWeb.WebServiceResult RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes) {
             return base.Channel.RelationTypes(oLIst_RelTypes);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes) {
             return base.Channel.RelationTypesAsync(oLIst_RelTypes);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType) {
+        public WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType) {
             return base.Channel.AttributeTypes(oList_AttType);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsOntologyItem> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType) {
             return base.Channel.AttributeTypesAsync(oList_AttType);
         }
         

@@ -392,11 +392,11 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<string>> IndexList(string server, int port)
+        public WebServiceResult IndexList(string server, int port)
         {
             try
             {
-                var result = new KeyValuePair<clsOntologyItem, List<string>>(Globals.LogStates.LogState_Success.Clone(), dbSelector.IndexList(server, port));
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), IndexList = dbSelector.IndexList(server, port) };
                 return result;
 
             }
@@ -404,7 +404,7 @@ namespace OntWeb
             {
                 var result = Globals.LogStates.LogState_Error.Clone();
                 result.Additional1 = ex.Message;
-                return new KeyValuePair<clsOntologyItem, List<string>>(Globals.LogStates.LogState_Error.Clone(), null);
+                return new WebServiceResult { Result = Globals.LogStates.LogState_Error.Clone() };
                 
             }
             
@@ -509,19 +509,19 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem,List<clsObjectAtt>> SaveObjectAttributes(List<clsObjectAtt> oList_ObjAtts)
+        public WebServiceResult SaveObjectAttributes(List<clsObjectAtt> oList_ObjAtts)
         {
             try
             {
 
-                return new KeyValuePair<clsOntologyItem,List<clsObjectAtt>>(Globals.LogStates.LogState_Success.Clone(), dbUpdater.save_ObjectAtt(oList_ObjAtts));
+                return new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectAttributes = dbUpdater.save_ObjectAtt(oList_ObjAtts) };
 
             }
             catch (Exception ex)
             {
                 var result = Globals.LogStates.LogState_Error.Clone();
                 result.Additional1 = ex.Message;
-                return new KeyValuePair<clsOntologyItem,List<clsObjectAtt>> (result, null);
+                return new WebServiceResult { Result = result };
             }
         }
 

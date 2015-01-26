@@ -43,27 +43,18 @@
       <s:element name="ObjectAttsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ObjectAttsResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsObjectAtt" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttsResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsObjectAtt">
+      <s:complexType name="WebServiceResult">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsObjectAtt" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="ClassAttributes">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="oList_Classes" type="tns:ArrayOfClsOntologyItem" />
-            <s:element minOccurs="0" maxOccurs="1" name="oList_AttributeTypes" type="tns:ArrayOfClsOntologyItem" />
-            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfClsOntologyItem">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="clsOntologyItem" nillable="true" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OntologyItems" type="tns:ArrayOfClsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassAttributes" type="tns:ArrayOfClsClassAtt" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassRelations" type="tns:ArrayOfClsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectAttributes" type="tns:ArrayOfClsObjectAtt" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectRelations" type="tns:ArrayOfClsObjectRel" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="clsOntologyItem">
@@ -104,16 +95,9 @@
           <s:element minOccurs="1" maxOccurs="1" name="Count" nillable="true" type="s:long" />
         </s:sequence>
       </s:complexType>
-      <s:element name="ClassAttributesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ClassAttributesResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsClassAtt" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsClassAtt">
+      <s:complexType name="ArrayOfClsOntologyItem">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsClassAtt" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsOntologyItem" nillable="true" type="tns:clsOntologyItem" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfClsClassAtt">
@@ -133,15 +117,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="Max" nillable="true" type="s:long" />
         </s:sequence>
       </s:complexType>
-      <s:element name="ClassRelations">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="oList_ClassRel" type="tns:ArrayOfClsClassRel" />
-            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
-            <s:element minOccurs="1" maxOccurs="1" name="queryOr" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:complexType name="ArrayOfClsClassRel">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="clsClassRel" nillable="true" type="tns:clsClassRel" />
@@ -161,18 +136,61 @@
           <s:element minOccurs="1" maxOccurs="1" name="Max_Backw" nillable="true" type="s:long" />
         </s:sequence>
       </s:complexType>
-      <s:element name="ClassRelationsResponse">
+      <s:complexType name="ArrayOfClsObjectRel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsObjectRel" nillable="true" type="tns:clsObjectRel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsObjectRel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Object" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Object" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Parent_Object" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Parent_Object" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Other" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Other" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Parent_Other" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Parent_Other" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_RelationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_RelationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ontology" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID_Direction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name_Direction" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderID" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClassAttributes">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ClassRelationsResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsClassRel" />
+            <s:element minOccurs="0" maxOccurs="1" name="oList_Classes" type="tns:ArrayOfClsOntologyItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="oList_AttributeTypes" type="tns:ArrayOfClsOntologyItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsClassRel">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsClassRel" />
-        </s:sequence>
-      </s:complexType>
+      <s:element name="ClassAttributesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassAttributesResult" type="tns:WebServiceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClassRelations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oList_ClassRel" type="tns:ArrayOfClsClassRel" />
+            <s:element minOccurs="1" maxOccurs="1" name="onlyIds" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="queryOr" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClassRelationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassRelationsResult" type="tns:WebServiceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Type_Object">
         <s:complexType />
       </s:element>
@@ -388,41 +406,13 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfClsObjectRel">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="clsObjectRel" nillable="true" type="tns:clsObjectRel" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="clsObjectRel">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="ID_Object" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name_Object" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ID_Parent_Object" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name_Parent_Object" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ID_Other" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name_Other" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ID_Parent_Other" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name_Parent_Other" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ID_RelationType" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name_RelationType" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Ontology" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ID_Direction" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name_Direction" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="OrderID" nillable="true" type="s:long" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="ObjectRelsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ObjectRelsResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsObjectRel" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectRelsResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsObjectRel">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsObjectRel" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Objects">
         <s:complexType>
           <s:sequence>
@@ -433,15 +423,10 @@
       <s:element name="ObjectsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ObjectsResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsOntologyItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectsResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsOntologyItem">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsOntologyItem" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Classes">
         <s:complexType>
           <s:sequence>
@@ -452,7 +437,7 @@
       <s:element name="ClassesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ClassesResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsOntologyItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassesResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -466,7 +451,7 @@
       <s:element name="RelationTypesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="RelationTypesResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsOntologyItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="RelationTypesResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -480,7 +465,7 @@
       <s:element name="AttributeTypesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="AttributeTypesResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsOntologyItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttributeTypesResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -636,6 +621,11 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsObjectAtt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsObjectAtt" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="SaveObjects">
         <s:complexType>
           <s:sequence>
