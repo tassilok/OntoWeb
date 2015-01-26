@@ -10,6 +10,7 @@ using ElasticSearchNestConnector;
 
 namespace OntWeb
 {
+
     /// <summary>
     /// Summary description for OntoWeb
     /// </summary>
@@ -49,20 +50,20 @@ namespace OntWeb
         
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsObjectAtt>> ObjectAtts(List<clsObjectAtt> oList_ObjAttributes, bool onlyIds)
+        public WebServiceResult ObjectAtts(List<clsObjectAtt> oList_ObjAttributes, bool onlyIds)
         {
             
             try
             {
                 var oList = dbSelector.get_Data_ObjectAtt(oList_ObjAttributes, onlyIds);
-                var result = new KeyValuePair<clsOntologyItem, List<clsObjectAtt>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectAttributes = oList };
                 return result;
             }catch (Exception ex)
             {
 
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsObjectAtt>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult};
                 return result;
             }
             
@@ -70,20 +71,20 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsClassAtt>> ClassAttributes(List<clsOntologyItem> oList_Classes, List<clsOntologyItem> oList_AttributeTypes, bool onlyIds)
+        public WebServiceResult ClassAttributes(List<clsOntologyItem> oList_Classes, List<clsOntologyItem> oList_AttributeTypes, bool onlyIds)
         {
 
             try
             {
                 var oList = dbSelector.get_Data_ClassAtt(oList_Classes, oList_AttributeTypes, onlyIds);
-                var result = new KeyValuePair<clsOntologyItem, List<clsClassAtt>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ClassAttributes = oList };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsClassAtt>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
             
@@ -92,19 +93,19 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsClassRel>> ClassRelations(List<clsClassRel> oList_ClassRel, bool onlyIds, bool queryOr = true)
+        public WebServiceResult ClassRelations(List<clsClassRel> oList_ClassRel, bool onlyIds, bool queryOr = true)
         {
             try
             {
                 var oList = dbSelector.get_Data_ClassRel(oList_ClassRel, onlyIds, queryOr);
-                var result = new KeyValuePair<clsOntologyItem, List<clsClassRel>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone() };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsClassRel>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
             
@@ -186,37 +187,37 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsObjectRel>> ObjectRels(List<clsObjectRel> oLIst_ObjRel, bool onlyIds)
+        public WebServiceResult ObjectRels(List<clsObjectRel> oLIst_ObjRel, bool onlyIds)
         {
             try
             {
                 var oList = dbSelector.get_Data_ObjectRel(oLIst_ObjRel,onlyIds);
-                var result = new KeyValuePair<clsOntologyItem, List<clsObjectRel>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectRelations = oList };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsObjectRel>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> Objects(List<clsOntologyItem> oList_Objects)
+        public WebServiceResult Objects(List<clsOntologyItem> oList_Objects)
         {
             try
             {
                 var oList = dbSelector.get_Data_Objects(oList_Objects);
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
 
@@ -224,57 +225,57 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> Classes(List<clsOntologyItem> oList_Classes)
+        public WebServiceResult Classes(List<clsOntologyItem> oList_Classes)
         {
             try
             {
                 var oList = dbSelector.get_Data_Classes(oList_Classes);
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone() };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
 
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> RelationTypes(List<clsOntologyItem> oLIst_RelTypes)
+        public WebServiceResult RelationTypes(List<clsOntologyItem> oLIst_RelTypes)
         {
             try
             {
                 var oList = dbSelector.get_Data_RelationTypes(oLIst_RelTypes);
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
 
         }
 
         [WebMethod]
-        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> AttributeTypes(List<clsOntologyItem> oList_AttType)
+        public WebServiceResult AttributeTypes(List<clsOntologyItem> oList_AttType)
         {
             try
             {
                 var oList = dbSelector.get_Data_AttributeType(oList_AttType);
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
                 return result;
             }
             catch (Exception ex)
             {
                 var oResult = Globals.LogStates.LogState_Error.Clone();
                 oResult.Additional1 = ex.Message;
-                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                var result = new WebServiceResult { Result = oResult };
                 return result;
             }
             
@@ -286,22 +287,22 @@ namespace OntWeb
             if (type == Globals.OTypes.ClassType)
             {
                 var item = Classes(new List<clsOntologyItem> { new clsOntologyItem { GUID =  idItem } });
-                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
+                return item.Result.GUID == Globals.LogStates.LogState_Success.GUID ? item.OntologyItems.FirstOrDefault() : item.Result;
             }
             else if (type == Globals.OTypes.ObjectType)
             {
                 var item = Objects(new List<clsOntologyItem> { new clsOntologyItem { GUID = idItem } });
-                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
+                return item.Result.GUID == Globals.LogStates.LogState_Success.GUID ? item.OntologyItems.FirstOrDefault() : item.Result;
             }
             else if (type == Globals.OTypes.AttributeType)
             {
                 var item = AttributeTypes(new List<clsOntologyItem> { new clsOntologyItem { GUID = idItem } });
-                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
+                return item.Result.GUID == Globals.LogStates.LogState_Success.GUID ? item.OntologyItems.FirstOrDefault() : item.Result;
             }
             else if (type == Globals.OTypes.RelationType)
             {
                 var item = RelationTypes(new List<clsOntologyItem> { new clsOntologyItem { GUID = idItem } });
-                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
+                return item.Result.GUID == Globals.LogStates.LogState_Success.GUID ? item.OntologyItems.FirstOrDefault() : item.Result;
             }
             else
             {
@@ -325,33 +326,33 @@ namespace OntWeb
             {
                 var result = Classes(new List<clsOntologyItem> { new clsOntologyItem { GUID = idClass } });
 
-                if (result.Key.GUID != Globals.LogStates.LogState_Success.GUID && result.Value.Any())
+                if (result.Result.GUID != Globals.LogStates.LogState_Success.GUID && result.OntologyItems.Any())
                 {
                     
                     if (string.IsNullOrEmpty(path))
                     {
-                        path = result.Value.First().Name;
+                        path = result.OntologyItems.First().Name;
                     }
                     else
                     {
-                        path = result.Value.First().Name + "\\" + path;
+                        path = result.OntologyItems.First().Name + "\\" + path;
                     }
 
-                    if (!string.IsNullOrEmpty(result.Value.First().GUID_Parent))
+                    if (!string.IsNullOrEmpty(result.OntologyItems.First().GUID_Parent))
                     {
-                        return getClassPath(result.Value.First().GUID_Parent, path);
+                        return getClassPath(result.OntologyItems.First().GUID_Parent, path);
                     }
                     else
                     {
-                        result.Key.Additional1 = path;
-                        return result.Key;
+                        result.Result.Additional1 = path;
+                        return result.Result;
                     }
 
                     
                 }
                 else
                 {
-                    return result.Key;
+                    return result.Result;
                 }
             }
             catch (Exception ex)
