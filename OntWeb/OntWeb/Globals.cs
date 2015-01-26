@@ -87,6 +87,11 @@ namespace OntWeb
             get { return fields; }
         }
 
+        public static string NewGuid
+        {
+            get { return Guid.NewGuid().ToString().Replace("-", ""); }
+        }
+
         public static bool IsGuid(string guid)
         {
             var objRegExp = new Regex(RegEx_Guid);

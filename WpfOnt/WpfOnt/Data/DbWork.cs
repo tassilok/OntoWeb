@@ -72,7 +72,7 @@ namespace WpfOnt.Data
 
         public clsOntologyItem save_DataTypes(List<clsOntologyItem> OList_DataTypes)
         {
-            var objOItem_Result = objElUpdater.save_DataTypes(OList_DataTypes);
+            var objOItem_Result = ontoWebSoapClient.SaveDataTypes(OList_DataTypes.ToArray());
 
             return objOItem_Result;
         }

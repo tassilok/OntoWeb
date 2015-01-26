@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using ElasticSearchNestConnector;
 
 namespace OntWeb
 {
@@ -20,7 +21,12 @@ namespace OntWeb
     public class OntoWeb : System.Web.Services.WebService
     {
 
-        private DbConnector dbConnector;
+        private clsDBSelector dbSelector;
+        private clsDBUpdater dbUpdater;
+        private clsDBDeletor dbDeletor;
+
+        private string session;
+
         clsTypes types = new clsTypes();
 
         public OntoWeb()
@@ -28,7 +34,10 @@ namespace OntWeb
             var OItem_Result = Globals.LoadConfig();
             if (OItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
             {
-                dbConnector = new DbConnector();
+
+                dbSelector = new clsDBSelector(Globals.ElServer, Globals.ElPort, Globals.ElIndex, Globals.RepIndex, Globals.ElSearchRange, Globals.NewGuid);
+                dbUpdater = new clsDBUpdater(dbSelector);
+                dbDeletor = new clsDBDeletor(dbSelector);
             }
             else
             {
@@ -40,369 +49,65 @@ namespace OntWeb
         
 
         [WebMethod]
-        public List<clsObjectAtt> ObjectAtts(bool onlyIds)
+        public KeyValuePair<clsOntologyItem, List<clsObjectAtt>> ObjectAtts(List<clsObjectAtt> oList_ObjAttributes, bool onlyIds)
         {
-            var oItem_Result = dbConnector.GetObjectAtt(ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            
+            try
             {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
-            }
-            else
+                var oList = dbSelector.get_Data_ObjectAtt(oList_ObjAttributes, onlyIds);
+                var result = new KeyValuePair<clsOntologyItem, List<clsObjectAtt>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
+            }catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
 
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsObjectAtt>>(oResult, null);
+                return result;
             }
-        }
-
-        [WebMethod]
-        public List<clsClassAtt> ClassAttributes(bool onlyIds)
-        {
-
-            var oItem_Result = dbConnector.GetClassAttributes(ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassAttributesId : dbConnector.ClassAttributes;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
+            
 
         }
 
         [WebMethod]
-        public List<clsClassAtt> ClassAttributesByClassGuid(string guidClass, bool onlyIds)
+        public KeyValuePair<clsOntologyItem, List<clsClassAtt>> ClassAttributes(List<clsOntologyItem> oList_Classes, List<clsOntologyItem> oList_AttributeTypes, bool onlyIds)
         {
 
-            var classesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guidClass } };
-            var oItem_Result = dbConnector.GetClassAttributes(classes: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return onlyIds ? dbConnector.ClassAttributesId : dbConnector.ClassAttributes;
-
+                var oList = dbSelector.get_Data_ClassAtt(oList_Classes, oList_AttributeTypes, onlyIds);
+                var result = new KeyValuePair<clsOntologyItem, List<clsClassAtt>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsClassAtt>>(oResult, null);
+                return result;
             }
+            
+            
 
         }
 
         [WebMethod]
-        public List<clsClassAtt> ClassAttributesByAttributeTypeGuid(string guidAttributeType, bool onlyIds)
+        public KeyValuePair<clsOntologyItem, List<clsClassRel>> ClassRelations(List<clsClassRel> oList_ClassRel, bool onlyIds, bool queryOr = true)
         {
-
-            var attributeTypeSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guidAttributeType } };
-            var oItem_Result = dbConnector.GetClassAttributes(attributeTypes: attributeTypeSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return onlyIds ? dbConnector.ClassAttributesId : dbConnector.ClassAttributes;
-
+                var oList = dbSelector.get_Data_ClassRel(oList_ClassRel, onlyIds, queryOr);
+                var result = new KeyValuePair<clsOntologyItem, List<clsClassRel>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsClassRel>>(oResult, null);
+                return result;
             }
-
-        }
-
-        [WebMethod]
-        public List<clsClassAtt> ClassAttributesByClassGuid_ttributeTypeGuid(string guidAttributeType, string guidClass, bool onlyIds)
-        {
-
-            var attributeTypeSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guidAttributeType } };
-            var classesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guidClass } };
-            var oItem_Result = dbConnector.GetClassAttributes(classesSearch, attributeTypeSearch, onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassAttributesId : dbConnector.ClassAttributes;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ClassesByGuidParent(string GuidParent, bool allChildren = false)
-        {
-            if (allChildren)
-            {
-                return LocGetClassChildsByGuidParent(GuidParent);
-            }
-            else
-            {
-                var classesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID_Parent = GuidParent } };
-                var oItemResult = dbConnector.GetClasses(classesSearch);
-                if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-                {
-                    return dbConnector.Classes1;
-                }
-                else
-                {
-                    SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                    throw se;
-                }
-            }
-
-        }
-
-        private List<clsOntologyItem> LocGetClassChildsByGuidParent(string GuidParent)
-        {
-            var classes = new List<clsOntologyItem>();
-            var classesSearch = new List<clsOntologyItem>();
-            var first = true;
-            long classFoundCount;
-
-            do
-            {
-                classFoundCount = classes.Count;
-                if (first)
-                {
-                    classesSearch.Add(new clsOntologyItem { GUID_Parent = GuidParent });
-                    first = false;
-                }
-                else
-                {
-                    classesSearch =
-                        dbConnector.Classes1.GroupBy(p => p.GUID)
-                                   .Select(p => new clsOntologyItem { GUID_Parent = p.Key })
-                                   .ToList();
-                }
-                var oItemResult = dbConnector.GetClasses(classesSearch);
-                if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-                {
-                    classes.AddRange(dbConnector.Classes1);
-                    classFoundCount = classes.Count - classFoundCount;
-                }
-                else
-                {
-                    SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                    throw se;
-                }
-
-            } while (classFoundCount > 0);
-
-
-            return classes;
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ClassesChildsByGuidParentAndName(string GuidParent, string name, bool allChildren = false, bool caseSensitive = false)
-        {
-            var classes = new List<clsOntologyItem>();
-
-            if (allChildren)
-            {
-                classes = LocGetClassChildsByGuidParent(GuidParent);
-
-                return caseSensitive ? classes.Where(p => p.Name == name).ToList() :
-                                       classes.Where(p => p.Name.ToLower() == name.ToLower()).ToList();
-            }
-            else
-            {
-                return caseSensitive ? LocGetClassChildsByGuidParent(GuidParent).Where(p => p.Name == name).ToList() :
-                                       LocGetClassChildsByGuidParent(GuidParent).Where(p => p.Name.ToLower() == name.ToLower()).ToList();
-
-            }
-
-
-
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelations(bool onlyIds)
-        {
-            var oItem_Result = dbConnector.GetClassRelations(ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByLeftGuid(string guidClass, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_Class_Left = guidClass } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByRightGuid(string guidClass, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_Class_Right = guidClass } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByRelationTypeGuid(string guidRelationType, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_RelationType = guidRelationType } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByLeftGuid_RightGuid(string guidLeft, string guidRight, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_Class_Left = guidLeft, ID_Class_Right = guidRight } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByLeftGuid_RelationTypeGuid_RightGuid(string guidLeft, string guidRelationType, string guidRight, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_Class_Left = guidLeft, ID_RelationType = guidRelationType, ID_Class_Right = guidRight } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByLeftGuid_RelationTypeGuid(string guidLeft, string guidRelationType, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_Class_Left = guidLeft, ID_RelationType = guidRelationType } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByRelationTypeGuid_RightGuid(string guidRelationType, string guidRight, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { ID_RelationType = guidRelationType, ID_Class_Right = guidRight } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByMinForw(long minForw, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { Min_Forw = minForw } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByMaxForw(long maxForw, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { Max_Forw = maxForw } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsClassRel> ClassRelationsByMaxBackw(long maxBackw, bool onlyIds)
-        {
-            var classesSearch = new List<clsClassRel> { new clsClassRel { Max_Backw = maxBackw } };
-            var oItem_Result = dbConnector.GetClassRelations(classRelationsSearch: classesSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ClassRelationsId : dbConnector.ClassRelations;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
+            
         }
 
         [WebMethod]
@@ -481,681 +186,98 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdObject(bool onlyIds, string idObject)
+        public KeyValuePair<clsOntologyItem, List<clsObjectRel>> ObjectRels(List<clsObjectRel> oLIst_ObjRel, bool onlyIds)
         {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Object = idObject } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
+                var oList = dbSelector.get_Data_ObjectRel(oLIst_ObjRel,onlyIds);
+                var result = new KeyValuePair<clsOntologyItem, List<clsObjectRel>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsObjectRel>>(oResult, null);
+                return result;
             }
         }
 
         [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdClass(bool onlyIds, string idClass)
+        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> Objects(List<clsOntologyItem> oList_Objects)
         {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Class = idClass } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
+                var oList = dbSelector.get_Data_Objects(oList_Objects);
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                return result;
             }
+
+            
         }
 
         [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdAttributeType(bool onlyIds, string idAttributeType)
+        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> Classes(List<clsOntologyItem> oList_Classes)
         {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_AttributeType = idAttributeType } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
+                var oList = dbSelector.get_Data_Classes(oList_Classes);
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdObjectAndIdAttributeType(bool onlyIds, string idObject, string idAttributeType)
-        {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Object = idObject, ID_AttributeType = idAttributeType } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdClassAndIdAttributeType(bool onlyIds, string idClass, string idAttributeType)
-        {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Class = idClass, ID_AttributeType = idAttributeType } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                return result;
             }
 
         }
 
         [WebMethod]
-        public long CountObjectAttsByIdClassAndIdAttributeType(string idClass, string idAttributeType)
+        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> RelationTypes(List<clsOntologyItem> oLIst_RelTypes)
         {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Class = idClass, ID_AttributeType = idAttributeType } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, doCount: true);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return oItem_Result.Count ?? 0;
-
+                var oList = dbSelector.get_Data_RelationTypes(oLIst_RelTypes);
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdObjectAndIdDataType(bool onlyIds, string idObject, string idDataType)
-        {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Object = idObject, ID_DataType = idDataType } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectAtt> ObjectAttsByIdClassAndIdDataType(bool onlyIds, string idClass, string idDataType)
-        {
-            var objectAttsSearch = new List<clsObjectAtt> { new clsObjectAtt { ID_Class = idClass, ID_DataType = idDataType } };
-            var oItem_Result = dbConnector.GetObjectAtt(objectAttsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectAttsId : dbConnector.ObjectAtts;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRels(bool onlyIds)
-        {
-            var oItem_Result = dbConnector.GetObjectRel(ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdObject(string IdObject, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Object = IdObject } };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdOther(string IdOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Other = IdOther } };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdObjectAndIdRelationType(string IdObject, string IdRelationType, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Object = IdObject,
-                                                                               ID_RelationType = IdRelationType} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                return result;
             }
 
         }
 
         [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdObjectAndIdRelationTypeAndIdOther(string IdObject, string IdRelationType, string IdOther, bool onlyIds)
+        public KeyValuePair<clsOntologyItem, List<clsOntologyItem>> AttributeTypes(List<clsOntologyItem> oList_AttType)
         {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Object = IdObject,
-                                                                               ID_RelationType = IdRelationType,
-                                                                               ID_Other = IdOther} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
+                var oList = dbSelector.get_Data_AttributeType(oList_AttType);
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(Globals.LogStates.LogState_Success.Clone(), oList);
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new KeyValuePair<clsOntologyItem, List<clsOntologyItem>>(oResult, null);
+                return result;
             }
-
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdRelationTypeAndIdOther(string IdRelationType, string IdOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_RelationType = IdRelationType,
-                                                                               ID_Other = IdOther} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdParentObject(string IdParentObject, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Parent_Object = IdParentObject } };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdParentOther(string IdParentOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Parent_Other = IdParentOther } };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdParentObjectAndIdRelationType(string IdParentObject, string IdRelationType, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Parent_Object = IdParentObject,
-                                                                               ID_RelationType = IdRelationType} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdParentObjectAndIdRelationTypeAndIdParentOther(string IdParentObject, string IdRelationType, string IdParentOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Parent_Object = IdParentObject,
-                                                                               ID_RelationType = IdRelationType,
-                                                                               ID_Parent_Other = IdParentOther} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdRelationTypeAndIdParentOther(string IdRelationType, string IdParentOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_RelationType = IdRelationType,
-                                                                               ID_Parent_Other = IdParentOther} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdObjectAndIdRelationTypeAndIdParentOther(string IdObject, string IdRelationType, string IdParentOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Object = IdObject,
-                                                                               ID_RelationType = IdRelationType,
-                                                                               ID_Other = IdParentOther} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsObjectRel> ObjectRelsByIdParentObjectAndIdRelationTypeAndIdOther(string IdParentObject, string IdRelationType, string IdOther, bool onlyIds)
-        {
-            var objectRelsSearch = new List<clsObjectRel> { new clsObjectRel { ID_Parent_Object = IdParentObject,
-                                                                               ID_RelationType = IdRelationType,
-                                                                               ID_Other = IdOther} };
-
-            var oItem_Result = dbConnector.GetObjectRel(objectRelsSearch, ids: onlyIds);
-            if (oItem_Result.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return onlyIds ? dbConnector.ObjectRelsId : dbConnector.ObjectRels;
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> Objects()
-        {
-            var oItemResult = dbConnector.GetObjects();
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Objects1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ObjectsByGuid(string guid)
-        {
-            var oListObjectsSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guid } };
-
-            var oItemResult = dbConnector.GetObjects(oListObjectsSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Objects1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ObjectsByName(string name, bool exact)
-        {
-            var oListObjectsSearch = new List<clsOntologyItem> { new clsOntologyItem { Name = name } };
-
-            var oItemResult = dbConnector.GetObjects(oListObjectsSearch, exact: exact);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Objects1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ObjectsByGuidParent(string guidParent)
-        {
-            var oListObjectsSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID_Parent = guidParent } };
-
-            var oItemResult = dbConnector.GetObjects(oListObjectsSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Objects1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ObjectsByGuidParentAndName(string guidParent, string name, bool exact)
-        {
-            var oListObjectsSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID_Parent = guidParent,
-                                                                                       Name = name} };
-
-            var oItemResult = dbConnector.GetObjects(oListObjectsSearch, exact: exact);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Objects1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> Classes()
-        {
-            var oItemResult = dbConnector.GetClasses();
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Classes1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ClassesByGuid(string guid)
-        {
-            var classesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guid } };
-            var oItemResult = dbConnector.GetClasses(classesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.Classes1;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> ClassesByName(string name, bool strict = false, bool caseSensitive = false)
-        {
-            var classesSearch = new List<clsOntologyItem> { new clsOntologyItem { Name = name } };
-            var oItemResult = dbConnector.GetClasses(classesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                if (strict)
-                {
-                    return caseSensitive ? dbConnector.Classes1.Where(p => p.Name == name).ToList() : dbConnector.Classes1.Where(p => p.Name.ToLower() == name.ToLower()).ToList();
-
-                }
-                else
-                {
-                    return dbConnector.Classes1;
-                }
-
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> RelationTypes()
-        {
-            var oItemResult = dbConnector.GetRelationTypes();
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.RelationTypes;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> RelationTypesByRelationTypeGuid(string guidRelationType)
-        {
-            var RelationTypesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guidRelationType } };
-            var oItemResult = dbConnector.GetRelationTypes(RelationTypesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.RelationTypes;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> RelationTypesByRelationTypeName(string nameRelationType, bool strict, bool caseSensitive)
-        {
-            var RelationTypesSearch = new List<clsOntologyItem> { new clsOntologyItem { Name = nameRelationType } };
-            var oItemResult = dbConnector.GetRelationTypes(RelationTypesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                if (strict)
-                {
-                    if (caseSensitive)
-                    {
-                        return dbConnector.RelationTypes.Where(p => p.Name == nameRelationType).ToList();
-                    }
-                    else
-                    {
-                        return dbConnector.RelationTypes.Where(p => p.Name.ToLower() == nameRelationType.ToLower()).ToList();
-                    }
-                }
-                else
-                {
-                    return dbConnector.RelationTypes;
-                }
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> AttributeTypes()
-        {
-            var oItemResult = dbConnector.GetAttributeTypes();
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.AttributeTypes;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> AttributeTypesByAttributeTypeGuid(string guidAttributeType)
-        {
-            var attributeTypesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID = guidAttributeType } };
-            var oItemResult = dbConnector.GetAttributeTypes(attributeTypesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.AttributeTypes;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> AttributeTypesByAttributeTypeName(string nameAttributeType, bool strict, bool caseSensitive)
-        {
-            var attributeTypesSearch = new List<clsOntologyItem> { new clsOntologyItem { Name = nameAttributeType } };
-            var oItemResult = dbConnector.GetAttributeTypes(attributeTypesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                if (strict)
-                {
-                    if (caseSensitive)
-                    {
-                        return dbConnector.AttributeTypes.Where(p => p.Name == nameAttributeType).ToList();
-                    }
-                    else
-                    {
-                        return dbConnector.AttributeTypes.Where(p => p.Name.ToLower() == nameAttributeType.ToLower()).ToList();
-                    }
-                }
-                else
-                {
-                    return dbConnector.AttributeTypes;
-                }
-
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
-        }
-
-        [WebMethod]
-        public List<clsOntologyItem> AttributeTypesByAttributeTypeIdDataType(string idDataType)
-        {
-            var attributeTypesSearch = new List<clsOntologyItem> { new clsOntologyItem { GUID_Parent = idDataType } };
-            var oItemResult = dbConnector.GetAttributeTypes(attributeTypesSearch);
-            if (oItemResult.GUID == Globals.LogStates.LogState_Success.GUID)
-            {
-                return dbConnector.AttributeTypes;
-            }
-            else
-            {
-                SoapException se = new SoapException("Query-Error", SoapException.ClientFaultCode);
-                throw se;
-            }
+            
         }
 
         [WebMethod]
@@ -1163,98 +285,449 @@ namespace OntWeb
         {
             if (type == Globals.OTypes.ClassType)
             {
-                var items = ClassesByGuid(idItem);
-                return items.FirstOrDefault();
+                var item = Classes(new List<clsOntologyItem> { new clsOntologyItem { GUID =  idItem } });
+                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
             }
             else if (type == Globals.OTypes.ObjectType)
             {
-                var items = ObjectsByGuid(idItem);
-                return items.FirstOrDefault();
+                var item = Objects(new List<clsOntologyItem> { new clsOntologyItem { GUID = idItem } });
+                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
             }
             else if (type == Globals.OTypes.AttributeType)
             {
-                var items = AttributeTypesByAttributeTypeGuid(idItem);
-                return items.FirstOrDefault();
+                var item = AttributeTypes(new List<clsOntologyItem> { new clsOntologyItem { GUID = idItem } });
+                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
             }
             else if (type == Globals.OTypes.RelationType)
             {
-                var items = RelationTypesByRelationTypeGuid(idItem);
-                return items.FirstOrDefault();
+                var item = RelationTypes(new List<clsOntologyItem> { new clsOntologyItem { GUID = idItem } });
+                return item.Key.GUID == Globals.LogStates.LogState_Success.GUID ? item.Value.FirstOrDefault() : item.Key;
             }
             else
             {
-                return null;
+                return Globals.LogStates.LogState_Error.Clone();
             }
         }
 
         [WebMethod]
-        public string GetClassPath(string idClass)
+        public clsOntologyItem GetClassPath(string idClass)
         {
             return getClassPath(idClass, "");
         }
         
-        private string getClassPath(string idClass, string path)
+        private clsOntologyItem getClassPath(string idClass, string path)
         {
             var searchClass = new List<clsOntologyItem> { new clsOntologyItem { GUID = idClass } };
 
-            var result = dbConnector.GetClasses(searchClass);
+            
 
-            if (result.GUID == Globals.LogStates.LogState_Success.GUID)
+            try
             {
-                if (dbConnector.Classes1.Any())
+                var result = Classes(new List<clsOntologyItem> { new clsOntologyItem { GUID = idClass } });
+
+                if (result.Key.GUID != Globals.LogStates.LogState_Success.GUID && result.Value.Any())
                 {
+                    
                     if (string.IsNullOrEmpty(path))
                     {
-                        path = dbConnector.Classes1.First().Name;
+                        path = result.Value.First().Name;
                     }
                     else
                     {
-                        path = dbConnector.Classes1.First().Name + "\\" + path;
+                        path = result.Value.First().Name + "\\" + path;
                     }
 
-                    if (!string.IsNullOrEmpty(dbConnector.Classes1.First().GUID_Parent))
+                    if (!string.IsNullOrEmpty(result.Value.First().GUID_Parent))
                     {
-                        return getClassPath(dbConnector.Classes1.First().GUID_Parent, path);
+                        return getClassPath(result.Value.First().GUID_Parent, path);
                     }
                     else
                     {
-                        return path;
+                        result.Key.Additional1 = path;
+                        return result.Key;
                     }
 
+                    
                 }
                 else
                 {
-                    return "";
+                    return result.Key;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                return "";
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
             }
+
+            
         }
 
         [WebMethod]
         public clsOntologyItem DeleteIndex(string strIndex)
         {
-            return dbConnector.DeleteIndex(strIndex);
+            try
+            {
+                var indexResponse = dbSelector.ElConnector.DeleteIndex(d => dbSelector.GetDeleteIndexDescriptor().Index(strIndex));
+                if (indexResponse.IsValid)
+                {
+                    return Globals.LogStates.LogState_Success.Clone();
+                }
+                else
+                {
+                    return Globals.LogStates.LogState_Error.Clone();
+                }
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+            
+
+            
         }
 
         [WebMethod]
-        public List<string> IndexList(string server, int port)
+        public KeyValuePair<clsOntologyItem, List<string>> IndexList(string server, int port)
         {
-            return dbConnector.IndexList(server, port);
+            try
+            {
+                var result = new KeyValuePair<clsOntologyItem, List<string>>(Globals.LogStates.LogState_Success.Clone(), dbSelector.IndexList(server, port));
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return new KeyValuePair<clsOntologyItem, List<string>>(Globals.LogStates.LogState_Error.Clone(), null);
+                
+            }
+            
         }
 
         [WebMethod]
         public clsOntologyItem SaveDataTypes(List<clsOntologyItem> oList_DataTypes)
         {
-            return dbConnector.save_DataTypes(oList_DataTypes);
+            try
+            {
+                return dbUpdater.save_DataTypes(oList_DataTypes);
+                
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveAttributeTypes(List<clsOntologyItem> oList_AttributeTypes)
+        {
+            try
+            {
+                var result = Globals.LogStates.LogState_Success.Clone();
+                foreach (var oItem_AttributeType in oList_AttributeTypes)
+                {
+                    result = dbUpdater.save_AttributeType(oItem_AttributeType);
+                    if (result.GUID == Globals.LogStates.LogState_Error.GUID)
+                    {
+                        break;
+                    }
+
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveClasses(List<clsOntologyItem> oList_Classes)
+        {
+            try
+            {
+                var result = Globals.LogStates.LogState_Success.Clone();
+                foreach (var oItem_Class in oList_Classes)
+	            {
+                    result = dbUpdater.save_Class(oItem_Class);    
+	            }
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveClassAtts(List<clsClassAtt> oList_ClassAtts)
+        {
+            try
+            {
+
+                return dbUpdater.save_ClassAtt(oList_ClassAtts);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveClassRels(List<clsClassRel> oList_ClassRels)
+        {
+            try
+            {
+
+                return dbUpdater.save_ClassRel(oList_ClassRels);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public KeyValuePair<clsOntologyItem,List<clsObjectAtt>> SaveObjectAttributes(List<clsObjectAtt> oList_ObjAtts)
+        {
+            try
+            {
+
+                return new KeyValuePair<clsOntologyItem,List<clsObjectAtt>>(Globals.LogStates.LogState_Success.Clone(), dbUpdater.save_ObjectAtt(oList_ObjAtts));
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return new KeyValuePair<clsOntologyItem,List<clsObjectAtt>> (result, null);
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveObjects(List<clsOntologyItem> oList_Objects)
+        {
+            try
+            {
+
+                return dbUpdater.save_Objects(oList_Objects);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveObjectRels(List<clsObjectRel> oList_ObjRels)
+        {
+            try
+            {
+
+                return dbUpdater.save_ObjectRel(oList_ObjRels);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem SaveRelationTypes(List<clsOntologyItem> oList_RelationTypes)
+        {
+            try
+            {
+                var result = Globals.LogStates.LogState_Success.Clone();
+                foreach (var oItem_RelationType in oList_RelationTypes)
+                {
+                    result = dbUpdater.save_RelationType(oItem_RelationType);
+                    if (result.GUID == Globals.LogStates.LogState_Error.GUID)
+                    {
+                        break;
+                    }
+
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
         }
 
         [WebMethod]
         public clsOntologyItem DeleteAttributeTypes(List<clsOntologyItem> oList_AttributeTypes)
         {
-            return dbConnector.del_AttributeType(oList_AttributeTypes);
+            try
+            {
+                return dbDeletor.del_AttributeType(oList_AttributeTypes);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+            
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteClasses(List<clsOntologyItem> oList_Classes)
+        {
+            try
+            {
+                return dbDeletor.del_Class(oList_Classes);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteClassAttType(clsOntologyItem oItem_Class, clsOntologyItem oItem_AttributeType)
+        {
+            try
+            {
+                return dbDeletor.del_ClassAttType(oItem_Class, oItem_AttributeType);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteClassRel(List<clsClassRel> oList_ClassRel)
+        {
+            try
+            {
+                return dbDeletor.del_ClassRel(oList_ClassRel);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteDataTypes(List<clsOntologyItem> oList_DataTypes)
+        {
+            try
+            {
+                return dbDeletor.del_DataType(oList_DataTypes);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteObjectAttributes(List<clsObjectAtt> oList_ObjectAttributes)
+        {
+            try
+            {
+                return dbDeletor.del_ObjectAtt(oList_ObjectAttributes);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteObjectRelations(List<clsObjectRel> oList_ObjectRelations)
+        {
+            try
+            {
+                return dbDeletor.del_ObjectRel(oList_ObjectRelations);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteObjects(List<clsOntologyItem> oList_Objects)
+        {
+            try
+            {
+                return dbDeletor.del_Objects(oList_Objects);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public clsOntologyItem DeleteRelationTypes(List<clsOntologyItem> oList_RelationTypes)
+        {
+            try
+            {
+                return dbDeletor.del_RelationType(oList_RelationTypes);
+
+            }
+            catch (Exception ex)
+            {
+                var result = Globals.LogStates.LogState_Error.Clone();
+                result.Additional1 = ex.Message;
+                return result;
+            }
         }
     }
 }
