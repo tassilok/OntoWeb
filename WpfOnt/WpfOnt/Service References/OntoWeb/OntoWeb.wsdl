@@ -518,6 +518,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="DataTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oList_DataTypes" type="tns:ArrayOfClsOntologyItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="doCount" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DataTypesResult" type="tns:WebServiceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AttributeTypes">
         <s:complexType>
           <s:sequence>
@@ -972,6 +987,12 @@
   <wsdl:message name="ObjectTreeSoapOut">
     <wsdl:part name="parameters" element="tns:ObjectTreeResponse" />
   </wsdl:message>
+  <wsdl:message name="DataTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:DataTypes" />
+  </wsdl:message>
+  <wsdl:message name="DataTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:DataTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="AttributeTypesSoapIn">
     <wsdl:part name="parameters" element="tns:AttributeTypes" />
   </wsdl:message>
@@ -1194,6 +1215,10 @@
     <wsdl:operation name="ObjectTree">
       <wsdl:input message="tns:ObjectTreeSoapIn" />
       <wsdl:output message="tns:ObjectTreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DataTypes">
+      <wsdl:input message="tns:DataTypesSoapIn" />
+      <wsdl:output message="tns:DataTypesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AttributeTypes">
       <wsdl:input message="tns:AttributeTypesSoapIn" />
@@ -1472,6 +1497,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObjectTree">
       <soap:operation soapAction="http://tempuri.org/ObjectTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataTypes">
+      <soap:operation soapAction="http://tempuri.org/DataTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1871,6 +1905,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObjectTree">
       <soap12:operation soapAction="http://tempuri.org/ObjectTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataTypes">
+      <soap12:operation soapAction="http://tempuri.org/DataTypes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

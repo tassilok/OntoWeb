@@ -409,6 +409,28 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public WebServiceResult OjectAttributesOrderId(clsOntologyItem oItem_Object, clsOntologyItem oItem_AttributeType, string sortField, bool doAsc)
+        {
+            try
+            {
+
+                var result = new WebServiceResult();
+                var lngOrderID = dbSelector.get_Data_Att_OrderByVal(sortField, oItem_Object, oItem_AttributeType, doAsc);
+                result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OrderId = lngOrderID };
+                
+                return result;
+            }
+            catch (Exception ex)
+            {
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new WebServiceResult { Result = oResult };
+                return result;
+            }
+
+        }
+
+        [WebMethod]
         public WebServiceResult AttributeTypes(List<clsOntologyItem> oList_AttType, bool doCount = false)
         {
             try

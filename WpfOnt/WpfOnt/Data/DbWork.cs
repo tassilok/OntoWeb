@@ -355,23 +355,33 @@ namespace WpfOnt.Data
         {
             this.OList_ObjAtt_ID.Clear();
             this.OList_ObjAtt.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
-            if (doCount)
+            var result = ontoWebSoapClient.ObjectAtts(oList_ObjectAtt.ToArray(), boolIDs, doCount);
+
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_ObjectAttCount(oList_ObjectAtt);
-            }
-            else
-            {
-                if (boolIDs)
+                if (doCount)
                 {
-                    this.OList_ObjAtt_ID = objElSelector.get_Data_ObjectAtt(oList_ObjectAtt, boolIDs, doJoin);
+                    objOItem_Result.Count = result.Count;
                 }
                 else
                 {
-                    this.OList_ObjAtt = objElSelector.get_Data_ObjectAtt(oList_ObjectAtt, boolIDs, doJoin);
+                    if (boolIDs)
+                    {
+                        this.OList_ObjAtt_ID = new List<clsObjectAtt>(result.ObjectAttributes);
+                    }
+                    else
+                    {
+                        this.OList_ObjAtt = new List<clsObjectAtt>(result.ObjectAttributes);
+                    }
                 }
             }
+            else
+            {
+                objOItem_Result = result.Result;
+            }
+            
 
             return objOItem_Result;
         }
@@ -455,17 +465,27 @@ namespace WpfOnt.Data
                                           bool doCount = false)
         {
             this.OList_DataTypes.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
-            if (doCount)
+            var result = ontoWebSoapClient.DataTypes(oList_DataTypes.ToArray(), doCount);
+
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_DataTypesCount(oList_DataTypes);
+                if (doCount)
+                {
+                    objOItem_Result.Count = result.Count;
+                }
+                else
+                {
+                    this.OList_DataTypes = new List<clsOntologyItem>( result.OntologyItems);
+
+                }
             }
             else
             {
-                this.OList_DataTypes = objElSelector.get_Data_DataTypes(oList_DataTypes);
-
+                objOItem_Result = result.Result;
             }
+            
 
         
             return objOItem_Result;

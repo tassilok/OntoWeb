@@ -162,6 +162,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectTree", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectTreeAsync(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> DataTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount);
@@ -3041,6 +3048,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectTreeAsync(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount) {
             return base.Channel.ObjectTreeAsync(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
+        }
+        
+        public WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {
+            return base.Channel.DataTypes(oList_DataTypes, doCount);
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> DataTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {
+            return base.Channel.DataTypesAsync(oList_DataTypes, doCount);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount) {
