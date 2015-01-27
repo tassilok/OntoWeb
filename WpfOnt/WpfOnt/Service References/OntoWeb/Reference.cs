@@ -176,6 +176,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAttributesOrderId", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectRelationsOrderId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.WebServiceResult ObjectRelationsOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Left, WpfOnt.OntoWeb.clsOntologyItem oItem_Right, WpfOnt.OntoWeb.clsOntologyItem oItem_RelationType, bool doASC);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectRelationsOrderId", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelationsOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Left, WpfOnt.OntoWeb.clsOntologyItem oItem_Right, WpfOnt.OntoWeb.clsOntologyItem oItem_RelationType, bool doASC);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAttributesOrderByVal", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.WebServiceResult ObjectAttributesOrderByVal(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc);
@@ -3092,6 +3099,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
             return base.Channel.ObjectAttributesOrderIdAsync(oItem_Object, oItem_AttributeType, sortField, doAsc);
+        }
+        
+        public WpfOnt.OntoWeb.WebServiceResult ObjectRelationsOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Left, WpfOnt.OntoWeb.clsOntologyItem oItem_Right, WpfOnt.OntoWeb.clsOntologyItem oItem_RelationType, bool doASC) {
+            return base.Channel.ObjectRelationsOrderId(oItem_Left, oItem_Right, oItem_RelationType, doASC);
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelationsOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Left, WpfOnt.OntoWeb.clsOntologyItem oItem_Right, WpfOnt.OntoWeb.clsOntologyItem oItem_RelationType, bool doASC) {
+            return base.Channel.ObjectRelationsOrderIdAsync(oItem_Left, oItem_Right, oItem_RelationType, doASC);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult ObjectAttributesOrderByVal(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc) {

@@ -365,6 +365,8 @@ namespace OntWeb
                 {
                     var oList = dbSelector.get_Data_Objects_Tree(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType);
                     result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectTrees = oList };
+                    result.OntologyItems1 = dbSelector.OntologyList_Objects1;
+                    result.OntologyItems2 = dbSelector.OntologyList_Objects2;
                 }
 
                 return result;

@@ -392,12 +392,12 @@ namespace WpfOnt.Data
         {
         
             string strSortField;
-        
+
             strSortField = "OrderID:";
 
-            var lngOrderID = objElSelector.get_Data_Att_OrderByVal(strSortField,OItem_Object,OItem_AttributeType,doASC);
+            var result = ontoWebSoapClient.ObjectAttributesOrderId(OItem_Object, OItem_AttributeType, strSortField, doASC);
 
-            return lngOrderID;
+            return result.OrderId;
 
         }
 
@@ -406,7 +406,8 @@ namespace WpfOnt.Data
                                              clsOntologyItem OItem_AttributeType = null,
                                              bool doASC = true)
         {
-            var lngOrderID = objElSelector.get_Data_Att_OrderByVal(strOrderField,OItem_Object,OItem_AttributeType,doASC);
+            var result = ontoWebSoapClient.ObjectAttributesOrderByVal(strOrderField, OItem_Object, OItem_AttributeType, doASC);
+            var lngOrderID = result.OrderId;
 
             return lngOrderID;
         }
@@ -416,16 +417,10 @@ namespace WpfOnt.Data
                                              clsOntologyItem OItem_RelationType = null,
                                              bool doASC = true)
         {
-            long lngOrderID = 0;
 
-            lngOrderID = objElSelector.get_Data_Rel_OrderByVal(OItem_Left,
-                                                               OItem_Right,
-                                                               OItem_RelationType,
-                                                               "OrderID",
-                                                               doASC);
-
+            var result = ontoWebSoapClient.ObjectRelationsOrderId(OItem_Left, OItem_Right, OItem_RelationType, doASC);
         
-            return lngOrderID;
+            return result.OrderId;
         }
 
         public clsOntologyItem get_Data_ObjectRel(List<clsObjectRel> oList_ObjectRel,
@@ -433,30 +428,38 @@ namespace WpfOnt.Data
                                            bool doCount = false,
                                            string Direction = null,
                                            bool doJoin_Left = false,
-                                           bool doJoin_right = false,
-                                           bool boolTable_Objects_Left = false,
-                                           bool boolTable_Objects_Right = false) 
+                                           bool doJoin_right = false) 
         {
             this.OList_ObjectRel_ID.Clear();
             this.OList_ObjectRel.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
+            var result = ontoWebSoapClient.ObjectRels(oList_ObjectRel.ToArray(), boolIDs, doCount);
 
-            if (doCount)
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_ObjectRelCount(oList_ObjectRel);
-            }
-            else
-            {
-                if (boolIDs)
+                if (doCount)
                 {
-                    this.OList_ObjectRel_ID = objElSelector.get_Data_ObjectRel(oList_ObjectRel, boolIDs, doJoin_Left, doJoin_right);
+                    objOItem_Result.Count = result.Count;
                 }
                 else
                 {
-                    this.OList_ObjectRel = objElSelector.get_Data_ObjectRel(oList_ObjectRel, boolIDs, doJoin_Left, doJoin_right);
+                    if (boolIDs)
+                    {
+                        this.OList_ObjectRel_ID = new List<clsObjectRel>(result.ObjectRelations);
+                    }
+                    else
+                    {
+                        this.OList_ObjectRel = new List<clsObjectRel>(result.ObjectRelations);
+                    }
                 }
+                
             }
+            else
+            {
+                objOItem_Result = result.Result;
+            }
+            
 
             return objOItem_Result;
         }
