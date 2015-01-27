@@ -379,6 +379,36 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public WebServiceResult DataTypes(List<clsOntologyItem> oList_DataTypes, bool doCount = false)
+        {
+            try
+            {
+
+                var result = new WebServiceResult();
+                if (doCount)
+                {
+                    var countItem = dbSelector.get_Data_DataTypesCount(oList_DataTypes);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = countItem };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_DataTypes(oList_DataTypes);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new WebServiceResult { Result = oResult };
+                return result;
+            }
+
+        }
+
+        [WebMethod]
         public WebServiceResult AttributeTypes(List<clsOntologyItem> oList_AttType, bool doCount = false)
         {
             try

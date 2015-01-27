@@ -28,7 +28,7 @@ namespace WpfOnt.Data
         public List<clsOntologyItem> OList_DataTypes { get; private set; }
 
         //private clsDataTypes objDataTypes = new clsDataTypes();
-        //private clsTypes objTypes = new clsTypes();
+        private clsTypes objTypes;
         private clsLogStates objLogStates;
         private clsFields objFields;
         private clsDirections objDirections;
@@ -252,14 +252,23 @@ namespace WpfOnt.Data
             this.OList_AttributeTypes.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            if (doCount)
+            var result = ontoWebSoapClient.AttributeTypes(OList_AttType.ToArray(), doCount);
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_AttributeTypeCount(OList_AttType);
+                if (doCount)
+                {
+                    objOItem_Result.Count = result.Count;
+                }
+                else
+                {
+                    this.OList_AttributeTypes = new List<clsOntologyItem>( result.OntologyItems );
+                }
             }
             else
             {
-                this.OList_AttributeTypes = objElSelector.get_Data_AttributeType(OList_AttType);
+                objOItem_Result = result.Result;
             }
+            
             
             return objOItem_Result;
         }
@@ -273,22 +282,31 @@ namespace WpfOnt.Data
             this.OList_ClassAtt.Clear();
             var objOItem_Result = objLogStates.LogState_Success.Clone();
 
-            if (doCount)
+            var result = ontoWebSoapClient.ClassAttributes(oList_Class.ToArray(), oList_AttributeTyp.ToArray(), boolIDs, doCount);
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_ClassAttCount(oList_Class,oList_AttributeTyp);
-            }
-            else
-            {
-                if (boolIDs)
+                if (doCount)
                 {
-                    this.OList_ClassAtt_ID = objElSelector.get_Data_ClassAtt(oList_Class, oList_AttributeTyp, boolIDs);
+                    objOItem_Result.Count = result.Count;
                 }
                 else
                 {
-                    this.OList_ClassAtt = objElSelector.get_Data_ClassAtt(oList_Class, oList_AttributeTyp, boolIDs);
+                    if (boolIDs)
+                    {
+                        this.OList_ClassAtt_ID = new List<clsClassAtt>(result.ClassAttributes);
+                    }
+                    else
+                    {
+                        this.OList_ClassAtt = new List<clsClassAtt>(result.ClassAttributes);
 
+                    }
                 }
             }
+            else
+            {
+                return result.Result;
+            }
+            
 
             return objOItem_Result;
         }
@@ -300,23 +318,32 @@ namespace WpfOnt.Data
         {
             this.OList_ClassRel_ID.Clear();
             this.OList_ClassRel.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
-            if (doCount)
+            var objOItem_Result = objLogStates.LogState_Success;
+            var result = ontoWebSoapClient.ClassRelations(OList_ClassRel.ToArray(), boolIDs, boolOR, doCount);
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_ClassRelCount(OList_ClassRel);
-            }
-            else
-            {
-                if (boolIDs)
+                if (doCount)
                 {
-                    this.OList_ClassRel_ID = objElSelector.get_Data_ClassRel(OList_ClassRel, boolIDs, boolOR);
+                    objOItem_Result.Count = result.Count;
                 }
                 else
                 {
-                    this.OList_ClassRel = objElSelector.get_Data_ClassRel(OList_ClassRel, boolIDs, boolOR);
+                    if (boolIDs)
+                    {
+                        this.OList_ClassRel_ID = new List<clsClassRel>( result.ClassRelations );
+                    }
+                    else
+                    {
+                        this.OList_ClassRel = new List<clsClassRel>(result.ClassRelations);
+                    }
+
                 }
-                
             }
+            else
+            {
+                objOItem_Result = result.Result;
+            }
+            
 
             return objOItem_Result;
         }
@@ -525,29 +552,49 @@ namespace WpfOnt.Data
         }
 
         public clsOntologyItem get_Data_Classes(List<clsOntologyItem> OList_Classes = null,
-                                     bool boolTable = false, 
-                                     bool boolClasses_Right = false,
-                                     string strSort = null,
+                                     bool doClassesRight = false,
+                                     bool doASC = true,
                                      bool doCount = false)
         {
             this.OList_Classes.Clear();
             this.OList_Classes2.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
+
+            
+
+            var result = ontoWebSoapClient.Classes(OList_Classes.ToArray(), doCount);
 
             if (doCount)
             {
-                objOItem_Result.Count = objElSelector.get_Data_ClassesCount(OList_Classes);
+                objOItem_Result.Count = result.Count;
             }
             else 
             {
-                if (!boolClasses_Right)
+                if (!doClassesRight)
                 {
-                    this.OList_Classes = objElSelector.get_Data_Classes(OList_Classes, boolClasses_Right, strSort);
+                    if (doASC)
+                    {
+                        this.OList_Classes = new List<clsOntologyItem>(result.OntologyItems.OrderBy(cls => cls.Name));
+                        
+                    }
+                    else
+                    {
+                        this.OList_Classes = new List<clsOntologyItem>(result.OntologyItems.OrderByDescending(cls => cls.Name));
+                    }
+                    
                 
                 }
                 else 
                 {
-                    this.OList_Classes2 = objElSelector.get_Data_Classes(OList_Classes, boolClasses_Right, strSort);
+                    if (doASC)
+                    {
+                        this.OList_Classes2 = new List<clsOntologyItem>(result.OntologyItems.OrderBy(cls => cls.Name));
+
+                    }
+                    else
+                    {
+                        this.OList_Classes2 = new List<clsOntologyItem>(result.OntologyItems.OrderByDescending(cls => cls.Name));
+                    }
                 }
             }
 
@@ -579,6 +626,7 @@ namespace WpfOnt.Data
                     {
                         objOItem_OItem.GUID_Related = objLogStates.LogState_Error.GUID;
                     }
+
                     objOItem_OItem.Type = objTypes.AttributeType;
                 }
             }
@@ -725,6 +773,7 @@ namespace WpfOnt.Data
             OList_DataTypes = new List<clsOntologyItem>();
 
             ontoWebSoapClient = new OntoWebSoapClient();
+            objTypes = ontoWebSoapClient.OTypes();
             objLogStates = ontoWebSoapClient.OLogStates();
             objDirections = ontoWebSoapClient.ODirections();
             objFields = ontoWebSoapClient.OFields();

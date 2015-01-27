@@ -393,6 +393,21 @@
         </s:complexType>
       </s:element>
       <s:complexType name="clsFields" />
+      <s:element name="OTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="OTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OTypesResult" type="tns:clsTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeItems" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="Config">
         <s:complexType />
       </s:element>
@@ -909,6 +924,12 @@
   <wsdl:message name="OFieldsSoapOut">
     <wsdl:part name="parameters" element="tns:OFieldsResponse" />
   </wsdl:message>
+  <wsdl:message name="OTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:OTypes" />
+  </wsdl:message>
+  <wsdl:message name="OTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:OTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="ConfigSoapIn">
     <wsdl:part name="parameters" element="tns:Config" />
   </wsdl:message>
@@ -1141,6 +1162,10 @@
     <wsdl:operation name="OFields">
       <wsdl:input message="tns:OFieldsSoapIn" />
       <wsdl:output message="tns:OFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OTypes">
+      <wsdl:input message="tns:OTypesSoapIn" />
+      <wsdl:output message="tns:OTypesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Config">
       <wsdl:input message="tns:ConfigSoapIn" />
@@ -1375,6 +1400,15 @@
     </wsdl:operation>
     <wsdl:operation name="OFields">
       <soap:operation soapAction="http://tempuri.org/OFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTypes">
+      <soap:operation soapAction="http://tempuri.org/OTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1765,6 +1799,15 @@
     </wsdl:operation>
     <wsdl:operation name="OFields">
       <soap12:operation soapAction="http://tempuri.org/OFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTypes">
+      <soap12:operation soapAction="http://tempuri.org/OTypes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

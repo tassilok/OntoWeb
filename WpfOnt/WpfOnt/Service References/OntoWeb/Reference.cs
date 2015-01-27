@@ -106,6 +106,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OFields", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsFields> OFieldsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OTypes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsTypes OTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OTypes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsTypes> OTypesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Config", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.Config[] Config();
@@ -676,6 +683,38 @@ namespace WpfOnt.OntoWeb {
             set {
                 this.configValueIntField = value;
                 this.RaisePropertyChanged("ConfigValueInt");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsTypes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string[] typeItemsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
+        public string[] TypeItems {
+            get {
+                return this.typeItemsField;
+            }
+            set {
+                this.typeItemsField = value;
+                this.RaisePropertyChanged("TypeItems");
             }
         }
         
@@ -2938,6 +2977,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsFields> OFieldsAsync() {
             return base.Channel.OFieldsAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsTypes OTypes() {
+            return base.Channel.OTypes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsTypes> OTypesAsync() {
+            return base.Channel.OTypesAsync();
         }
         
         public WpfOnt.OntoWeb.Config[] Config() {
