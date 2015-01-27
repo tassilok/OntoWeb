@@ -208,6 +208,12 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public clsTypes OTypes()
+        {
+            return new clsTypes();
+        }
+
+        [WebMethod]
         public List<Config> Config()
         {
 

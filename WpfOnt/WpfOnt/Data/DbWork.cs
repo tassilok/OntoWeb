@@ -14,7 +14,7 @@ namespace WpfOnt.Data
         public List<clsOntologyItem> OList_Objects2 { get; private set; }
         public List<clsObjectRel> OList_ObjectRel_ID { get; private set; }
         public List<clsObjectRel> OList_ObjectRel { get; private set; }
-        //public List<clsObjectTree> OList_ObjectTree { get; private set; }
+        public List<clsObjectTree> OList_ObjectTree { get; private set; }
         public List<clsOntologyItem> OList_Classes { get; private set; }
         public List<clsOntologyItem> OList_Classes2 { get; private set; }
         public List<clsOntologyItem> OList_RelationTypes { get; private set; }
@@ -26,13 +26,12 @@ namespace WpfOnt.Data
         public List<clsObjectAtt> OList_ObjAtt_ID { get; private set; }
         public List<clsObjectAtt> OList_ObjAtt { get; private set; }
         public List<clsOntologyItem> OList_DataTypes { get; private set; }
-        //public List<clsAttribute> OList_Attributes { get; private set; }
 
         //private clsDataTypes objDataTypes = new clsDataTypes();
         //private clsTypes objTypes = new clsTypes();
-        private clsLogStates objLogStates = new clsLogStates();
-        private clsFields objFields = new clsFields();
-        private clsDirections objDirections = new clsDirections();
+        private clsLogStates objLogStates;
+        private clsFields objFields;
+        private clsDirections objDirections;
 
         private OntoWeb.OntoWebSoapClient ontoWebSoapClient;
 
@@ -66,7 +65,16 @@ namespace WpfOnt.Data
 
          public List<string> IndexList(string strServer, int intPort)
          {
-             return new List<string>(ontoWebSoapClient.IndexList(strServer, intPort));
+             var result = ontoWebSoapClient.IndexList(strServer, intPort);
+             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
+             {
+                 return new List<string>( result.IndexList);
+             }
+             else
+             {
+                 return null;
+             }
+             
          }
         
 
@@ -214,13 +222,23 @@ namespace WpfOnt.Data
             this.OList_RelationTypes.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            if (doCount)
+            var result = ontoWebSoapClient.RelationTypes(OList_RelType.ToArray(),doCount);
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = ontoWebSoapClient.rel(OList_RelType);
+                if (doCount)
+                {
+                    objOItem_Result.Count = result.Count;
+                }
+                else
+                {
+                    OList_RelationTypes = new List<clsOntologyItem>(result.OntologyItems);
+                    objOItem_Result = result.Result;
+                }
+                
             }
             else
             {
-                this.OList_RelationTypes = objElSelector.get_Data_RelationTypes(OList_RelType);
+                objOItem_Result = result.Result;
 
             
             }
@@ -232,7 +250,7 @@ namespace WpfOnt.Data
                                                bool doCount = false) 
         {
             this.OList_AttributeTypes.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
             if (doCount)
             {
@@ -705,9 +723,11 @@ namespace WpfOnt.Data
             OList_ObjAtt_ID = new List<clsObjectAtt>();
             OList_ObjAtt = new List<clsObjectAtt>();
             OList_DataTypes = new List<clsOntologyItem>();
-            OList_Attributes = new List<clsAttribute>();
 
             ontoWebSoapClient = new OntoWebSoapClient();
+            objLogStates = ontoWebSoapClient.OLogStates();
+            objDirections = ontoWebSoapClient.ODirections();
+            objFields = ontoWebSoapClient.OFields();
         }
 
         public DbWork()

@@ -17,24 +17,24 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAtts", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds);
+        WpfOnt.OntoWeb.WebServiceResult ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAtts", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassAttributes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds);
+        WpfOnt.OntoWeb.WebServiceResult ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassAttributes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassRelations", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr);
+        WpfOnt.OntoWeb.WebServiceResult ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ClassRelations", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Object", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -122,38 +122,45 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectRels", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds);
+        WpfOnt.OntoWeb.WebServiceResult ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectRels", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Objects", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects);
+        WpfOnt.OntoWeb.WebServiceResult Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Objects", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Classes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes);
+        WpfOnt.OntoWeb.WebServiceResult Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Classes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RelationTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes);
+        WpfOnt.OntoWeb.WebServiceResult RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RelationTypes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes, bool doCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectTree", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.WebServiceResult ObjectTree(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectTree", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectTreeAsync(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType);
+        WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOItem", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2046,6 +2053,122 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsObjectTree : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iD_ObjectField;
+        
+        private string name_ObjectField;
+        
+        private string iD_ParentField;
+        
+        private string iD_Object_ParentField;
+        
+        private string name_Object_ParentField;
+        
+        private System.Nullable<long> orderIDField;
+        
+        private System.Nullable<long> levelField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ID_Object {
+            get {
+                return this.iD_ObjectField;
+            }
+            set {
+                this.iD_ObjectField = value;
+                this.RaisePropertyChanged("ID_Object");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name_Object {
+            get {
+                return this.name_ObjectField;
+            }
+            set {
+                this.name_ObjectField = value;
+                this.RaisePropertyChanged("Name_Object");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ID_Parent {
+            get {
+                return this.iD_ParentField;
+            }
+            set {
+                this.iD_ParentField = value;
+                this.RaisePropertyChanged("ID_Parent");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string ID_Object_Parent {
+            get {
+                return this.iD_Object_ParentField;
+            }
+            set {
+                this.iD_Object_ParentField = value;
+                this.RaisePropertyChanged("ID_Object_Parent");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Name_Object_Parent {
+            get {
+                return this.name_Object_ParentField;
+            }
+            set {
+                this.name_Object_ParentField = value;
+                this.RaisePropertyChanged("Name_Object_Parent");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<long> OrderID {
+            get {
+                return this.orderIDField;
+            }
+            set {
+                this.orderIDField = value;
+                this.RaisePropertyChanged("OrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<long> Level {
+            get {
+                return this.levelField;
+            }
+            set {
+                this.levelField = value;
+                this.RaisePropertyChanged("Level");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class clsObjectRel : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string iD_ObjectField;
@@ -2564,6 +2687,10 @@ namespace WpfOnt.OntoWeb {
         
         private clsObjectRel[] objectRelationsField;
         
+        private clsObjectTree[] objectTreesField;
+        
+        private long countField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public clsOntologyItem Result {
@@ -2648,6 +2775,30 @@ namespace WpfOnt.OntoWeb {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
+        public clsObjectTree[] ObjectTrees {
+            get {
+                return this.objectTreesField;
+            }
+            set {
+                this.objectTreesField = value;
+                this.RaisePropertyChanged("ObjectTrees");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public long Count {
+            get {
+                return this.countField;
+            }
+            set {
+                this.countField = value;
+                this.RaisePropertyChanged("Count");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -2685,28 +2836,28 @@ namespace WpfOnt.OntoWeb {
                 base(binding, remoteAddress) {
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds) {
-            return base.Channel.ObjectAtts(oList_ObjAttributes, onlyIds);
+        public WpfOnt.OntoWeb.WebServiceResult ObjectAtts(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds, bool doCount) {
+            return base.Channel.ObjectAtts(oList_ObjAttributes, onlyIds, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds) {
-            return base.Channel.ObjectAttsAsync(oList_ObjAttributes, onlyIds);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttsAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAttributes, bool onlyIds, bool doCount) {
+            return base.Channel.ObjectAttsAsync(oList_ObjAttributes, onlyIds, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds) {
-            return base.Channel.ClassAttributes(oList_Classes, oList_AttributeTypes, onlyIds);
+        public WpfOnt.OntoWeb.WebServiceResult ClassAttributes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds, bool doCount) {
+            return base.Channel.ClassAttributes(oList_Classes, oList_AttributeTypes, onlyIds, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds) {
-            return base.Channel.ClassAttributesAsync(oList_Classes, oList_AttributeTypes, onlyIds);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassAttributesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, WpfOnt.OntoWeb.clsOntologyItem[] oList_AttributeTypes, bool onlyIds, bool doCount) {
+            return base.Channel.ClassAttributesAsync(oList_Classes, oList_AttributeTypes, onlyIds, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr) {
-            return base.Channel.ClassRelations(oList_ClassRel, onlyIds, queryOr);
+        public WpfOnt.OntoWeb.WebServiceResult ClassRelations(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr, bool doCount) {
+            return base.Channel.ClassRelations(oList_ClassRel, onlyIds, queryOr, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr) {
-            return base.Channel.ClassRelationsAsync(oList_ClassRel, onlyIds, queryOr);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassRelationsAsync(WpfOnt.OntoWeb.clsClassRel[] oList_ClassRel, bool onlyIds, bool queryOr, bool doCount) {
+            return base.Channel.ClassRelationsAsync(oList_ClassRel, onlyIds, queryOr, doCount);
         }
         
         public string Type_Object() {
@@ -2805,44 +2956,52 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.RegExGuidAsync();
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds) {
-            return base.Channel.ObjectRels(oLIst_ObjRel, onlyIds);
+        public WpfOnt.OntoWeb.WebServiceResult ObjectRels(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds, bool doCount) {
+            return base.Channel.ObjectRels(oLIst_ObjRel, onlyIds, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds) {
-            return base.Channel.ObjectRelsAsync(oLIst_ObjRel, onlyIds);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectRelsAsync(WpfOnt.OntoWeb.clsObjectRel[] oLIst_ObjRel, bool onlyIds, bool doCount) {
+            return base.Channel.ObjectRelsAsync(oLIst_ObjRel, onlyIds, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects) {
-            return base.Channel.Objects(oList_Objects);
+        public WpfOnt.OntoWeb.WebServiceResult Objects(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects, bool doCount) {
+            return base.Channel.Objects(oList_Objects, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects) {
-            return base.Channel.ObjectsAsync(oList_Objects);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectsAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Objects, bool doCount) {
+            return base.Channel.ObjectsAsync(oList_Objects, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes) {
-            return base.Channel.Classes(oList_Classes);
+        public WpfOnt.OntoWeb.WebServiceResult Classes(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, bool doCount) {
+            return base.Channel.Classes(oList_Classes, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes) {
-            return base.Channel.ClassesAsync(oList_Classes);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ClassesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_Classes, bool doCount) {
+            return base.Channel.ClassesAsync(oList_Classes, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes) {
-            return base.Channel.RelationTypes(oLIst_RelTypes);
+        public WpfOnt.OntoWeb.WebServiceResult RelationTypes(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes, bool doCount) {
+            return base.Channel.RelationTypes(oLIst_RelTypes, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes) {
-            return base.Channel.RelationTypesAsync(oLIst_RelTypes);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> RelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oLIst_RelTypes, bool doCount) {
+            return base.Channel.RelationTypesAsync(oLIst_RelTypes, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType) {
-            return base.Channel.AttributeTypes(oList_AttType);
+        public WpfOnt.OntoWeb.WebServiceResult ObjectTree(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount) {
+            return base.Channel.ObjectTree(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType) {
-            return base.Channel.AttributeTypesAsync(oList_AttType);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectTreeAsync(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount) {
+            return base.Channel.ObjectTreeAsync(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
+        }
+        
+        public WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount) {
+            return base.Channel.AttributeTypes(oList_AttType, doCount);
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> AttributeTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount) {
+            return base.Channel.AttributeTypesAsync(oList_AttType, doCount);
         }
         
         public WpfOnt.OntoWeb.clsOntologyItem GetOItem(string idItem, string type) {
