@@ -169,6 +169,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> DataTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OjectAttributesOrderId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.WebServiceResult OjectAttributesOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OjectAttributesOrderId", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> OjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount);
@@ -2737,6 +2744,8 @@ namespace WpfOnt.OntoWeb {
         
         private long countField;
         
+        private long orderIdField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public clsOntologyItem Result {
@@ -2842,6 +2851,18 @@ namespace WpfOnt.OntoWeb {
             set {
                 this.countField = value;
                 this.RaisePropertyChanged("Count");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public long OrderId {
+            get {
+                return this.orderIdField;
+            }
+            set {
+                this.orderIdField = value;
+                this.RaisePropertyChanged("OrderId");
             }
         }
         
@@ -3056,6 +3077,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> DataTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {
             return base.Channel.DataTypesAsync(oList_DataTypes, doCount);
+        }
+        
+        public WpfOnt.OntoWeb.WebServiceResult OjectAttributesOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
+            return base.Channel.OjectAttributesOrderId(oItem_Object, oItem_AttributeType, sortField, doAsc);
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> OjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
+            return base.Channel.OjectAttributesOrderIdAsync(oItem_Object, oItem_AttributeType, sortField, doAsc);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount) {
