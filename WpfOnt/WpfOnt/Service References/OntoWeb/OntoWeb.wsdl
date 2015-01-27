@@ -551,6 +551,23 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="OjectAttributesOrderByVal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderField" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oItem_Object" type="tns:clsOntologyItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="oItem_AttributeType" type="tns:clsOntologyItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="doAsc" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OjectAttributesOrderByValResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OjectAttributesOrderByValResult" type="tns:WebServiceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AttributeTypes">
         <s:complexType>
           <s:sequence>
@@ -1017,6 +1034,12 @@
   <wsdl:message name="OjectAttributesOrderIdSoapOut">
     <wsdl:part name="parameters" element="tns:OjectAttributesOrderIdResponse" />
   </wsdl:message>
+  <wsdl:message name="OjectAttributesOrderByValSoapIn">
+    <wsdl:part name="parameters" element="tns:OjectAttributesOrderByVal" />
+  </wsdl:message>
+  <wsdl:message name="OjectAttributesOrderByValSoapOut">
+    <wsdl:part name="parameters" element="tns:OjectAttributesOrderByValResponse" />
+  </wsdl:message>
   <wsdl:message name="AttributeTypesSoapIn">
     <wsdl:part name="parameters" element="tns:AttributeTypes" />
   </wsdl:message>
@@ -1247,6 +1270,10 @@
     <wsdl:operation name="OjectAttributesOrderId">
       <wsdl:input message="tns:OjectAttributesOrderIdSoapIn" />
       <wsdl:output message="tns:OjectAttributesOrderIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OjectAttributesOrderByVal">
+      <wsdl:input message="tns:OjectAttributesOrderByValSoapIn" />
+      <wsdl:output message="tns:OjectAttributesOrderByValSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AttributeTypes">
       <wsdl:input message="tns:AttributeTypesSoapIn" />
@@ -1543,6 +1570,15 @@
     </wsdl:operation>
     <wsdl:operation name="OjectAttributesOrderId">
       <soap:operation soapAction="http://tempuri.org/OjectAttributesOrderId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OjectAttributesOrderByVal">
+      <soap:operation soapAction="http://tempuri.org/OjectAttributesOrderByVal" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1960,6 +1996,15 @@
     </wsdl:operation>
     <wsdl:operation name="OjectAttributesOrderId">
       <soap12:operation soapAction="http://tempuri.org/OjectAttributesOrderId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OjectAttributesOrderByVal">
+      <soap12:operation soapAction="http://tempuri.org/OjectAttributesOrderByVal" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -409,7 +409,7 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult OjectAttributesOrderId(clsOntologyItem oItem_Object, clsOntologyItem oItem_AttributeType, string sortField, bool doAsc)
+        public WebServiceResult ObjectAttributesOrderId(clsOntologyItem oItem_Object, clsOntologyItem oItem_AttributeType, string sortField, bool doAsc)
         {
             try
             {
@@ -431,7 +431,7 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult OjectAttributesOrderByVal(string strOrderField, 
+        public WebServiceResult ObjectAttributesOrderByVal(string strOrderField, 
                                      clsOntologyItem oItem_Object = null,
                                          clsOntologyItem oItem_AttributeType = null,
                                          bool doAsc = true)
