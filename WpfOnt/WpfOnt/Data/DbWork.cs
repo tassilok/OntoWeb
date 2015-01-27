@@ -54,15 +54,15 @@ namespace WpfOnt.Data
         public List<clsObjectAtt> OAList_Saved { get; set; }
 
 
-        public SortEnum Sort
-        {
-            get { return sortE; }
-            set 
-            { 
-                sortE = value;
-                objElSelector.Sort = sortE;
-            }
-        }
+        //public SortEnum Sort
+        //{
+        //    get { return sortE; }
+        //    set 
+        //    { 
+        //        sortE = value;
+        //        objElSelector.Sort = sortE;
+        //    }
+        //}
 
          public List<string> IndexList(string strServer, int intPort)
          {
@@ -79,7 +79,7 @@ namespace WpfOnt.Data
 
         public clsOntologyItem save_AttributeType(clsOntologyItem oItem_AttributeType)
         {
-            var objOItem_Result = objElUpdater.save_AttributeType(oItem_AttributeType);
+            var objOItem_Result = ontoWebSoapClient.SaveAttributeTypes((new List<clsOntologyItem>{ oItem_AttributeType }).ToArray());
 
             return objOItem_Result;
         }
@@ -92,7 +92,7 @@ namespace WpfOnt.Data
 
         public clsOntologyItem del_RelationTypes(List<clsOntologyItem> OList_RelationType)
         {
-            var objOItem_Result = ontoWebSoapClient.del_RelationType(OList_RelationType);
+            var objOItem_Result = ontoWebSoapClient.DeleteRelationTypes(OList_RelationType.ToArray());
 
             return objOItem_Result;
         }
@@ -100,27 +100,27 @@ namespace WpfOnt.Data
 
         public clsOntologyItem del_DataTypes(List<clsOntologyItem> OList_DataTypes)
         {
-            var objOItem_Result = objElDeletor.del_DataType(OList_DataTypes);
+            var objOItem_Result = ontoWebSoapClient.DeleteDataTypes(OList_DataTypes.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem del_ClassAttType(clsOntologyItem oItem_Class, clsOntologyItem oItem_AttType)
         {
-            var objOItem_Result = objElDeletor.del_ClassAttType(oItem_Class,oItem_AttType);
+            var objOItem_Result = ontoWebSoapClient.DeleteClassAttType(oItem_Class, oItem_AttType);
             return objOItem_Result;
         }
         
         public clsOntologyItem del_Objects(List<clsOntologyItem> List_Objects)
         {
-            var objOItem_Result = objElDeletor.del_Objects(List_Objects);
+            var objOItem_Result = ontoWebSoapClient.DeleteObjects(List_Objects.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem del_ClassRel(List<clsClassRel> oList_ClRel)
         {
-            var objOItem_Result = objElDeletor.del_ClassRel(oList_ClRel);
+            var objOItem_Result = ontoWebSoapClient.DeleteClassRel(oList_ClRel.ToArray());
 
             return objOItem_Result;
         }
@@ -128,99 +128,95 @@ namespace WpfOnt.Data
         public clsOntologyItem del_ObjectAtt(List<clsObjectAtt> oList_ObjectAtts ) 
         {
 
-            var objOItem_Result = objElDeletor.del_ObjectAtt(oList_ObjectAtts);
+            var objOItem_Result = ontoWebSoapClient.DeleteObjectAttributes(oList_ObjectAtts.ToArray());
         
             return objOItem_Result;
         }
         
         public clsOntologyItem del_ObjectRel(List<clsObjectRel> oList_ObjecRels)
         {
-            var objOItem_Result = objElDeletor.del_ObjectRel(oList_ObjecRels);
+            var objOItem_Result = ontoWebSoapClient.DeleteObjectRelations(oList_ObjecRels.ToArray());
 
             return objOItem_Result;
         }
        
         public clsOntologyItem save_RelationType(clsOntologyItem oItem_RelationType)
         {
-            var objOItem_Result = objElUpdater.save_RelationType(oItem_RelationType);
+            var objOItem_Result = ontoWebSoapClient.SaveRelationTypes((new List<clsOntologyItem>{ oItem_RelationType}).ToArray());
         
             return objOItem_Result;
         }
 
         public clsOntologyItem del_Class(List<clsOntologyItem> oList_Class)
         {
-            var objOItem_Result = objElDeletor.del_Class(oList_Class);
+            var objOItem_Result = ontoWebSoapClient.DeleteClasses(oList_Class.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem save_ClassRel(List<clsClassRel> oList_ClassRel) 
         {
-            var objOItem_Result = objElUpdater.save_ClassRel(oList_ClassRel);
+            var objOItem_Result = ontoWebSoapClient.SaveClassRels(oList_ClassRel.ToArray());
 
             return objOItem_Result;
         }
         
         public clsOntologyItem save_ClassAttType(List<clsClassAtt> oList_ClassAtt) 
         {
-            var objOItem_Result = objElUpdater.save_ClassAtt(oList_ClassAtt);
+            var objOItem_Result = ontoWebSoapClient.SaveClassAtts(oList_ClassAtt.ToArray());
         
             return objOItem_Result;
         }
         
         public clsOntologyItem save_Class(clsOntologyItem objOItem_Class, bool boolRoot = false) 
         {
-            var objOItem_Result = objElUpdater.save_Class(objOItem_Class,boolRoot);
+            var objOItem_Result = ontoWebSoapClient.SaveClasses((new List<clsOntologyItem>{ objOItem_Class }).ToArray());
         
             return objOItem_Result;
         }
 
         public clsOntologyItem save_ObjRel(List<clsObjectRel> oList_ObjectRel )
         {
-            var objOItem_Result = objElUpdater.save_ObjectRel(oList_ObjectRel);
+            var objOItem_Result = ontoWebSoapClient.SaveObjectRels(oList_ObjectRel.ToArray());
         
             return objOItem_Result;
         }
 
         public clsOntologyItem save_ObjAtt(List<clsObjectAtt> oList_ObjAtt ) 
         {
-            OAList_Saved = objElUpdater.save_ObjectAtt(oList_ObjAtt);
-            clsOntologyItem objOItem_Result;
-            if (oList_ObjAtt.Count - OAList_Saved.Count == 0)
+            
+            var result = ontoWebSoapClient.SaveObjectAttributes(oList_ObjAtt.ToArray());
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result = objLogStates.LogState_Success.Clone();
+                OAList_Saved = new List<clsObjectAtt>( result.ObjectAttributes );
+                return result.Result;
             }
             else
             {
-                objOItem_Result = objLogStates.LogState_Error.Clone();
+                return result.Result;
             }
-            return objOItem_Result;
         }
 
         public clsOntologyItem save_Objects(List<clsOntologyItem> oList_Objects )
         {
-            var objOItem_Result = objElUpdater.save_Objects(oList_Objects);
-        
-            return objOItem_Result;
+            var result = ontoWebSoapClient.SaveObjects(oList_Objects.ToArray());
+
+            return result;
         }
 
         private void initialize_Client()
         {
-            PackageLength = intSearchRange;
-            objElSelector = new ElasticSearchNestConnector.clsDBSelector(strServer,intPort,strIndex,strIndexRep,intSearchRange,strSession);
-            objElDeletor = new clsDBDeletor(objElSelector);
-            objElUpdater = new clsDBUpdater(objElSelector);
         }
         
         public clsOntologyItem get_Data_RelationTypes(List<clsOntologyItem> OList_RelType = null,
                                                bool doCount = false) 
         {
             this.OList_RelationTypes.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
             if (doCount)
             {
-                objOItem_Result.Count = objElSelector.get_Data_RelationTypesCount(OList_RelType);
+                objOItem_Result.Count = ontoWebSoapClient.rel(OList_RelType);
             }
             else
             {

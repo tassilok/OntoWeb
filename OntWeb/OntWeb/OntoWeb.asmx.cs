@@ -50,13 +50,25 @@ namespace OntWeb
         
 
         [WebMethod]
-        public WebServiceResult ObjectAtts(List<clsObjectAtt> oList_ObjAttributes, bool onlyIds)
+        public WebServiceResult ObjectAtts(List<clsObjectAtt> oList_ObjAttributes, bool onlyIds, bool doCount = false)
         {
             
             try
             {
-                var oList = dbSelector.get_Data_ObjectAtt(oList_ObjAttributes, onlyIds);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectAttributes = oList };
+                
+                var result = new WebServiceResult();
+
+                if (doCount)
+                {
+                    var itemCount = dbSelector.get_Data_ObjectAttCount(oList_ObjAttributes);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = itemCount };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_ObjectAtt(oList_ObjAttributes, onlyIds);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectAttributes = oList };
+                }
+                
                 return result;
             }catch (Exception ex)
             {
@@ -71,13 +83,24 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult ClassAttributes(List<clsOntologyItem> oList_Classes, List<clsOntologyItem> oList_AttributeTypes, bool onlyIds)
+        public WebServiceResult ClassAttributes(List<clsOntologyItem> oList_Classes, List<clsOntologyItem> oList_AttributeTypes, bool onlyIds, bool doCount = false)
         {
 
             try
             {
-                var oList = dbSelector.get_Data_ClassAtt(oList_Classes, oList_AttributeTypes, onlyIds);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ClassAttributes = oList };
+                
+                var result = new WebServiceResult();
+                if (doCount)
+                {
+                    var countItem = dbSelector.get_Data_ClassAttCount(oList_Classes, oList_AttributeTypes);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = countItem };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_ClassAtt(oList_Classes, oList_AttributeTypes, onlyIds);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ClassAttributes = oList };
+                }
+                
                 return result;
             }
             catch (Exception ex)
@@ -93,12 +116,23 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult ClassRelations(List<clsClassRel> oList_ClassRel, bool onlyIds, bool queryOr = true)
+        public WebServiceResult ClassRelations(List<clsClassRel> oList_ClassRel, bool onlyIds, bool queryOr = true, bool doCount = false)
         {
             try
             {
-                var oList = dbSelector.get_Data_ClassRel(oList_ClassRel, onlyIds, queryOr);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone() };
+                
+                var result = new WebServiceResult();
+                if (doCount)
+                {
+                    var countItem = dbSelector.get_Data_ClassRelCount(oList_ClassRel);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = countItem };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_ClassRel(oList_ClassRel, onlyIds, queryOr);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ClassRelations = oList };
+                }
+                
                 return result;
             }
             catch (Exception ex)
@@ -187,12 +221,24 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult ObjectRels(List<clsObjectRel> oLIst_ObjRel, bool onlyIds)
+        public WebServiceResult ObjectRels(List<clsObjectRel> oLIst_ObjRel, bool onlyIds, bool doCount = false)
         {
             try
             {
-                var oList = dbSelector.get_Data_ObjectRel(oLIst_ObjRel,onlyIds);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectRelations = oList };
+                
+                var result = new WebServiceResult();
+
+                if (doCount)
+                {
+                    var itemCount = dbSelector.get_Data_ObjectRelCount(oLIst_ObjRel);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = itemCount };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_ObjectRel(oLIst_ObjRel, onlyIds);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectRelations = oList };
+                }
+                
                 return result;
             }
             catch (Exception ex)
@@ -205,12 +251,24 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult Objects(List<clsOntologyItem> oList_Objects)
+        public WebServiceResult Objects(List<clsOntologyItem> oList_Objects, bool doCount=false)
         {
             try
             {
-                var oList = dbSelector.get_Data_Objects(oList_Objects);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                
+                var result = new WebServiceResult();
+
+                if (doCount)
+                {
+                    var itemCount = dbSelector.get_Data_ObjectsCount(oList_Objects);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = itemCount };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_Objects(oList_Objects);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                }
+                
                 return result;
             }
             catch (Exception ex)
@@ -225,12 +283,23 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult Classes(List<clsOntologyItem> oList_Classes)
+        public WebServiceResult Classes(List<clsOntologyItem> oList_Classes, bool doCount = false)
         {
             try
             {
-                var oList = dbSelector.get_Data_Classes(oList_Classes);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone() };
+                
+                var result = new WebServiceResult();
+                if (doCount)
+                {
+                    var countItem = dbSelector.get_Data_ClassesCount(oList_Classes);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = countItem };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_Classes(oList_Classes);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                }
+                
                 return result;
             }
             catch (Exception ex)
@@ -244,13 +313,24 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult RelationTypes(List<clsOntologyItem> oLIst_RelTypes)
+        public WebServiceResult RelationTypes(List<clsOntologyItem> oLIst_RelTypes, bool doCount = false)
         {
             try
             {
-                var oList = dbSelector.get_Data_RelationTypes(oLIst_RelTypes);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
-                return result;
+                
+                if (doCount)
+                {
+                    var itemCount = dbSelector.get_Data_RelationTypesCount(oLIst_RelTypes);
+                    var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = itemCount };
+                    return result;
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_RelationTypes(oLIst_RelTypes);
+                    var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                    return result;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -263,12 +343,53 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public WebServiceResult AttributeTypes(List<clsOntologyItem> oList_AttType)
+        public WebServiceResult ObjectTree(clsOntologyItem objOItem_Class_Par, clsOntologyItem objOitem_Class_Child,
+                                          clsOntologyItem objOItem_RelationType, bool doCount = false)
         {
             try
             {
-                var oList = dbSelector.get_Data_AttributeType(oList_AttType);
-                var result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                
+                var result = new WebServiceResult();
+                if (doCount)
+                {
+                    var itemCount = dbSelector.get_Data_Objects_Tree_Count(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = itemCount };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_Objects_Tree(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), ObjectTrees = oList };
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                var oResult = Globals.LogStates.LogState_Error.Clone();
+                oResult.Additional1 = ex.Message;
+                var result = new WebServiceResult { Result = oResult };
+                return result;
+            }
+        }
+
+        [WebMethod]
+        public WebServiceResult AttributeTypes(List<clsOntologyItem> oList_AttType, bool doCount = false)
+        {
+            try
+            {
+                
+                var result = new WebServiceResult();
+                if (doCount)
+                {
+                    var countItem = dbSelector.get_Data_AttributeTypeCount(oList_AttType);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), Count = countItem };
+                }
+                else
+                {
+                    var oList = dbSelector.get_Data_AttributeType(oList_AttType);
+                    result = new WebServiceResult { Result = Globals.LogStates.LogState_Success.Clone(), OntologyItems = oList };
+                }
+                
                 return result;
             }
             catch (Exception ex)

@@ -50,6 +50,7 @@
       <s:complexType name="WebServiceResult">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndexList" type="tns:ArrayOfString" />
           <s:element minOccurs="0" maxOccurs="1" name="OntologyItems" type="tns:ArrayOfClsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="ClassAttributes" type="tns:ArrayOfClsClassAtt" />
           <s:element minOccurs="0" maxOccurs="1" name="ClassRelations" type="tns:ArrayOfClsClassRel" />
@@ -98,6 +99,11 @@
       <s:complexType name="ArrayOfClsOntologyItem">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="clsOntologyItem" nillable="true" type="tns:clsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfClsClassAtt">
@@ -523,20 +529,10 @@
       <s:element name="IndexListResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="IndexListResult" type="tns:KeyValuePairOfclsOntologyItemListOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="IndexListResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfString">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfString" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfString">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="SaveDataTypes">
         <s:complexType>
           <s:sequence>
@@ -617,15 +613,10 @@
       <s:element name="SaveObjectAttributesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="SaveObjectAttributesResult" type="tns:KeyValuePairOfclsOntologyItemListOfclsObjectAtt" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaveObjectAttributesResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="KeyValuePairOfclsOntologyItemListOfclsObjectAtt">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfClsObjectAtt" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="SaveObjects">
         <s:complexType>
           <s:sequence>

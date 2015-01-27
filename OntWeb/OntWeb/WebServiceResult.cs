@@ -15,5 +15,7 @@ namespace OntWeb
         public List<clsClassRel> ClassRelations { get; set;  }
         public List<clsObjectAtt> ObjectAttributes { get; set; }
         public List<clsObjectRel> ObjectRelations { get; set; }
+        public List<clsObjectTree> ObjectTrees { get; set; }
+        public long Count { get; set; }
     }
 }

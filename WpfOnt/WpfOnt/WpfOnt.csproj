@@ -197,12 +197,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\OntoWeb\OntoWeb.wsdl" />
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassAtt.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassRel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDirections.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -215,12 +209,6 @@
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsMappingRules.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsObjectAtt.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsObjectRel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -231,6 +219,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.Config.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.WebServiceResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

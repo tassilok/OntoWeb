@@ -178,10 +178,10 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexList", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfString IndexList(string server, int port);
+        WpfOnt.OntoWeb.WebServiceResult IndexList(string server, int port);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexList", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfString> IndexListAsync(string server, int port);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> IndexListAsync(string server, int port);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveDataTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -220,10 +220,10 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveObjectAttributes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt SaveObjectAttributes(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts);
+        WpfOnt.OntoWeb.WebServiceResult SaveObjectAttributes(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveObjectAttributes", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt> SaveObjectAttributesAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts);
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> SaveObjectAttributesAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveObjects", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -609,70 +609,6 @@ namespace WpfOnt.OntoWeb {
             set {
                 this.orderIDField = value;
                 this.RaisePropertyChanged("OrderID");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfclsObjectAtt : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private clsObjectAtt[] valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public clsObjectAtt[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KeyValuePairOfclsOntologyItemListOfString : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string[] valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public string[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
             }
         }
         
@@ -2616,6 +2552,8 @@ namespace WpfOnt.OntoWeb {
         
         private clsOntologyItem resultField;
         
+        private string[] indexListField;
+        
         private clsOntologyItem[] ontologyItemsField;
         
         private clsClassAtt[] classAttributesField;
@@ -2640,6 +2578,18 @@ namespace WpfOnt.OntoWeb {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+        public string[] IndexList {
+            get {
+                return this.indexListField;
+            }
+            set {
+                this.indexListField = value;
+                this.RaisePropertyChanged("IndexList");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
         public clsOntologyItem[] OntologyItems {
             get {
                 return this.ontologyItemsField;
@@ -2651,7 +2601,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
         public clsClassAtt[] ClassAttributes {
             get {
                 return this.classAttributesField;
@@ -2663,7 +2613,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
         public clsClassRel[] ClassRelations {
             get {
                 return this.classRelationsField;
@@ -2675,7 +2625,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
         public clsObjectAtt[] ObjectAttributes {
             get {
                 return this.objectAttributesField;
@@ -2687,7 +2637,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
         public clsObjectRel[] ObjectRelations {
             get {
                 return this.objectRelationsField;
@@ -2919,11 +2869,11 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.DeleteIndexAsync(strIndex);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfString IndexList(string server, int port) {
+        public WpfOnt.OntoWeb.WebServiceResult IndexList(string server, int port) {
             return base.Channel.IndexList(server, port);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfString> IndexListAsync(string server, int port) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> IndexListAsync(string server, int port) {
             return base.Channel.IndexListAsync(server, port);
         }
         
@@ -2967,11 +2917,11 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.SaveClassRelsAsync(oList_ClassRels);
         }
         
-        public WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt SaveObjectAttributes(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts) {
+        public WpfOnt.OntoWeb.WebServiceResult SaveObjectAttributes(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts) {
             return base.Channel.SaveObjectAttributes(oList_ObjAtts);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.KeyValuePairOfclsOntologyItemListOfclsObjectAtt> SaveObjectAttributesAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts) {
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> SaveObjectAttributesAsync(WpfOnt.OntoWeb.clsObjectAtt[] oList_ObjAtts) {
             return base.Channel.SaveObjectAttributesAsync(oList_ObjAtts);
         }
         
