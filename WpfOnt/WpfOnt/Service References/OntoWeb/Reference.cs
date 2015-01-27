@@ -169,19 +169,19 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> DataTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OjectAttributesOrderId", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAttributesOrderId", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult OjectAttributesOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
+        WpfOnt.OntoWeb.WebServiceResult ObjectAttributesOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OjectAttributesOrderId", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> OjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAttributesOrderId", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OjectAttributesOrderByVal", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAttributesOrderByVal", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.WebServiceResult OjectAttributesOrderByVal(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc);
+        WpfOnt.OntoWeb.WebServiceResult ObjectAttributesOrderByVal(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OjectAttributesOrderByVal", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> OjectAttributesOrderByValAsync(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectAttributesOrderByVal", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttributesOrderByValAsync(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AttributeTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -3086,20 +3086,20 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.DataTypesAsync(oList_DataTypes, doCount);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult OjectAttributesOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
-            return base.Channel.OjectAttributesOrderId(oItem_Object, oItem_AttributeType, sortField, doAsc);
+        public WpfOnt.OntoWeb.WebServiceResult ObjectAttributesOrderId(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
+            return base.Channel.ObjectAttributesOrderId(oItem_Object, oItem_AttributeType, sortField, doAsc);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> OjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
-            return base.Channel.OjectAttributesOrderIdAsync(oItem_Object, oItem_AttributeType, sortField, doAsc);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttributesOrderIdAsync(WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, string sortField, bool doAsc) {
+            return base.Channel.ObjectAttributesOrderIdAsync(oItem_Object, oItem_AttributeType, sortField, doAsc);
         }
         
-        public WpfOnt.OntoWeb.WebServiceResult OjectAttributesOrderByVal(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc) {
-            return base.Channel.OjectAttributesOrderByVal(strOrderField, oItem_Object, oItem_AttributeType, doAsc);
+        public WpfOnt.OntoWeb.WebServiceResult ObjectAttributesOrderByVal(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc) {
+            return base.Channel.ObjectAttributesOrderByVal(strOrderField, oItem_Object, oItem_AttributeType, doAsc);
         }
         
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> OjectAttributesOrderByValAsync(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc) {
-            return base.Channel.OjectAttributesOrderByValAsync(strOrderField, oItem_Object, oItem_AttributeType, doAsc);
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectAttributesOrderByValAsync(string strOrderField, WpfOnt.OntoWeb.clsOntologyItem oItem_Object, WpfOnt.OntoWeb.clsOntologyItem oItem_AttributeType, bool doAsc) {
+            return base.Channel.ObjectAttributesOrderByValAsync(strOrderField, oItem_Object, oItem_AttributeType, doAsc);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult AttributeTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_AttType, bool doCount) {

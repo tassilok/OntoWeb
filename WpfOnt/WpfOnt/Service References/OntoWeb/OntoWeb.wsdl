@@ -534,7 +534,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="OjectAttributesOrderId">
+      <s:element name="ObjectAttributesOrderId">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="oItem_Object" type="tns:clsOntologyItem" />
@@ -544,14 +544,14 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="OjectAttributesOrderIdResponse">
+      <s:element name="ObjectAttributesOrderIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="OjectAttributesOrderIdResult" type="tns:WebServiceResult" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttributesOrderIdResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="OjectAttributesOrderByVal">
+      <s:element name="ObjectAttributesOrderByVal">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="strOrderField" type="s:string" />
@@ -561,10 +561,10 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="OjectAttributesOrderByValResponse">
+      <s:element name="ObjectAttributesOrderByValResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="OjectAttributesOrderByValResult" type="tns:WebServiceResult" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectAttributesOrderByValResult" type="tns:WebServiceResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1028,17 +1028,17 @@
   <wsdl:message name="DataTypesSoapOut">
     <wsdl:part name="parameters" element="tns:DataTypesResponse" />
   </wsdl:message>
-  <wsdl:message name="OjectAttributesOrderIdSoapIn">
-    <wsdl:part name="parameters" element="tns:OjectAttributesOrderId" />
+  <wsdl:message name="ObjectAttributesOrderIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttributesOrderId" />
   </wsdl:message>
-  <wsdl:message name="OjectAttributesOrderIdSoapOut">
-    <wsdl:part name="parameters" element="tns:OjectAttributesOrderIdResponse" />
+  <wsdl:message name="ObjectAttributesOrderIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttributesOrderIdResponse" />
   </wsdl:message>
-  <wsdl:message name="OjectAttributesOrderByValSoapIn">
-    <wsdl:part name="parameters" element="tns:OjectAttributesOrderByVal" />
+  <wsdl:message name="ObjectAttributesOrderByValSoapIn">
+    <wsdl:part name="parameters" element="tns:ObjectAttributesOrderByVal" />
   </wsdl:message>
-  <wsdl:message name="OjectAttributesOrderByValSoapOut">
-    <wsdl:part name="parameters" element="tns:OjectAttributesOrderByValResponse" />
+  <wsdl:message name="ObjectAttributesOrderByValSoapOut">
+    <wsdl:part name="parameters" element="tns:ObjectAttributesOrderByValResponse" />
   </wsdl:message>
   <wsdl:message name="AttributeTypesSoapIn">
     <wsdl:part name="parameters" element="tns:AttributeTypes" />
@@ -1267,13 +1267,13 @@
       <wsdl:input message="tns:DataTypesSoapIn" />
       <wsdl:output message="tns:DataTypesSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="OjectAttributesOrderId">
-      <wsdl:input message="tns:OjectAttributesOrderIdSoapIn" />
-      <wsdl:output message="tns:OjectAttributesOrderIdSoapOut" />
+    <wsdl:operation name="ObjectAttributesOrderId">
+      <wsdl:input message="tns:ObjectAttributesOrderIdSoapIn" />
+      <wsdl:output message="tns:ObjectAttributesOrderIdSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="OjectAttributesOrderByVal">
-      <wsdl:input message="tns:OjectAttributesOrderByValSoapIn" />
-      <wsdl:output message="tns:OjectAttributesOrderByValSoapOut" />
+    <wsdl:operation name="ObjectAttributesOrderByVal">
+      <wsdl:input message="tns:ObjectAttributesOrderByValSoapIn" />
+      <wsdl:output message="tns:ObjectAttributesOrderByValSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AttributeTypes">
       <wsdl:input message="tns:AttributeTypesSoapIn" />
@@ -1568,8 +1568,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OjectAttributesOrderId">
-      <soap:operation soapAction="http://tempuri.org/OjectAttributesOrderId" style="document" />
+    <wsdl:operation name="ObjectAttributesOrderId">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttributesOrderId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1577,8 +1577,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OjectAttributesOrderByVal">
-      <soap:operation soapAction="http://tempuri.org/OjectAttributesOrderByVal" style="document" />
+    <wsdl:operation name="ObjectAttributesOrderByVal">
+      <soap:operation soapAction="http://tempuri.org/ObjectAttributesOrderByVal" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1994,8 +1994,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OjectAttributesOrderId">
-      <soap12:operation soapAction="http://tempuri.org/OjectAttributesOrderId" style="document" />
+    <wsdl:operation name="ObjectAttributesOrderId">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttributesOrderId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2003,8 +2003,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OjectAttributesOrderByVal">
-      <soap12:operation soapAction="http://tempuri.org/OjectAttributesOrderByVal" style="document" />
+    <wsdl:operation name="ObjectAttributesOrderByVal">
+      <soap12:operation soapAction="http://tempuri.org/ObjectAttributesOrderByVal" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
