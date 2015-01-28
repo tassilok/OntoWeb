@@ -162,6 +162,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ObjectTree", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectTreeAsync(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexExists", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool IndexExists(string index);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexExists", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> IndexExistsAsync(string index);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount);
@@ -3111,6 +3118,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.WebServiceResult> ObjectTreeAsync(WpfOnt.OntoWeb.clsOntologyItem objOItem_Class_Par, WpfOnt.OntoWeb.clsOntologyItem objOitem_Class_Child, WpfOnt.OntoWeb.clsOntologyItem objOItem_RelationType, bool doCount) {
             return base.Channel.ObjectTreeAsync(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
+        }
+        
+        public bool IndexExists(string index) {
+            return base.Channel.IndexExists(index);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IndexExistsAsync(string index) {
+            return base.Channel.IndexExistsAsync(index);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {

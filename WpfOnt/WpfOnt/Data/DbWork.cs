@@ -597,10 +597,7 @@ namespace WpfOnt.Data
         public bool test_Index_Es()
         {
 
-            var objIndexDescriptor = objElSelector.GetIndexExistsDescriptor();
-            objIndexDescriptor.Index(strIndex);
-
-            return objElSelector.ElConnector.IndexExists(f => objIndexDescriptor).Exists;
+            return ontoWebSoapClient.IndexExists(strIndex);
         
         }
 

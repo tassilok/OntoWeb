@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using ElasticSearchNestConnector;
+using Nest;
+using Elasticsearch.Net.Connection;
 
 namespace OntWeb
 {
@@ -387,6 +389,14 @@ namespace OntWeb
             objIndexDescriptor.Index(index);
 
             return dbSelector.ElConnector.IndexExists(f => objIndexDescriptor).Exists;
+        }
+
+        [WebMethod]
+        public bool CreateIndex(string indexName)
+        {
+            var objOPResult = dbSelector.ElConnector.CreateIndex(indexName);
+
+            return objOPResult.IsValid;
         }
 
         [WebMethod]

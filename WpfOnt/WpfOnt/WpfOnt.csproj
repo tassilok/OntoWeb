@@ -215,6 +215,9 @@
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyRelationRules.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsVariables.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
