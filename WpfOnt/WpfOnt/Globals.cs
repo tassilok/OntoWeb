@@ -20,9 +20,9 @@ namespace WpfOnt
 
         public clsTypes Types { get; private set; }
 
-        public clsDataTypes DataTypes { get; private set; }
+        public OntoWeb. DataTypes { get; private set; }
 
-        public clsClasses Classes { get; private set; }
+        public OClasses Classes { get; private set; }
 
         public clsBaseClassAttributes ClassAtts { get; private set; }
 

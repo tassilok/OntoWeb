@@ -197,6 +197,24 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\OntoWeb\OntoWeb.wsdl" />
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsAttributeTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsBaseClassAttributes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsBaseClassRelation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClasses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDataTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDirections.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

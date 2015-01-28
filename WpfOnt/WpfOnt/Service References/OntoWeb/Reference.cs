@@ -85,6 +85,48 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ORelationRules", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyRelationRules> ORelationRulesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClasses", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsClasses OClasses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClasses", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsClasses> OClassesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassTypes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsClassTypes OClassTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassTypes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsClassTypes> OClassTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OAttributeTypes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsAttributeTypes OAttributeTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OAttributeTypes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsAttributeTypes> OAttributeTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassAttributes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsBaseClassAttributes OClassAttributes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassAttributes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsBaseClassAttributes> OClassAttributesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassRelatations", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsBaseClassRelation OClassRelatations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassRelatations", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsBaseClassRelation> OClassRelatationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ODataTypes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsDataTypes ODataTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ODataTypes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsDataTypes> ODataTypesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OVariables", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.clsVariables OVariables();
@@ -725,38 +767,6 @@ namespace WpfOnt.OntoWeb {
             set {
                 this.configValueIntField = value;
                 this.RaisePropertyChanged("ConfigValueInt");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsTypes : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string[] typeItemsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        public string[] TypeItems {
-            get {
-                return this.typeItemsField;
-            }
-            set {
-                this.typeItemsField = value;
-                this.RaisePropertyChanged("TypeItems");
             }
         }
         
@@ -1786,6 +1796,1162 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsDataTypes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsOntologyItem dType_BoolField;
+        
+        private clsOntologyItem dType_DateTimeField;
+        
+        private clsOntologyItem dType_IntField;
+        
+        private clsOntologyItem dType_RealField;
+        
+        private clsOntologyItem dType_StringField;
+        
+        private clsOntologyItem[] dataTypesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsOntologyItem DType_Bool {
+            get {
+                return this.dType_BoolField;
+            }
+            set {
+                this.dType_BoolField = value;
+                this.RaisePropertyChanged("DType_Bool");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsOntologyItem DType_DateTime {
+            get {
+                return this.dType_DateTimeField;
+            }
+            set {
+                this.dType_DateTimeField = value;
+                this.RaisePropertyChanged("DType_DateTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public clsOntologyItem DType_Int {
+            get {
+                return this.dType_IntField;
+            }
+            set {
+                this.dType_IntField = value;
+                this.RaisePropertyChanged("DType_Int");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public clsOntologyItem DType_Real {
+            get {
+                return this.dType_RealField;
+            }
+            set {
+                this.dType_RealField = value;
+                this.RaisePropertyChanged("DType_Real");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public clsOntologyItem DType_String {
+            get {
+                return this.dType_StringField;
+            }
+            set {
+                this.dType_StringField = value;
+                this.RaisePropertyChanged("DType_String");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
+        public clsOntologyItem[] DataTypes {
+            get {
+                return this.dataTypesField;
+            }
+            set {
+                this.dataTypesField = value;
+                this.RaisePropertyChanged("DataTypes");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsTypes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string[] typeItemsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
+        public string[] TypeItems {
+            get {
+                return this.typeItemsField;
+            }
+            set {
+                this.typeItemsField = value;
+                this.RaisePropertyChanged("TypeItems");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsBaseClassRelation : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsTypes objTypesField;
+        
+        private clsClassRel rel_Ontologies_To_OntologiesField;
+        
+        private clsClassRel rel_Ontologies_To_OntologyItemsField;
+        
+        private clsClassRel rel_Ontologies_To_OntologyJoinsField;
+        
+        private clsClassRel rel_Ontologies_To__belongingResourcesField;
+        
+        private clsClassRel rel_OntologyItems_To__belongingAttributesField;
+        
+        private clsClassRel rel_OntologyItems_To__belongingRelationTypesField;
+        
+        private clsClassRel rel_OntologyItems_To__belongingObjectsField;
+        
+        private clsClassRel rel_OntologyItems_To__belongingClassesField;
+        
+        private clsClassRel rel_OntologyJoins_To_OntologyItemsField;
+        
+        private clsClassRel rel_OntologyMappings_To_MappingItems_srcField;
+        
+        private clsClassRel rel_OntologyMappings_To_MappingItems_dstField;
+        
+        private clsClassRel rel_OntologyMappings_To_MappingRulesField;
+        
+        private clsClassRel rel_OntologyMappingItems_To_OntologyJoinsField;
+        
+        private clsClassRel rel_OntologyMappingItems_To_DirectionField;
+        
+        private clsClassRel rel_OntologyMappingItems_To_MappingItemsField;
+        
+        private clsClassRel[] classRelationsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsTypes objTypes {
+            get {
+                return this.objTypesField;
+            }
+            set {
+                this.objTypesField = value;
+                this.RaisePropertyChanged("objTypes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsClassRel Rel_Ontologies_To_Ontologies {
+            get {
+                return this.rel_Ontologies_To_OntologiesField;
+            }
+            set {
+                this.rel_Ontologies_To_OntologiesField = value;
+                this.RaisePropertyChanged("Rel_Ontologies_To_Ontologies");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public clsClassRel Rel_Ontologies_To_OntologyItems {
+            get {
+                return this.rel_Ontologies_To_OntologyItemsField;
+            }
+            set {
+                this.rel_Ontologies_To_OntologyItemsField = value;
+                this.RaisePropertyChanged("Rel_Ontologies_To_OntologyItems");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public clsClassRel Rel_Ontologies_To_OntologyJoins {
+            get {
+                return this.rel_Ontologies_To_OntologyJoinsField;
+            }
+            set {
+                this.rel_Ontologies_To_OntologyJoinsField = value;
+                this.RaisePropertyChanged("Rel_Ontologies_To_OntologyJoins");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public clsClassRel Rel_Ontologies_To__belongingResources {
+            get {
+                return this.rel_Ontologies_To__belongingResourcesField;
+            }
+            set {
+                this.rel_Ontologies_To__belongingResourcesField = value;
+                this.RaisePropertyChanged("Rel_Ontologies_To__belongingResources");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public clsClassRel Rel_OntologyItems_To__belongingAttributes {
+            get {
+                return this.rel_OntologyItems_To__belongingAttributesField;
+            }
+            set {
+                this.rel_OntologyItems_To__belongingAttributesField = value;
+                this.RaisePropertyChanged("Rel_OntologyItems_To__belongingAttributes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public clsClassRel Rel_OntologyItems_To__belongingRelationTypes {
+            get {
+                return this.rel_OntologyItems_To__belongingRelationTypesField;
+            }
+            set {
+                this.rel_OntologyItems_To__belongingRelationTypesField = value;
+                this.RaisePropertyChanged("Rel_OntologyItems_To__belongingRelationTypes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public clsClassRel Rel_OntologyItems_To__belongingObjects {
+            get {
+                return this.rel_OntologyItems_To__belongingObjectsField;
+            }
+            set {
+                this.rel_OntologyItems_To__belongingObjectsField = value;
+                this.RaisePropertyChanged("Rel_OntologyItems_To__belongingObjects");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public clsClassRel Rel_OntologyItems_To__belongingClasses {
+            get {
+                return this.rel_OntologyItems_To__belongingClassesField;
+            }
+            set {
+                this.rel_OntologyItems_To__belongingClassesField = value;
+                this.RaisePropertyChanged("Rel_OntologyItems_To__belongingClasses");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public clsClassRel Rel_OntologyJoins_To_OntologyItems {
+            get {
+                return this.rel_OntologyJoins_To_OntologyItemsField;
+            }
+            set {
+                this.rel_OntologyJoins_To_OntologyItemsField = value;
+                this.RaisePropertyChanged("Rel_OntologyJoins_To_OntologyItems");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public clsClassRel Rel_OntologyMappings_To_MappingItems_src {
+            get {
+                return this.rel_OntologyMappings_To_MappingItems_srcField;
+            }
+            set {
+                this.rel_OntologyMappings_To_MappingItems_srcField = value;
+                this.RaisePropertyChanged("Rel_OntologyMappings_To_MappingItems_src");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public clsClassRel Rel_OntologyMappings_To_MappingItems_dst {
+            get {
+                return this.rel_OntologyMappings_To_MappingItems_dstField;
+            }
+            set {
+                this.rel_OntologyMappings_To_MappingItems_dstField = value;
+                this.RaisePropertyChanged("Rel_OntologyMappings_To_MappingItems_dst");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public clsClassRel Rel_OntologyMappings_To_MappingRules {
+            get {
+                return this.rel_OntologyMappings_To_MappingRulesField;
+            }
+            set {
+                this.rel_OntologyMappings_To_MappingRulesField = value;
+                this.RaisePropertyChanged("Rel_OntologyMappings_To_MappingRules");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public clsClassRel Rel_OntologyMappingItems_To_OntologyJoins {
+            get {
+                return this.rel_OntologyMappingItems_To_OntologyJoinsField;
+            }
+            set {
+                this.rel_OntologyMappingItems_To_OntologyJoinsField = value;
+                this.RaisePropertyChanged("Rel_OntologyMappingItems_To_OntologyJoins");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public clsClassRel Rel_OntologyMappingItems_To_Direction {
+            get {
+                return this.rel_OntologyMappingItems_To_DirectionField;
+            }
+            set {
+                this.rel_OntologyMappingItems_To_DirectionField = value;
+                this.RaisePropertyChanged("Rel_OntologyMappingItems_To_Direction");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public clsClassRel Rel_OntologyMappingItems_To_MappingItems {
+            get {
+                return this.rel_OntologyMappingItems_To_MappingItemsField;
+            }
+            set {
+                this.rel_OntologyMappingItems_To_MappingItemsField = value;
+                this.RaisePropertyChanged("Rel_OntologyMappingItems_To_MappingItems");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=16)]
+        public clsClassRel[] ClassRelations {
+            get {
+                return this.classRelationsField;
+            }
+            set {
+                this.classRelationsField = value;
+                this.RaisePropertyChanged("ClassRelations");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsClassRel : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iD_Class_LeftField;
+        
+        private string name_Class_LeftField;
+        
+        private string iD_Class_RightField;
+        
+        private string name_Class_RightField;
+        
+        private string iD_RelationTypeField;
+        
+        private string name_RelationTypeField;
+        
+        private string ontologyField;
+        
+        private System.Nullable<long> min_ForwField;
+        
+        private System.Nullable<long> max_ForwField;
+        
+        private System.Nullable<long> max_BackwField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ID_Class_Left {
+            get {
+                return this.iD_Class_LeftField;
+            }
+            set {
+                this.iD_Class_LeftField = value;
+                this.RaisePropertyChanged("ID_Class_Left");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name_Class_Left {
+            get {
+                return this.name_Class_LeftField;
+            }
+            set {
+                this.name_Class_LeftField = value;
+                this.RaisePropertyChanged("Name_Class_Left");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ID_Class_Right {
+            get {
+                return this.iD_Class_RightField;
+            }
+            set {
+                this.iD_Class_RightField = value;
+                this.RaisePropertyChanged("ID_Class_Right");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Name_Class_Right {
+            get {
+                return this.name_Class_RightField;
+            }
+            set {
+                this.name_Class_RightField = value;
+                this.RaisePropertyChanged("Name_Class_Right");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string ID_RelationType {
+            get {
+                return this.iD_RelationTypeField;
+            }
+            set {
+                this.iD_RelationTypeField = value;
+                this.RaisePropertyChanged("ID_RelationType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Name_RelationType {
+            get {
+                return this.name_RelationTypeField;
+            }
+            set {
+                this.name_RelationTypeField = value;
+                this.RaisePropertyChanged("Name_RelationType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string Ontology {
+            get {
+                return this.ontologyField;
+            }
+            set {
+                this.ontologyField = value;
+                this.RaisePropertyChanged("Ontology");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<long> Min_Forw {
+            get {
+                return this.min_ForwField;
+            }
+            set {
+                this.min_ForwField = value;
+                this.RaisePropertyChanged("Min_Forw");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public System.Nullable<long> Max_Forw {
+            get {
+                return this.max_ForwField;
+            }
+            set {
+                this.max_ForwField = value;
+                this.RaisePropertyChanged("Max_Forw");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public System.Nullable<long> Max_Backw {
+            get {
+                return this.max_BackwField;
+            }
+            set {
+                this.max_BackwField = value;
+                this.RaisePropertyChanged("Max_Backw");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsBaseClassAttributes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsClasses objClassesField;
+        
+        private clsAttributeTypes objAttributeTypesField;
+        
+        private clsClassAtt server__ProcessorIDField;
+        
+        private clsClassAtt server__BaseBoardSerialField;
+        
+        private clsClassAtt ontologyMappingItem__OrderIDField;
+        
+        private clsClassAtt ontologyMappingItem__NavigationField;
+        
+        private clsClassAtt[] classAttsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsClasses objClasses {
+            get {
+                return this.objClassesField;
+            }
+            set {
+                this.objClassesField = value;
+                this.RaisePropertyChanged("objClasses");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsAttributeTypes objAttributeTypes {
+            get {
+                return this.objAttributeTypesField;
+            }
+            set {
+                this.objAttributeTypesField = value;
+                this.RaisePropertyChanged("objAttributeTypes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public clsClassAtt Server__ProcessorID {
+            get {
+                return this.server__ProcessorIDField;
+            }
+            set {
+                this.server__ProcessorIDField = value;
+                this.RaisePropertyChanged("Server__ProcessorID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public clsClassAtt Server__BaseBoardSerial {
+            get {
+                return this.server__BaseBoardSerialField;
+            }
+            set {
+                this.server__BaseBoardSerialField = value;
+                this.RaisePropertyChanged("Server__BaseBoardSerial");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public clsClassAtt OntologyMappingItem__OrderID {
+            get {
+                return this.ontologyMappingItem__OrderIDField;
+            }
+            set {
+                this.ontologyMappingItem__OrderIDField = value;
+                this.RaisePropertyChanged("OntologyMappingItem__OrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public clsClassAtt OntologyMappingItem__Navigation {
+            get {
+                return this.ontologyMappingItem__NavigationField;
+            }
+            set {
+                this.ontologyMappingItem__NavigationField = value;
+                this.RaisePropertyChanged("OntologyMappingItem__Navigation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
+        public clsClassAtt[] ClassAtts {
+            get {
+                return this.classAttsField;
+            }
+            set {
+                this.classAttsField = value;
+                this.RaisePropertyChanged("ClassAtts");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsClasses : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsOntologyItem oItem_Class_RootField;
+        
+        private clsOntologyItem oItem_Class_LogstateField;
+        
+        private clsOntologyItem oItem_Class_DirectionsField;
+        
+        private clsOntologyItem oItem_Class_SystemField;
+        
+        private clsOntologyItem oItem_Class_OntologiesField;
+        
+        private clsOntologyItem oItem_Class_OntologyItemsField;
+        
+        private clsOntologyItem oItem_Class_OntologyRelationRuleField;
+        
+        private clsOntologyItem oItem_Class_OntologyItemCreationRuleField;
+        
+        private clsOntologyItem oItem_Class_OntologyJoinField;
+        
+        private clsOntologyItem oItem_Class_ServerField;
+        
+        private clsOntologyItem oItem_Class_VariableField;
+        
+        private clsOntologyItem oItem_Class_OntologyMappingField;
+        
+        private clsOntologyItem oItem_Class_OntologyMappingItemField;
+        
+        private clsOntologyItem oItem_Class_MappingRuleField;
+        
+        private clsOntologyItem oItem_Class_ModuleField;
+        
+        private clsOntologyItem oItem_Class_ModuleFunctionField;
+        
+        private clsOntologyItem[] oList_ClassesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsOntologyItem OItem_Class_Root {
+            get {
+                return this.oItem_Class_RootField;
+            }
+            set {
+                this.oItem_Class_RootField = value;
+                this.RaisePropertyChanged("OItem_Class_Root");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsOntologyItem OItem_Class_Logstate {
+            get {
+                return this.oItem_Class_LogstateField;
+            }
+            set {
+                this.oItem_Class_LogstateField = value;
+                this.RaisePropertyChanged("OItem_Class_Logstate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public clsOntologyItem OItem_Class_Directions {
+            get {
+                return this.oItem_Class_DirectionsField;
+            }
+            set {
+                this.oItem_Class_DirectionsField = value;
+                this.RaisePropertyChanged("OItem_Class_Directions");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public clsOntologyItem OItem_Class_System {
+            get {
+                return this.oItem_Class_SystemField;
+            }
+            set {
+                this.oItem_Class_SystemField = value;
+                this.RaisePropertyChanged("OItem_Class_System");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public clsOntologyItem OItem_Class_Ontologies {
+            get {
+                return this.oItem_Class_OntologiesField;
+            }
+            set {
+                this.oItem_Class_OntologiesField = value;
+                this.RaisePropertyChanged("OItem_Class_Ontologies");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public clsOntologyItem OItem_Class_OntologyItems {
+            get {
+                return this.oItem_Class_OntologyItemsField;
+            }
+            set {
+                this.oItem_Class_OntologyItemsField = value;
+                this.RaisePropertyChanged("OItem_Class_OntologyItems");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public clsOntologyItem OItem_Class_OntologyRelationRule {
+            get {
+                return this.oItem_Class_OntologyRelationRuleField;
+            }
+            set {
+                this.oItem_Class_OntologyRelationRuleField = value;
+                this.RaisePropertyChanged("OItem_Class_OntologyRelationRule");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public clsOntologyItem OItem_Class_OntologyItemCreationRule {
+            get {
+                return this.oItem_Class_OntologyItemCreationRuleField;
+            }
+            set {
+                this.oItem_Class_OntologyItemCreationRuleField = value;
+                this.RaisePropertyChanged("OItem_Class_OntologyItemCreationRule");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public clsOntologyItem OItem_Class_OntologyJoin {
+            get {
+                return this.oItem_Class_OntologyJoinField;
+            }
+            set {
+                this.oItem_Class_OntologyJoinField = value;
+                this.RaisePropertyChanged("OItem_Class_OntologyJoin");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public clsOntologyItem OItem_Class_Server {
+            get {
+                return this.oItem_Class_ServerField;
+            }
+            set {
+                this.oItem_Class_ServerField = value;
+                this.RaisePropertyChanged("OItem_Class_Server");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public clsOntologyItem OItem_Class_Variable {
+            get {
+                return this.oItem_Class_VariableField;
+            }
+            set {
+                this.oItem_Class_VariableField = value;
+                this.RaisePropertyChanged("OItem_Class_Variable");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public clsOntologyItem OItem_Class_OntologyMapping {
+            get {
+                return this.oItem_Class_OntologyMappingField;
+            }
+            set {
+                this.oItem_Class_OntologyMappingField = value;
+                this.RaisePropertyChanged("OItem_Class_OntologyMapping");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public clsOntologyItem OItem_Class_OntologyMappingItem {
+            get {
+                return this.oItem_Class_OntologyMappingItemField;
+            }
+            set {
+                this.oItem_Class_OntologyMappingItemField = value;
+                this.RaisePropertyChanged("OItem_Class_OntologyMappingItem");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public clsOntologyItem OItem_Class_MappingRule {
+            get {
+                return this.oItem_Class_MappingRuleField;
+            }
+            set {
+                this.oItem_Class_MappingRuleField = value;
+                this.RaisePropertyChanged("OItem_Class_MappingRule");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public clsOntologyItem OItem_Class_Module {
+            get {
+                return this.oItem_Class_ModuleField;
+            }
+            set {
+                this.oItem_Class_ModuleField = value;
+                this.RaisePropertyChanged("OItem_Class_Module");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public clsOntologyItem OItem_Class_ModuleFunction {
+            get {
+                return this.oItem_Class_ModuleFunctionField;
+            }
+            set {
+                this.oItem_Class_ModuleFunctionField = value;
+                this.RaisePropertyChanged("OItem_Class_ModuleFunction");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=16)]
+        public clsOntologyItem[] OList_Classes {
+            get {
+                return this.oList_ClassesField;
+            }
+            set {
+                this.oList_ClassesField = value;
+                this.RaisePropertyChanged("OList_Classes");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsAttributeTypes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsOntologyItem oItem_AttributeType_WMI_ProcessorIDField;
+        
+        private clsOntologyItem oITem_AttributeType_WMI_BaseBoardSerialField;
+        
+        private clsOntologyItem oITem_AttributeType_OrderIDField;
+        
+        private clsOntologyItem oITem_AttributeType_NavigationField;
+        
+        private clsOntologyItem[] attributeTypesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsOntologyItem OItem_AttributeType_WMI_ProcessorID {
+            get {
+                return this.oItem_AttributeType_WMI_ProcessorIDField;
+            }
+            set {
+                this.oItem_AttributeType_WMI_ProcessorIDField = value;
+                this.RaisePropertyChanged("OItem_AttributeType_WMI_ProcessorID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsOntologyItem OITem_AttributeType_WMI_BaseBoardSerial {
+            get {
+                return this.oITem_AttributeType_WMI_BaseBoardSerialField;
+            }
+            set {
+                this.oITem_AttributeType_WMI_BaseBoardSerialField = value;
+                this.RaisePropertyChanged("OITem_AttributeType_WMI_BaseBoardSerial");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public clsOntologyItem OITem_AttributeType_OrderID {
+            get {
+                return this.oITem_AttributeType_OrderIDField;
+            }
+            set {
+                this.oITem_AttributeType_OrderIDField = value;
+                this.RaisePropertyChanged("OITem_AttributeType_OrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public clsOntologyItem OITem_AttributeType_Navigation {
+            get {
+                return this.oITem_AttributeType_NavigationField;
+            }
+            set {
+                this.oITem_AttributeType_NavigationField = value;
+                this.RaisePropertyChanged("OITem_AttributeType_Navigation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        public clsOntologyItem[] AttributeTypes {
+            get {
+                return this.attributeTypesField;
+            }
+            set {
+                this.attributeTypesField = value;
+                this.RaisePropertyChanged("AttributeTypes");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsClassAtt : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iD_ClassField;
+        
+        private string name_ClassField;
+        
+        private string iD_AttributeTypeField;
+        
+        private string name_AttributeTypeField;
+        
+        private string iD_DataTypeField;
+        
+        private string name_DataTypeField;
+        
+        private System.Nullable<long> minField;
+        
+        private System.Nullable<long> maxField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ID_Class {
+            get {
+                return this.iD_ClassField;
+            }
+            set {
+                this.iD_ClassField = value;
+                this.RaisePropertyChanged("ID_Class");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name_Class {
+            get {
+                return this.name_ClassField;
+            }
+            set {
+                this.name_ClassField = value;
+                this.RaisePropertyChanged("Name_Class");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ID_AttributeType {
+            get {
+                return this.iD_AttributeTypeField;
+            }
+            set {
+                this.iD_AttributeTypeField = value;
+                this.RaisePropertyChanged("ID_AttributeType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Name_AttributeType {
+            get {
+                return this.name_AttributeTypeField;
+            }
+            set {
+                this.name_AttributeTypeField = value;
+                this.RaisePropertyChanged("Name_AttributeType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string ID_DataType {
+            get {
+                return this.iD_DataTypeField;
+            }
+            set {
+                this.iD_DataTypeField = value;
+                this.RaisePropertyChanged("ID_DataType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Name_DataType {
+            get {
+                return this.name_DataTypeField;
+            }
+            set {
+                this.name_DataTypeField = value;
+                this.RaisePropertyChanged("Name_DataType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<long> Min {
+            get {
+                return this.minField;
+            }
+            set {
+                this.minField = value;
+                this.RaisePropertyChanged("Min");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<long> Max {
+            get {
+                return this.maxField;
+            }
+            set {
+                this.maxField = value;
+                this.RaisePropertyChanged("Max");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsClassTypes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class clsOntologyRelationRules : object, System.ComponentModel.INotifyPropertyChanged {
         
         private clsOntologyItem rule_ChildTokenField;
@@ -2464,294 +3630,6 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsClassRel : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iD_Class_LeftField;
-        
-        private string name_Class_LeftField;
-        
-        private string iD_Class_RightField;
-        
-        private string name_Class_RightField;
-        
-        private string iD_RelationTypeField;
-        
-        private string name_RelationTypeField;
-        
-        private string ontologyField;
-        
-        private System.Nullable<long> min_ForwField;
-        
-        private System.Nullable<long> max_ForwField;
-        
-        private System.Nullable<long> max_BackwField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ID_Class_Left {
-            get {
-                return this.iD_Class_LeftField;
-            }
-            set {
-                this.iD_Class_LeftField = value;
-                this.RaisePropertyChanged("ID_Class_Left");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name_Class_Left {
-            get {
-                return this.name_Class_LeftField;
-            }
-            set {
-                this.name_Class_LeftField = value;
-                this.RaisePropertyChanged("Name_Class_Left");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ID_Class_Right {
-            get {
-                return this.iD_Class_RightField;
-            }
-            set {
-                this.iD_Class_RightField = value;
-                this.RaisePropertyChanged("ID_Class_Right");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Name_Class_Right {
-            get {
-                return this.name_Class_RightField;
-            }
-            set {
-                this.name_Class_RightField = value;
-                this.RaisePropertyChanged("Name_Class_Right");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string ID_RelationType {
-            get {
-                return this.iD_RelationTypeField;
-            }
-            set {
-                this.iD_RelationTypeField = value;
-                this.RaisePropertyChanged("ID_RelationType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string Name_RelationType {
-            get {
-                return this.name_RelationTypeField;
-            }
-            set {
-                this.name_RelationTypeField = value;
-                this.RaisePropertyChanged("Name_RelationType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string Ontology {
-            get {
-                return this.ontologyField;
-            }
-            set {
-                this.ontologyField = value;
-                this.RaisePropertyChanged("Ontology");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
-        public System.Nullable<long> Min_Forw {
-            get {
-                return this.min_ForwField;
-            }
-            set {
-                this.min_ForwField = value;
-                this.RaisePropertyChanged("Min_Forw");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
-        public System.Nullable<long> Max_Forw {
-            get {
-                return this.max_ForwField;
-            }
-            set {
-                this.max_ForwField = value;
-                this.RaisePropertyChanged("Max_Forw");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
-        public System.Nullable<long> Max_Backw {
-            get {
-                return this.max_BackwField;
-            }
-            set {
-                this.max_BackwField = value;
-                this.RaisePropertyChanged("Max_Backw");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsClassAtt : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iD_ClassField;
-        
-        private string name_ClassField;
-        
-        private string iD_AttributeTypeField;
-        
-        private string name_AttributeTypeField;
-        
-        private string iD_DataTypeField;
-        
-        private string name_DataTypeField;
-        
-        private System.Nullable<long> minField;
-        
-        private System.Nullable<long> maxField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ID_Class {
-            get {
-                return this.iD_ClassField;
-            }
-            set {
-                this.iD_ClassField = value;
-                this.RaisePropertyChanged("ID_Class");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name_Class {
-            get {
-                return this.name_ClassField;
-            }
-            set {
-                this.name_ClassField = value;
-                this.RaisePropertyChanged("Name_Class");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ID_AttributeType {
-            get {
-                return this.iD_AttributeTypeField;
-            }
-            set {
-                this.iD_AttributeTypeField = value;
-                this.RaisePropertyChanged("ID_AttributeType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Name_AttributeType {
-            get {
-                return this.name_AttributeTypeField;
-            }
-            set {
-                this.name_AttributeTypeField = value;
-                this.RaisePropertyChanged("Name_AttributeType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string ID_DataType {
-            get {
-                return this.iD_DataTypeField;
-            }
-            set {
-                this.iD_DataTypeField = value;
-                this.RaisePropertyChanged("ID_DataType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string Name_DataType {
-            get {
-                return this.name_DataTypeField;
-            }
-            set {
-                this.name_DataTypeField = value;
-                this.RaisePropertyChanged("Name_DataType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
-        public System.Nullable<long> Min {
-            get {
-                return this.minField;
-            }
-            set {
-                this.minField = value;
-                this.RaisePropertyChanged("Min");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
-        public System.Nullable<long> Max {
-            get {
-                return this.maxField;
-            }
-            set {
-                this.maxField = value;
-                this.RaisePropertyChanged("Max");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class WebServiceResult : object, System.ComponentModel.INotifyPropertyChanged {
         
         private clsOntologyItem resultField;
@@ -3037,6 +3915,54 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyRelationRules> ORelationRulesAsync() {
             return base.Channel.ORelationRulesAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsClasses OClasses() {
+            return base.Channel.OClasses();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsClasses> OClassesAsync() {
+            return base.Channel.OClassesAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsClassTypes OClassTypes() {
+            return base.Channel.OClassTypes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsClassTypes> OClassTypesAsync() {
+            return base.Channel.OClassTypesAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsAttributeTypes OAttributeTypes() {
+            return base.Channel.OAttributeTypes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsAttributeTypes> OAttributeTypesAsync() {
+            return base.Channel.OAttributeTypesAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsBaseClassAttributes OClassAttributes() {
+            return base.Channel.OClassAttributes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsBaseClassAttributes> OClassAttributesAsync() {
+            return base.Channel.OClassAttributesAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsBaseClassRelation OClassRelatations() {
+            return base.Channel.OClassRelatations();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsBaseClassRelation> OClassRelatationsAsync() {
+            return base.Channel.OClassRelatationsAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsDataTypes ODataTypes() {
+            return base.Channel.ODataTypes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsDataTypes> ODataTypesAsync() {
+            return base.Channel.ODataTypesAsync();
         }
         
         public WpfOnt.OntoWeb.clsVariables OVariables() {

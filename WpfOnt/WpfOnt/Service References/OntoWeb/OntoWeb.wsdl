@@ -324,6 +324,144 @@
           <s:element minOccurs="0" maxOccurs="1" name="OntologyRelationRules" type="tns:ArrayOfClsOntologyItem" />
         </s:sequence>
       </s:complexType>
+      <s:element name="OClasses">
+        <s:complexType />
+      </s:element>
+      <s:element name="OClassesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OClassesResult" type="tns:clsClasses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsClasses">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Root" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Logstate" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Directions" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_System" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Ontologies" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_OntologyItems" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_OntologyRelationRule" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_OntologyItemCreationRule" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_OntologyJoin" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Server" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Variable" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_OntologyMapping" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_OntologyMappingItem" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_MappingRule" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Module" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_ModuleFunction" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OList_Classes" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OClassTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="OClassTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OClassTypesResult" type="tns:clsClassTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsClassTypes" />
+      <s:element name="OAttributeTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="OAttributeTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OAttributeTypesResult" type="tns:clsAttributeTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsAttributeTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_AttributeType_WMI_ProcessorID" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_WMI_BaseBoardSerial" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_OrderID" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_Navigation" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeTypes" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OClassAttributes">
+        <s:complexType />
+      </s:element>
+      <s:element name="OClassAttributesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OClassAttributesResult" type="tns:clsBaseClassAttributes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsBaseClassAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objClasses" type="tns:clsClasses" />
+          <s:element minOccurs="0" maxOccurs="1" name="objAttributeTypes" type="tns:clsAttributeTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Server__ProcessorID" type="tns:clsClassAtt" />
+          <s:element minOccurs="0" maxOccurs="1" name="Server__BaseBoardSerial" type="tns:clsClassAtt" />
+          <s:element minOccurs="0" maxOccurs="1" name="OntologyMappingItem__OrderID" type="tns:clsClassAtt" />
+          <s:element minOccurs="0" maxOccurs="1" name="OntologyMappingItem__Navigation" type="tns:clsClassAtt" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassAtts" type="tns:ArrayOfClsClassAtt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OClassRelatations">
+        <s:complexType />
+      </s:element>
+      <s:element name="OClassRelatationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OClassRelatationsResult" type="tns:clsBaseClassRelation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsBaseClassRelation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objTypes" type="tns:clsTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_Ontologies_To_Ontologies" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_Ontologies_To_OntologyItems" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_Ontologies_To_OntologyJoins" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_Ontologies_To__belongingResources" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyItems_To__belongingAttributes" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyItems_To__belongingRelationTypes" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyItems_To__belongingObjects" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyItems_To__belongingClasses" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyJoins_To_OntologyItems" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyMappings_To_MappingItems_src" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyMappings_To_MappingItems_dst" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyMappings_To_MappingRules" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyMappingItems_To_OntologyJoins" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyMappingItems_To_Direction" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rel_OntologyMappingItems_To_MappingItems" type="tns:clsClassRel" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassRelations" type="tns:ArrayOfClsClassRel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeItems" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ODataTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ODataTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ODataTypesResult" type="tns:clsDataTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsDataTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DType_Bool" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="DType_DateTime" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="DType_Int" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="DType_Real" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="DType_String" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataTypes" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="OVariables">
         <s:complexType />
       </s:element>
@@ -406,11 +544,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="clsTypes">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="TypeItems" type="tns:ArrayOfString" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Config">
         <s:complexType />
       </s:element>
@@ -1003,6 +1136,42 @@
   <wsdl:message name="ORelationRulesSoapOut">
     <wsdl:part name="parameters" element="tns:ORelationRulesResponse" />
   </wsdl:message>
+  <wsdl:message name="OClassesSoapIn">
+    <wsdl:part name="parameters" element="tns:OClasses" />
+  </wsdl:message>
+  <wsdl:message name="OClassesSoapOut">
+    <wsdl:part name="parameters" element="tns:OClassesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OClassTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:OClassTypes" />
+  </wsdl:message>
+  <wsdl:message name="OClassTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:OClassTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OAttributeTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:OAttributeTypes" />
+  </wsdl:message>
+  <wsdl:message name="OAttributeTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:OAttributeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OClassAttributesSoapIn">
+    <wsdl:part name="parameters" element="tns:OClassAttributes" />
+  </wsdl:message>
+  <wsdl:message name="OClassAttributesSoapOut">
+    <wsdl:part name="parameters" element="tns:OClassAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OClassRelatationsSoapIn">
+    <wsdl:part name="parameters" element="tns:OClassRelatations" />
+  </wsdl:message>
+  <wsdl:message name="OClassRelatationsSoapOut">
+    <wsdl:part name="parameters" element="tns:OClassRelatationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ODataTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:ODataTypes" />
+  </wsdl:message>
+  <wsdl:message name="ODataTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:ODataTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="OVariablesSoapIn">
     <wsdl:part name="parameters" element="tns:OVariables" />
   </wsdl:message>
@@ -1284,6 +1453,30 @@
       <wsdl:input message="tns:ORelationRulesSoapIn" />
       <wsdl:output message="tns:ORelationRulesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="OClasses">
+      <wsdl:input message="tns:OClassesSoapIn" />
+      <wsdl:output message="tns:OClassesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OClassTypes">
+      <wsdl:input message="tns:OClassTypesSoapIn" />
+      <wsdl:output message="tns:OClassTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OAttributeTypes">
+      <wsdl:input message="tns:OAttributeTypesSoapIn" />
+      <wsdl:output message="tns:OAttributeTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OClassAttributes">
+      <wsdl:input message="tns:OClassAttributesSoapIn" />
+      <wsdl:output message="tns:OClassAttributesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OClassRelatations">
+      <wsdl:input message="tns:OClassRelatationsSoapIn" />
+      <wsdl:output message="tns:OClassRelatationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ODataTypes">
+      <wsdl:input message="tns:ODataTypesSoapIn" />
+      <wsdl:output message="tns:ODataTypesSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="OVariables">
       <wsdl:input message="tns:OVariablesSoapIn" />
       <wsdl:output message="tns:OVariablesSoapOut" />
@@ -1530,6 +1723,60 @@
     </wsdl:operation>
     <wsdl:operation name="ORelationRules">
       <soap:operation soapAction="http://tempuri.org/ORelationRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClasses">
+      <soap:operation soapAction="http://tempuri.org/OClasses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClassTypes">
+      <soap:operation soapAction="http://tempuri.org/OClassTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OAttributeTypes">
+      <soap:operation soapAction="http://tempuri.org/OAttributeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClassAttributes">
+      <soap:operation soapAction="http://tempuri.org/OClassAttributes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClassRelatations">
+      <soap:operation soapAction="http://tempuri.org/OClassRelatations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ODataTypes">
+      <soap:operation soapAction="http://tempuri.org/ODataTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1983,6 +2230,60 @@
     </wsdl:operation>
     <wsdl:operation name="ORelationRules">
       <soap12:operation soapAction="http://tempuri.org/ORelationRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClasses">
+      <soap12:operation soapAction="http://tempuri.org/OClasses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClassTypes">
+      <soap12:operation soapAction="http://tempuri.org/OClassTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OAttributeTypes">
+      <soap12:operation soapAction="http://tempuri.org/OAttributeTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClassAttributes">
+      <soap12:operation soapAction="http://tempuri.org/OClassAttributes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OClassRelatations">
+      <soap12:operation soapAction="http://tempuri.org/OClassRelatations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ODataTypes">
+      <soap12:operation soapAction="http://tempuri.org/ODataTypes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -210,6 +210,12 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public clsRelationTypes ORelationTypes()
+        {
+            return new clsRelationTypes();
+        }
+
+        [WebMethod]
         public clsBaseClassAttributes OClassAttributes()
         {
             return new clsBaseClassAttributes();
