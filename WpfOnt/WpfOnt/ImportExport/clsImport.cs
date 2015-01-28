@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OntologyClasses.DataClasses;
 using WpfOnt.Data;
 using System.Xml;
-using OntologyClasses.BaseClasses;
+using WpfOnt.OntoWeb;
 using System.Reflection;
 using System.IO;
 

@@ -1,4 +1,4 @@
-﻿using OntologyClasses.BaseClasses;
+﻿using WpfOnt.OntoWeb;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -280,7 +280,7 @@ namespace WpfOnt.Data
         {
             this.OList_ClassAtt_ID.Clear();
             this.OList_ClassAtt.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
             var result = ontoWebSoapClient.ClassAttributes(oList_Class.ToArray(), oList_AttributeTyp.ToArray(), boolIDs, doCount);
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
@@ -589,7 +589,7 @@ namespace WpfOnt.Data
 
         public clsOntologyItem create_Report_ES(clsOntologyItem objOItem_Report)
         {
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
             return objOItem_Result;
         }
@@ -603,9 +603,8 @@ namespace WpfOnt.Data
 
         public bool create_Index_Es() 
         {
-            var indexSettings = objElSelector.GetIndexSettings();
-            var objOPResult = objElSelector.ElConnector.CreateIndex(index => index.Index(strIndex).InitializeUsing(indexSettings));
-            return objOPResult.IsValid;
+            var result = ontoWebSoapClient.CreateIndex(strIndex);
+            return result;
             
         }
 
@@ -661,119 +660,22 @@ namespace WpfOnt.Data
 
         public clsOntologyItem GetOItem(string GUID_Item, string Type_Item ) 
         {
-            var objOItem_OItem = new clsOntologyItem {GUID = GUID_Item,
-                                                       Type = Type_Item};
-
-
-            var objOLIst_OItem = new List<clsOntologyItem> {objOItem_OItem};
-
-            var objOItem_Result = new clsOntologyItem {GUID = objLogStates.LogState_Error.GUID};
-
-            if (Type_Item.ToLower() == objTypes.AttributeType.ToLower())
-            {
-                objOItem_Result = get_Data_AttributeType(objOLIst_OItem);
-                if (objOItem_Result.GUID == objLogStates.LogState_Success.GUID)
-                {
-                    if (OList_AttributeTypes.Any())
-                    {
-                        objOItem_OItem.Name = OList_AttributeTypes.First().Name;
-                        objOItem_OItem.GUID_Parent = OList_AttributeTypes.First().GUID_Parent;
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Success.GUID;
-                    }
-                    else
-                    {
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Error.GUID;
-                    }
-
-                    objOItem_OItem.Type = objTypes.AttributeType;
-                }
-            }
-            else if (Type_Item.ToLower() == objTypes.ClassType.ToLower())
-            {
-                objOItem_Result = get_Data_Classes(objOLIst_OItem);
-                if (objOItem_Result.GUID == objLogStates.LogState_Success.GUID)
-                {
-                    if (OList_Classes.Any())
-                    {
-                        objOItem_OItem.Name = OList_Classes.First().Name;
-                        objOItem_OItem.GUID_Parent = OList_Classes.First().GUID_Parent;
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Success.GUID;
-                    }
-                    else
-                    {
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Error.GUID;
-                    }
-                    objOItem_OItem.Type = objTypes.ClassType;
-                }
-            }
-            else if (Type_Item.ToLower() == objTypes.ClassType.ToLower())
-            {
-                objOItem_Result = get_Data_Objects(objOLIst_OItem);
-                if (objOItem_Result.GUID == objLogStates.LogState_Success.GUID)
-                {
-                    if (OList_Objects.Any())
-                    {
-                        objOItem_OItem.Name = OList_Objects.First().Name;
-                        objOItem_OItem.GUID_Parent = OList_Objects.First().GUID_Parent;
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Success.GUID;
-                    }
-                    else
-                    {
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Error.GUID;
-                    }
-                    objOItem_OItem.Type = objTypes.ObjectType;
-                }
-            }
-            else if (Type_Item.ToLower() == objTypes.RelationType.ToLower())
-            {
-                objOItem_Result = get_Data_RelationTypes(objOLIst_OItem);
-                if (objOItem_Result.GUID == objLogStates.LogState_Success.GUID)
-                {
-                    if (OList_RelationTypes.Any())
-                    {
-                        objOItem_OItem.Name = OList_RelationTypes.First().Name;
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Success.GUID;
-                    }
-                    else
-                    {
-                        objOItem_OItem.GUID_Related = objLogStates.LogState_Error.GUID;
-                    }
-                    objOItem_OItem.Type = objTypes.RelationType;
-                }
-            }
-        
-            if (objOItem_Result.GUID == objLogStates.LogState_Error.GUID)
-            {
-                objOItem_OItem.GUID_Related = objLogStates.LogState_Error.GUID;
-            }
-
-            return objOItem_OItem;
+            return ontoWebSoapClient.GetOItem(GUID_Item, Type_Item);
         }    
 
     public string GetClassPath(clsOntologyItem OItem_Class)
     {
-        string strPath = "";
-        do
-        {
-            if (!string.IsNullOrEmpty(OItem_Class.GUID_Parent))
-            {
-                if ( OItem_Class.GUID_Parent != "")
-                {
-                    strPath = OItem_Class.Name + (!string.IsNullOrEmpty(strPath) ? "\\" : "") + strPath;
-                    var objOLRel_ClassParent = new List<clsOntologyItem> {new clsOntologyItem {GUID = OItem_Class.GUID_Parent}};
-                    var OList_Classes = objElSelector.get_Data_Classes(objOLRel_ClassParent);
-                    OItem_Class = OList_Classes.FirstOrDefault();
-                }
-            }
-        } while (OItem_Class.GUID_Parent != null);
+        var result = ontoWebSoapClient.GetClassPath(OItem_Class.GUID);
         
-
-        if (OItem_Class != null)
+        if (result.GUID == objLogStates.LogState_Success.GUID)
         {
-            strPath = "\\" + OItem_Class.Name + (!string.IsNullOrEmpty(strPath) ? "\\" : "") + strPath;
+            return result.Additional1;
         }
-
-        return strPath;
+        else
+        {
+            return null;
+        }
+        
     }
 
 
@@ -790,7 +692,6 @@ namespace WpfOnt.Data
         Initialize();
         initialize_Client();
 
-        Sort = SortEnum.NONE;
     }
     
         public DbWork(string strServer, int intPort, string strIndex, string strIndexRep, int intSearchRange, string strSession)
@@ -807,7 +708,6 @@ namespace WpfOnt.Data
             Initialize();
             initialize_Client();
 
-            Sort = SortEnum.NONE;
         }
 
         private void Initialize()

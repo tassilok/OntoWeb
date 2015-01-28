@@ -1,5 +1,4 @@
-﻿using OntologyClasses.BaseClasses;
-using OntologyClasses.DataClasses;
+﻿using WpfOnt.OntoWeb;
 using System;
 using System.Collections.Generic;
 using System.Linq;

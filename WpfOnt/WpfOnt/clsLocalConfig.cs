@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OntologyClasses.BaseClasses;
+using WpfOnt.OntoWeb;
 using System.Reflection;
 using WpfOnt.Data;
 using System.Windows;

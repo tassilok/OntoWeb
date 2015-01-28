@@ -169,6 +169,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexExists", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> IndexExistsAsync(string index);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool CreateIndex(string indexName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> CreateIndexAsync(string indexName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount);
@@ -3126,6 +3133,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<bool> IndexExistsAsync(string index) {
             return base.Channel.IndexExistsAsync(index);
+        }
+        
+        public bool CreateIndex(string indexName) {
+            return base.Channel.CreateIndex(indexName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateIndexAsync(string indexName) {
+            return base.Channel.CreateIndexAsync(indexName);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {

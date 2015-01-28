@@ -535,6 +535,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CreateIndex">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="indexName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateIndexResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="DataTypes">
         <s:complexType>
           <s:sequence>
@@ -1061,6 +1075,12 @@
   <wsdl:message name="IndexExistsSoapOut">
     <wsdl:part name="parameters" element="tns:IndexExistsResponse" />
   </wsdl:message>
+  <wsdl:message name="CreateIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIndex" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIndexResponse" />
+  </wsdl:message>
   <wsdl:message name="DataTypesSoapIn">
     <wsdl:part name="parameters" element="tns:DataTypes" />
   </wsdl:message>
@@ -1311,6 +1331,10 @@
     <wsdl:operation name="IndexExists">
       <wsdl:input message="tns:IndexExistsSoapIn" />
       <wsdl:output message="tns:IndexExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <wsdl:input message="tns:CreateIndexSoapIn" />
+      <wsdl:output message="tns:CreateIndexSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DataTypes">
       <wsdl:input message="tns:DataTypesSoapIn" />
@@ -1614,6 +1638,15 @@
     </wsdl:operation>
     <wsdl:operation name="IndexExists">
       <soap:operation soapAction="http://tempuri.org/IndexExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <soap:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2058,6 +2091,15 @@
     </wsdl:operation>
     <wsdl:operation name="IndexExists">
       <soap12:operation soapAction="http://tempuri.org/IndexExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <soap12:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

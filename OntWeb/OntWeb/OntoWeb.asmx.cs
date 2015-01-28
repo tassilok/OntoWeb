@@ -192,6 +192,48 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public clsClasses OClasses()
+        {
+            return new clsClasses();
+        }
+
+        [WebMethod]
+        public clsOntologyRelationRules ORelationRules()
+        {
+            return new clsOntologyRelationRules();
+        }
+
+        [WebMethod]
+        public clsClassTypes OClassTypes()
+        {
+            return new clsClassTypes();
+        }
+
+        [WebMethod]
+        public clsAttributeTypes OAttributeTypes()
+        {
+            return new clsAttributeTypes();
+        }
+
+        [WebMethod]
+        public clsBaseClassAttributes OClassAttributes()
+        {
+            return new clsBaseClassAttributes();
+        }
+
+        [WebMethod]
+        public clsBaseClassRelation OClassRelatations()
+        {
+            return new clsBaseClassRelation();
+        }
+
+        [WebMethod]
+        public clsDataTypes ODataTypes()
+        {
+            return new clsDataTypes();
+        }
+
+        [WebMethod]
         public clsVariables OVariables()
         {
             return new clsVariables();
