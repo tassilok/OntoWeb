@@ -198,12 +198,6 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public clsOntologyRelationRules ORelationRules()
-        {
-            return new clsOntologyRelationRules();
-        }
-
-        [WebMethod]
         public clsClassTypes OClassTypes()
         {
             return new clsClassTypes();
