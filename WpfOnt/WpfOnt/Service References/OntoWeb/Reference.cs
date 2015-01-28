@@ -2746,6 +2746,10 @@ namespace WpfOnt.OntoWeb {
         
         private clsOntologyItem[] ontologyItemsField;
         
+        private clsOntologyItem[] ontologyItems1Field;
+        
+        private clsOntologyItem[] ontologyItems2Field;
+        
         private clsClassAtt[] classAttributesField;
         
         private clsClassRel[] classRelationsField;
@@ -2798,6 +2802,30 @@ namespace WpfOnt.OntoWeb {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
+        public clsOntologyItem[] OntologyItems1 {
+            get {
+                return this.ontologyItems1Field;
+            }
+            set {
+                this.ontologyItems1Field = value;
+                this.RaisePropertyChanged("OntologyItems1");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        public clsOntologyItem[] OntologyItems2 {
+            get {
+                return this.ontologyItems2Field;
+            }
+            set {
+                this.ontologyItems2Field = value;
+                this.RaisePropertyChanged("OntologyItems2");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
         public clsClassAtt[] ClassAttributes {
             get {
                 return this.classAttributesField;
@@ -2809,7 +2837,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
         public clsClassRel[] ClassRelations {
             get {
                 return this.classRelationsField;
@@ -2821,7 +2849,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
         public clsObjectAtt[] ObjectAttributes {
             get {
                 return this.objectAttributesField;
@@ -2833,7 +2861,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=8)]
         public clsObjectRel[] ObjectRelations {
             get {
                 return this.objectRelationsField;
@@ -2845,7 +2873,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
         public clsObjectTree[] ObjectTrees {
             get {
                 return this.objectTreesField;
@@ -2857,7 +2885,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
         public long Count {
             get {
                 return this.countField;
@@ -2869,7 +2897,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
         public long OrderId {
             get {
                 return this.orderIdField;

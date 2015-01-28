@@ -381,6 +381,15 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public bool IndexExists(string index)
+        {
+            var objIndexDescriptor = dbSelector.GetIndexExistsDescriptor();
+            objIndexDescriptor.Index(index);
+
+            return dbSelector.ElConnector.IndexExists(f => objIndexDescriptor).Exists;
+        }
+
+        [WebMethod]
         public WebServiceResult DataTypes(List<clsOntologyItem> oList_DataTypes, bool doCount = false)
         {
             try

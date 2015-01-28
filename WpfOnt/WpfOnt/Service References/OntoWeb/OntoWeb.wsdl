@@ -53,6 +53,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="IndexList" type="tns:ArrayOfString" />
           <s:element minOccurs="0" maxOccurs="1" name="OntologyItems" type="tns:ArrayOfClsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OntologyItems1" type="tns:ArrayOfClsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OntologyItems2" type="tns:ArrayOfClsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="ClassAttributes" type="tns:ArrayOfClsClassAtt" />
           <s:element minOccurs="0" maxOccurs="1" name="ClassRelations" type="tns:ArrayOfClsClassRel" />
           <s:element minOccurs="0" maxOccurs="1" name="ObjectAttributes" type="tns:ArrayOfClsObjectAtt" />

@@ -497,29 +497,35 @@ namespace WpfOnt.Data
         public clsOntologyItem get_Data_Objects_Tree(clsOntologyItem objOItem_Class_Par,
                                               clsOntologyItem objOitem_Class_Child,
                                               clsOntologyItem objOItem_RelationType,
-                                              bool boolTable = false,
                                               bool doCount = false)
         {
             this.OList_ObjectTree.Clear();
             this.OList_Objects.Clear();
             this.OList_Objects2.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
-            if (doCount)
+            var result = ontoWebSoapClient.ObjectTree(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
+
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                objOItem_Result.Count = objElSelector.get_Data_Objects_Tree_Count(objOItem_Class_Par,
-                                                                                  objOitem_Class_Child,
-                                                                                  objOItem_RelationType);
+                if (doCount)
+                {
+                    objOItem_Result.Count = result.Count;
+                }
+                else
+                {
+                    this.OList_ObjectTree = new List<clsObjectTree>( result.ObjectTrees );
+                    this.OList_Objects =  new List<clsOntologyItem>( result.OntologyItems1 );
+                    this.OList_Objects2 = new List<clsOntologyItem>( result.OntologyItems2 );
+
+                }
             }
             else
             {
-                this.OList_ObjectTree = objElSelector.get_Data_Objects_Tree(objOItem_Class_Par,
-                                                                                 objOitem_Class_Child,
-                                                                                 objOItem_RelationType);
-                this.OList_Objects = objElSelector.OntologyList_Objects1;
-                this.OList_Objects2 = objElSelector.OntologyList_Objects2;
-
+                objOItem_Result = result.Result;
             }
+
+            
 
             return objOItem_Result;
 
@@ -532,17 +538,49 @@ namespace WpfOnt.Data
         {
             this.OList_Objects.Clear();
             this.OList_Objects2.Clear();
-            var objOItem_Result = objLogStates.LogState_Success.Clone();
+            var objOItem_Result = objLogStates.LogState_Success;
 
+            var result = ontoWebSoapClient.Objects(oList_Objects.ToArray(), doCount);
         
-            if (!List2)
+            if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
-                this.OList_Objects = objElSelector.get_Data_Objects(oList_Objects, false, true, true, boolExact);
+                if (!List2)
+                {
+                    if (boolExact)
+                    {
+                        var objects = (from objectItem in result.OntologyItems
+                                       join objItm in oList_Objects on objectItem.Name equals objItm.Name
+                                       select objectItem).ToList();
+                        this.OList_Objects = objects;
+                    }
+                    else
+                    {
+                        this.OList_Objects = new List<clsOntologyItem>(result.OntologyItems);
+                    }
+                    
+                }
+                else
+                {
+                    if (boolExact)
+                    {
+                        var objects = (from objectItem in result.OntologyItems
+                                       join objItm in oList_Objects on objectItem.Name equals objItm.Name
+                                       select objectItem).ToList();
+                        this.OList_Objects2 = objects;
+                    }
+                    else
+                    {
+                        this.OList_Objects2 = new List<clsOntologyItem>(result.OntologyItems);
+                    }
+                    
+                }
             }
             else
             {
-                this.OList_Objects2 = objElSelector.get_Data_Objects(oList_Objects, false, true, true, boolExact);
+                objOItem_Result = result.Result;
             }
+
+            
 
             return objOItem_Result;
         }
