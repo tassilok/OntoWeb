@@ -442,14 +442,6 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public bool CreateIndex(string indexName)
-        {
-            var objOPResult = dbSelector.ElConnector.CreateIndex(indexName);
-
-            return objOPResult.IsValid;
-        }
-
-        [WebMethod]
         public WebServiceResult DataTypes(List<clsOntologyItem> oList_DataTypes, bool doCount = false)
         {
             try
