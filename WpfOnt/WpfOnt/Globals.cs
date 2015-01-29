@@ -1113,13 +1113,13 @@ namespace WpfOnt
         //ClassRelations
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-
-            objOItem_Result = objDBLevel1.get_Data_ClassRel(ClassRels.ClassRelations, boolIDs:false);
+            var webResult = ontoWebSoapClient.ClassRelations(ClassRels.ClassRelations.ToArray(),false,false,false);
+            objOItem_Result = result.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
 
                 var objOList_ClassRels_NotExistant = (from objClassRelShould in ClassRels.ClassRelations
-                                          join objClassRelExist in objDBLevel1.OList_ClassRel on
+                                          join objClassRelExist in result.ClassRelations on
                                           new { ID_Class_Left = objClassRelShould.ID_Class_Left, 
                                                 ID_Class_Right = objClassRelShould.ID_Class_Right, 
                                                 ID_RelationType = objClassRelShould.ID_RelationType } equals 
@@ -1133,7 +1133,7 @@ namespace WpfOnt
          
                 if (objOList_ClassRels_NotExistant.Any())
                 {
-                    objOItem_Result = objDBLevel1.save_ClassRel(ClassRels.ClassRelations);
+                    objOItem_Result = ontoWebSoapClient.SaveClassRels(ClassRels.ClassRelations.ToArray());
                 }
 
             }
@@ -1144,25 +1144,26 @@ namespace WpfOnt
 
     private clsOntologyItem test_Existance_OntologyDB()
     {
-        if (objDBLevel1.test_Index_Es())
+        
+        if (ontoWebSoapClient.TestIndexExistance(Index))
         {
-            return LogStates.LogState_Success.Clone();
+            return LogStates.LogState_Success;
         }
         else
         {
-            return LogStates.LogState_Nothing.Clone();
+            return LogStates.LogState_Nothing;
         }
     }
 
     private clsOntologyItem create_Index()
     {
-        if (objDBLevel1.create_Index_Es())
+        if (ontoWebSoapClient.CreateIndex(Index))
         {
-            return LogStates.LogState_Success.Clone();
+            return LogStates.LogState_Success;
         }
         else
         {
-            return LogStates.LogState_Error.Clone();
+            return LogStates.LogState_Error;
         }
     }
     private Globals()

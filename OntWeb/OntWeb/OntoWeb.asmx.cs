@@ -174,6 +174,12 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public string Type_DataType()
+        {
+            return types.DataType;
+        }
+
+        [WebMethod]
         public clsLogStates OLogStates()
         {
             var result = new clsLogStates();
