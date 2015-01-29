@@ -180,6 +180,30 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public string Type_ObjectAttribute()
+        {
+            return types.ObjectAtt;
+        }
+
+        [WebMethod]
+        public string Type_ObjectRelation()
+        {
+            return types.ObjectRel;
+        }
+
+        [WebMethod]
+        public string Type_ClassAtt()
+        {
+            return types.ClassAtt;
+        }
+
+        [WebMethod]
+        public string Type_ClassRel()
+        {
+            return types.ClassRel;
+        }
+
+        [WebMethod]
         public clsLogStates OLogStates()
         {
             var result = new clsLogStates();

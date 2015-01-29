@@ -261,6 +261,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Type_DataType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_DataTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_DataTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="OLogStates">
         <s:complexType />
       </s:element>
@@ -695,20 +705,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="CreateIndex">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="indexName" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateIndexResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateIndexResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="DataTypes">
         <s:complexType>
           <s:sequence>
@@ -1101,6 +1097,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CreateIndex">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="index" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateIndexResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="TestIndexExistance">
         <s:complexType>
           <s:sequence>
@@ -1158,6 +1168,12 @@
   </wsdl:message>
   <wsdl:message name="Type_RelationTypeSoapOut">
     <wsdl:part name="parameters" element="tns:Type_RelationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_DataTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_DataType" />
+  </wsdl:message>
+  <wsdl:message name="Type_DataTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_DataTypeResponse" />
   </wsdl:message>
   <wsdl:message name="OLogStatesSoapIn">
     <wsdl:part name="parameters" element="tns:OLogStates" />
@@ -1290,12 +1306,6 @@
   </wsdl:message>
   <wsdl:message name="IndexExistsSoapOut">
     <wsdl:part name="parameters" element="tns:IndexExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="CreateIndexSoapIn">
-    <wsdl:part name="parameters" element="tns:CreateIndex" />
-  </wsdl:message>
-  <wsdl:message name="CreateIndexSoapOut">
-    <wsdl:part name="parameters" element="tns:CreateIndexResponse" />
   </wsdl:message>
   <wsdl:message name="DataTypesSoapIn">
     <wsdl:part name="parameters" element="tns:DataTypes" />
@@ -1459,6 +1469,12 @@
   <wsdl:message name="DeleteRelationTypesSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteRelationTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="CreateIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIndex" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIndexResponse" />
+  </wsdl:message>
   <wsdl:message name="TestIndexExistanceSoapIn">
     <wsdl:part name="parameters" element="tns:TestIndexExistance" />
   </wsdl:message>
@@ -1493,6 +1509,10 @@
     <wsdl:operation name="Type_RelationType">
       <wsdl:input message="tns:Type_RelationTypeSoapIn" />
       <wsdl:output message="tns:Type_RelationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_DataType">
+      <wsdl:input message="tns:Type_DataTypeSoapIn" />
+      <wsdl:output message="tns:Type_DataTypeSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="OLogStates">
       <wsdl:input message="tns:OLogStatesSoapIn" />
@@ -1581,10 +1601,6 @@
     <wsdl:operation name="IndexExists">
       <wsdl:input message="tns:IndexExistsSoapIn" />
       <wsdl:output message="tns:IndexExistsSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateIndex">
-      <wsdl:input message="tns:CreateIndexSoapIn" />
-      <wsdl:output message="tns:CreateIndexSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DataTypes">
       <wsdl:input message="tns:DataTypesSoapIn" />
@@ -1694,6 +1710,10 @@
       <wsdl:input message="tns:DeleteRelationTypesSoapIn" />
       <wsdl:output message="tns:DeleteRelationTypesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <wsdl:input message="tns:CreateIndexSoapIn" />
+      <wsdl:output message="tns:CreateIndexSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="TestIndexExistance">
       <wsdl:input message="tns:TestIndexExistanceSoapIn" />
       <wsdl:output message="tns:TestIndexExistanceSoapOut" />
@@ -1757,6 +1777,15 @@
     </wsdl:operation>
     <wsdl:operation name="Type_RelationType">
       <soap:operation soapAction="http://tempuri.org/Type_RelationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_DataType">
+      <soap:operation soapAction="http://tempuri.org/Type_DataType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1955,15 +1984,6 @@
     </wsdl:operation>
     <wsdl:operation name="IndexExists">
       <soap:operation soapAction="http://tempuri.org/IndexExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateIndex">
-      <soap:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2214,6 +2234,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <soap:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="TestIndexExistance">
       <soap:operation soapAction="http://tempuri.org/TestIndexExistance" style="document" />
       <wsdl:input>
@@ -2282,6 +2311,15 @@
     </wsdl:operation>
     <wsdl:operation name="Type_RelationType">
       <soap12:operation soapAction="http://tempuri.org/Type_RelationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_DataType">
+      <soap12:operation soapAction="http://tempuri.org/Type_DataType" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2480,15 +2518,6 @@
     </wsdl:operation>
     <wsdl:operation name="IndexExists">
       <soap12:operation soapAction="http://tempuri.org/IndexExists" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateIndex">
-      <soap12:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2732,6 +2761,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteRelationTypes">
       <soap12:operation soapAction="http://tempuri.org/DeleteRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <soap12:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

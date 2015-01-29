@@ -64,6 +64,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_RelationType", ReplyAction="*")]
         System.Threading.Tasks.Task<string> Type_RelationTypeAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_DataType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_DataType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_DataType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_DataTypeAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OLogStates", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.clsLogStates OLogStates();
@@ -217,13 +224,6 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexExists", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> IndexExistsAsync(string index);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool CreateIndex(string indexName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> CreateIndexAsync(string indexName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -413,6 +413,13 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteRelationTypes", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyItem> DeleteRelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_RelationTypes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool CreateIndex(string index);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> CreateIndexAsync(string index);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestIndexExistance", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -4107,6 +4114,14 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.Type_RelationTypeAsync();
         }
         
+        public string Type_DataType() {
+            return base.Channel.Type_DataType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_DataTypeAsync() {
+            return base.Channel.Type_DataTypeAsync();
+        }
+        
         public WpfOnt.OntoWeb.clsLogStates OLogStates() {
             return base.Channel.OLogStates();
         }
@@ -4281,14 +4296,6 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<bool> IndexExistsAsync(string index) {
             return base.Channel.IndexExistsAsync(index);
-        }
-        
-        public bool CreateIndex(string indexName) {
-            return base.Channel.CreateIndex(indexName);
-        }
-        
-        public System.Threading.Tasks.Task<bool> CreateIndexAsync(string indexName) {
-            return base.Channel.CreateIndexAsync(indexName);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {
@@ -4505,6 +4512,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyItem> DeleteRelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_RelationTypes) {
             return base.Channel.DeleteRelationTypesAsync(oList_RelationTypes);
+        }
+        
+        public bool CreateIndex(string index) {
+            return base.Channel.CreateIndex(index);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateIndexAsync(string index) {
+            return base.Channel.CreateIndexAsync(index);
         }
         
         public bool TestIndexExistance(string index) {
