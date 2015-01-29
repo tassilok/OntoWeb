@@ -1101,6 +1101,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="TestIndexExistance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="index" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestIndexExistanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TestIndexExistanceResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="ObjectAttsSoapIn">
@@ -1445,6 +1459,12 @@
   <wsdl:message name="DeleteRelationTypesSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteRelationTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="TestIndexExistanceSoapIn">
+    <wsdl:part name="parameters" element="tns:TestIndexExistance" />
+  </wsdl:message>
+  <wsdl:message name="TestIndexExistanceSoapOut">
+    <wsdl:part name="parameters" element="tns:TestIndexExistanceResponse" />
+  </wsdl:message>
   <wsdl:portType name="OntoWebSoap">
     <wsdl:operation name="ObjectAtts">
       <wsdl:input message="tns:ObjectAttsSoapIn" />
@@ -1673,6 +1693,10 @@
     <wsdl:operation name="DeleteRelationTypes">
       <wsdl:input message="tns:DeleteRelationTypesSoapIn" />
       <wsdl:output message="tns:DeleteRelationTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestIndexExistance">
+      <wsdl:input message="tns:TestIndexExistanceSoapIn" />
+      <wsdl:output message="tns:TestIndexExistanceSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="OntoWebSoap" type="tns:OntoWebSoap">
@@ -2190,6 +2214,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TestIndexExistance">
+      <soap:operation soapAction="http://tempuri.org/TestIndexExistance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="OntoWebSoap12" type="tns:OntoWebSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2699,6 +2732,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteRelationTypes">
       <soap12:operation soapAction="http://tempuri.org/DeleteRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestIndexExistance">
+      <soap12:operation soapAction="http://tempuri.org/TestIndexExistance" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

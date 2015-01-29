@@ -1031,6 +1031,14 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public bool CreateIndex(string index)
+        {
+            var indexSettings = dbSelector.GetIndexSettings();
+            var objOPResult = dbSelector.ElConnector.CreateIndex(index);
+            return objOPResult.IsValid;
+        }
+
+        [WebMethod]
         public bool TestIndexExistance(string index)
         {
             var objIndexDescriptor = dbSelector.GetIndexExistsDescriptor();

@@ -413,6 +413,13 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteRelationTypes", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyItem> DeleteRelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_RelationTypes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestIndexExistance", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool TestIndexExistance(string index);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestIndexExistance", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> TestIndexExistanceAsync(string index);
     }
     
     /// <remarks/>
@@ -4498,6 +4505,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyItem> DeleteRelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_RelationTypes) {
             return base.Channel.DeleteRelationTypesAsync(oList_RelationTypes);
+        }
+        
+        public bool TestIndexExistance(string index) {
+            return base.Channel.TestIndexExistance(index);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TestIndexExistanceAsync(string index) {
+            return base.Channel.TestIndexExistanceAsync(index);
         }
     }
 }
