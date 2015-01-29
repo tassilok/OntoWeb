@@ -31,6 +31,7 @@ namespace OntWeb
         private string session;
 
         clsTypes types = new clsTypes();
+        clsFields fields = new clsFields();
 
         public OntoWeb()
         {
@@ -274,12 +275,6 @@ namespace OntWeb
         public clsDirections ODirections()
         {
             return new clsDirections();
-        }
-
-        [WebMethod]
-        public clsFields OFields()
-        {
-            return new clsFields();
         }
 
         [WebMethod]
@@ -1067,6 +1062,284 @@ namespace OntWeb
             objIndexDescriptor.Index(index);
 
             return dbSelector.ElConnector.IndexExists(f => objIndexDescriptor).Exists;
+        }
+
+        [WebMethod]
+        public string Field_ID_Object
+        {
+            get {
+                return fields.ID_Object;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Item
+        {
+            get
+            {
+                return fields.ID_Item;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Class_Left
+        {
+            get
+            {
+                return fields.ID_Class_Left;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Class_Right
+        {
+            get
+            {
+                return fields.ID_Class_Right;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Max_forw
+        {
+            get
+            {
+                return fields.Max_Forw;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Min_forw
+        {
+            get
+            {
+                return fields.Min_Forw;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Min
+        {
+            get
+            {
+                return fields.Min;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Max
+        {
+            get
+            {
+                return fields.Max;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Max_backw
+        {
+            get
+            {
+                return fields.Max_Backw;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_AttributeType
+        {
+            get
+            {
+                return fields.ID_AttributeType;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Class
+        {
+            get
+            {
+                return fields.ID_Class;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_DataType
+        {
+            get
+            {
+                return fields.ID_DataType;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Ontology
+        {
+            get
+            {
+                return fields.Ontology;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Parent
+        {
+            get
+            {
+                return fields.ID_Parent;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Parent_Object
+        {
+            get
+            {
+                return fields.ID_Parent_Object;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Parent_Other
+        {
+            get
+            {
+                return fields.ID_Parent_Other;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_RelationType
+        {
+            get
+            {
+                return fields.ID_RelationType;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Other
+        {
+            get
+            {
+                return fields.ID_Other;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Name_AttributeType
+        {
+            get
+            {
+                return fields.Name_AttributeType;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Name_Object
+        {
+            get
+            {
+                return fields.Name_Object;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Name_Other
+        {
+            get
+            {
+                return fields.Name_Other;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Name_Item
+        {
+            get
+            {
+                return fields.Name_Item;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Name_RelationType
+        {
+            get
+            {
+                return fields.Name_RelationType;
+            }
+        }
+
+        [WebMethod]
+        public string Field_OrderID
+        {
+            get
+            {
+                return fields.OrderID;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Val_Bool
+        {
+            get
+            {
+                return fields.Val_Bool;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Val_Datetime
+        {
+            get
+            {
+                return fields.Val_Datetime;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Val_Int
+        {
+            get
+            {
+                return fields.Val_Int;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Val_Real
+        {
+            get
+            {
+                return fields.Val_Real;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Val_String
+        {
+            get
+            {
+                return fields.Val_String;
+            }
+        }
+
+        [WebMethod]
+        public string Field_Val_Name
+        {
+            get
+            {
+                return fields.Val_Name;
+            }
+        }
+
+        [WebMethod]
+        public string Field_ID_Attribute
+        {
+            get
+            {
+                return fields.ID_Attribute;
+            }
         }
     }
 }

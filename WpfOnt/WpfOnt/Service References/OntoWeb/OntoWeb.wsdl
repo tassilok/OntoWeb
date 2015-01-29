@@ -271,6 +271,46 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Type_ObjectAttribute">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ObjectAttributeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ObjectAttributeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ObjectRelation">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ObjectRelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ObjectRelationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ClassAtt">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ClassAttResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ClassAttResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ClassRel">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ClassRelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ClassRelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="OLogStates">
         <s:complexType />
       </s:element>
@@ -1175,6 +1215,30 @@
   <wsdl:message name="Type_DataTypeSoapOut">
     <wsdl:part name="parameters" element="tns:Type_DataTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="Type_ObjectAttributeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ObjectAttribute" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectAttributeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ObjectAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectRelationSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ObjectRelation" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectRelationSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ObjectRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassAttSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ClassAtt" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassAttSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ClassAttResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassRelSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ClassRel" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassRelSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ClassRelResponse" />
+  </wsdl:message>
   <wsdl:message name="OLogStatesSoapIn">
     <wsdl:part name="parameters" element="tns:OLogStates" />
   </wsdl:message>
@@ -1514,6 +1578,22 @@
       <wsdl:input message="tns:Type_DataTypeSoapIn" />
       <wsdl:output message="tns:Type_DataTypeSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="Type_ObjectAttribute">
+      <wsdl:input message="tns:Type_ObjectAttributeSoapIn" />
+      <wsdl:output message="tns:Type_ObjectAttributeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectRelation">
+      <wsdl:input message="tns:Type_ObjectRelationSoapIn" />
+      <wsdl:output message="tns:Type_ObjectRelationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassAtt">
+      <wsdl:input message="tns:Type_ClassAttSoapIn" />
+      <wsdl:output message="tns:Type_ClassAttSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassRel">
+      <wsdl:input message="tns:Type_ClassRelSoapIn" />
+      <wsdl:output message="tns:Type_ClassRelSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="OLogStates">
       <wsdl:input message="tns:OLogStatesSoapIn" />
       <wsdl:output message="tns:OLogStatesSoapOut" />
@@ -1786,6 +1866,42 @@
     </wsdl:operation>
     <wsdl:operation name="Type_DataType">
       <soap:operation soapAction="http://tempuri.org/Type_DataType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectAttribute">
+      <soap:operation soapAction="http://tempuri.org/Type_ObjectAttribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectRelation">
+      <soap:operation soapAction="http://tempuri.org/Type_ObjectRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassAtt">
+      <soap:operation soapAction="http://tempuri.org/Type_ClassAtt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassRel">
+      <soap:operation soapAction="http://tempuri.org/Type_ClassRel" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2320,6 +2436,42 @@
     </wsdl:operation>
     <wsdl:operation name="Type_DataType">
       <soap12:operation soapAction="http://tempuri.org/Type_DataType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectAttribute">
+      <soap12:operation soapAction="http://tempuri.org/Type_ObjectAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectRelation">
+      <soap12:operation soapAction="http://tempuri.org/Type_ObjectRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassAtt">
+      <soap12:operation soapAction="http://tempuri.org/Type_ClassAtt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassRel">
+      <soap12:operation soapAction="http://tempuri.org/Type_ClassRel" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

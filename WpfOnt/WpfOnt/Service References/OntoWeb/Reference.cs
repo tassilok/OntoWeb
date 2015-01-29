@@ -71,6 +71,34 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_DataType", ReplyAction="*")]
         System.Threading.Tasks.Task<string> Type_DataTypeAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectAttribute", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ObjectAttribute();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectAttribute", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ObjectAttributeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectRelation", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ObjectRelation();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectRelation", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ObjectRelationAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassAtt", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ClassAtt();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassAtt", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ClassAttAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassRel", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ClassRel();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassRel", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ClassRelAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OLogStates", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.clsLogStates OLogStates();
@@ -4120,6 +4148,38 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<string> Type_DataTypeAsync() {
             return base.Channel.Type_DataTypeAsync();
+        }
+        
+        public string Type_ObjectAttribute() {
+            return base.Channel.Type_ObjectAttribute();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ObjectAttributeAsync() {
+            return base.Channel.Type_ObjectAttributeAsync();
+        }
+        
+        public string Type_ObjectRelation() {
+            return base.Channel.Type_ObjectRelation();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ObjectRelationAsync() {
+            return base.Channel.Type_ObjectRelationAsync();
+        }
+        
+        public string Type_ClassAtt() {
+            return base.Channel.Type_ClassAtt();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ClassAttAsync() {
+            return base.Channel.Type_ClassAttAsync();
+        }
+        
+        public string Type_ClassRel() {
+            return base.Channel.Type_ClassRel();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ClassRelAsync() {
+            return base.Channel.Type_ClassRelAsync();
         }
         
         public WpfOnt.OntoWeb.clsLogStates OLogStates() {
