@@ -175,6 +175,24 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public string Type_DataType()
+        {
+            return types.DataType;
+        }
+
+        [WebMethod]
+        public string Type_ObjectAttribute()
+        {
+            return types.ObjectAtt;
+        }
+
+        [WebMethod]
+        public string Type_ObjectRelation()
+        {
+            return types.ObjectRel;
+        }
+
+        [WebMethod]
         public string Type_Other()
         {
             return types.Other;
