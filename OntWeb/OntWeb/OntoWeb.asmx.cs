@@ -175,6 +175,30 @@ namespace OntWeb
         }
 
         [WebMethod]
+        public string Type_Other()
+        {
+            return types.Other;
+        }
+
+        [WebMethod]
+        public string Type_Other_AttType()
+        {
+            return types.Other_AttType;
+        }
+
+        [WebMethod]
+        public string Type_Other_Classes()
+        {
+            return types.Other_Classes;
+        }
+
+        [WebMethod]
+        public string Type_Other_RelType()
+        {
+            return types.Other_RelType;
+        }
+
+        [WebMethod]
         public string Type_DataType()
         {
             return types.DataType;
@@ -1065,281 +1089,219 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public string Field_ID_Object
+        public string Field_ID_Object()
         {
-            get {
-                return fields.ID_Object;
-            }
+            return fields.ID_Object;
         }
 
         [WebMethod]
-        public string Field_ID_Item
+        public string Field_ID_Item()
         {
-            get
-            {
-                return fields.ID_Item;
-            }
+            return fields.ID_Item;
+
         }
 
         [WebMethod]
-        public string Field_ID_Class_Left
+        public string Field_ID_Class_Left()
         {
-            get
-            {
-                return fields.ID_Class_Left;
-            }
+            return fields.ID_Class_Left;
+
         }
 
         [WebMethod]
-        public string Field_ID_Class_Right
+        public string Field_ID_Class_Right()
         {
-            get
-            {
-                return fields.ID_Class_Right;
-            }
+            return fields.ID_Class_Right;
+
         }
 
         [WebMethod]
-        public string Field_Max_forw
+        public string Field_Max_forw()
         {
-            get
-            {
-                return fields.Max_Forw;
-            }
+            return fields.Max_Forw;
+
         }
 
         [WebMethod]
-        public string Field_Min_forw
+        public string Field_Min_forw()
         {
-            get
-            {
-                return fields.Min_Forw;
-            }
+            return fields.Min_Forw;
+
         }
 
         [WebMethod]
-        public string Field_Min
+        public string Field_Min()
         {
-            get
-            {
-                return fields.Min;
-            }
+            return fields.Min;
+
         }
 
         [WebMethod]
-        public string Field_Max
+        public string Field_Max()
         {
-            get
-            {
-                return fields.Max;
-            }
+            return fields.Max;
+
         }
 
         [WebMethod]
-        public string Field_Max_backw
+        public string Field_Max_backw()
         {
-            get
-            {
-                return fields.Max_Backw;
-            }
+            return fields.Max_Backw;
+
         }
 
         [WebMethod]
-        public string Field_ID_AttributeType
+        public string Field_ID_AttributeType()
         {
-            get
-            {
-                return fields.ID_AttributeType;
-            }
+            return fields.ID_AttributeType;
+
         }
 
         [WebMethod]
-        public string Field_ID_Class
+        public string Field_ID_Class()
         {
-            get
-            {
-                return fields.ID_Class;
-            }
+            return fields.ID_Class;
+
         }
 
         [WebMethod]
-        public string Field_ID_DataType
+        public string Field_ID_DataType()
         {
-            get
-            {
-                return fields.ID_DataType;
-            }
+            return fields.ID_DataType;
+
         }
 
         [WebMethod]
-        public string Field_Ontology
+        public string Field_Ontology()
         {
-            get
-            {
-                return fields.Ontology;
-            }
+            return fields.Ontology;
+
         }
 
         [WebMethod]
-        public string Field_ID_Parent
+        public string Field_ID_Parent()
         {
-            get
-            {
-                return fields.ID_Parent;
-            }
+            return fields.ID_Parent;
+
         }
 
         [WebMethod]
-        public string Field_ID_Parent_Object
+        public string Field_ID_Parent_Object()
         {
-            get
-            {
-                return fields.ID_Parent_Object;
-            }
+            return fields.ID_Parent_Object;
+
         }
 
         [WebMethod]
-        public string Field_ID_Parent_Other
+        public string Field_ID_Parent_Other()
         {
-            get
-            {
-                return fields.ID_Parent_Other;
-            }
+            return fields.ID_Parent_Other;
+
         }
 
         [WebMethod]
-        public string Field_ID_RelationType
+        public string Field_ID_RelationType()
         {
-            get
-            {
-                return fields.ID_RelationType;
-            }
+            return fields.ID_RelationType;
+
         }
 
         [WebMethod]
-        public string Field_ID_Other
+        public string Field_ID_Other()
         {
-            get
-            {
-                return fields.ID_Other;
-            }
+            return fields.ID_Other;
+
         }
 
         [WebMethod]
-        public string Field_Name_AttributeType
+        public string Field_Name_AttributeType()
         {
-            get
-            {
-                return fields.Name_AttributeType;
-            }
+            return fields.Name_AttributeType;
+
         }
 
         [WebMethod]
-        public string Field_Name_Object
+        public string Field_Name_Object()
         {
-            get
-            {
-                return fields.Name_Object;
-            }
+            return fields.Name_Object;
+
         }
 
         [WebMethod]
-        public string Field_Name_Other
+        public string Field_Name_Other()
         {
-            get
-            {
-                return fields.Name_Other;
-            }
+            return fields.Name_Other;
+
         }
 
         [WebMethod]
-        public string Field_Name_Item
+        public string Field_Name_Item()
         {
-            get
-            {
-                return fields.Name_Item;
-            }
+            return fields.Name_Item;
+
         }
 
         [WebMethod]
-        public string Field_Name_RelationType
+        public string Field_Name_RelationType()
         {
-            get
-            {
-                return fields.Name_RelationType;
-            }
+            return fields.Name_RelationType;
+
         }
 
         [WebMethod]
-        public string Field_OrderID
+        public string Field_OrderID()
         {
-            get
-            {
-                return fields.OrderID;
-            }
+            return fields.OrderID;
+
         }
 
         [WebMethod]
-        public string Field_Val_Bool
+        public string Field_Val_Bool()
         {
-            get
-            {
-                return fields.Val_Bool;
-            }
+            return fields.Val_Bool;
+
         }
 
         [WebMethod]
-        public string Field_Val_Datetime
+        public string Field_Val_Datetime()
         {
-            get
-            {
-                return fields.Val_Datetime;
-            }
+            return fields.Val_Datetime;
+
         }
 
         [WebMethod]
-        public string Field_Val_Int
+        public string Field_Val_Int()
         {
-            get
-            {
-                return fields.Val_Int;
-            }
+            return fields.Val_Int;
+
         }
 
         [WebMethod]
-        public string Field_Val_Real
+        public string Field_Val_Real()
         {
-            get
-            {
-                return fields.Val_Real;
-            }
+            return fields.Val_Real;
+
         }
 
         [WebMethod]
-        public string Field_Val_String
+        public string Field_Val_String()
         {
-            get
-            {
-                return fields.Val_String;
-            }
+            return fields.Val_String;
+
         }
 
         [WebMethod]
-        public string Field_Val_Name
+        public string Field_Val_Name()
         {
-            get
-            {
-                return fields.Val_Name;
-            }
+            return fields.Val_Name;
+
         }
 
         [WebMethod]
-        public string Field_ID_Attribute
+        public string Field_ID_Attribute()
         {
-            get
-            {
-                return fields.ID_Attribute;
-            }
+            return fields.ID_Attribute;
+
         }
     }
 }

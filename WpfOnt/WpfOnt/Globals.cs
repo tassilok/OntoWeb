@@ -341,37 +341,37 @@ namespace WpfOnt
         public  string Type_AttributeType 
             { get {
 
-                return WpfOnt.Globals;
+                return ontoWebSoapClient.Type_AttributeType();
             }
         }
 
         public  string Type_Class 
             { get {
-                return Types.ClassType;
+                return ontoWebSoapClient.Type_Class();
             }
         }
 
         public string Type_DataType 
             { get {
-                return Types.DataType;
+                return ontoWebSoapClient.Type_DataType();
             }
         }
 
         public string Type_Object 
             { get {
-                return Types.ObjectType;
+                return ontoWebSoapClient.Type_Object();
             }
         }
 
         public string Type_ObjectAtt 
             { get {
-                return Types.ObjectAtt;
+                return ontoWebSoapClient.Type_ObjectAttribute();
             }
         }
 
         public string Type_ObjectRel 
             { get {
-                return Types.ObjectRel;
+                return ontoWebSoapClient.Type_ObjectRelation();
             }
         }
 
@@ -383,7 +383,7 @@ namespace WpfOnt
 
         public string Type_Other_AttType 
             { get {
-                return Types.Other_AttType;
+                return ontoWebSoapClient.;
             }
         }
 
@@ -401,110 +401,110 @@ namespace WpfOnt
 
         public string Type_RelationType 
             { get {
-                return Types.RelationType;
+                return ontoWebSoapClient.Type_RelationType();
             }
         }
 
 
         public string Type_ClassRel 
             { get {
-                return Types.ClassRel;
+                return ontoWebSoapClient.Type_ClassRel();
             }
         }
 
         public string Type_ClassAtt 
             { get {
-                return Types.ClassAtt;
+                return ontoWebSoapClient.Type_ClassAtt();
             }
         }
 
         public string Field_ID_Object 
             { get {
-                return Fields.ID_Object;
+                return ontoWebSoapClient.Field_ID_Object();
             }
         }
 
         public string Field_ID_Item 
             { get {
-                return Fields.ID_Item;
+                return ontoWebSoapClient.Field_ID_Item();
             }
         }
 
         public string Field_ID_Class_Left 
             { get {
-                return Fields.ID_Class_Left;
+                return ontoWebSoapClient.Field_ID_Class_Left();
             }
         }
 
         public string Field_ID_Class_Right 
             { get {
-                return Fields.ID_Class_Right;
+                return ontoWebSoapClient.Field_ID_Class_Right();
             }
         }
 
         public string Field_Max_forw 
             { get {
-                return Fields.Max_Forw;
+                return ontoWebSoapClient.Field_Max_forw();
             }
         }
 
         public string Field_Min_forw 
             { get {
-                return Fields.Min_Forw;
+                return ontoWebSoapClient.Field_Min_forw();
             }
         }
 
         public string Field_Min 
             { get {
-                return Fields.Min;
+                return ontoWebSoapClient.Field_Min();
             }
         }
 
         public string Field_Max 
             { get {
-                return Fields.Max;
+                return ontoWebSoapClient.Field_Max();
             }
         }
 
         public string Field_Max_backw 
             { get {
-                return Fields.Max_Backw;
+                return ontoWebSoapClient.Field_Max_backw();
             }
         }
 
         public string Field_ID_AttributeType 
             { get {
-                return Fields.ID_AttributeType;
+                return ontoWebSoapClient.Field_ID_AttributeType();
             }
         }
 
         public string Field_ID_Class 
             { get {
-                return Fields.ID_Class;
+                return ontoWebSoapClient.Field_ID_Class();
             }
         }
 
         public string Field_ID_DataType 
             { get {
-                return Fields.ID_DataType;
+                return ontoWebSoapClient.Field_ID_DataType();
             }
         }
 
         public string Field_Ontology 
             { get {
-                return Fields.Ontology;
+                return ontoWebSoapClient.Field_Ontology();
             }
         }
 
         public string Field_ID_Parent 
             { get {
-                return Fields.ID_Parent;
+                return ontoWebSoapClient.Field_ID_Parent();
             }
         }
 
         public string Field_ID_Parent_Object 
             { get {
-                return Fields.ID_Parent_Object;
+                return ontoWebSoapClient.Field_ID_Parent_Object();
             }
         }
 
@@ -1271,8 +1271,8 @@ namespace WpfOnt
                                                          ID_AttributeType = AttributeTypes.OItem_AttributeType_WMI_ProcessorID.GUID,
                                                          Val_String = strProcessorID});
 
-
-            objOItem_Result = objDBLevel1.get_Data_ObjectAtt(objOAL_ProcessorID, boolIDs:false);
+            var webResult = ontoWebSoapClient.ObjectAtts(objOAL_ProcessorID.ToArray(), false, false);
+            objOItem_Result = webResult.Result;
 
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -1280,11 +1280,12 @@ namespace WpfOnt
                                                                     ID_AttributeType = AttributeTypes.OITem_AttributeType_WMI_BaseBoardSerial.GUID,
                                                                     Val_String = strBaseBoardSerial});
 
-                objOItem_Result = objDBLevel2.get_Data_ObjectAtt(objOAL_BaseBoardSerial);
+                webResult = ontoWebSoapClient.ObjectAtts(objOAL_BaseBoardSerial.ToArray(), false, false);
+                objOItem_Result = webResult.Result;
 
-                var objOList_Server = (from objServer in objDBLevel1.OList_ObjAtt
-                                       join objServer2 in objDBLevel2.OList_ObjAtt_ID on objServer.ID_Object equals objServer2.ID_Object
-                                       select new clsOntologyItem(objServer.ID_Object, objServer.Name_Object, objServer.ID_Class, Types.ObjectType)).ToList();
+                var objOList_Server = (from objServer in webResult.ObjectAttributes
+                                       join objServer2 in webResult.ObjectAttributes on objServer.ID_Object equals objServer2.ID_Object
+                                       select new clsOntologyItem { GUID = objServer.ID_Object, Name = objServer.Name_Object, GUID_Parent = objServer.ID_Class, Type = Type_Object }).ToList();
 
                 if (objOList_Server.Any())
                 {
