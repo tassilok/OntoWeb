@@ -16,13 +16,14 @@ namespace WpfOnt
 {
     public class Globals
     {
+
         public clsFields Fields  { get; private set; }
 
         public clsTypes Types { get; private set; }
 
-        public OntoWeb. DataTypes { get; private set; }
+        public clsDataTypes DataTypes { get; private set; }
 
-        public OClasses Classes { get; private set; }
+        public clsClasses Classes { get; private set; }
 
         public clsBaseClassAttributes ClassAtts { get; private set; }
 
@@ -43,6 +44,8 @@ namespace WpfOnt
         public clsOntologyRelationRules OntologyRelationRules { get; private set; }
 
         public clsClassTypes ClassTypes { get; private set; }
+
+        private OntoWebSoapClient ontoWebSoapClient = new OntoWebSoapClient();
 
         public clsOntologyItem Class_Ontologies
         {
@@ -75,9 +78,6 @@ namespace WpfOnt
         private clsOntologyItem objOItem_Server;
         private clsOntologyItem objOItem_WMI_ProcessorID;
         private clsOntologyItem objOItem_WMI_BaseBoardSerial;
-
-        private DbWork objDBLevel1;
-        private DbWork objDBLevel2;
 
         private clsTransaction objTransaction;
 
@@ -832,23 +832,22 @@ namespace WpfOnt
             set_Session();
             get_ConfigData();
 
-            Types = new clsTypes();
-            LogStates = new clsLogStates();
-            Fields = new clsFields();
-            DataTypes = new clsDataTypes();
-            Classes = new clsClasses();
-            ClassAtts = new clsBaseClassAttributes();
-            ClassRels = new clsBaseClassRelation();
-            RelationTypes = new clsRelationTypes();
-            AttributeTypes = new clsAttributeTypes();
-            LogStates = new clsLogStates();
-            Directions = new clsDirections();
-            Variables = new clsVariables();
-            MappingRules = new clsMappingRules();
-            OntologyRelationRules = new clsOntologyRelationRules();
-            ClassTypes = new clsClassTypes();
+            Types = ontoWebSoapClient.OTypes();
+            LogStates = ontoWebSoapClient.OLogStates();
+            Fields = ontoWebSoapClient.OFields();
+            DataTypes = ontoWebSoapClient.ODataTypes();
+            Classes = ontoWebSoapClient.OClasses();
+            ClassAtts = ontoWebSoapClient.OClassAttributes();
+            ClassRels = ontoWebSoapClient.OClassRelatations();
+            RelationTypes = ontoWebSoapClient.ORelationTypes();
+            AttributeTypes = ontoWebSoapClient.OAttributeTypes();
+            Directions = ontoWebSoapClient.ODirections();
+            Variables = ontoWebSoapClient.OVariables();
+            MappingRules = ontoWebSoapClient.OMappingRules();
+            OntologyRelationRules = ontoWebSoapClient.ORelationRules();
+            ClassTypes = ontoWebSoapClient.OClassTypes();
 
-            var objOItem_Result = LogStates.LogState_Success.Clone();
+            var objOItem_Result = LogStates.LogState_Success;
 
             try
             {
@@ -887,7 +886,7 @@ namespace WpfOnt
                     }
                     else
                     {
-                        objOItem_Result = LogStates.LogState_Success.Clone();
+                        objOItem_Result = LogStates.LogState_Success;
                     }
                 }
                 else
@@ -944,7 +943,8 @@ namespace WpfOnt
 
     private clsOntologyItem test_Existance_BaseData()
     {
-        var objOItem_Result = LogStates.LogState_Success.Clone();
+        
+        var objOItem_Result = LogStates.LogState_Success;
 
         //DataTypes
         objOItem_Result = objDBLevel1.get_Data_DataTyps();
@@ -965,7 +965,8 @@ namespace WpfOnt
         //AttributeTypes
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            objOItem_Result = objDBLevel1.get_Data_AttributeType(AttributeTypes.AttributeTypes);
+            var webResult = ontoWebSoapClient.AttributeTypes(AttributeTypes.AttributeTypes.ToArray(),false);
+            objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
                 var objOList_AttTypes_NotExistant = (from objAttTypeShould in AttributeTypes.AttributeTypes

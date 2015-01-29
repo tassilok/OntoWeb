@@ -176,7 +176,8 @@ namespace OntWeb
         [WebMethod]
         public clsLogStates OLogStates()
         {
-            return new clsLogStates();
+            var result = new clsLogStates();
+            return result;
         }
 
         [WebMethod]
@@ -254,7 +255,8 @@ namespace OntWeb
         [WebMethod]
         public clsTypes OTypes()
         {
-            return new clsTypes();
+            var result = new clsTypes();
+            return result;
         }
 
         [WebMethod]

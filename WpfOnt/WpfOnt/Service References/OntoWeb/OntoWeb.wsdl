@@ -385,6 +385,33 @@
           <s:element minOccurs="0" maxOccurs="1" name="AttributeTypes" type="tns:ArrayOfClsOntologyItem" />
         </s:sequence>
       </s:complexType>
+      <s:element name="ORelationTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ORelationTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ORelationTypesResult" type="tns:clsRelationTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsRelationTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_Contains" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belongingAttribute" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belongingRelationType" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belongingClass" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belongingObject" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belonging" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belongingResource" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_belongingsTo" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_isOfType" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_Apply" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_Src" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OItem_RelationType_Dst" type="tns:clsOntologyItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationTypes" type="tns:ArrayOfClsOntologyItem" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="OClassAttributes">
         <s:complexType />
       </s:element>
@@ -1154,6 +1181,12 @@
   <wsdl:message name="OAttributeTypesSoapOut">
     <wsdl:part name="parameters" element="tns:OAttributeTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="ORelationTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:ORelationTypes" />
+  </wsdl:message>
+  <wsdl:message name="ORelationTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:ORelationTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="OClassAttributesSoapIn">
     <wsdl:part name="parameters" element="tns:OClassAttributes" />
   </wsdl:message>
@@ -1465,6 +1498,10 @@
       <wsdl:input message="tns:OAttributeTypesSoapIn" />
       <wsdl:output message="tns:OAttributeTypesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ORelationTypes">
+      <wsdl:input message="tns:ORelationTypesSoapIn" />
+      <wsdl:output message="tns:ORelationTypesSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="OClassAttributes">
       <wsdl:input message="tns:OClassAttributesSoapIn" />
       <wsdl:output message="tns:OClassAttributesSoapOut" />
@@ -1750,6 +1787,15 @@
     </wsdl:operation>
     <wsdl:operation name="OAttributeTypes">
       <soap:operation soapAction="http://tempuri.org/OAttributeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ORelationTypes">
+      <soap:operation soapAction="http://tempuri.org/ORelationTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2257,6 +2303,15 @@
     </wsdl:operation>
     <wsdl:operation name="OAttributeTypes">
       <soap12:operation soapAction="http://tempuri.org/OAttributeTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ORelationTypes">
+      <soap12:operation soapAction="http://tempuri.org/ORelationTypes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

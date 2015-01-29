@@ -106,6 +106,13 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OAttributeTypes", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsAttributeTypes> OAttributeTypesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ORelationTypes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WpfOnt.OntoWeb.clsRelationTypes ORelationTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ORelationTypes", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsRelationTypes> ORelationTypesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OClassAttributes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.clsBaseClassAttributes OClassAttributes();
@@ -2934,6 +2941,206 @@ namespace WpfOnt.OntoWeb {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class clsRelationTypes : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private clsOntologyItem oItem_RelationType_ContainsField;
+        
+        private clsOntologyItem oItem_RelationType_belongingAttributeField;
+        
+        private clsOntologyItem oItem_RelationType_belongingRelationTypeField;
+        
+        private clsOntologyItem oItem_RelationType_belongingClassField;
+        
+        private clsOntologyItem oItem_RelationType_belongingObjectField;
+        
+        private clsOntologyItem oItem_RelationType_belongingField;
+        
+        private clsOntologyItem oItem_RelationType_belongingResourceField;
+        
+        private clsOntologyItem oItem_RelationType_belongingsToField;
+        
+        private clsOntologyItem oItem_RelationType_isOfTypeField;
+        
+        private clsOntologyItem oItem_RelationType_ApplyField;
+        
+        private clsOntologyItem oItem_RelationType_SrcField;
+        
+        private clsOntologyItem oItem_RelationType_DstField;
+        
+        private clsOntologyItem[] relationTypesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public clsOntologyItem OItem_RelationType_Contains {
+            get {
+                return this.oItem_RelationType_ContainsField;
+            }
+            set {
+                this.oItem_RelationType_ContainsField = value;
+                this.RaisePropertyChanged("OItem_RelationType_Contains");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public clsOntologyItem OItem_RelationType_belongingAttribute {
+            get {
+                return this.oItem_RelationType_belongingAttributeField;
+            }
+            set {
+                this.oItem_RelationType_belongingAttributeField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belongingAttribute");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public clsOntologyItem OItem_RelationType_belongingRelationType {
+            get {
+                return this.oItem_RelationType_belongingRelationTypeField;
+            }
+            set {
+                this.oItem_RelationType_belongingRelationTypeField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belongingRelationType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public clsOntologyItem OItem_RelationType_belongingClass {
+            get {
+                return this.oItem_RelationType_belongingClassField;
+            }
+            set {
+                this.oItem_RelationType_belongingClassField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belongingClass");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public clsOntologyItem OItem_RelationType_belongingObject {
+            get {
+                return this.oItem_RelationType_belongingObjectField;
+            }
+            set {
+                this.oItem_RelationType_belongingObjectField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belongingObject");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public clsOntologyItem OItem_RelationType_belonging {
+            get {
+                return this.oItem_RelationType_belongingField;
+            }
+            set {
+                this.oItem_RelationType_belongingField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belonging");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public clsOntologyItem OItem_RelationType_belongingResource {
+            get {
+                return this.oItem_RelationType_belongingResourceField;
+            }
+            set {
+                this.oItem_RelationType_belongingResourceField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belongingResource");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public clsOntologyItem OItem_RelationType_belongingsTo {
+            get {
+                return this.oItem_RelationType_belongingsToField;
+            }
+            set {
+                this.oItem_RelationType_belongingsToField = value;
+                this.RaisePropertyChanged("OItem_RelationType_belongingsTo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public clsOntologyItem OItem_RelationType_isOfType {
+            get {
+                return this.oItem_RelationType_isOfTypeField;
+            }
+            set {
+                this.oItem_RelationType_isOfTypeField = value;
+                this.RaisePropertyChanged("OItem_RelationType_isOfType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public clsOntologyItem OItem_RelationType_Apply {
+            get {
+                return this.oItem_RelationType_ApplyField;
+            }
+            set {
+                this.oItem_RelationType_ApplyField = value;
+                this.RaisePropertyChanged("OItem_RelationType_Apply");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public clsOntologyItem OItem_RelationType_Src {
+            get {
+                return this.oItem_RelationType_SrcField;
+            }
+            set {
+                this.oItem_RelationType_SrcField = value;
+                this.RaisePropertyChanged("OItem_RelationType_Src");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public clsOntologyItem OItem_RelationType_Dst {
+            get {
+                return this.oItem_RelationType_DstField;
+            }
+            set {
+                this.oItem_RelationType_DstField = value;
+                this.RaisePropertyChanged("OItem_RelationType_Dst");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=12)]
+        public clsOntologyItem[] RelationTypes {
+            get {
+                return this.relationTypesField;
+            }
+            set {
+                this.relationTypesField = value;
+                this.RaisePropertyChanged("RelationTypes");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class clsClassTypes : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -3939,6 +4146,14 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsAttributeTypes> OAttributeTypesAsync() {
             return base.Channel.OAttributeTypesAsync();
+        }
+        
+        public WpfOnt.OntoWeb.clsRelationTypes ORelationTypes() {
+            return base.Channel.ORelationTypes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsRelationTypes> ORelationTypesAsync() {
+            return base.Channel.ORelationTypesAsync();
         }
         
         public WpfOnt.OntoWeb.clsBaseClassAttributes OClassAttributes() {
