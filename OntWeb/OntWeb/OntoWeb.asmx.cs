@@ -1029,5 +1029,14 @@ namespace OntWeb
                 return result;
             }
         }
+
+        [WebMethod]
+        public bool TestIndexExistance(string index)
+        {
+            var objIndexDescriptor = dbSelector.GetIndexExistsDescriptor();
+            objIndexDescriptor.Index(index);
+
+            return dbSelector.ElConnector.IndexExists(f => objIndexDescriptor).Exists;
+        }
     }
 }

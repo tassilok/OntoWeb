@@ -17,9 +17,8 @@ namespace WpfOnt
     public class Globals
     {
 
-        public clsFields Fields  { get; private set; }
 
-        public clsTypes Types { get; private set; }
+        public clsFields Fields  { get; private set; }
 
         public clsDataTypes DataTypes { get; private set; }
 
@@ -341,7 +340,8 @@ namespace WpfOnt
 
         public  string Type_AttributeType 
             { get {
-                return Types.AttributeType;
+
+                return WpfOnt.Globals;
             }
         }
 
@@ -947,18 +947,19 @@ namespace WpfOnt
         var objOItem_Result = LogStates.LogState_Success;
 
         //DataTypes
-        objOItem_Result = objDBLevel1.get_Data_DataTyps();
+        var result = ontoWebSoapClient.DataTypes(null,false);
+        objOItem_Result = result.Result;
         if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
         {
             var objOList_DType_NotExistant = (from objDataTypeShould in DataTypes.DataTypes
-                                              join objDataTypeExist in objDBLevel1.OList_DataTypes on objDataTypeShould.GUID equals objDataTypeExist.GUID into objDataTypesExist
+                                              join objDataTypeExist in result.OntologyItems on objDataTypeShould.GUID equals objDataTypeExist.GUID into objDataTypesExist
                                               from objDataTypeExist in objDataTypesExist.DefaultIfEmpty()
                                               where objDataTypeExist == null
                                select objDataTypeShould).ToList();
 
             if (objOList_DType_NotExistant.Any())
             {
-                objOItem_Result = objDBLevel1.save_DataTypes(objOList_DType_NotExistant);
+                objOItem_Result = ontoWebSoapClient.SaveDataTypes(objOList_DType_NotExistant.ToArray());
             }
         }
 
@@ -970,7 +971,7 @@ namespace WpfOnt
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
                 var objOList_AttTypes_NotExistant = (from objAttTypeShould in AttributeTypes.AttributeTypes
-                                                     join objAttTypeExist in objDBLevel1.OList_AttributeTypes on objAttTypeShould.GUID equals objAttTypeExist.GUID into objAttTypesExist
+                                                     join objAttTypeExist in webResult.OntologyItems on objAttTypeShould.GUID equals objAttTypeExist.GUID into objAttTypesExist
                                                      from objAttTypeExist in objAttTypesExist.DefaultIfEmpty()
                                                      where objAttTypeExist == null
                                                      select objAttTypeShould).ToList();
@@ -979,7 +980,7 @@ namespace WpfOnt
                 {
                     foreach (clsOntologyItem objOItem_AttType in objOList_AttTypes_NotExistant)
                     {
-                        objOItem_Result = objDBLevel1.save_AttributeType(objOItem_AttType);
+                        objOItem_Result = ontoWebSoapClient.SaveAttributeTypes((new List<clsOntologyItem> { objOItem_AttType }).ToArray());
                         if (objOItem_Result.GUID == LogStates.LogState_Error.GUID)
                         {
                             break;
@@ -993,11 +994,12 @@ namespace WpfOnt
         //RelationTypes
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            objOItem_Result = objDBLevel1.get_Data_RelationTypes(RelationTypes.RelationTypes);
+            var webResult = ontoWebSoapClient.RelationTypes(RelationTypes.RelationTypes.ToArray(),false);
+            objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
                 var objOList_RelTypes_NotExistant = (from objRelTypeShould in RelationTypes.RelationTypes
-                                                     join objRelTypeExist in objDBLevel1.OList_RelationTypes on objRelTypeShould.GUID equals objRelTypeExist.GUID into objRelTypesExist 
+                                                     join objRelTypeExist in webResult.OntologyItems on objRelTypeShould.GUID equals objRelTypeExist.GUID into objRelTypesExist 
                                                      from objRelTypeExist in objRelTypesExist.DefaultIfEmpty()
                                                      where objRelTypeExist == null
                                                      select objRelTypeShould).ToList();
@@ -1006,7 +1008,7 @@ namespace WpfOnt
                 {
                     foreach (clsOntologyItem objOItem_RelType in objOList_RelTypes_NotExistant)
                     {
-                        objOItem_Result = objDBLevel1.save_RelationType(objOItem_RelType);
+                        objOItem_Result = ontoWebSoapClient.SaveRelationTypes(new List<clsOntologyItem>{ objOItem_RelType}.ToArray());
                         if (objOItem_Result.GUID == LogStates.LogState_Error.GUID)
                         {
                             break;
@@ -1021,11 +1023,12 @@ namespace WpfOnt
         //Classes
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            objOItem_Result = objDBLevel1.get_Data_Classes(Classes.OList_Classes);
+            result = ontoWebSoapClient.Classes(Classes.OList_Classes.ToArray(), false);
+            objOItem_Result = result.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
                 var objOList_Classes_NotExistant = (from objClassShould in Classes.OList_Classes
-                                                    join objClassExist in objDBLevel1.OList_Classes on objClassShould.GUID equals objClassExist.GUID into objClassesExist
+                                                    join objClassExist in result.OntologyItems on objClassShould.GUID equals objClassExist.GUID into objClassesExist
                                                     from objClassExist in objClassesExist.DefaultIfEmpty()
                                                     where objClassExist == null
                                                     select objClassShould).ToList();
@@ -1060,17 +1063,18 @@ namespace WpfOnt
             objOList_Objects.AddRange(OntologyRelationRules.OntologyRelationRules);
             objOList_Objects.AddRange(Variables.Variables);
             objOList_Objects.AddRange(MappingRules.MappingRules);
-            objOItem_Result = objDBLevel1.get_Data_Objects(objOList_Objects);
+            var webResult = ontoWebSoapClient.Objects(objOList_Objects.ToArray(),false)
+            objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
                 var objOList_Objects_NotExistant = (from objObjectShould in objOList_Objects
-                                                    join objObjectExist in objDBLevel1.OList_Objects on objObjectShould.GUID equals objObjectExist.GUID into objObjectsExists
+                                                    join objObjectExist in result.OntologyItems on objObjectShould.GUID equals objObjectExist.GUID into objObjectsExists
                                                     from objObjectExist in objObjectsExists.DefaultIfEmpty()
                                                     where objObjectExist == null
                                                     select objObjectShould).ToList();
                 if (objOList_Objects_NotExistant.Any())
                 {
-                    objOItem_Result = objDBLevel1.save_Objects(objOList_Objects_NotExistant);
+                    objOItem_Result = ontoWebSoapClient.SaveObjects(objOList_Objects_NotExistant.ToArray());
 
                 }
             }
@@ -1083,12 +1087,13 @@ namespace WpfOnt
             var objOList_AttributeTypes = ClassAtts.ClassAtts.GroupBy(p => p.ID_AttributeType).ToList().Join(AttributeTypes.AttributeTypes, l => l.Key, r => r.GUID, (l, r) => r).ToList();
 
 
-            objOItem_Result = objDBLevel1.get_Data_ClassAtt(objOList_Classes, objOList_AttributeTypes);
+            var webResult = ontoWebSoapClient.ClassAttributes(objOList_Classes.ToArray(),objOList_AttributeTypes.ToArray(),true,false);
+            objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
 
                 var objOList_ClassAtts_NotExistant = (from objClassAttShould in ClassAtts.ClassAtts
-                                          join objClassAttExist in objDBLevel1.OList_ClassAtt_ID on 
+                                          join objClassAttExist in webResult.ClassAttributes on 
                                             new { ID_Class = objClassAttShould.ID_Class, ID_AttributeType = objClassAttShould.ID_AttributeType} equals new { ID_Class = objClassAttExist.ID_Class, ID_AttributeType = objClassAttExist.ID_AttributeType} into objClassAttsExist
                                           from objClassAttExist in objClassAttsExist.DefaultIfEmpty()
                                           where objClassAttExist == null
@@ -1097,7 +1102,7 @@ namespace WpfOnt
                 
                 if (objOList_ClassAtts_NotExistant.Any())
                 {
-                    objOItem_Result = objDBLevel1.save_ClassAttType(objOList_ClassAtts_NotExistant);
+                    objOItem_Result = ontoWebSoapClient.SaveClassAtts(objOList_ClassAtts_NotExistant.ToArray());
                 }
             }
 
