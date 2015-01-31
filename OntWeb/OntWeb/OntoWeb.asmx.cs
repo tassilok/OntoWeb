@@ -32,6 +32,7 @@ namespace OntWeb
 
         clsTypes types = new clsTypes();
         clsFields fields = new clsFields();
+        clsClassTypes classTypes = new clsClassTypes();
 
         public OntoWeb()
         {
@@ -217,24 +218,6 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public string Type_DataType()
-        {
-            return types.DataType;
-        }
-
-        [WebMethod]
-        public string Type_ObjectAttribute()
-        {
-            return types.ObjectAtt;
-        }
-
-        [WebMethod]
-        public string Type_ObjectRelation()
-        {
-            return types.ObjectRel;
-        }
-
-        [WebMethod]
         public string Type_ClassAtt()
         {
             return types.ClassAtt;
@@ -272,9 +255,33 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public clsClassTypes OClassTypes()
+        public string ClassType_ClassAtt()
         {
-            return new clsClassTypes();
+            return classTypes.ClassType_ClassAtt;
+        }
+
+        [WebMethod]
+        public string ClassType_ClassRel()
+        {
+            return classTypes.ClassType_ClassRel;
+        }
+
+        [WebMethod]
+        public string ClassType_ObjectAtt()
+        {
+            return classTypes.ClassType_ObjectAtt;
+        }
+
+        [WebMethod]
+        public string ClassType_ObjectRel()
+        {
+            return classTypes.ClassType_ObjectRel;
+        }
+
+        [WebMethod]
+        public string ClassType_OntologyItem()
+        {
+            return classTypes.ClassType_OntologyItem;
         }
 
         [WebMethod]

@@ -197,55 +197,52 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\OntoWeb\OntoWeb.wsdl" />
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsAttributeTypes.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsAttributeTypes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsBaseClassAttributes.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsBaseClassAttributes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsBaseClassRelation.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsBaseClassRelation1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClasses.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClasses1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassTypes.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassTypes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDataTypes.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDataTypes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDirections.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDirections1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsFields.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsLogStates1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsLogStates.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsMappingRules1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsMappingRules.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyItem1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyItem.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyRelationRules1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsOntologyRelationRules.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsRelationTypes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsRelationTypes.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsTypes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsTypes.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsVariables1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsVariables.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.Config1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.Config.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.WebServiceResult.datasource">
+    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.WebServiceResult1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

@@ -18,7 +18,6 @@ namespace WpfOnt
     {
 
 
-        public clsFields Fields  { get; private set; }
 
         public clsDataTypes DataTypes { get; private set; }
 
@@ -377,25 +376,25 @@ namespace WpfOnt
 
         public string Type_Other 
             { get {
-                return Types.Other;
+                return ontoWebSoapClient.Type_Other();
             }
         }
 
         public string Type_Other_AttType 
             { get {
-                return ontoWebSoapClient.;
+                return ontoWebSoapClient.Type_Other_AttType();
             }
         }
 
         public string Type_Other_Classes 
             { get {
-                return Types.Other_Classes;
+                return ontoWebSoapClient.Type_Other_Classes();
             }
         }
 
         public string Type_Other_RelType 
             { get {
-                return Types.Other_RelType;
+                return ontoWebSoapClient.Type_Other_RelType();
             }
         }
 
@@ -510,97 +509,97 @@ namespace WpfOnt
 
         public string Field_ID_Parent_Other 
             { get {
-                return Fields.ID_Parent_Other;
+                return ontoWebSoapClient.Field_ID_Parent_Other();
             }
         }
 
         public string Field_ID_RelationType 
             { get {
-                return Fields.ID_RelationType;
+                return ontoWebSoapClient.Field_ID_RelationType();
             }
         }
 
         public string Field_ID_Other 
             { get {
-                return Fields.ID_Other;
+                return ontoWebSoapClient.Field_ID_Other();
             }
         }
 
         public string Field_Name_AttributeType 
             { get {
-                return Fields.Name_AttributeType;
+                return ontoWebSoapClient.Field_Name_AttributeType();
             }
         }
 
         public string Field_Name_Object 
             { get {
-                return Fields.Name_Object;
+                return ontoWebSoapClient.Field_Name_Object();
             }
         }
 
         public string Field_Name_Other 
             { get {
-                return Fields.Name_Other;
+                return ontoWebSoapClient.Field_Name_Other();
             }
         }
 
         public string Field_Name_Item 
             { get {
-                return Fields.Name_Item;
+                return ontoWebSoapClient.Field_Name_Item();
             }
         }
 
         public string Field_Name_RelationType 
             { get {
-                return Fields.Name_RelationType;
+                return ontoWebSoapClient.Field_Name_RelationType();
             }
         }
 
         public string Field_OrderID 
             { get {
-                return Fields.OrderID;
+                return ontoWebSoapClient.Field_OrderID();
             }
         }
 
         public string Field_Val_Bool 
             { get {
-                return Fields.Val_Bool;
+                return ontoWebSoapClient.Field_Val_Bool();
             }
         }
 
         public string Field_Val_Datetime 
             { get {
-                return Fields.Val_Datetime;
+                return ontoWebSoapClient.Field_Val_Datetime();
             }
         }
 
         public string Field_Val_Int 
             { get {
-                return Fields.Val_Int;
+                return ontoWebSoapClient.Field_Val_Int();
             }
         }
 
         public string Field_Val_Real 
             { get {
-                return Fields.Val_Real;
+                return ontoWebSoapClient.Field_Val_Real();
             }
         }
 
         public string Field_Val_String 
             { get {
-                return Fields.Val_String;
+                return ontoWebSoapClient.Field_Val_String();
             }
         }
 
         public string Field_Val_Name 
             { get {
-                return Fields.Val_Name;
+                return ontoWebSoapClient.Field_Val_Name();
             }
         }
 
         public string Field_ID_Attribute 
             { get {
-                return Fields.ID_Attribute;
+                return ontoWebSoapClient.Field_ID_Attribute();
             }
         }
 
@@ -832,9 +831,7 @@ namespace WpfOnt
             set_Session();
             get_ConfigData();
 
-            Types = ontoWebSoapClient.OTypes();
             LogStates = ontoWebSoapClient.OLogStates();
-            Fields = ontoWebSoapClient.OFields();
             DataTypes = ontoWebSoapClient.ODataTypes();
             Classes = ontoWebSoapClient.OClasses();
             ClassAtts = ontoWebSoapClient.OClassAttributes();
@@ -849,26 +846,8 @@ namespace WpfOnt
 
             var objOItem_Result = LogStates.LogState_Success;
 
-            try
-            {
-                objDBLevel1 = new DbWork(Server, Port, Index, Index_Rep, SearchRange, Session);
-                objDBLevel2 = new DbWork(Server, Port, Index, Index_Rep, SearchRange, Session);
-
-                
-
-                try
-                {
-                    objOItem_Result = test_Existance_OntologyDB();
-                }
-                catch (Exception ex)
-                {
-                    objOItem_Result = LogStates.LogState_Nothing.Clone();
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
+           
+            objOItem_Result = test_Existance_OntologyDB();
 
             try
             {
@@ -1033,23 +1012,9 @@ namespace WpfOnt
                                                     where objClassExist == null
                                                     select objClassShould).ToList();
                 if (objOList_Classes_NotExistant.Any())
-                {
-                    foreach (clsOntologyItem objClass in objOList_Classes_NotExistant)
-                    {
-                        if (string.IsNullOrEmpty(objClass.GUID_Parent))
-                        {
-                            objOItem_Result = objDBLevel1.save_Class(objClass, true);
-                        }
-                        else
-                        {
-                            objOItem_Result = objDBLevel1.save_Class(objClass);
-                        }
-
-                        if (objOItem_Result.GUID == LogStates.LogState_Error.GUID)
-                        {
-                            break;
-                        }
-                    }
+                {  
+                     objOItem_Result = ontoWebSoapClient.SaveClasses(objOList_Classes_NotExistant.ToArray());
+                        
 
                 }
             }
@@ -1063,7 +1028,7 @@ namespace WpfOnt
             objOList_Objects.AddRange(OntologyRelationRules.OntologyRelationRules);
             objOList_Objects.AddRange(Variables.Variables);
             objOList_Objects.AddRange(MappingRules.MappingRules);
-            var webResult = ontoWebSoapClient.Objects(objOList_Objects.ToArray(),false)
+            var webResult = ontoWebSoapClient.Objects(objOList_Objects.ToArray(), false);
             objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {

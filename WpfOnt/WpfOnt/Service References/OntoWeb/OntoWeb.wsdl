@@ -261,6 +261,96 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Type_Other">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_OtherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_OtherResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_Other_AttType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_Other_AttTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_Other_AttTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_Other_Classes">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_Other_ClassesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_Other_ClassesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_Other_RelType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_Other_RelTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_Other_RelTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_DataType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_DataTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_DataTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ObjectAttribute">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ObjectAttributeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ObjectAttributeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ObjectRelation">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ObjectRelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ObjectRelationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ClassAtt">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ClassAttResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ClassAttResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Type_ClassRel">
+        <s:complexType />
+      </s:element>
+      <s:element name="Type_ClassRelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Type_ClassRelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="OLogStates">
         <s:complexType />
       </s:element>
@@ -352,7 +442,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_MappingRule" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Module" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_ModuleFunction" type="tns:clsOntologyItem" />
-          <s:element minOccurs="0" maxOccurs="1" name="OItem_Class_Ontology_Naming_Rule" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="OList_Classes" type="tns:ArrayOfClsOntologyItem" />
         </s:sequence>
       </s:complexType>
@@ -383,7 +472,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_WMI_BaseBoardSerial" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_OrderID" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_Navigation" type="tns:clsOntologyItem" />
-          <s:element minOccurs="0" maxOccurs="1" name="OITem_AttributeType_Regex" type="tns:clsOntologyItem" />
           <s:element minOccurs="0" maxOccurs="1" name="AttributeTypes" type="tns:ArrayOfClsOntologyItem" />
         </s:sequence>
       </s:complexType>
@@ -552,17 +640,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="Directions" type="tns:ArrayOfClsOntologyItem" />
         </s:sequence>
       </s:complexType>
-      <s:element name="OFields">
-        <s:complexType />
-      </s:element>
-      <s:element name="OFieldsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="OFieldsResult" type="tns:clsFields" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="clsFields" />
       <s:element name="OTypes">
         <s:complexType />
       </s:element>
@@ -694,20 +771,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="IndexExistsResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateIndex">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="indexName" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateIndexResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateIndexResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1103,6 +1166,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CreateIndex">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="index" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateIndexResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="TestIndexExistance">
         <s:complexType>
           <s:sequence>
@@ -1114,6 +1191,316 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="TestIndexExistanceResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Object">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_ObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_ObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Item">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_ItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Class_Left">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_Class_LeftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_Class_LeftResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Class_Right">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_Class_RightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_Class_RightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Max_forw">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Max_forwResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Max_forwResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Min_forw">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Min_forwResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Min_forwResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Min">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_MinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_MinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Max">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_MaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_MaxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Max_backw">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Max_backwResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Max_backwResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_AttributeType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_AttributeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_AttributeTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Class">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_ClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_ClassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_DataType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_DataTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_DataTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Ontology">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_OntologyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_OntologyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Parent">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_ParentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_ParentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Parent_Object">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_Parent_ObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_Parent_ObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Parent_Other">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_Parent_OtherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_Parent_OtherResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_RelationType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_RelationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_RelationTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Other">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_OtherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_OtherResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Name_AttributeType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Name_AttributeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Name_AttributeTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Name_Object">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Name_ObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Name_ObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Name_Other">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Name_OtherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Name_OtherResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Name_Item">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Name_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Name_ItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Name_RelationType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Name_RelationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Name_RelationTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_OrderID">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_OrderIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_OrderIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Val_Bool">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Val_BoolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Val_BoolResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Val_Datetime">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Val_DatetimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Val_DatetimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Val_Int">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Val_IntResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Val_IntResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Val_Real">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Val_RealResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Val_RealResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Val_String">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Val_StringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Val_StringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_Val_Name">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_Val_NameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_Val_NameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Field_ID_Attribute">
+        <s:complexType />
+      </s:element>
+      <s:element name="Field_ID_AttributeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Field_ID_AttributeResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1160,6 +1547,60 @@
   </wsdl:message>
   <wsdl:message name="Type_RelationTypeSoapOut">
     <wsdl:part name="parameters" element="tns:Type_RelationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_OtherSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_Other" />
+  </wsdl:message>
+  <wsdl:message name="Type_OtherSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_OtherResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_Other_AttTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_Other_AttType" />
+  </wsdl:message>
+  <wsdl:message name="Type_Other_AttTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_Other_AttTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_Other_ClassesSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_Other_Classes" />
+  </wsdl:message>
+  <wsdl:message name="Type_Other_ClassesSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_Other_ClassesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_Other_RelTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_Other_RelType" />
+  </wsdl:message>
+  <wsdl:message name="Type_Other_RelTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_Other_RelTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_DataTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_DataType" />
+  </wsdl:message>
+  <wsdl:message name="Type_DataTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_DataTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectAttributeSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ObjectAttribute" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectAttributeSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ObjectAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectRelationSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ObjectRelation" />
+  </wsdl:message>
+  <wsdl:message name="Type_ObjectRelationSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ObjectRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassAttSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ClassAtt" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassAttSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ClassAttResponse" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassRelSoapIn">
+    <wsdl:part name="parameters" element="tns:Type_ClassRel" />
+  </wsdl:message>
+  <wsdl:message name="Type_ClassRelSoapOut">
+    <wsdl:part name="parameters" element="tns:Type_ClassRelResponse" />
   </wsdl:message>
   <wsdl:message name="OLogStatesSoapIn">
     <wsdl:part name="parameters" element="tns:OLogStates" />
@@ -1233,12 +1674,6 @@
   <wsdl:message name="ODirectionsSoapOut">
     <wsdl:part name="parameters" element="tns:ODirectionsResponse" />
   </wsdl:message>
-  <wsdl:message name="OFieldsSoapIn">
-    <wsdl:part name="parameters" element="tns:OFields" />
-  </wsdl:message>
-  <wsdl:message name="OFieldsSoapOut">
-    <wsdl:part name="parameters" element="tns:OFieldsResponse" />
-  </wsdl:message>
   <wsdl:message name="OTypesSoapIn">
     <wsdl:part name="parameters" element="tns:OTypes" />
   </wsdl:message>
@@ -1292,12 +1727,6 @@
   </wsdl:message>
   <wsdl:message name="IndexExistsSoapOut">
     <wsdl:part name="parameters" element="tns:IndexExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="CreateIndexSoapIn">
-    <wsdl:part name="parameters" element="tns:CreateIndex" />
-  </wsdl:message>
-  <wsdl:message name="CreateIndexSoapOut">
-    <wsdl:part name="parameters" element="tns:CreateIndexResponse" />
   </wsdl:message>
   <wsdl:message name="DataTypesSoapIn">
     <wsdl:part name="parameters" element="tns:DataTypes" />
@@ -1461,11 +1890,203 @@
   <wsdl:message name="DeleteRelationTypesSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteRelationTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="CreateIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIndex" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIndexResponse" />
+  </wsdl:message>
   <wsdl:message name="TestIndexExistanceSoapIn">
     <wsdl:part name="parameters" element="tns:TestIndexExistance" />
   </wsdl:message>
   <wsdl:message name="TestIndexExistanceSoapOut">
     <wsdl:part name="parameters" element="tns:TestIndexExistanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Object" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_ObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Item" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Class_LeftSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Class_Left" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Class_LeftSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_Class_LeftResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Class_RightSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Class_Right" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Class_RightSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_Class_RightResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Max_forwSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Max_forw" />
+  </wsdl:message>
+  <wsdl:message name="Field_Max_forwSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Max_forwResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Min_forwSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Min_forw" />
+  </wsdl:message>
+  <wsdl:message name="Field_Min_forwSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Min_forwResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_MinSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Min" />
+  </wsdl:message>
+  <wsdl:message name="Field_MinSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_MinResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_MaxSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Max" />
+  </wsdl:message>
+  <wsdl:message name="Field_MaxSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_MaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Max_backwSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Max_backw" />
+  </wsdl:message>
+  <wsdl:message name="Field_Max_backwSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Max_backwResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_AttributeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_AttributeType" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_AttributeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_AttributeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ClassSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Class" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ClassSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_ClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_DataTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_DataType" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_DataTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_DataTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_OntologySoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Ontology" />
+  </wsdl:message>
+  <wsdl:message name="Field_OntologySoapOut">
+    <wsdl:part name="parameters" element="tns:Field_OntologyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ParentSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Parent" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_ParentSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_ParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Parent_ObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Parent_Object" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Parent_ObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_Parent_ObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Parent_OtherSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Parent_Other" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_Parent_OtherSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_Parent_OtherResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_RelationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_RelationType" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_RelationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_RelationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_OtherSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Other" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_OtherSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_OtherResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_AttributeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Name_AttributeType" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_AttributeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Name_AttributeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_ObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Name_Object" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_ObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Name_ObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_OtherSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Name_Other" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_OtherSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Name_OtherResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Name_Item" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Name_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_RelationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Name_RelationType" />
+  </wsdl:message>
+  <wsdl:message name="Field_Name_RelationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Name_RelationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_OrderIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_OrderID" />
+  </wsdl:message>
+  <wsdl:message name="Field_OrderIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_OrderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_BoolSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Val_Bool" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_BoolSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Val_BoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_DatetimeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Val_Datetime" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_DatetimeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Val_DatetimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_IntSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Val_Int" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_IntSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Val_IntResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_RealSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Val_Real" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_RealSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Val_RealResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_StringSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Val_String" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_StringSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Val_StringResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_NameSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_Val_Name" />
+  </wsdl:message>
+  <wsdl:message name="Field_Val_NameSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_Val_NameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_AttributeSoapIn">
+    <wsdl:part name="parameters" element="tns:Field_ID_Attribute" />
+  </wsdl:message>
+  <wsdl:message name="Field_ID_AttributeSoapOut">
+    <wsdl:part name="parameters" element="tns:Field_ID_AttributeResponse" />
   </wsdl:message>
   <wsdl:portType name="OntoWebSoap">
     <wsdl:operation name="ObjectAtts">
@@ -1495,6 +2116,42 @@
     <wsdl:operation name="Type_RelationType">
       <wsdl:input message="tns:Type_RelationTypeSoapIn" />
       <wsdl:output message="tns:Type_RelationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other">
+      <wsdl:input message="tns:Type_OtherSoapIn" />
+      <wsdl:output message="tns:Type_OtherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_AttType">
+      <wsdl:input message="tns:Type_Other_AttTypeSoapIn" />
+      <wsdl:output message="tns:Type_Other_AttTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_Classes">
+      <wsdl:input message="tns:Type_Other_ClassesSoapIn" />
+      <wsdl:output message="tns:Type_Other_ClassesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_RelType">
+      <wsdl:input message="tns:Type_Other_RelTypeSoapIn" />
+      <wsdl:output message="tns:Type_Other_RelTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_DataType">
+      <wsdl:input message="tns:Type_DataTypeSoapIn" />
+      <wsdl:output message="tns:Type_DataTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectAttribute">
+      <wsdl:input message="tns:Type_ObjectAttributeSoapIn" />
+      <wsdl:output message="tns:Type_ObjectAttributeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectRelation">
+      <wsdl:input message="tns:Type_ObjectRelationSoapIn" />
+      <wsdl:output message="tns:Type_ObjectRelationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassAtt">
+      <wsdl:input message="tns:Type_ClassAttSoapIn" />
+      <wsdl:output message="tns:Type_ClassAttSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassRel">
+      <wsdl:input message="tns:Type_ClassRelSoapIn" />
+      <wsdl:output message="tns:Type_ClassRelSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="OLogStates">
       <wsdl:input message="tns:OLogStatesSoapIn" />
@@ -1544,10 +2201,6 @@
       <wsdl:input message="tns:ODirectionsSoapIn" />
       <wsdl:output message="tns:ODirectionsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="OFields">
-      <wsdl:input message="tns:OFieldsSoapIn" />
-      <wsdl:output message="tns:OFieldsSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="OTypes">
       <wsdl:input message="tns:OTypesSoapIn" />
       <wsdl:output message="tns:OTypesSoapOut" />
@@ -1583,10 +2236,6 @@
     <wsdl:operation name="IndexExists">
       <wsdl:input message="tns:IndexExistsSoapIn" />
       <wsdl:output message="tns:IndexExistsSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateIndex">
-      <wsdl:input message="tns:CreateIndexSoapIn" />
-      <wsdl:output message="tns:CreateIndexSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DataTypes">
       <wsdl:input message="tns:DataTypesSoapIn" />
@@ -1696,9 +2345,137 @@
       <wsdl:input message="tns:DeleteRelationTypesSoapIn" />
       <wsdl:output message="tns:DeleteRelationTypesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <wsdl:input message="tns:CreateIndexSoapIn" />
+      <wsdl:output message="tns:CreateIndexSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="TestIndexExistance">
       <wsdl:input message="tns:TestIndexExistanceSoapIn" />
       <wsdl:output message="tns:TestIndexExistanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Object">
+      <wsdl:input message="tns:Field_ID_ObjectSoapIn" />
+      <wsdl:output message="tns:Field_ID_ObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Item">
+      <wsdl:input message="tns:Field_ID_ItemSoapIn" />
+      <wsdl:output message="tns:Field_ID_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class_Left">
+      <wsdl:input message="tns:Field_ID_Class_LeftSoapIn" />
+      <wsdl:output message="tns:Field_ID_Class_LeftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class_Right">
+      <wsdl:input message="tns:Field_ID_Class_RightSoapIn" />
+      <wsdl:output message="tns:Field_ID_Class_RightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max_forw">
+      <wsdl:input message="tns:Field_Max_forwSoapIn" />
+      <wsdl:output message="tns:Field_Max_forwSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Min_forw">
+      <wsdl:input message="tns:Field_Min_forwSoapIn" />
+      <wsdl:output message="tns:Field_Min_forwSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Min">
+      <wsdl:input message="tns:Field_MinSoapIn" />
+      <wsdl:output message="tns:Field_MinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max">
+      <wsdl:input message="tns:Field_MaxSoapIn" />
+      <wsdl:output message="tns:Field_MaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max_backw">
+      <wsdl:input message="tns:Field_Max_backwSoapIn" />
+      <wsdl:output message="tns:Field_Max_backwSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_AttributeType">
+      <wsdl:input message="tns:Field_ID_AttributeTypeSoapIn" />
+      <wsdl:output message="tns:Field_ID_AttributeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class">
+      <wsdl:input message="tns:Field_ID_ClassSoapIn" />
+      <wsdl:output message="tns:Field_ID_ClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_DataType">
+      <wsdl:input message="tns:Field_ID_DataTypeSoapIn" />
+      <wsdl:output message="tns:Field_ID_DataTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Ontology">
+      <wsdl:input message="tns:Field_OntologySoapIn" />
+      <wsdl:output message="tns:Field_OntologySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent">
+      <wsdl:input message="tns:Field_ID_ParentSoapIn" />
+      <wsdl:output message="tns:Field_ID_ParentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent_Object">
+      <wsdl:input message="tns:Field_ID_Parent_ObjectSoapIn" />
+      <wsdl:output message="tns:Field_ID_Parent_ObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent_Other">
+      <wsdl:input message="tns:Field_ID_Parent_OtherSoapIn" />
+      <wsdl:output message="tns:Field_ID_Parent_OtherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_RelationType">
+      <wsdl:input message="tns:Field_ID_RelationTypeSoapIn" />
+      <wsdl:output message="tns:Field_ID_RelationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Other">
+      <wsdl:input message="tns:Field_ID_OtherSoapIn" />
+      <wsdl:output message="tns:Field_ID_OtherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_AttributeType">
+      <wsdl:input message="tns:Field_Name_AttributeTypeSoapIn" />
+      <wsdl:output message="tns:Field_Name_AttributeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Object">
+      <wsdl:input message="tns:Field_Name_ObjectSoapIn" />
+      <wsdl:output message="tns:Field_Name_ObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Other">
+      <wsdl:input message="tns:Field_Name_OtherSoapIn" />
+      <wsdl:output message="tns:Field_Name_OtherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Item">
+      <wsdl:input message="tns:Field_Name_ItemSoapIn" />
+      <wsdl:output message="tns:Field_Name_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_RelationType">
+      <wsdl:input message="tns:Field_Name_RelationTypeSoapIn" />
+      <wsdl:output message="tns:Field_Name_RelationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_OrderID">
+      <wsdl:input message="tns:Field_OrderIDSoapIn" />
+      <wsdl:output message="tns:Field_OrderIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Bool">
+      <wsdl:input message="tns:Field_Val_BoolSoapIn" />
+      <wsdl:output message="tns:Field_Val_BoolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Datetime">
+      <wsdl:input message="tns:Field_Val_DatetimeSoapIn" />
+      <wsdl:output message="tns:Field_Val_DatetimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Int">
+      <wsdl:input message="tns:Field_Val_IntSoapIn" />
+      <wsdl:output message="tns:Field_Val_IntSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Real">
+      <wsdl:input message="tns:Field_Val_RealSoapIn" />
+      <wsdl:output message="tns:Field_Val_RealSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_String">
+      <wsdl:input message="tns:Field_Val_StringSoapIn" />
+      <wsdl:output message="tns:Field_Val_StringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Name">
+      <wsdl:input message="tns:Field_Val_NameSoapIn" />
+      <wsdl:output message="tns:Field_Val_NameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Attribute">
+      <wsdl:input message="tns:Field_ID_AttributeSoapIn" />
+      <wsdl:output message="tns:Field_ID_AttributeSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="OntoWebSoap" type="tns:OntoWebSoap">
@@ -1759,6 +2536,87 @@
     </wsdl:operation>
     <wsdl:operation name="Type_RelationType">
       <soap:operation soapAction="http://tempuri.org/Type_RelationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other">
+      <soap:operation soapAction="http://tempuri.org/Type_Other" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_AttType">
+      <soap:operation soapAction="http://tempuri.org/Type_Other_AttType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_Classes">
+      <soap:operation soapAction="http://tempuri.org/Type_Other_Classes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_RelType">
+      <soap:operation soapAction="http://tempuri.org/Type_Other_RelType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_DataType">
+      <soap:operation soapAction="http://tempuri.org/Type_DataType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectAttribute">
+      <soap:operation soapAction="http://tempuri.org/Type_ObjectAttribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectRelation">
+      <soap:operation soapAction="http://tempuri.org/Type_ObjectRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassAtt">
+      <soap:operation soapAction="http://tempuri.org/Type_ClassAtt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassRel">
+      <soap:operation soapAction="http://tempuri.org/Type_ClassRel" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1874,15 +2732,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OFields">
-      <soap:operation soapAction="http://tempuri.org/OFields" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="OTypes">
       <soap:operation soapAction="http://tempuri.org/OTypes" style="document" />
       <wsdl:input>
@@ -1957,15 +2806,6 @@
     </wsdl:operation>
     <wsdl:operation name="IndexExists">
       <soap:operation soapAction="http://tempuri.org/IndexExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateIndex">
-      <soap:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2216,8 +3056,296 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <soap:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="TestIndexExistance">
       <soap:operation soapAction="http://tempuri.org/TestIndexExistance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Object">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Object" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Item">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class_Left">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Class_Left" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class_Right">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Class_Right" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max_forw">
+      <soap:operation soapAction="http://tempuri.org/Field_Max_forw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Min_forw">
+      <soap:operation soapAction="http://tempuri.org/Field_Min_forw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Min">
+      <soap:operation soapAction="http://tempuri.org/Field_Min" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max">
+      <soap:operation soapAction="http://tempuri.org/Field_Max" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max_backw">
+      <soap:operation soapAction="http://tempuri.org/Field_Max_backw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_AttributeType">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_AttributeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Class" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_DataType">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_DataType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Ontology">
+      <soap:operation soapAction="http://tempuri.org/Field_Ontology" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Parent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent_Object">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Parent_Object" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent_Other">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Parent_Other" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_RelationType">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_RelationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Other">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Other" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_AttributeType">
+      <soap:operation soapAction="http://tempuri.org/Field_Name_AttributeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Object">
+      <soap:operation soapAction="http://tempuri.org/Field_Name_Object" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Other">
+      <soap:operation soapAction="http://tempuri.org/Field_Name_Other" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Item">
+      <soap:operation soapAction="http://tempuri.org/Field_Name_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_RelationType">
+      <soap:operation soapAction="http://tempuri.org/Field_Name_RelationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_OrderID">
+      <soap:operation soapAction="http://tempuri.org/Field_OrderID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Bool">
+      <soap:operation soapAction="http://tempuri.org/Field_Val_Bool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Datetime">
+      <soap:operation soapAction="http://tempuri.org/Field_Val_Datetime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Int">
+      <soap:operation soapAction="http://tempuri.org/Field_Val_Int" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Real">
+      <soap:operation soapAction="http://tempuri.org/Field_Val_Real" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_String">
+      <soap:operation soapAction="http://tempuri.org/Field_Val_String" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Name">
+      <soap:operation soapAction="http://tempuri.org/Field_Val_Name" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Attribute">
+      <soap:operation soapAction="http://tempuri.org/Field_ID_Attribute" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2284,6 +3412,87 @@
     </wsdl:operation>
     <wsdl:operation name="Type_RelationType">
       <soap12:operation soapAction="http://tempuri.org/Type_RelationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other">
+      <soap12:operation soapAction="http://tempuri.org/Type_Other" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_AttType">
+      <soap12:operation soapAction="http://tempuri.org/Type_Other_AttType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_Classes">
+      <soap12:operation soapAction="http://tempuri.org/Type_Other_Classes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_Other_RelType">
+      <soap12:operation soapAction="http://tempuri.org/Type_Other_RelType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_DataType">
+      <soap12:operation soapAction="http://tempuri.org/Type_DataType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectAttribute">
+      <soap12:operation soapAction="http://tempuri.org/Type_ObjectAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ObjectRelation">
+      <soap12:operation soapAction="http://tempuri.org/Type_ObjectRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassAtt">
+      <soap12:operation soapAction="http://tempuri.org/Type_ClassAtt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Type_ClassRel">
+      <soap12:operation soapAction="http://tempuri.org/Type_ClassRel" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2399,15 +3608,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OFields">
-      <soap12:operation soapAction="http://tempuri.org/OFields" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="OTypes">
       <soap12:operation soapAction="http://tempuri.org/OTypes" style="document" />
       <wsdl:input>
@@ -2482,15 +3682,6 @@
     </wsdl:operation>
     <wsdl:operation name="IndexExists">
       <soap12:operation soapAction="http://tempuri.org/IndexExists" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateIndex">
-      <soap12:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2741,8 +3932,296 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateIndex">
+      <soap12:operation soapAction="http://tempuri.org/CreateIndex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="TestIndexExistance">
       <soap12:operation soapAction="http://tempuri.org/TestIndexExistance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Object">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Object" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Item">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class_Left">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Class_Left" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class_Right">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Class_Right" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max_forw">
+      <soap12:operation soapAction="http://tempuri.org/Field_Max_forw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Min_forw">
+      <soap12:operation soapAction="http://tempuri.org/Field_Min_forw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Min">
+      <soap12:operation soapAction="http://tempuri.org/Field_Min" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max">
+      <soap12:operation soapAction="http://tempuri.org/Field_Max" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Max_backw">
+      <soap12:operation soapAction="http://tempuri.org/Field_Max_backw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_AttributeType">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_AttributeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Class">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Class" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_DataType">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_DataType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Ontology">
+      <soap12:operation soapAction="http://tempuri.org/Field_Ontology" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Parent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent_Object">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Parent_Object" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Parent_Other">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Parent_Other" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_RelationType">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_RelationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Other">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Other" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_AttributeType">
+      <soap12:operation soapAction="http://tempuri.org/Field_Name_AttributeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Object">
+      <soap12:operation soapAction="http://tempuri.org/Field_Name_Object" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Other">
+      <soap12:operation soapAction="http://tempuri.org/Field_Name_Other" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_Item">
+      <soap12:operation soapAction="http://tempuri.org/Field_Name_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Name_RelationType">
+      <soap12:operation soapAction="http://tempuri.org/Field_Name_RelationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_OrderID">
+      <soap12:operation soapAction="http://tempuri.org/Field_OrderID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Bool">
+      <soap12:operation soapAction="http://tempuri.org/Field_Val_Bool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Datetime">
+      <soap12:operation soapAction="http://tempuri.org/Field_Val_Datetime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Int">
+      <soap12:operation soapAction="http://tempuri.org/Field_Val_Int" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Real">
+      <soap12:operation soapAction="http://tempuri.org/Field_Val_Real" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_String">
+      <soap12:operation soapAction="http://tempuri.org/Field_Val_String" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_Val_Name">
+      <soap12:operation soapAction="http://tempuri.org/Field_Val_Name" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Field_ID_Attribute">
+      <soap12:operation soapAction="http://tempuri.org/Field_ID_Attribute" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

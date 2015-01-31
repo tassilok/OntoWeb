@@ -64,6 +64,69 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_RelationType", ReplyAction="*")]
         System.Threading.Tasks.Task<string> Type_RelationTypeAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_Other();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_OtherAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other_AttType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_Other_AttType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other_AttType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_Other_AttTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other_Classes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_Other_Classes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other_Classes", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_Other_ClassesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other_RelType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_Other_RelType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_Other_RelType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_Other_RelTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_DataType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_DataType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_DataType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_DataTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectAttribute", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ObjectAttribute();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectAttribute", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ObjectAttributeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectRelation", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ObjectRelation();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ObjectRelation", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ObjectRelationAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassAtt", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ClassAtt();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassAtt", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ClassAttAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassRel", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Type_ClassRel();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Type_ClassRel", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Type_ClassRelAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OLogStates", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.clsLogStates OLogStates();
@@ -148,13 +211,6 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ODirections", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsDirections> ODirectionsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OFields", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        WpfOnt.OntoWeb.clsFields OFields();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OFields", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsFields> OFieldsAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         WpfOnt.OntoWeb.clsTypes OTypes();
@@ -217,13 +273,6 @@ namespace WpfOnt.OntoWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IndexExists", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> IndexExistsAsync(string index);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool CreateIndex(string indexName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> CreateIndexAsync(string indexName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DataTypes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -414,12 +463,236 @@ namespace WpfOnt.OntoWeb {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteRelationTypes", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsOntologyItem> DeleteRelationTypesAsync(WpfOnt.OntoWeb.clsOntologyItem[] oList_RelationTypes);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool CreateIndex(string index);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateIndex", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> CreateIndexAsync(string index);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestIndexExistance", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool TestIndexExistance(string index);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestIndexExistance", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> TestIndexExistanceAsync(string index);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Object", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Object();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Object", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_ObjectAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Item", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Item();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Item", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_ItemAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Class_Left", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Class_Left();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Class_Left", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_Class_LeftAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Class_Right", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Class_Right();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Class_Right", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_Class_RightAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Max_forw", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Max_forw();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Max_forw", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Max_forwAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Min_forw", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Min_forw();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Min_forw", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Min_forwAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Min", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Min();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Min", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_MinAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Max", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Max();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Max", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_MaxAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Max_backw", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Max_backw();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Max_backw", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Max_backwAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_AttributeType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_AttributeType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_AttributeType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_AttributeTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Class", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Class();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Class", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_ClassAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_DataType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_DataType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_DataType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_DataTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Ontology", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Ontology();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Ontology", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_OntologyAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Parent", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Parent();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Parent", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_ParentAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Parent_Object", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Parent_Object();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Parent_Object", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_Parent_ObjectAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Parent_Other", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Parent_Other();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Parent_Other", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_Parent_OtherAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_RelationType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_RelationType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_RelationType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_RelationTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Other", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Other();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Other", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_OtherAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_AttributeType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Name_AttributeType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_AttributeType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Name_AttributeTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_Object", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Name_Object();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_Object", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Name_ObjectAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_Other", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Name_Other();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_Other", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Name_OtherAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_Item", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Name_Item();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_Item", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Name_ItemAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_RelationType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Name_RelationType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Name_RelationType", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Name_RelationTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_OrderID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_OrderID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_OrderID", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_OrderIDAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Bool", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Val_Bool();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Bool", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Val_BoolAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Datetime", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Val_Datetime();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Datetime", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Val_DatetimeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Int", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Val_Int();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Int", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Val_IntAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Real", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Val_Real();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Real", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Val_RealAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_String", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Val_String();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_String", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Val_StringAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Name", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_Val_Name();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_Val_Name", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_Val_NameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Attribute", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Field_ID_Attribute();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Field_ID_Attribute", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> Field_ID_AttributeAsync();
     }
     
     /// <remarks/>
@@ -783,24 +1056,6 @@ namespace WpfOnt.OntoWeb {
                 this.RaisePropertyChanged("ConfigValueInt");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class clsFields : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -2508,8 +2763,6 @@ namespace WpfOnt.OntoWeb {
         
         private clsOntologyItem oItem_Class_ModuleFunctionField;
         
-        private clsOntologyItem oItem_Class_Ontology_Naming_RuleField;
-        
         private clsOntologyItem[] oList_ClassesField;
         
         /// <remarks/>
@@ -2705,19 +2958,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
-        public clsOntologyItem OItem_Class_Ontology_Naming_Rule {
-            get {
-                return this.oItem_Class_Ontology_Naming_RuleField;
-            }
-            set {
-                this.oItem_Class_Ontology_Naming_RuleField = value;
-                this.RaisePropertyChanged("OItem_Class_Ontology_Naming_Rule");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=17)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=16)]
         public clsOntologyItem[] OList_Classes {
             get {
                 return this.oList_ClassesField;
@@ -2753,8 +2994,6 @@ namespace WpfOnt.OntoWeb {
         private clsOntologyItem oITem_AttributeType_OrderIDField;
         
         private clsOntologyItem oITem_AttributeType_NavigationField;
-        
-        private clsOntologyItem oITem_AttributeType_RegexField;
         
         private clsOntologyItem[] attributeTypesField;
         
@@ -2807,19 +3046,7 @@ namespace WpfOnt.OntoWeb {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public clsOntologyItem OITem_AttributeType_Regex {
-            get {
-                return this.oITem_AttributeType_RegexField;
-            }
-            set {
-                this.oITem_AttributeType_RegexField = value;
-                this.RaisePropertyChanged("OITem_AttributeType_Regex");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
         public clsOntologyItem[] AttributeTypes {
             get {
                 return this.attributeTypesField;
@@ -4135,6 +4362,78 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.Type_RelationTypeAsync();
         }
         
+        public string Type_Other() {
+            return base.Channel.Type_Other();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_OtherAsync() {
+            return base.Channel.Type_OtherAsync();
+        }
+        
+        public string Type_Other_AttType() {
+            return base.Channel.Type_Other_AttType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_Other_AttTypeAsync() {
+            return base.Channel.Type_Other_AttTypeAsync();
+        }
+        
+        public string Type_Other_Classes() {
+            return base.Channel.Type_Other_Classes();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_Other_ClassesAsync() {
+            return base.Channel.Type_Other_ClassesAsync();
+        }
+        
+        public string Type_Other_RelType() {
+            return base.Channel.Type_Other_RelType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_Other_RelTypeAsync() {
+            return base.Channel.Type_Other_RelTypeAsync();
+        }
+        
+        public string Type_DataType() {
+            return base.Channel.Type_DataType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_DataTypeAsync() {
+            return base.Channel.Type_DataTypeAsync();
+        }
+        
+        public string Type_ObjectAttribute() {
+            return base.Channel.Type_ObjectAttribute();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ObjectAttributeAsync() {
+            return base.Channel.Type_ObjectAttributeAsync();
+        }
+        
+        public string Type_ObjectRelation() {
+            return base.Channel.Type_ObjectRelation();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ObjectRelationAsync() {
+            return base.Channel.Type_ObjectRelationAsync();
+        }
+        
+        public string Type_ClassAtt() {
+            return base.Channel.Type_ClassAtt();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ClassAttAsync() {
+            return base.Channel.Type_ClassAttAsync();
+        }
+        
+        public string Type_ClassRel() {
+            return base.Channel.Type_ClassRel();
+        }
+        
+        public System.Threading.Tasks.Task<string> Type_ClassRelAsync() {
+            return base.Channel.Type_ClassRelAsync();
+        }
+        
         public WpfOnt.OntoWeb.clsLogStates OLogStates() {
             return base.Channel.OLogStates();
         }
@@ -4231,14 +4530,6 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.ODirectionsAsync();
         }
         
-        public WpfOnt.OntoWeb.clsFields OFields() {
-            return base.Channel.OFields();
-        }
-        
-        public System.Threading.Tasks.Task<WpfOnt.OntoWeb.clsFields> OFieldsAsync() {
-            return base.Channel.OFieldsAsync();
-        }
-        
         public WpfOnt.OntoWeb.clsTypes OTypes() {
             return base.Channel.OTypes();
         }
@@ -4309,14 +4600,6 @@ namespace WpfOnt.OntoWeb {
         
         public System.Threading.Tasks.Task<bool> IndexExistsAsync(string index) {
             return base.Channel.IndexExistsAsync(index);
-        }
-        
-        public bool CreateIndex(string indexName) {
-            return base.Channel.CreateIndex(indexName);
-        }
-        
-        public System.Threading.Tasks.Task<bool> CreateIndexAsync(string indexName) {
-            return base.Channel.CreateIndexAsync(indexName);
         }
         
         public WpfOnt.OntoWeb.WebServiceResult DataTypes(WpfOnt.OntoWeb.clsOntologyItem[] oList_DataTypes, bool doCount) {
@@ -4535,12 +4818,268 @@ namespace WpfOnt.OntoWeb {
             return base.Channel.DeleteRelationTypesAsync(oList_RelationTypes);
         }
         
+        public bool CreateIndex(string index) {
+            return base.Channel.CreateIndex(index);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateIndexAsync(string index) {
+            return base.Channel.CreateIndexAsync(index);
+        }
+        
         public bool TestIndexExistance(string index) {
             return base.Channel.TestIndexExistance(index);
         }
         
         public System.Threading.Tasks.Task<bool> TestIndexExistanceAsync(string index) {
             return base.Channel.TestIndexExistanceAsync(index);
+        }
+        
+        public string Field_ID_Object() {
+            return base.Channel.Field_ID_Object();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_ObjectAsync() {
+            return base.Channel.Field_ID_ObjectAsync();
+        }
+        
+        public string Field_ID_Item() {
+            return base.Channel.Field_ID_Item();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_ItemAsync() {
+            return base.Channel.Field_ID_ItemAsync();
+        }
+        
+        public string Field_ID_Class_Left() {
+            return base.Channel.Field_ID_Class_Left();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_Class_LeftAsync() {
+            return base.Channel.Field_ID_Class_LeftAsync();
+        }
+        
+        public string Field_ID_Class_Right() {
+            return base.Channel.Field_ID_Class_Right();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_Class_RightAsync() {
+            return base.Channel.Field_ID_Class_RightAsync();
+        }
+        
+        public string Field_Max_forw() {
+            return base.Channel.Field_Max_forw();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Max_forwAsync() {
+            return base.Channel.Field_Max_forwAsync();
+        }
+        
+        public string Field_Min_forw() {
+            return base.Channel.Field_Min_forw();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Min_forwAsync() {
+            return base.Channel.Field_Min_forwAsync();
+        }
+        
+        public string Field_Min() {
+            return base.Channel.Field_Min();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_MinAsync() {
+            return base.Channel.Field_MinAsync();
+        }
+        
+        public string Field_Max() {
+            return base.Channel.Field_Max();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_MaxAsync() {
+            return base.Channel.Field_MaxAsync();
+        }
+        
+        public string Field_Max_backw() {
+            return base.Channel.Field_Max_backw();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Max_backwAsync() {
+            return base.Channel.Field_Max_backwAsync();
+        }
+        
+        public string Field_ID_AttributeType() {
+            return base.Channel.Field_ID_AttributeType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_AttributeTypeAsync() {
+            return base.Channel.Field_ID_AttributeTypeAsync();
+        }
+        
+        public string Field_ID_Class() {
+            return base.Channel.Field_ID_Class();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_ClassAsync() {
+            return base.Channel.Field_ID_ClassAsync();
+        }
+        
+        public string Field_ID_DataType() {
+            return base.Channel.Field_ID_DataType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_DataTypeAsync() {
+            return base.Channel.Field_ID_DataTypeAsync();
+        }
+        
+        public string Field_Ontology() {
+            return base.Channel.Field_Ontology();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_OntologyAsync() {
+            return base.Channel.Field_OntologyAsync();
+        }
+        
+        public string Field_ID_Parent() {
+            return base.Channel.Field_ID_Parent();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_ParentAsync() {
+            return base.Channel.Field_ID_ParentAsync();
+        }
+        
+        public string Field_ID_Parent_Object() {
+            return base.Channel.Field_ID_Parent_Object();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_Parent_ObjectAsync() {
+            return base.Channel.Field_ID_Parent_ObjectAsync();
+        }
+        
+        public string Field_ID_Parent_Other() {
+            return base.Channel.Field_ID_Parent_Other();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_Parent_OtherAsync() {
+            return base.Channel.Field_ID_Parent_OtherAsync();
+        }
+        
+        public string Field_ID_RelationType() {
+            return base.Channel.Field_ID_RelationType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_RelationTypeAsync() {
+            return base.Channel.Field_ID_RelationTypeAsync();
+        }
+        
+        public string Field_ID_Other() {
+            return base.Channel.Field_ID_Other();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_OtherAsync() {
+            return base.Channel.Field_ID_OtherAsync();
+        }
+        
+        public string Field_Name_AttributeType() {
+            return base.Channel.Field_Name_AttributeType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Name_AttributeTypeAsync() {
+            return base.Channel.Field_Name_AttributeTypeAsync();
+        }
+        
+        public string Field_Name_Object() {
+            return base.Channel.Field_Name_Object();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Name_ObjectAsync() {
+            return base.Channel.Field_Name_ObjectAsync();
+        }
+        
+        public string Field_Name_Other() {
+            return base.Channel.Field_Name_Other();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Name_OtherAsync() {
+            return base.Channel.Field_Name_OtherAsync();
+        }
+        
+        public string Field_Name_Item() {
+            return base.Channel.Field_Name_Item();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Name_ItemAsync() {
+            return base.Channel.Field_Name_ItemAsync();
+        }
+        
+        public string Field_Name_RelationType() {
+            return base.Channel.Field_Name_RelationType();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Name_RelationTypeAsync() {
+            return base.Channel.Field_Name_RelationTypeAsync();
+        }
+        
+        public string Field_OrderID() {
+            return base.Channel.Field_OrderID();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_OrderIDAsync() {
+            return base.Channel.Field_OrderIDAsync();
+        }
+        
+        public string Field_Val_Bool() {
+            return base.Channel.Field_Val_Bool();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Val_BoolAsync() {
+            return base.Channel.Field_Val_BoolAsync();
+        }
+        
+        public string Field_Val_Datetime() {
+            return base.Channel.Field_Val_Datetime();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Val_DatetimeAsync() {
+            return base.Channel.Field_Val_DatetimeAsync();
+        }
+        
+        public string Field_Val_Int() {
+            return base.Channel.Field_Val_Int();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Val_IntAsync() {
+            return base.Channel.Field_Val_IntAsync();
+        }
+        
+        public string Field_Val_Real() {
+            return base.Channel.Field_Val_Real();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Val_RealAsync() {
+            return base.Channel.Field_Val_RealAsync();
+        }
+        
+        public string Field_Val_String() {
+            return base.Channel.Field_Val_String();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Val_StringAsync() {
+            return base.Channel.Field_Val_StringAsync();
+        }
+        
+        public string Field_Val_Name() {
+            return base.Channel.Field_Val_Name();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_Val_NameAsync() {
+            return base.Channel.Field_Val_NameAsync();
+        }
+        
+        public string Field_ID_Attribute() {
+            return base.Channel.Field_ID_Attribute();
+        }
+        
+        public System.Threading.Tasks.Task<string> Field_ID_AttributeAsync() {
+            return base.Channel.Field_ID_AttributeAsync();
         }
     }
 }
