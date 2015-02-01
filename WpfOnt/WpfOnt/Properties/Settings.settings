@@ -32,5 +32,8 @@
     <Setting Name="Credentials" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="WpfOnt_OntoWeb_OntoWeb" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://wvps176-28-40-26.dedicated.hosteurope.de:8088/OntWeb/OntWeb/OntoWeb.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

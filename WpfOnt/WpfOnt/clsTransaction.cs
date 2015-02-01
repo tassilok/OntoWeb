@@ -527,15 +527,9 @@ namespace WpfOnt
 
         public clsTransaction(Globals globals)
         {
-            objDBLevel = new DbWork(globals.Server, globals.Port, globals.Index, globals.Index_Rep, globals.SearchRange, globals.Session);
             objOList_Item = new List<clsTransactionItem>();
         }
 
-        public clsTransaction(string strServer, int intPort, string strIndex, string strIndexRep, int intSearchRange, string strSession)
-        {
-            objDBLevel = new DbWork(strServer, intPort, strIndex, strIndexRep, intSearchRange, strSession);
-            objOList_Item = new List<clsTransactionItem>();
-        }
     
     }
 }

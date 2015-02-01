@@ -65,3 +65,4 @@ C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\obj\Debug\obj\Debug\deco
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\obj\Debug\obj\Debug\decoratedxaml\View\TypeTree.baml
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\bin\Debug\Elasticsearch.Net.pdb
 C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\bin\Debug\Nest.pdb
+C:\Users\Tassilo\Documents\GitHub\OntoWeb\WpfOnt\WpfOnt\obj\Debug\WpfOnt.csprojResolveAssemblyReference.cache

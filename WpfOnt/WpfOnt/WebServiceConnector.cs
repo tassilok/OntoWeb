@@ -9,14 +9,15 @@ namespace WpfOnt
 {
     public static class WebServiceConnector
     {
-        private static OntoWebSoapClient ontoWebSoapClient;
-        public static OntoWebSoapClient OntologyWebSoapClient
+        private static OntoWeb.OntoWeb ontoWebSoapClient;
+        public static OntoWeb.OntoWeb OntologyWebSoapClient
         {
             get 
             {
                 if (ontoWebSoapClient == null)
                 {
-                    ontoWebSoapClient = new OntoWebSoapClient();
+                    ontoWebSoapClient = new OntoWeb.OntoWeb();
+
                 }
                 return ontoWebSoapClient;
             }

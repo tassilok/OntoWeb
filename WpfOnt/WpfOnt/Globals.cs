@@ -817,7 +817,7 @@ namespace WpfOnt
 
             if (objOItem_Result.GUID == LogStates.LogState_Nothing.GUID)
             {
-                if (MessageBox.Show("Die Datenbank " + strEL_Index + "@" + strEL_Server + " existiert nicht. Soll sie erzeugt werden?", "Keine Datenbank", MessageBoxButton.YesNo) == MessageBoxResult.Yes) 
+                if (MessageBox.Show("Der Endpunkt " + ServiceUrl + " konnte nicht erreicht werden!", "Kein Dienst", MessageBoxButton.YesNo) == MessageBoxResult.Yes) 
                 {
                     if (create_Index().GUID == LogStates.LogState_Error.GUID)
                     {
@@ -841,7 +841,7 @@ namespace WpfOnt
                 objOItem_Result = test_Existance_BaseData();
                 if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
                 {
-                    objTransaction = new clsTransaction(Server, Port, Index, Index_Rep, SearchRange, Session);
+                    objTransaction = new clsTransaction(this);
 
                     set_Computer();
                 }
@@ -1071,7 +1071,7 @@ namespace WpfOnt
     private clsOntologyItem test_Existance_OntologyDB()
     {
         
-        if (WebServiceConnector.OntologyWebSoapClient.TestIndexExistance(Index))
+        if (WebServiceConnector.OntologyWebSoapClient.TestIndexExistance())
         {
             return LogStates.LogState_Success;
         }
@@ -1083,6 +1083,7 @@ namespace WpfOnt
 
     private clsOntologyItem create_Index()
     {
+        ontowe
         if (WebServiceConnector.OntologyWebSoapClient.CreateIndex(Index))
         {
             return LogStates.LogState_Success;

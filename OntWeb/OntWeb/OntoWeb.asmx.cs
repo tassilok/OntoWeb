@@ -1097,10 +1097,10 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public bool CreateIndex(string index)
+        public bool CreateIndex()
         {
             var indexSettings = dbSelector.GetIndexSettings();
-            var objOPResult = dbSelector.ElConnector.CreateIndex(index);
+            var objOPResult = dbSelector.ElConnector.CreateIndex(Globals.ElIndex);
             return objOPResult.IsValid;
         }
 

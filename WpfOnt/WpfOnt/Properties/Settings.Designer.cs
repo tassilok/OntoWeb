@@ -142,5 +142,15 @@ namespace WpfOnt.Properties {
                 this["Credentials"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://wvps176-28-40-26.dedicated.hosteurope.de:8088/OntWeb/OntWeb/OntoWeb.asmx")]
+        public string WpfOnt_OntoWeb_OntoWeb {
+            get {
+                return ((string)(this["WpfOnt_OntoWeb_OntoWeb"]));
+            }
+        }
     }
 }
