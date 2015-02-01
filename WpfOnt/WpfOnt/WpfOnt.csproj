@@ -138,6 +138,7 @@
     <Compile Include="View\TypeTree.xaml.cs">
       <DependentUpon>TypeTree.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WebServiceConnector.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -207,9 +208,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClasses1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsClassTypes1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OntoWeb\WpfOnt.OntoWeb.clsDataTypes1.datasource">

@@ -13,7 +13,6 @@ namespace WpfOnt
         private List<clsTransactionItem> objOList_Item = new List<clsTransactionItem>();
         private clsTransactionItem objOItem_TransItem = new clsTransactionItem();
         private DbWork objDBLevel;
-        private OntoWebSoapClient ontoWebSoapClient = new OntoWebSoapClient();
 
         public clsTransactionItem OItem_Last() 
         {
@@ -28,13 +27,13 @@ namespace WpfOnt
 
 
             var objOItem_Result = objDBLevel.del_ObjectAtt(objOList_AttributesDel);
-            if (objOItem_Result.GUID != ontoWebSoapClient.OLogStates().LogState_Error.GUID)
+            if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error.GUID)
             {
                 objOItem_Result = objDBLevel.del_ObjectRel(objOList_ObjectsForw);
-                if (objOItem_Result.GUID != ontoWebSoapClient.OLogStates().LogState_Error.GUID)
+                if (objOItem_Result.GUID != WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error.GUID)
                 {
                     objOItem_Result = objDBLevel.del_ObjectRel(objOList_ObjectsBackw);
-                    if (objOItem_Result.GUID != ontoWebSoapClient.OLogStates().LogState_Error.GUID)
+                    if (objOItem_Result.GUID != WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error.GUID)
                     {
                         objOItem_Result = objDBLevel.del_Objects(new List<clsOntologyItem> {OItem_Object});
                     }
@@ -46,7 +45,7 @@ namespace WpfOnt
         
         public clsOntologyItem do_Transaction(object OItem_Item, bool boolRemoveAll = false, bool boolRemoveItem = false)
         {
-            clsOntologyItem objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+            clsOntologyItem objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
             List<clsOntologyItem> objOL_Items = new List<clsOntologyItem>();
             List<clsObjectAtt> objOL_AItems = new List<clsObjectAtt>();
             List<clsObjectRel> objOL_RItems = new List<clsObjectRel>();
@@ -57,18 +56,18 @@ namespace WpfOnt
 
             objOItem_TransItem.Removed = boolRemoveItem;
 
-            if (OItem_Item.GetType().Name == objClassTypes.ClassType_ObjectAtt)
+            if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectAtt())
             {
                 objOItem_TransItem.OItem_ObjectAtt = (clsObjectAtt)OItem_Item;
                 objOItem_Result = clear_Relations(OItem_Item.GetType().Name, boolRemoveAll=boolRemoveAll);
                 if (boolRemoveItem == false)
                 {
-                    if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                    if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                     {
 
                         objOL_AItems.Add((clsObjectAtt)OItem_Item);
                         objOItem_Result = objDBLevel.save_ObjAtt(objOL_AItems);
-                        if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                        if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                         {
                             objOItem_TransItem.OItem_ObjectAtt.ID_Attribute = objDBLevel.OAList_Saved.First().ID_Attribute;
                         }
@@ -78,12 +77,12 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_ObjectRel)       
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectRel())       
             {
 
 
                 objOItem_TransItem.OItem_ObjectRel = (clsObjectRel) OItem_Item;
-                if (objOItem_TransItem.OItem_ObjectRel.Ontology == objTypes.ObjectType)
+                if (objOItem_TransItem.OItem_ObjectRel.Ontology == WebServiceConnector.OntologyWebSoapClient.Type_Object())
                 {
                     objOItem_Result = clear_Relations(OItem_Item.GetType().Name, boolRemoveAll=boolRemoveAll);
                 }
@@ -94,7 +93,7 @@ namespace WpfOnt
 
                 if (boolRemoveItem == false)
                 {
-                    if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                    if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                     {
                         objOL_RItems.Add((clsObjectRel)OItem_Item);
                         objOItem_Result = objDBLevel.save_ObjRel(objOL_RItems);
@@ -104,14 +103,14 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_ClassAtt)       
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassAtt())       
             {
 
                 objOItem_TransItem.OItem_ClassAtt = (clsClassAtt) OItem_Item;
-                objOItem_Result = clear_Relations(objClassTypes.ClassType_ObjectAtt, boolRemoveAll=boolRemoveAll);
+                objOItem_Result = clear_Relations(WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectAtt(), boolRemoveAll = boolRemoveAll);
                 if (boolRemoveItem == false)
                 {
-                    if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                    if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                     {
                         objOL_CLaItems.Add((clsClassAtt)OItem_Item);
                         objOItem_Result = objDBLevel.save_ClassAttType(objOL_CLaItems);
@@ -121,14 +120,14 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_ClassRel)       
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassRel())       
             {
                 objOItem_TransItem.OItem_ClassRel = (clsClassRel)OItem_Item;
                 objOItem_Result = clear_Relations(OItem_Item.GetType().Name, boolRemoveAll=boolRemoveAll);
 
                 if (boolRemoveItem == false)
                 {
-                    if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                    if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                     {
                         objOL_ClrItems.Add((clsClassRel) OItem_Item);
                         objOItem_Result = objDBLevel.save_ClassRel(objOL_ClrItems);
@@ -138,63 +137,63 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_OntologyItem)       
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_OntologyItem())       
             {
                 objOItem_TransItem.OItem_OntologyItem = (clsOntologyItem)OItem_Item;
                 if (boolRemoveItem == false)
                 {
                     objOL_Items.Add((clsOntologyItem) OItem_Item);
-                    if (objOItem_TransItem.OItem_OntologyItem.Type == ontoWebSoapClient.Type_AttributeType())
+                    if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_AttributeType())
                     {
                         objOItem_Result = objDBLevel.save_AttributeType((clsOntologyItem)OItem_Item);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
-                    else if (objOItem_TransItem.OItem_OntologyItem.Type == ontoWebSoapClient.Type_Class())
+                    else if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_Class())
                     {
                         objOItem_Result = objDBLevel.save_Class((clsOntologyItem)OItem_Item);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
-                    else if (objOItem_TransItem.OItem_OntologyItem.Type == ontoWebSoapClient.Type_Object())
+                    else if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_Object())
                     {
                         objOItem_Result = objDBLevel.save_Objects(objOL_Items);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
-                    else if (objOItem_TransItem.OItem_OntologyItem.Type == ontoWebSoapClient.Type_RelationType())
+                    else if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_RelationType())
                     {
                         objOItem_Result = objDBLevel.save_RelationType((clsOntologyItem)OItem_Item);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
                     else
                     {
-                        objOItem_TransItem.TransactionResult = ontoWebSoapClient.OLogStates().LogState_Error;
+                        objOItem_TransItem.TransactionResult = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
                     }
                 }
                 else
                 {
                     objOL_Items.Add((clsOntologyItem)OItem_Item);
-                    if (objOItem_TransItem.OItem_OntologyItem.Type == objTypes.AttributeType)
+                    if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_AttributeType())
                     {
                         objOItem_Result = objDBLevel.del_AttributeType(objOL_Items);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
-                    else if (objOItem_TransItem.OItem_OntologyItem.Type == objTypes.ClassType)
+                    else if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_Class())
                     {
                         objOItem_Result = objDBLevel.del_Class(objOL_Items);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
-                    else if (objOItem_TransItem.OItem_OntologyItem.Type == objTypes.ObjectType)
+                    else if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_Object())
                     {
                         objOItem_Result = objDBLevel.del_Objects(objOL_Items);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
-                    else if (objOItem_TransItem.OItem_OntologyItem.Type == objTypes.RelationType)
+                    else if (objOItem_TransItem.OItem_OntologyItem.Type == WebServiceConnector.OntologyWebSoapClient.Type_RelationType())
                     {
                         objOItem_Result = objDBLevel.del_RelationTypes(objOL_Items);
                         objOItem_TransItem.TransactionResult = objOItem_Result;
                     }
                     else
                     {
-                        objOItem_TransItem.TransactionResult = ontoWebSoapClient.OLogStates().LogState_Error;
+                        objOItem_TransItem.TransactionResult = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
                     }
                     
                 }
@@ -210,7 +209,7 @@ namespace WpfOnt
 
         public clsOntologyItem fill_TransactionList(Object OItem_Item, bool boolRemoveAll = false)
         {
-            var objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
             var objOL_Items = new List<clsOntologyItem>();
             var objOL_AItems = new  List<clsObjectAtt>();
             var objOL_RItems = new List<clsObjectRel>();
@@ -219,11 +218,11 @@ namespace WpfOnt
 
             objOItem_TransItem = new clsTransactionItem();
 
-            if (OItem_Item.GetType().Name == objClassTypes.ClassType_ObjectAtt)
+            if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectAtt())
             {
                 objOItem_TransItem.OItem_ObjectAtt = (clsObjectAtt) OItem_Item;
 
-                if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                 {
                     objOL_AItems.Add((clsObjectAtt)OItem_Item);
 
@@ -231,22 +230,22 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_ObjectRel)
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectRel())
             {
                 objOItem_TransItem.OItem_ObjectRel = (clsObjectRel) OItem_Item;
 
-                if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                 {
                     objOL_RItems.Add((clsObjectRel)OItem_Item);
                 }
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_ClassAtt)
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassAtt())
             {
                 objOItem_TransItem.OItem_ClassAtt = (clsClassAtt) OItem_Item;
 
-                if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                 {
                     objOL_CLaItems.Add((clsClassAtt) OItem_Item);
 
@@ -254,11 +253,11 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_ClassRel)
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassRel())
             {
                 objOItem_TransItem.OItem_ClassRel = (clsClassRel)OItem_Item;
 
-                if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Success.GUID)
+                if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success.GUID)
                 {
                     objOL_ClrItems.Add((clsClassRel)OItem_Item);
 
@@ -266,7 +265,7 @@ namespace WpfOnt
 
                 objOItem_TransItem.TransactionResult = objOItem_Result;
             }
-            else if (OItem_Item.GetType().Name == objClassTypes.ClassType_OntologyItem)
+            else if (OItem_Item.GetType().Name == WebServiceConnector.OntologyWebSoapClient.ClassType_OntologyItem())
             {
                    objOItem_TransItem.OItem_OntologyItem = (clsOntologyItem)OItem_Item;
                     objOL_Items.Add((clsOntologyItem)OItem_Item);
@@ -279,7 +278,7 @@ namespace WpfOnt
         
         public clsOntologyItem rollback()
         {
-            var objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
 
             clsTransactionItem objTransactionItem;
 
@@ -289,7 +288,7 @@ namespace WpfOnt
                 {
                     objTransactionItem = objOList_Item[i];
                     objOItem_Result = rollback_One(objTransactionItem);
-                    if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Error.GUID)
+                    if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error.GUID)
                     {
                         break;
                     }
@@ -297,7 +296,7 @@ namespace WpfOnt
             }
             else
             {
-                objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+                objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
             }
 
             return objOItem_Result;
@@ -315,7 +314,7 @@ namespace WpfOnt
             var objOLOntologyItem = new List<clsOntologyItem>();
             var objOLObjAttSaved = new List<clsObjectAtt>();
 
-            if (objTransactionItem.savedType == objClassTypes.ClassType_ClassAtt)
+            if (objTransactionItem.savedType == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassAtt())
             {
                 objOItem_Class.GUID = objTransactionItem.OItem_ClassAtt.ID_Class;
                 objOItem_AttributeType.GUID = objTransactionItem.OItem_ClassAtt.ID_AttributeType;
@@ -332,22 +331,24 @@ namespace WpfOnt
 
                 }
             }
-            else if (objTransactionItem.savedType == objClassTypes.ClassType_ClassRel)
+            else if (objTransactionItem.savedType == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassRel())
             {
                 if (objTransactionItem.Removed == false)
                 {
-                    objOLClassRel.Add(new clsClassRel(objTransactionItem.OItem_ClassRel.ID_Class_Left,
-                                                  objTransactionItem.OItem_ClassRel.ID_Class_Right,
-                                                  objTransactionItem.OItem_ClassRel.ID_RelationType,
-                                                  null, null, null, null));
+                    objOLClassRel.Add(new clsClassRel
+                    {
+                        ID_Class_Left = objTransactionItem.OItem_ClassRel.ID_Class_Left,
+                        ID_Class_Right = objTransactionItem.OItem_ClassRel.ID_Class_Right,
+                        ID_RelationType = objTransactionItem.OItem_ClassRel.ID_RelationType
+                    });
 
                     if (objDBLevel.del_ClassRel(objOLClassRel).Count>0)
                     {
-                        objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Success;
+                        objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success;
                     }
                     else
                     {
-                        objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+                        objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
                     }
                 }
                 else
@@ -357,7 +358,7 @@ namespace WpfOnt
                     objOItem_Result = objDBLevel.save_ClassRel(objOLClassRel);
                 }
             }
-            else if (objTransactionItem.savedType == objClassTypes.ClassType_ObjectAtt)
+            else if (objTransactionItem.savedType == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectAtt())
             {
                 if (objTransactionItem.Removed == false)
                 {
@@ -370,7 +371,7 @@ namespace WpfOnt
                     }
                     else
                     {
-                        objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Success;
+                        objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success;
                     }
                 }
                 else
@@ -381,7 +382,7 @@ namespace WpfOnt
 
                 }
             }
-            else if (objTransactionItem.savedType == objClassTypes.ClassType_ObjectRel)
+            else if (objTransactionItem.savedType == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectRel())
             {
                 if (objTransactionItem.Removed == false)
                 {
@@ -401,7 +402,7 @@ namespace WpfOnt
                     objOItem_Result = objDBLevel.save_ObjRel(objOLObjRel);
                 }
             }
-            else if (objTransactionItem.savedType == objClassTypes.ClassType_OntologyItem)
+            else if (objTransactionItem.savedType == WebServiceConnector.OntologyWebSoapClient.ClassType_OntologyItem())
             {
                 objOLOntologyItem.Add(objTransactionItem.OItem_OntologyItem);
                 if (objTransactionItem.Removed == false)
@@ -415,7 +416,7 @@ namespace WpfOnt
             }
             else
             {
-                objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+                objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
             }
 
             return objOItem_Result;
@@ -423,7 +424,7 @@ namespace WpfOnt
         
         private clsOntologyItem clear_Relations(string strType, bool boolNeutral = false, bool boolRemoveAll = false)
         {
-            var objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
             clsOntologyItem objOItem_Result_Search;
             clsOntologyItem objOItem_Result_Del;
 
@@ -435,7 +436,7 @@ namespace WpfOnt
             var objOL_ObjRel_Del = new List<clsObjectRel>();
             var objOL_ClassRel_Del = new List<clsClassRel>();
 
-            if (strType == objClassTypes.ClassType_ObjectAtt)
+            if (strType == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectAtt())
             {
                 if (boolRemoveAll)
                 {
@@ -457,12 +458,12 @@ namespace WpfOnt
                     }
                     else
                     {
-                        objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Success;
+                        objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success;
                     }
 
                 }
             }
-            else if (strType == objClassTypes.ClassType_ObjectRel)
+            else if (strType == WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectRel())
             {
                 if (boolRemoveAll)
                 {
@@ -493,7 +494,7 @@ namespace WpfOnt
                     objOItem_Result = objDBLevel.del_ObjectRel(objOL_ObjRel_Del);
                 }
             }
-            else if (strType == objClassTypes.ClassType_ClassRel)
+            else if (strType == WebServiceConnector.OntologyWebSoapClient.ClassType_ClassRel())
             {
                 if (objOItem_TransItem.OItem_ClassRel.ID_Class_Left != null &&
                     objOItem_TransItem.OItem_ClassRel.ID_RelationType != null)
@@ -507,13 +508,13 @@ namespace WpfOnt
                 }
                 else
                 {
-                    objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Error;
+                    objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Error;
                 }
             }
 
-            if (objOItem_Result.GUID == ontoWebSoapClient.OLogStates().LogState_Nothing.GUID)
+            if (objOItem_Result.GUID == WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Nothing.GUID)
             {
-                objOItem_Result = ontoWebSoapClient.OLogStates().LogState_Success;
+                objOItem_Result = WebServiceConnector.OntologyWebSoapClient.OLogStates().LogState_Success;
             }
 
             return objOItem_Result;

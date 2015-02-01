@@ -42,7 +42,7 @@ namespace WpfOnt.ImportExport
 
         public clsOntologyItem ImportTemplates(Assembly objAssembly)
         {
-            var objOItem_Result = objGlobals.LState_Success.Clone();
+            var objOItem_Result = objGlobals.LState_Success;
 
             ClearLists();
 
@@ -66,7 +66,7 @@ namespace WpfOnt.ImportExport
 
         public clsOntologyItem ImportXMLFiles(string strPath)
         {
-            var objOItem_Result = objGlobals.LState_Success.Clone();
+            var objOItem_Result = objGlobals.LState_Success;
 
             ClearLists();
 
@@ -90,7 +90,7 @@ namespace WpfOnt.ImportExport
             }
             catch (Exception ex)
                 {
-                    objOItem_Result = objGlobals.LState_Error.Clone();
+                    objOItem_Result = objGlobals.LState_Error;
                 }
 
             return objOItem_Result;
@@ -98,7 +98,7 @@ namespace WpfOnt.ImportExport
 
         private clsOntologyItem SaveItems()
         {
-            var objOItem_Result = objGlobals.LState_Success.Clone();
+            var objOItem_Result = objGlobals.LState_Success;
 
             if (objOList_Classes.Any())
             {
@@ -129,11 +129,11 @@ namespace WpfOnt.ImportExport
 
                 if (lngCount == 0)
                 {
-                    objOItem_Result = objGlobals.LState_Success.Clone();
+                    objOItem_Result = objGlobals.LState_Success;
                 }
                 else
                 {
-                    objOItem_Result = objGlobals.LState_Error.Clone();
+                    objOItem_Result = objGlobals.LState_Error;
                 }
 
             }
@@ -149,7 +149,7 @@ namespace WpfOnt.ImportExport
         private clsOntologyItem AddItemsFromXMLStream(Stream objXMLStream)
         {
             string strType;
-            var objOItem_Result = objGlobals.LState_Success.Clone();
+            var objOItem_Result = objGlobals.LState_Success;
 
 
             objXMLReader = new XmlTextReader(objXMLStream);

@@ -19,16 +19,13 @@ namespace WpfOnt
         public string savedType { get; private set; }
         public bool All { get; set; }
 
-        private clsClassTypes objClassTypes = new clsClassTypes();
-
-
         public clsOntologyItem OItem_OntologyItem
         {
             get { return objOItem_OntologyItem; }
             set 
             {
                 objOItem_OntologyItem = value;
-                savedType = objClassTypes.ClassType_OntologyItem;
+                savedType = WebServiceConnector.OntologyWebSoapClient.ClassType_OntologyItem();
             }
         }
 
@@ -38,7 +35,7 @@ namespace WpfOnt
             set 
             {
                 objOItem_ObjectAtt = value;
-                savedType = objClassTypes.ClassType_OntologyItem;
+                savedType = WebServiceConnector.OntologyWebSoapClient.ClassType_OntologyItem();
             }
 
         }
@@ -49,7 +46,7 @@ namespace WpfOnt
             set 
             {
                 objOItem_ObjectRel = value;
-                savedType = objClassTypes.ClassType_ObjectRel;
+                savedType = WebServiceConnector.OntologyWebSoapClient.ClassType_ObjectRel();
             }
         }
     
@@ -59,7 +56,7 @@ namespace WpfOnt
             set 
             {
                 objOItem_ClassAtt = value;
-                savedType = objClassTypes.ClassType_ClassAtt;
+                savedType = WebServiceConnector.OntologyWebSoapClient.ClassType_ClassAtt();
             }
         }
     
@@ -69,7 +66,7 @@ namespace WpfOnt
             set
             {
                 objOItem_ClassRel = value;
-                savedType = objClassTypes.ClassType_ClassRel;
+                savedType = WebServiceConnector.OntologyWebSoapClient.ClassType_ClassRel();
             }
         }
     

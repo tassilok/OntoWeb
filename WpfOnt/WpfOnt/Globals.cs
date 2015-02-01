@@ -39,11 +39,9 @@ namespace WpfOnt
 
         public clsMappingRules MappingRules { get; private set; }
 
+        public string ServiceUrl { get; private set; }
+
         public clsOntologyRelationRules OntologyRelationRules { get; private set; }
-
-        public clsClassTypes ClassTypes { get; private set; }
-
-        private OntoWebSoapClient ontoWebSoapClient = new OntoWebSoapClient();
 
         public clsOntologyItem Class_Ontologies
         {
@@ -55,9 +53,6 @@ namespace WpfOnt
             get { return Classes.OItem_Class_OntologyItems; }
         }
 
-        private string strEL_Server;
-        private int intPort;
-        private string strEL_Index;
         private string strRep_Index;
 
         private string strRep_Server;
@@ -307,11 +302,6 @@ namespace WpfOnt
                 return GUID_Session;
             }
         }
-        public  int Port 
-            { get {
-                return intPort;
-            }
-        }
 
         public  int SearchRange 
             { get {
@@ -319,17 +309,6 @@ namespace WpfOnt
             }
         }
 
-        public  string Server 
-            { get {
-                return strEL_Server;
-            }
-        }
-
-        public  string Index 
-            { get {
-                return strEL_Index;
-            }
-        }
 
         public  string Index_Rep 
             { get {
@@ -340,266 +319,266 @@ namespace WpfOnt
         public  string Type_AttributeType 
             { get {
 
-                return ontoWebSoapClient.Type_AttributeType();
+                return WebServiceConnector.OntologyWebSoapClient.Type_AttributeType();
             }
         }
 
         public  string Type_Class 
             { get {
-                return ontoWebSoapClient.Type_Class();
+                return WebServiceConnector.OntologyWebSoapClient.Type_Class();
             }
         }
 
         public string Type_DataType 
             { get {
-                return ontoWebSoapClient.Type_DataType();
+                return WebServiceConnector.OntologyWebSoapClient.Type_DataType();
             }
         }
 
         public string Type_Object 
             { get {
-                return ontoWebSoapClient.Type_Object();
+                return WebServiceConnector.OntologyWebSoapClient.Type_Object();
             }
         }
 
         public string Type_ObjectAtt 
             { get {
-                return ontoWebSoapClient.Type_ObjectAttribute();
+                return WebServiceConnector.OntologyWebSoapClient.Type_ObjectAttribute();
             }
         }
 
         public string Type_ObjectRel 
             { get {
-                return ontoWebSoapClient.Type_ObjectRelation();
+                return WebServiceConnector.OntologyWebSoapClient.Type_ObjectRelation();
             }
         }
 
         public string Type_Other 
             { get {
-                return ontoWebSoapClient.Type_Other();
+                return WebServiceConnector.OntologyWebSoapClient.Type_Other();
             }
         }
 
         public string Type_Other_AttType 
             { get {
-                return ontoWebSoapClient.Type_Other_AttType();
+                return WebServiceConnector.OntologyWebSoapClient.Type_Other_AttType();
             }
         }
 
         public string Type_Other_Classes 
             { get {
-                return ontoWebSoapClient.Type_Other_Classes();
+                return WebServiceConnector.OntologyWebSoapClient.Type_Other_Classes();
             }
         }
 
         public string Type_Other_RelType 
             { get {
-                return ontoWebSoapClient.Type_Other_RelType();
+                return WebServiceConnector.OntologyWebSoapClient.Type_Other_RelType();
             }
         }
 
         public string Type_RelationType 
             { get {
-                return ontoWebSoapClient.Type_RelationType();
+                return WebServiceConnector.OntologyWebSoapClient.Type_RelationType();
             }
         }
 
 
         public string Type_ClassRel 
             { get {
-                return ontoWebSoapClient.Type_ClassRel();
+                return WebServiceConnector.OntologyWebSoapClient.Type_ClassRel();
             }
         }
 
         public string Type_ClassAtt 
             { get {
-                return ontoWebSoapClient.Type_ClassAtt();
+                return WebServiceConnector.OntologyWebSoapClient.Type_ClassAtt();
             }
         }
 
         public string Field_ID_Object 
             { get {
-                return ontoWebSoapClient.Field_ID_Object();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Object();
             }
         }
 
         public string Field_ID_Item 
             { get {
-                return ontoWebSoapClient.Field_ID_Item();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Item();
             }
         }
 
         public string Field_ID_Class_Left 
             { get {
-                return ontoWebSoapClient.Field_ID_Class_Left();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Class_Left();
             }
         }
 
         public string Field_ID_Class_Right 
             { get {
-                return ontoWebSoapClient.Field_ID_Class_Right();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Class_Right();
             }
         }
 
         public string Field_Max_forw 
             { get {
-                return ontoWebSoapClient.Field_Max_forw();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Max_forw();
             }
         }
 
         public string Field_Min_forw 
             { get {
-                return ontoWebSoapClient.Field_Min_forw();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Min_forw();
             }
         }
 
         public string Field_Min 
             { get {
-                return ontoWebSoapClient.Field_Min();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Min();
             }
         }
 
         public string Field_Max 
             { get {
-                return ontoWebSoapClient.Field_Max();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Max();
             }
         }
 
         public string Field_Max_backw 
             { get {
-                return ontoWebSoapClient.Field_Max_backw();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Max_backw();
             }
         }
 
         public string Field_ID_AttributeType 
             { get {
-                return ontoWebSoapClient.Field_ID_AttributeType();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_AttributeType();
             }
         }
 
         public string Field_ID_Class 
             { get {
-                return ontoWebSoapClient.Field_ID_Class();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Class();
             }
         }
 
         public string Field_ID_DataType 
             { get {
-                return ontoWebSoapClient.Field_ID_DataType();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_DataType();
             }
         }
 
         public string Field_Ontology 
             { get {
-                return ontoWebSoapClient.Field_Ontology();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Ontology();
             }
         }
 
         public string Field_ID_Parent 
             { get {
-                return ontoWebSoapClient.Field_ID_Parent();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Parent();
             }
         }
 
         public string Field_ID_Parent_Object 
             { get {
-                return ontoWebSoapClient.Field_ID_Parent_Object();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Parent_Object();
             }
         }
 
         public string Field_ID_Parent_Other 
             { get {
-                return ontoWebSoapClient.Field_ID_Parent_Other();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Parent_Other();
             }
         }
 
         public string Field_ID_RelationType 
             { get {
-                return ontoWebSoapClient.Field_ID_RelationType();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_RelationType();
             }
         }
 
         public string Field_ID_Other 
             { get {
-                return ontoWebSoapClient.Field_ID_Other();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Other();
             }
         }
 
         public string Field_Name_AttributeType 
             { get {
-                return ontoWebSoapClient.Field_Name_AttributeType();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Name_AttributeType();
             }
         }
 
         public string Field_Name_Object 
             { get {
-                return ontoWebSoapClient.Field_Name_Object();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Name_Object();
             }
         }
 
         public string Field_Name_Other 
             { get {
-                return ontoWebSoapClient.Field_Name_Other();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Name_Other();
             }
         }
 
         public string Field_Name_Item 
             { get {
-                return ontoWebSoapClient.Field_Name_Item();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Name_Item();
             }
         }
 
         public string Field_Name_RelationType 
             { get {
-                return ontoWebSoapClient.Field_Name_RelationType();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Name_RelationType();
             }
         }
 
         public string Field_OrderID 
             { get {
-                return ontoWebSoapClient.Field_OrderID();
+                return WebServiceConnector.OntologyWebSoapClient.Field_OrderID();
             }
         }
 
         public string Field_Val_Bool 
             { get {
-                return ontoWebSoapClient.Field_Val_Bool();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Val_Bool();
             }
         }
 
         public string Field_Val_Datetime 
             { get {
-                return ontoWebSoapClient.Field_Val_Datetime();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Val_Datetime();
             }
         }
 
         public string Field_Val_Int 
             { get {
-                return ontoWebSoapClient.Field_Val_Int();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Val_Int();
             }
         }
 
         public string Field_Val_Real 
             { get {
-                return ontoWebSoapClient.Field_Val_Real();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Val_Real();
             }
         }
 
         public string Field_Val_String 
             { get {
-                return ontoWebSoapClient.Field_Val_String();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Val_String();
             }
         }
 
         public string Field_Val_Name 
             { get {
-                return ontoWebSoapClient.Field_Val_Name();
+                return WebServiceConnector.OntologyWebSoapClient.Field_Val_Name();
             }
         }
 
         public string Field_ID_Attribute 
             { get {
-                return ontoWebSoapClient.Field_ID_Attribute();
+                return WebServiceConnector.OntologyWebSoapClient.Field_ID_Attribute();
             }
         }
 
@@ -734,25 +713,7 @@ namespace WpfOnt
 
         private void get_ConfigData()
         {
-            strEL_Index = Properties.Settings.Default.Properties["Index"].DefaultValue.ToString();
-            if (string.IsNullOrEmpty(strEL_Index))
-            {
-                throw new Exception("Config");
-            }
-
-            strEL_Server = Properties.Settings.Default.Properties["Server"].DefaultValue.ToString();
-            if (string.IsNullOrEmpty(strEL_Server))
-            {
-                throw new Exception("Config");
-            }
-
-            var strEL_Port = Properties.Settings.Default.Properties["Port"].DefaultValue.ToString();
-            if (!int.TryParse(strEL_Port, out intPort))
-            {
-                throw new Exception("Config");
-            }
-
-
+            
             strRep_Server = Properties.Settings.Default.Properties["server_report"].DefaultValue.ToString();
             if (string.IsNullOrEmpty(strRep_Server))
             {
@@ -831,18 +792,18 @@ namespace WpfOnt
             set_Session();
             get_ConfigData();
 
-            LogStates = ontoWebSoapClient.OLogStates();
-            DataTypes = ontoWebSoapClient.ODataTypes();
-            Classes = ontoWebSoapClient.OClasses();
-            ClassAtts = ontoWebSoapClient.OClassAttributes();
-            ClassRels = ontoWebSoapClient.OClassRelatations();
-            RelationTypes = ontoWebSoapClient.ORelationTypes();
-            AttributeTypes = ontoWebSoapClient.OAttributeTypes();
-            Directions = ontoWebSoapClient.ODirections();
-            Variables = ontoWebSoapClient.OVariables();
-            MappingRules = ontoWebSoapClient.OMappingRules();
-            OntologyRelationRules = ontoWebSoapClient.ORelationRules();
-            ClassTypes = ontoWebSoapClient.OClassTypes();
+            LogStates = WebServiceConnector.OntologyWebSoapClient.OLogStates();
+            DataTypes = WebServiceConnector.OntologyWebSoapClient.ODataTypes();
+            Classes = WebServiceConnector.OntologyWebSoapClient.OClasses();
+            ClassAtts = WebServiceConnector.OntologyWebSoapClient.OClassAttributes();
+            ClassRels = WebServiceConnector.OntologyWebSoapClient.OClassRelatations();
+            RelationTypes = WebServiceConnector.OntologyWebSoapClient.ORelationTypes();
+            AttributeTypes = WebServiceConnector.OntologyWebSoapClient.OAttributeTypes();
+            Directions = WebServiceConnector.OntologyWebSoapClient.ODirections();
+            Variables = WebServiceConnector.OntologyWebSoapClient.OVariables();
+            MappingRules = WebServiceConnector.OntologyWebSoapClient.OMappingRules();
+            OntologyRelationRules = WebServiceConnector.OntologyWebSoapClient.ORelationRules();
+
 
             var objOItem_Result = LogStates.LogState_Success;
 
@@ -926,7 +887,7 @@ namespace WpfOnt
         var objOItem_Result = LogStates.LogState_Success;
 
         //DataTypes
-        var result = ontoWebSoapClient.DataTypes(null,false);
+        var result = WebServiceConnector.OntologyWebSoapClient.DataTypes(null,false);
         objOItem_Result = result.Result;
         if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
         {
@@ -938,14 +899,14 @@ namespace WpfOnt
 
             if (objOList_DType_NotExistant.Any())
             {
-                objOItem_Result = ontoWebSoapClient.SaveDataTypes(objOList_DType_NotExistant.ToArray());
+                objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveDataTypes(objOList_DType_NotExistant.ToArray());
             }
         }
 
         //AttributeTypes
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            var webResult = ontoWebSoapClient.AttributeTypes(AttributeTypes.AttributeTypes.ToArray(),false);
+            var webResult = WebServiceConnector.OntologyWebSoapClient.AttributeTypes(AttributeTypes.AttributeTypes.ToArray(),false);
             objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -959,7 +920,7 @@ namespace WpfOnt
                 {
                     foreach (clsOntologyItem objOItem_AttType in objOList_AttTypes_NotExistant)
                     {
-                        objOItem_Result = ontoWebSoapClient.SaveAttributeTypes((new List<clsOntologyItem> { objOItem_AttType }).ToArray());
+                        objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveAttributeTypes((new List<clsOntologyItem> { objOItem_AttType }).ToArray());
                         if (objOItem_Result.GUID == LogStates.LogState_Error.GUID)
                         {
                             break;
@@ -973,7 +934,7 @@ namespace WpfOnt
         //RelationTypes
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            var webResult = ontoWebSoapClient.RelationTypes(RelationTypes.RelationTypes.ToArray(),false);
+            var webResult = WebServiceConnector.OntologyWebSoapClient.RelationTypes(RelationTypes.RelationTypes.ToArray(),false);
             objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -987,7 +948,7 @@ namespace WpfOnt
                 {
                     foreach (clsOntologyItem objOItem_RelType in objOList_RelTypes_NotExistant)
                     {
-                        objOItem_Result = ontoWebSoapClient.SaveRelationTypes(new List<clsOntologyItem>{ objOItem_RelType}.ToArray());
+                        objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveRelationTypes(new List<clsOntologyItem>{ objOItem_RelType}.ToArray());
                         if (objOItem_Result.GUID == LogStates.LogState_Error.GUID)
                         {
                             break;
@@ -1002,7 +963,7 @@ namespace WpfOnt
         //Classes
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            result = ontoWebSoapClient.Classes(Classes.OList_Classes.ToArray(), false);
+            result = WebServiceConnector.OntologyWebSoapClient.Classes(Classes.OList_Classes.ToArray(), false);
             objOItem_Result = result.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -1013,7 +974,7 @@ namespace WpfOnt
                                                     select objClassShould).ToList();
                 if (objOList_Classes_NotExistant.Any())
                 {  
-                     objOItem_Result = ontoWebSoapClient.SaveClasses(objOList_Classes_NotExistant.ToArray());
+                     objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveClasses(objOList_Classes_NotExistant.ToArray());
                         
 
                 }
@@ -1028,7 +989,7 @@ namespace WpfOnt
             objOList_Objects.AddRange(OntologyRelationRules.OntologyRelationRules);
             objOList_Objects.AddRange(Variables.Variables);
             objOList_Objects.AddRange(MappingRules.MappingRules);
-            var webResult = ontoWebSoapClient.Objects(objOList_Objects.ToArray(), false);
+            var webResult = WebServiceConnector.OntologyWebSoapClient.Objects(objOList_Objects.ToArray(), false);
             objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -1039,7 +1000,7 @@ namespace WpfOnt
                                                     select objObjectShould).ToList();
                 if (objOList_Objects_NotExistant.Any())
                 {
-                    objOItem_Result = ontoWebSoapClient.SaveObjects(objOList_Objects_NotExistant.ToArray());
+                    objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveObjects(objOList_Objects_NotExistant.ToArray());
 
                 }
             }
@@ -1052,7 +1013,7 @@ namespace WpfOnt
             var objOList_AttributeTypes = ClassAtts.ClassAtts.GroupBy(p => p.ID_AttributeType).ToList().Join(AttributeTypes.AttributeTypes, l => l.Key, r => r.GUID, (l, r) => r).ToList();
 
 
-            var webResult = ontoWebSoapClient.ClassAttributes(objOList_Classes.ToArray(),objOList_AttributeTypes.ToArray(),true,false);
+            var webResult = WebServiceConnector.OntologyWebSoapClient.ClassAttributes(objOList_Classes.ToArray(),objOList_AttributeTypes.ToArray(),true,false);
             objOItem_Result = webResult.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -1067,7 +1028,7 @@ namespace WpfOnt
                 
                 if (objOList_ClassAtts_NotExistant.Any())
                 {
-                    objOItem_Result = ontoWebSoapClient.SaveClassAtts(objOList_ClassAtts_NotExistant.ToArray());
+                    objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveClassAtts(objOList_ClassAtts_NotExistant.ToArray());
                 }
             }
 
@@ -1078,7 +1039,7 @@ namespace WpfOnt
         //ClassRelations
         if (objOItem_Result.GUID != LogStates.LogState_Error.GUID)
         {
-            var webResult = ontoWebSoapClient.ClassRelations(ClassRels.ClassRelations.ToArray(),false,false,false);
+            var webResult = WebServiceConnector.OntologyWebSoapClient.ClassRelations(ClassRels.ClassRelations.ToArray(),false,false,false);
             objOItem_Result = result.Result;
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
             {
@@ -1098,7 +1059,7 @@ namespace WpfOnt
          
                 if (objOList_ClassRels_NotExistant.Any())
                 {
-                    objOItem_Result = ontoWebSoapClient.SaveClassRels(ClassRels.ClassRelations.ToArray());
+                    objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveClassRels(ClassRels.ClassRelations.ToArray());
                 }
 
             }
@@ -1110,7 +1071,7 @@ namespace WpfOnt
     private clsOntologyItem test_Existance_OntologyDB()
     {
         
-        if (ontoWebSoapClient.TestIndexExistance(Index))
+        if (WebServiceConnector.OntologyWebSoapClient.TestIndexExistance(Index))
         {
             return LogStates.LogState_Success;
         }
@@ -1122,7 +1083,7 @@ namespace WpfOnt
 
     private clsOntologyItem create_Index()
     {
-        if (ontoWebSoapClient.CreateIndex(Index))
+        if (WebServiceConnector.OntologyWebSoapClient.CreateIndex(Index))
         {
             return LogStates.LogState_Success;
         }
@@ -1236,7 +1197,7 @@ namespace WpfOnt
                                                          ID_AttributeType = AttributeTypes.OItem_AttributeType_WMI_ProcessorID.GUID,
                                                          Val_String = strProcessorID});
 
-            var webResult = ontoWebSoapClient.ObjectAtts(objOAL_ProcessorID.ToArray(), false, false);
+            var webResult = WebServiceConnector.OntologyWebSoapClient.ObjectAtts(objOAL_ProcessorID.ToArray(), false, false);
             objOItem_Result = webResult.Result;
 
             if (objOItem_Result.GUID == LogStates.LogState_Success.GUID)
@@ -1245,7 +1206,7 @@ namespace WpfOnt
                                                                     ID_AttributeType = AttributeTypes.OITem_AttributeType_WMI_BaseBoardSerial.GUID,
                                                                     Val_String = strBaseBoardSerial});
 
-                webResult = ontoWebSoapClient.ObjectAtts(objOAL_BaseBoardSerial.ToArray(), false, false);
+                webResult = WebServiceConnector.OntologyWebSoapClient.ObjectAtts(objOAL_BaseBoardSerial.ToArray(), false, false);
                 objOItem_Result = webResult.Result;
 
                 var objOList_Server = (from objServer in webResult.ObjectAttributes

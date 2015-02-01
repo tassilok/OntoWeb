@@ -30,10 +30,8 @@ namespace WpfOnt.Data
         //private clsDataTypes objDataTypes = new clsDataTypes();
         private clsTypes objTypes;
         private clsLogStates objLogStates;
-        private clsFields objFields;
         private clsDirections objDirections;
 
-        private OntoWeb.OntoWebSoapClient ontoWebSoapClient;
 
         private string strServer;
         private string strIndex;
@@ -65,7 +63,7 @@ namespace WpfOnt.Data
 
          public List<string> IndexList(string strServer, int intPort)
          {
-             var result = ontoWebSoapClient.IndexList(strServer, intPort);
+             var result = WebServiceConnector.OntologyWebSoapClient.IndexList(strServer, intPort);
              if (result.Result.GUID == objLogStates.LogState_Success.GUID)
              {
                  return new List<string>( result.IndexList);
@@ -80,27 +78,27 @@ namespace WpfOnt.Data
 
         public clsOntologyItem save_DataTypes(List<clsOntologyItem> OList_DataTypes)
         {
-            var objOItem_Result = ontoWebSoapClient.SaveDataTypes(OList_DataTypes.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveDataTypes(OList_DataTypes.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem save_AttributeType(clsOntologyItem oItem_AttributeType)
         {
-            var objOItem_Result = ontoWebSoapClient.SaveAttributeTypes((new List<clsOntologyItem>{ oItem_AttributeType }).ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveAttributeTypes((new List<clsOntologyItem>{ oItem_AttributeType }).ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem del_AttributeType(List<clsOntologyItem> OList_AttributeType)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteAttributeTypes(OList_AttributeType.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteAttributeTypes(OList_AttributeType.ToArray());
             return objOItem_Result;
         }
 
         public clsOntologyItem del_RelationTypes(List<clsOntologyItem> OList_RelationType)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteRelationTypes(OList_RelationType.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteRelationTypes(OList_RelationType.ToArray());
 
             return objOItem_Result;
         }
@@ -108,27 +106,27 @@ namespace WpfOnt.Data
 
         public clsOntologyItem del_DataTypes(List<clsOntologyItem> OList_DataTypes)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteDataTypes(OList_DataTypes.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteDataTypes(OList_DataTypes.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem del_ClassAttType(clsOntologyItem oItem_Class, clsOntologyItem oItem_AttType)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteClassAttType(oItem_Class, oItem_AttType);
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteClassAttType(oItem_Class, oItem_AttType);
             return objOItem_Result;
         }
         
         public clsOntologyItem del_Objects(List<clsOntologyItem> List_Objects)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteObjects(List_Objects.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteObjects(List_Objects.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem del_ClassRel(List<clsClassRel> oList_ClRel)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteClassRel(oList_ClRel.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteClassRel(oList_ClRel.ToArray());
 
             return objOItem_Result;
         }
@@ -136,56 +134,56 @@ namespace WpfOnt.Data
         public clsOntologyItem del_ObjectAtt(List<clsObjectAtt> oList_ObjectAtts ) 
         {
 
-            var objOItem_Result = ontoWebSoapClient.DeleteObjectAttributes(oList_ObjectAtts.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteObjectAttributes(oList_ObjectAtts.ToArray());
         
             return objOItem_Result;
         }
         
         public clsOntologyItem del_ObjectRel(List<clsObjectRel> oList_ObjecRels)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteObjectRelations(oList_ObjecRels.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteObjectRelations(oList_ObjecRels.ToArray());
 
             return objOItem_Result;
         }
        
         public clsOntologyItem save_RelationType(clsOntologyItem oItem_RelationType)
         {
-            var objOItem_Result = ontoWebSoapClient.SaveRelationTypes((new List<clsOntologyItem>{ oItem_RelationType}).ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveRelationTypes((new List<clsOntologyItem>{ oItem_RelationType}).ToArray());
         
             return objOItem_Result;
         }
 
         public clsOntologyItem del_Class(List<clsOntologyItem> oList_Class)
         {
-            var objOItem_Result = ontoWebSoapClient.DeleteClasses(oList_Class.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteClasses(oList_Class.ToArray());
 
             return objOItem_Result;
         }
 
         public clsOntologyItem save_ClassRel(List<clsClassRel> oList_ClassRel) 
         {
-            var objOItem_Result = ontoWebSoapClient.SaveClassRels(oList_ClassRel.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveClassRels(oList_ClassRel.ToArray());
 
             return objOItem_Result;
         }
         
         public clsOntologyItem save_ClassAttType(List<clsClassAtt> oList_ClassAtt) 
         {
-            var objOItem_Result = ontoWebSoapClient.SaveClassAtts(oList_ClassAtt.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveClassAtts(oList_ClassAtt.ToArray());
         
             return objOItem_Result;
         }
         
         public clsOntologyItem save_Class(clsOntologyItem objOItem_Class, bool boolRoot = false) 
         {
-            var objOItem_Result = ontoWebSoapClient.SaveClasses((new List<clsOntologyItem>{ objOItem_Class }).ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveClasses((new List<clsOntologyItem>{ objOItem_Class }).ToArray());
         
             return objOItem_Result;
         }
 
         public clsOntologyItem save_ObjRel(List<clsObjectRel> oList_ObjectRel )
         {
-            var objOItem_Result = ontoWebSoapClient.SaveObjectRels(oList_ObjectRel.ToArray());
+            var objOItem_Result = WebServiceConnector.OntologyWebSoapClient.SaveObjectRels(oList_ObjectRel.ToArray());
         
             return objOItem_Result;
         }
@@ -193,7 +191,7 @@ namespace WpfOnt.Data
         public clsOntologyItem save_ObjAtt(List<clsObjectAtt> oList_ObjAtt ) 
         {
             
-            var result = ontoWebSoapClient.SaveObjectAttributes(oList_ObjAtt.ToArray());
+            var result = WebServiceConnector.OntologyWebSoapClient.SaveObjectAttributes(oList_ObjAtt.ToArray());
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
                 OAList_Saved = new List<clsObjectAtt>( result.ObjectAttributes );
@@ -207,7 +205,7 @@ namespace WpfOnt.Data
 
         public clsOntologyItem save_Objects(List<clsOntologyItem> oList_Objects )
         {
-            var result = ontoWebSoapClient.SaveObjects(oList_Objects.ToArray());
+            var result = WebServiceConnector.OntologyWebSoapClient.SaveObjects(oList_Objects.ToArray());
 
             return result;
         }
@@ -222,7 +220,7 @@ namespace WpfOnt.Data
             this.OList_RelationTypes.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.RelationTypes(OList_RelType.ToArray(),doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.RelationTypes(OList_RelType.ToArray(),doCount);
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
                 if (doCount)
@@ -252,7 +250,7 @@ namespace WpfOnt.Data
             this.OList_AttributeTypes.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.AttributeTypes(OList_AttType.ToArray(), doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.AttributeTypes(OList_AttType.ToArray(), doCount);
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
                 if (doCount)
@@ -282,7 +280,7 @@ namespace WpfOnt.Data
             this.OList_ClassAtt.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.ClassAttributes(oList_Class.ToArray(), oList_AttributeTyp.ToArray(), boolIDs, doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.ClassAttributes(oList_Class.ToArray(), oList_AttributeTyp.ToArray(), boolIDs, doCount);
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
                 if (doCount)
@@ -319,7 +317,7 @@ namespace WpfOnt.Data
             this.OList_ClassRel_ID.Clear();
             this.OList_ClassRel.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
-            var result = ontoWebSoapClient.ClassRelations(OList_ClassRel.ToArray(), boolIDs, boolOR, doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.ClassRelations(OList_ClassRel.ToArray(), boolIDs, boolOR, doCount);
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
                 if (doCount)
@@ -357,7 +355,7 @@ namespace WpfOnt.Data
             this.OList_ObjAtt.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.ObjectAtts(oList_ObjectAtt.ToArray(), boolIDs, doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.ObjectAtts(oList_ObjectAtt.ToArray(), boolIDs, doCount);
 
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
@@ -395,7 +393,7 @@ namespace WpfOnt.Data
 
             strSortField = "OrderID:";
 
-            var result = ontoWebSoapClient.ObjectAttributesOrderId(OItem_Object, OItem_AttributeType, strSortField, doASC);
+            var result = WebServiceConnector.OntologyWebSoapClient.ObjectAttributesOrderId(OItem_Object, OItem_AttributeType, strSortField, doASC);
 
             return result.OrderId;
 
@@ -406,7 +404,7 @@ namespace WpfOnt.Data
                                              clsOntologyItem OItem_AttributeType = null,
                                              bool doASC = true)
         {
-            var result = ontoWebSoapClient.ObjectAttributesOrderByVal(strOrderField, OItem_Object, OItem_AttributeType, doASC);
+            var result = WebServiceConnector.OntologyWebSoapClient.ObjectAttributesOrderByVal(strOrderField, OItem_Object, OItem_AttributeType, doASC);
             var lngOrderID = result.OrderId;
 
             return lngOrderID;
@@ -418,7 +416,7 @@ namespace WpfOnt.Data
                                              bool doASC = true)
         {
 
-            var result = ontoWebSoapClient.ObjectRelationsOrderId(OItem_Left, OItem_Right, OItem_RelationType, doASC);
+            var result = WebServiceConnector.OntologyWebSoapClient.ObjectRelationsOrderId(OItem_Left, OItem_Right, OItem_RelationType, doASC);
         
             return result.OrderId;
         }
@@ -434,7 +432,7 @@ namespace WpfOnt.Data
             this.OList_ObjectRel.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.ObjectRels(oList_ObjectRel.ToArray(), boolIDs, doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.ObjectRels(oList_ObjectRel.ToArray(), boolIDs, doCount);
 
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
@@ -470,7 +468,7 @@ namespace WpfOnt.Data
             this.OList_DataTypes.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.DataTypes(oList_DataTypes.ToArray(), doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.DataTypes(oList_DataTypes.ToArray(), doCount);
 
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
@@ -504,7 +502,7 @@ namespace WpfOnt.Data
             this.OList_Objects2.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.ObjectTree(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.ObjectTree(objOItem_Class_Par, objOitem_Class_Child, objOItem_RelationType, doCount);
 
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
@@ -540,7 +538,7 @@ namespace WpfOnt.Data
             this.OList_Objects2.Clear();
             var objOItem_Result = objLogStates.LogState_Success;
 
-            var result = ontoWebSoapClient.Objects(oList_Objects.ToArray(), doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.Objects(oList_Objects.ToArray(), doCount);
         
             if (result.Result.GUID == objLogStates.LogState_Success.GUID)
             {
@@ -597,13 +595,13 @@ namespace WpfOnt.Data
         public bool test_Index_Es()
         {
 
-            return ontoWebSoapClient.IndexExists(strIndex);
+            return WebServiceConnector.OntologyWebSoapClient.IndexExists(strIndex);
         
         }
 
         public bool create_Index_Es() 
         {
-            var result = ontoWebSoapClient.CreateIndex(strIndex);
+            var result = WebServiceConnector.OntologyWebSoapClient.CreateIndex(strIndex);
             return result;
             
         }
@@ -619,7 +617,7 @@ namespace WpfOnt.Data
 
             
 
-            var result = ontoWebSoapClient.Classes(OList_Classes.ToArray(), doCount);
+            var result = WebServiceConnector.OntologyWebSoapClient.Classes(OList_Classes.ToArray(), doCount);
 
             if (doCount)
             {
@@ -660,12 +658,12 @@ namespace WpfOnt.Data
 
         public clsOntologyItem GetOItem(string GUID_Item, string Type_Item ) 
         {
-            return ontoWebSoapClient.GetOItem(GUID_Item, Type_Item);
+            return WebServiceConnector.OntologyWebSoapClient.GetOItem(GUID_Item, Type_Item);
         }    
 
     public string GetClassPath(clsOntologyItem OItem_Class)
     {
-        var result = ontoWebSoapClient.GetClassPath(OItem_Class.GUID);
+        var result = WebServiceConnector.OntologyWebSoapClient.GetClassPath(OItem_Class.GUID);
         
         if (result.GUID == objLogStates.LogState_Success.GUID)
         {
@@ -730,11 +728,9 @@ namespace WpfOnt.Data
             OList_ObjAtt = new List<clsObjectAtt>();
             OList_DataTypes = new List<clsOntologyItem>();
 
-            ontoWebSoapClient = new OntoWebSoapClient();
-            objTypes = ontoWebSoapClient.OTypes();
-            objLogStates = ontoWebSoapClient.OLogStates();
-            objDirections = ontoWebSoapClient.ODirections();
-            objFields = ontoWebSoapClient.OFields();
+            objTypes = WebServiceConnector.OntologyWebSoapClient.OTypes();
+            objLogStates = WebServiceConnector.OntologyWebSoapClient.OLogStates();
+            objDirections = WebServiceConnector.OntologyWebSoapClient.ODirections();
         }
 
         public DbWork()
@@ -752,7 +748,7 @@ namespace WpfOnt.Data
 
         public clsOntologyItem DeleteIndex(string strIndex) 
         {
-            var oItem_Result = ontoWebSoapClient.DeleteIndex(strIndex);
+            var oItem_Result = WebServiceConnector.OntologyWebSoapClient.DeleteIndex(strIndex);
 
             return oItem_Result;
         }

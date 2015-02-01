@@ -26,5 +26,11 @@
     <Setting Name="database" Type="System.String" Scope="User">
       <Value Profile="(Default)">ont_db_Reports</Value>
     </Setting>
+    <Setting Name="ServiceUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://wvps176-28-40-26.dedicated.hosteurope.de:8088/OntWeb/OntWeb/OntoWeb.asmx</Value>
+    </Setting>
+    <Setting Name="Credentials" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

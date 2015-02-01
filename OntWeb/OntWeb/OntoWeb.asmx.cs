@@ -1105,10 +1105,10 @@ namespace OntWeb
         }
 
         [WebMethod]
-        public bool TestIndexExistance(string index)
+        public bool TestIndexExistance()
         {
             var objIndexDescriptor = dbSelector.GetIndexExistsDescriptor();
-            objIndexDescriptor.Index(index);
+            objIndexDescriptor.Index(Globals.ElIndex);
 
             return dbSelector.ElConnector.IndexExists(f => objIndexDescriptor).Exists;
         }
